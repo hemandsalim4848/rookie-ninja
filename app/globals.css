@@ -1,0 +1,59 @@
+@import "tailwindcss";
+
+@theme {
+  /* ── Colors ── */
+  --color-navy:       #0A1628;
+  --color-navy-mid:   #0F2040;
+  --color-navy-light: #162B52;
+  --color-accent:     #15A7DC;
+
+  /* ── Fonts ── */
+--font-display: var(--font-poppins);
+--font-body:    var(--font-poppins);
+
+  /* ── Animations ── */
+  --animate-orb-pulse:  orbPulse 7s ease-in-out infinite;
+  --animate-net-rotate: netRotate 40s linear infinite;
+  --animate-fade-up:    fadeUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+  --animate-blink-dot:  blinkDot 2.2s ease-in-out infinite;
+
+  @keyframes orbPulse {
+    0%, 100% { transform: translateY(-50%) scale(1);     opacity: 1;    }
+    50%       { transform: translateY(-50%) scale(1.06);  opacity: 0.65; }
+  }
+  @keyframes netRotate {
+    from { transform: translateY(-50%) rotate(0deg);   }
+    to   { transform: translateY(-50%) rotate(360deg); }
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(28px); }
+    to   { opacity: 1; transform: translateY(0);    }
+  }
+  @keyframes blinkDot {
+    0%, 100% { opacity: 1;   }
+    50%       { opacity: 0.2; }
+  }
+  --animate-marquee: marquee 35s linear infinite;
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+}
+
+@layer base {
+  html, body {
+    background-color: white;
+    color: #0A1628;
+    overflow-x: hidden;
+    min-height: 100vh;
+    font-family: var(--font-poppins), sans-serif;
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  .accent-glow    { box-shadow: 0 4px 28px rgba(21, 167, 220, 0.28); }
+  .accent-glow-lg { box-shadow: 0 10px 36px rgba(21, 167, 220, 0.28); }
+}
