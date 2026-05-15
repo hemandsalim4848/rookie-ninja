@@ -185,8 +185,8 @@ const closeQuote = () => {
                                       tracking-[0.16em] px-4 pt-2 pb-3">
                           Our Solutions
                         </p>
-                        <LightDropItem icon={<PrintIcon />}       label="Print Solutions"      href="/portfolio/solutions/print"       />
-                        <LightDropItem icon={<ScanIcon />}        label="Scan"                 href="/portfolio/solutions/scan"        />
+                        <LightDropItem icon={<PrintIcon />}       label="Print Solutions"      href="/portfolio/print-solutions"       />
+                        <LightDropItem icon={<ScanIcon />}        label="Scan"                 href="/portfolio/scan-solutions"        />
                         <LightDropItem icon={<ElectronicsIcon />} label="Consumer Electronics" href="/portfolio/solutions/electronics" />
                         <LightDropItem icon={<GamingIcon />}      label="Gaming"               href="/portfolio/solutions/gaming"      />
                         <LightDropItem icon={<ComponentsIcon />}  label="Components"           href="/portfolio/solutions/components"  />
@@ -358,8 +358,8 @@ const closeQuote = () => {
                         tracking-[0.16em] px-4 pt-1 pb-1">
             Our Solutions
           </p>
-          <MobSubLink href="/portfolio/solutions/print"       icon={<PrintIconDark />}       label="Print Solutions"      />
-          <MobSubLink href="/portfolio/solutions/scan"        icon={<ScanIconDark />}        label="Scan"                 />
+          <MobSubLink href="/portfolio/print-solutions"       icon={<PrintIconDark />}       label="Print Solutions"      />
+          <MobSubLink href="/portfolio/scan-solutions"        icon={<ScanIconDark />}        label="Scan"                 />
           <MobSubLink href="/portfolio/solutions/electronics" icon={<ElectronicsIconDark />} label="Consumer Electronics" />
           <MobSubLink href="/portfolio/solutions/gaming"      icon={<GamingIconDark />}      label="Gaming"               />
           <MobSubLink href="/portfolio/solutions/components"  icon={<ComponentsIconDark />}  label="Components"           />
