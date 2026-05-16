@@ -142,7 +142,7 @@ const closeQuote = () => {
 
                   {/* Left column */}
                   <div className="flex flex-col py-2 min-w-[190px]
-                                  border-r border-gray-100">
+                                  ">
                     <p className="font-body text-[10px] text-gray-400 uppercase
                                   tracking-[0.16em] px-4 pt-2 pb-3">
                       Portfolio
@@ -170,7 +170,7 @@ const closeQuote = () => {
                                 strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/>
                         </svg>
                       </a>
-
+<div className="absolute top-0 left-full w-3 h-full" />
                       {/* Right flyout */}
                       <div className="absolute left-full top-0 ml-1 z-[2001]
                                       bg-white border border-gray-100 rounded-xl
@@ -181,10 +181,7 @@ const closeQuote = () => {
                                       group-hover/solutions:pointer-events-auto
                                       group-hover/solutions:translate-x-0
                                       transition-all duration-200">
-                        <p className="font-body text-[10px] text-gray-400 uppercase
-                                      tracking-[0.16em] px-4 pt-2 pb-3">
-                          Our Solutions
-                        </p>
+                        
                         <LightDropItem icon={<PrintIcon />}       label="Print Solutions"      href="/portfolio/print-solutions"       />
                         <LightDropItem icon={<ScanIcon />}        label="Scan"                 href="/portfolio/scan-solutions"        />
                         <LightDropItem icon={<ElectronicsIcon />} label="Consumer Electronics" href="/portfolio/solutions/electronics" />
