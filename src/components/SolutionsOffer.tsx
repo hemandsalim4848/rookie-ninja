@@ -186,10 +186,6 @@ export default function SolutionsSection() {
     </a>
   ))}
 </div>
-
-        {/* Fade edge — pure white */}
-        <div className="absolute right-0 top-0 bottom-0 w-16 pointer-events-none"
-             style={{ background: 'linear-gradient(to left, #ffffff 0%, transparent 100%)' }} />
       </div>
 
       <style>{`div::-webkit-scrollbar { display: none; }`}</style>
