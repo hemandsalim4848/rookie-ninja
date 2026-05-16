@@ -2,7 +2,7 @@
 import Animate from "./Animate";
 
 const clients = [
-  { name: "Kodak Alaris", logo: "/logos/kodak-alaris-logo.png" },
+  { name: "Kodak Alaris", logo: "/logos/Kodak-alaris-logo.png" },
   { name: "Brother",     logo: "/logos/brother-logo.png" },
   { name: "Canon",      logo: "/logos/canon-logo.png" },
   { name: "Czur",        logo: "/logos/czur-logo.webp" },
