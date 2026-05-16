@@ -1,6 +1,6 @@
 import Navbar from '@/src/components/common/Navbar';
 import Footer from '@/src/components/common/Footer';
-import PrintSolutionsPage from '@/src/components/PrintSolutions';
+import PrintSolutionsPage from '@/src/components/solutions/PrintSolutions';
 
 export const metadata = {
   title: 'Print Solutions — Rookie Ninja',

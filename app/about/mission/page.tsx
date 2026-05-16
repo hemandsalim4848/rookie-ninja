@@ -1,7 +1,7 @@
 // src/app/about/mission/page.tsx
 import Navbar from '@/src/components/common/Navbar';
 import Footer from '@/src/components/common/Footer';
-import MissionVisionContent from '@/src/components/MissionVisionContent';
+import MissionVisionContent from '@/src/components/missionpage/MissionVisionContent';
 
 export const metadata = {
   title: 'Mission & Vision — Rookie Ninja',

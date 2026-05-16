@@ -1,6 +1,6 @@
 import Navbar from '@/src/components/common/Navbar';
 import Footer from '@/src/components/common/Footer';
-import ScanSolutionsPage from '@/src/components/ScanSolutions';
+import ScanSolutionsPage from '@/src/components/solutions/ScanSolutions';
 
 export const metadata = {
   title: 'Scan Solutions — Rookie Ninja',

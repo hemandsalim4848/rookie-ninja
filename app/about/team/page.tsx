@@ -1,6 +1,6 @@
 import Navbar from '@/src/components/common/Navbar';
 import Footer from '@/src/components/common/Footer';
-import TeamContent from '@/src/components/TeamContent';
+import TeamContent from '@/src/components/teampage/TeamContent';
 
 export const metadata = {
   title: 'Our Team — Rookie Ninja',
