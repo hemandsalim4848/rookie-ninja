@@ -1,6 +1,6 @@
 // src/app/about/mission/page.tsx
-import Navbar from '@/src/components/Navbar';
-import Footer from '@/src/components/Footer';
+import Navbar from '@/src/components/common/Navbar';
+import Footer from '@/src/components/common/Footer';
 import MissionVisionContent from '@/src/components/MissionVisionContent';
 
 export const metadata = {

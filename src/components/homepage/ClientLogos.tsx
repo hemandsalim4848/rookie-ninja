@@ -1,5 +1,5 @@
 'use client';
-import Animate from "./Animate";
+import Animate from "../Animate";
 
 const clients = [
   { name: "Kodak Alaris", logo: "/logos/Kodak-alaris-logo.png" },

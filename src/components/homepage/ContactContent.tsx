@@ -1,8 +1,8 @@
 'use client';
 
 import { useState } from 'react';
-import Animate from './Animate';
-import SectionHeader from './SectionHeader';
+import Animate from '../Animate';
+import SectionHeader from '../SectionHeader';
 
 const regions = [
   {

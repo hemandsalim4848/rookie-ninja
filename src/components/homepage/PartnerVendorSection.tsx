@@ -1,6 +1,6 @@
 'use client';
 
-import Animate from './Animate';
+import Animate from '../Animate';
 
 const items = [
   {

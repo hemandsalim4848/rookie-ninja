@@ -1,5 +1,5 @@
-import Navbar from '@/src/components/Navbar';
-import Footer from '@/src/components/Footer';
+import Navbar from '@/src/components/common/Navbar';
+import Footer from '@/src/components/common/Footer';
 import PrintSolutionsPage from '@/src/components/PrintSolutions';
 
 export const metadata = {
