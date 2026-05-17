@@ -184,8 +184,8 @@ const closeQuote = () => {
                         
                         <LightDropItem icon={<PrintIcon />}       label="Print Solutions"      href="/portfolio/print-solutions"       />
                         <LightDropItem icon={<ScanIcon />}        label="Scan"                 href="/portfolio/scan-solutions"        />
-                        <LightDropItem icon={<ElectronicsIcon />} label="Consumer Electronics" href="/portfolio/solutions/electronics" />
-                        <LightDropItem icon={<GamingIcon />}      label="Gaming"               href="/portfolio/solutions/gaming"      />
+                        <LightDropItem icon={<ElectronicsIcon />} label="Consumer Electronics" href="/portfolio/consumer-electronics" />
+                        <LightDropItem icon={<GamingIcon />}      label="Gaming"               href="/portfolio/gaming"      />
                         <LightDropItem icon={<ComponentsIcon />}  label="Components"           href="/portfolio/solutions/components"  />
                         <LightDropItem icon={<SoftwareIcon />}    label="Software"             href="/portfolio/solutions/software"    />
                         <LightDropItem icon={<AVIcon />}          label="Audio Visual"         href="/portfolio/solutions/av"          />
@@ -357,8 +357,8 @@ const closeQuote = () => {
           </p>
           <MobSubLink href="/portfolio/print-solutions"       icon={<PrintIconDark />}       label="Print Solutions"      />
           <MobSubLink href="/portfolio/scan-solutions"        icon={<ScanIconDark />}        label="Scan"                 />
-          <MobSubLink href="/portfolio/solutions/electronics" icon={<ElectronicsIconDark />} label="Consumer Electronics" />
-          <MobSubLink href="/portfolio/solutions/gaming"      icon={<GamingIconDark />}      label="Gaming"               />
+          <MobSubLink href="/portfolio/consumer-electronics" icon={<ElectronicsIconDark />} label="Consumer Electronics" />
+          <MobSubLink href="/portfolio/gaming"      icon={<GamingIconDark />}      label="Gaming"               />
           <MobSubLink href="/portfolio/solutions/components"  icon={<ComponentsIconDark />}  label="Components"           />
           <MobSubLink href="/portfolio/solutions/software"    icon={<SoftwareIconDark />}    label="Software"             />
           <MobSubLink href="/portfolio/solutions/av"          icon={<AVIconDark />}          label="Audio Visual"         />

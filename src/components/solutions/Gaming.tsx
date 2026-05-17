@@ -6,114 +6,122 @@ import SectionHeader from '../SectionHeader';
 
 /* ── Brand partner logos ── */
 const brandPartners = [
-  { name: 'Fujitsu', logo: '/logos/fujitsu-logo.svg' },
-  { name: 'Brother', logo: '/logos/brother-logo.png' },
-  { name: 'Deli',    logo: '/logos/deli-logo.png'    },
+  { name: 'ViewSonic', logo: '/logos/viewsonic-logo.webp' },
+  { name: 'Aerocool',  logo: '/logos/aerocool-logo.png'  },
+  { name: 'MSI',       logo: '/logos/msi-logo.png'       },
+  { name: 'Aztech',    logo: '/logos/aztech-logo.png'    },
 ];
 
-/* ── Printer tab data ── */
-const printerTabs = [
+/* ── Gaming tab data ── */
+const gamingTabs = [
   {
-    id: 'laser',
-    label: 'Laser Printers',
+    id: 'monitors',
+    label: 'Gaming Monitors',
     icon: (
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
            stroke="currentColor" strokeWidth="1.6"
            strokeLinecap="round" strokeLinejoin="round">
-        <rect x="2" y="7" width="20" height="14" rx="2"/>
-        <path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/>
-        <line x1="12" y1="12" x2="12" y2="16"/>
-        <line x1="10" y1="14" x2="14" y2="14"/>
+        <rect x="2" y="3" width="20" height="14" rx="2"/>
+        <path d="M8 21h8M12 17v4"/>
       </svg>
     ),
     images: [
-      'https://placehold.co/520x380/EFF6FF/15A7DC?text=Laser+Printer+1&font=poppins',
-      'https://placehold.co/520x380/EFF6FF/15A7DC?text=Laser+Printer+2&font=poppins',
-      'https://placehold.co/520x380/EFF6FF/15A7DC?text=Laser+Printer+3&font=poppins',
+      'https://placehold.co/520x380/EFF6FF/15A7DC?text=Gaming+Monitor+1&font=poppins',
+      'https://placehold.co/520x380/EFF6FF/15A7DC?text=Gaming+Monitor+2&font=poppins',
+      'https://placehold.co/520x380/EFF6FF/15A7DC?text=Gaming+Monitor+3&font=poppins',
     ],
-    heading: 'Speed, Precision & Professional Quality',
-    body: 'Offering exceptional speed, efficiency, and versatility. Laser printers utilize precision and sharpness to produce professional-looking documents. Whether high-quality color or black-and-white prints, laser printers deliver high-volume printing without compromising on quality, making them the ideal choice for home and office use.',
-    highlights: ['High-volume output', 'Sharp text quality', 'Low cost per page'],
+    heading: 'Immersive Visuals, Zero Compromise',
+    body: 'Gaming monitors offer immersive visuals with high refresh rates and fast response times, enhancing gameplay. They minimize input lag for faster, more responsive gameplay and prioritize eye comfort during extended gaming sessions. With adaptive sync and customizable settings, gamers can personalize their visual experience to their liking.',
+    highlights: ['High refresh rates', 'Adaptive sync technology', 'Low input lag'],
   },
   {
-    id: 'inkjet',
-    label: 'Inkjet Printers',
+    id: 'peripherals',
+    label: 'Gaming Peripherals',
     icon: (
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
            stroke="currentColor" strokeWidth="1.6"
            strokeLinecap="round" strokeLinejoin="round">
-        <path d="M12 2L8 8H4l4 4-2 6 6-4 6 4-2-6 4-4h-4z"/>
+        <rect x="5" y="2" width="14" height="20" rx="7"/>
+        <path d="M12 6v4M10 8h4"/>
       </svg>
     ),
     images: [
-      'https://placehold.co/520x380/EFF6FF/15A7DC?text=Inkjet+Printer+1&font=poppins',
-      'https://placehold.co/520x380/EFF6FF/15A7DC?text=Inkjet+Printer+2&font=poppins',
-      'https://placehold.co/520x380/EFF6FF/15A7DC?text=Inkjet+Printer+3&font=poppins',
+      'https://placehold.co/520x380/EFF6FF/15A7DC?text=Gaming+Peripherals+1&font=poppins',
+      'https://placehold.co/520x380/EFF6FF/15A7DC?text=Gaming+Peripherals+2&font=poppins',
+      'https://placehold.co/520x380/EFF6FF/15A7DC?text=Gaming+Peripherals+3&font=poppins',
     ],
-    heading: 'Vibrant Color & Versatile Output',
-    body: 'Inkjet printers offer versatility and vibrant color sharpness, making them ideal for delivering visually appealing prints. They provide high-efficiency output with low energy usage, fit for workstations, offices, and home use. With minimal moving parts, they eliminate common printer issues like frequent maintenance and breakdowns.',
-    highlights: ['Vivid color accuracy', 'Energy efficient', 'Low maintenance'],
+    heading: 'Precision, Control & Comfort',
+    body: 'Gaming peripherals are the core components for elevating gamers\' experiences. Rookie Ninja offers premium gaming peripherals such as monitors, keyboards, mice, mousepads, headsets, CPU cases, and more to maximize control, precision, and responsiveness, and optimize performance. Designed for durability and comfort during long gaming sessions, ensuring a comfortable and immersive gaming experience. Level up your gameplay with Rookie Ninja.',
+    highlights: ['Keyboards, mice & headsets', 'Designed for durability', 'Optimized for performance'],
   },
   {
-    id: 'dotmatrix',
-    label: 'Dot Matrix Printers',
+    id: 'cabinet',
+    label: 'CPU Cabinet',
     icon: (
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
            stroke="currentColor" strokeWidth="1.6"
            strokeLinecap="round" strokeLinejoin="round">
-        <circle cx="5" cy="5" r="1.5" fill="currentColor"/>
-        <circle cx="12" cy="5" r="1.5" fill="currentColor"/>
-        <circle cx="19" cy="5" r="1.5" fill="currentColor"/>
-        <circle cx="5" cy="12" r="1.5" fill="currentColor"/>
-        <circle cx="12" cy="12" r="1.5" fill="currentColor"/>
-        <circle cx="19" cy="12" r="1.5" fill="currentColor"/>
-        <circle cx="5" cy="19" r="1.5" fill="currentColor"/>
-        <circle cx="12" cy="19" r="1.5" fill="currentColor"/>
-        <circle cx="19" cy="19" r="1.5" fill="currentColor"/>
+        <rect x="4" y="2" width="16" height="20" rx="2"/>
+        <path d="M9 6h6M9 10h6M9 14h4"/>
+        <circle cx="16" cy="14" r="1" fill="currentColor"/>
       </svg>
     ),
     images: [
-      'https://placehold.co/520x380/EFF6FF/15A7DC?text=Dot+Matrix+1&font=poppins',
-      'https://placehold.co/520x380/EFF6FF/15A7DC?text=Dot+Matrix+2&font=poppins',
+      'https://placehold.co/520x380/EFF6FF/15A7DC?text=CPU+Cabinet+1&font=poppins',
+      'https://placehold.co/520x380/EFF6FF/15A7DC?text=CPU+Cabinet+2&font=poppins',
     ],
-    heading: 'Reliable Impact Printing Technology',
-    body: 'A Dot Matrix Printer is an impact printing device that produces text and graphics by striking a series of tiny pins against an ink-soaked ribbon, which transfers ink onto the paper. The print head contains multiple pins arranged in a vertical column, and these pins move rapidly to create characters and images as patterns of small dots. Because the printing is formed from many dots arranged in a matrix, the technology is known as "dot matrix."',
-    highlights: ['Multi-part forms', 'Continuous paper feed', 'Durable & rugged'],
+    heading: 'Build Your Perfect Setup',
+    body: 'CPU cabinets protect and organise your components, ensure proper airflow and cooling, and allow for easy expansion. Whether you\'re a gamer, a professional, or a casual user, a reliable CPU cabinet is essential for optimal performance and longevity. Upgrade your setup with the perfect CPU cabinet from Rookie Ninja.',
+    highlights: ['Proper airflow & cooling', 'Easy component access', 'Expandable & upgradeable'],
   },
   {
-    id: 'mfp',
-    label: 'Multi-Function Printers',
+    id: 'coolers',
+    label: 'Coolers',
     icon: (
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
            stroke="currentColor" strokeWidth="1.6"
            strokeLinecap="round" strokeLinejoin="round">
-        <rect x="2" y="7" width="20" height="14" rx="2"/>
-        <path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/>
-        <path d="M7 13h.01M7 17h.01M11 13h6M11 17h6"/>
+        <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+        <circle cx="12" cy="12" r="3"/>
       </svg>
     ),
     images: [
-      'https://placehold.co/520x380/EFF6FF/15A7DC?text=MFP+1&font=poppins',
-      'https://placehold.co/520x380/EFF6FF/15A7DC?text=MFP+2&font=poppins',
-      'https://placehold.co/520x380/EFF6FF/15A7DC?text=MFP+3&font=poppins',
+      'https://placehold.co/520x380/EFF6FF/15A7DC?text=Cooler+1&font=poppins',
+      'https://placehold.co/520x380/EFF6FF/15A7DC?text=Cooler+2&font=poppins',
     ],
-    heading: 'Print, Copy, Scan & Fax — All in One',
-    body: 'Multi-function printers allow you to print, copy, scan, or fax from one device. And with a range of built-in functions, multi-function printers help improve productivity and efficiency while being cost-effective. As their all-in-one design helps in better space optimization.',
-    highlights: ['4-in-1 functionality', 'Space saving design', 'Cost effective'],
+    heading: 'Stay Cool Under Pressure',
+    body: 'Rookie Ninja offers a wide range of cooling solutions designed for different system requirements, including air coolers and liquid cooling options for gaming PCs, workstations, and everyday systems. These coolers are built with efficient heat dissipation technology, durable components, and optimized airflow to maintain consistent temperatures even during intensive workloads.',
+    highlights: ['Air & liquid cooling options', 'Efficient heat dissipation', 'Optimized airflow design'],
+  },
+  {
+    id: 'psu',
+    label: 'PSU',
+    icon: (
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+           stroke="currentColor" strokeWidth="1.6"
+           strokeLinecap="round" strokeLinejoin="round">
+        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+      </svg>
+    ),
+    images: [
+      'https://placehold.co/520x380/EFF6FF/15A7DC?text=PSU+1&font=poppins',
+      'https://placehold.co/520x380/EFF6FF/15A7DC?text=PSU+2&font=poppins',
+    ],
+    heading: 'Reliable Power for Every Build',
+    body: 'Rookie Ninja offers a wide range of power supply solutions designed for various computing needs, from everyday home and office systems to gaming setups and professional workstations. Our PSUs are built with efficient power delivery, reliable components, and advanced protection features to ensure safe and stable system performance.',
+    highlights: ['Efficient power delivery', 'Advanced protection features', 'Stable system performance'],
   },
 ];
 
 /* ── Image Slider ── */
 function ImageSlider({ images }: { images: string[] }) {
   const [current, setCurrent] = useState(0);
-
   const prev = () => setCurrent(i => (i - 1 + images.length) % images.length);
   const next = () => setCurrent(i => (i + 1) % images.length);
 
   return (
     <div className="relative w-full rounded-2xl overflow-hidden bg-[#EFF6FF]"
          style={{ aspectRatio: '520/380' }}>
-      {/* Image */}
       <img
         key={current}
         src={images[current]}
@@ -121,53 +129,40 @@ function ImageSlider({ images }: { images: string[] }) {
         className="w-full h-full object-cover transition-opacity duration-300"
       />
 
-      {/* Arrows */}
       {images.length > 1 && (
         <>
-          <button
-            onClick={prev}
-            aria-label="Previous image"
-            className="absolute left-3 top-1/2 -translate-y-1/2
-                       w-9 h-9 rounded-full bg-white/90 border border-gray-200
-                       flex items-center justify-center text-navy
-                       hover:bg-white hover:border-accent/40
+          <button onClick={prev} aria-label="Previous image"
+            className="absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full
+                       bg-white/90 border border-gray-200 flex items-center justify-center
+                       text-navy hover:bg-white hover:border-accent/40
                        transition-all duration-200 shadow-sm">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
-                 stroke="currentColor" strokeWidth="2"
-                 strokeLinecap="round" strokeLinejoin="round">
+                 stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <path d="M15 18l-6-6 6-6"/>
             </svg>
           </button>
-          <button
-            onClick={next}
-            aria-label="Next image"
-            className="absolute right-3 top-1/2 -translate-y-1/2
-                       w-9 h-9 rounded-full bg-white/90 border border-gray-200
-                       flex items-center justify-center text-navy
-                       hover:bg-white hover:border-accent/40
+          <button onClick={next} aria-label="Next image"
+            className="absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full
+                       bg-white/90 border border-gray-200 flex items-center justify-center
+                       text-navy hover:bg-white hover:border-accent/40
                        transition-all duration-200 shadow-sm">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
-                 stroke="currentColor" strokeWidth="2"
-                 strokeLinecap="round" strokeLinejoin="round">
+                 stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <path d="M9 18l6-6-6-6"/>
             </svg>
           </button>
         </>
       )}
 
-      {/* Dots */}
       {images.length > 1 && (
-        <div className="absolute bottom-3 left-1/2 -translate-x-1/2
-                        flex items-center gap-1.5">
+        <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex items-center gap-1.5">
           {images.map((_, i) => (
             <button
               key={i}
               onClick={() => setCurrent(i)}
               aria-label={`Go to image ${i + 1}`}
               className={`rounded-full transition-all duration-200
-                          ${i === current
-                            ? 'w-5 h-1.5 bg-accent'
-                            : 'w-1.5 h-1.5 bg-white/60 hover:bg-white'}`}
+                          ${i === current ? 'w-5 h-1.5 bg-accent' : 'w-1.5 h-1.5 bg-white/60 hover:bg-white'}`}
             />
           ))}
         </div>
@@ -177,9 +172,9 @@ function ImageSlider({ images }: { images: string[] }) {
 }
 
 /* ── Main Page ── */
-export default function PrintSolutionsPage() {
+export default function GamingPage() {
   const [activeTab, setActiveTab] = useState(0);
-  const tab = printerTabs[activeTab];
+  const tab = gamingTabs[activeTab];
 
   return (
     <main className="bg-white">
@@ -188,7 +183,6 @@ export default function PrintSolutionsPage() {
           HERO BANNER
       ══════════════════════════════════════════ */}
       <section className="relative min-h-[55vh] flex items-center overflow-hidden">
-        {/* Background layers */}
         <div className="absolute inset-0 z-0" style={{
           background: `
             radial-gradient(ellipse 60% 60% at 75% 50%, rgba(21,167,220,0.1) 0%, transparent 70%),
@@ -203,9 +197,9 @@ export default function PrintSolutionsPage() {
         <div className="absolute right-[8%] top-1/2 -translate-y-1/2 z-[1]
                         hidden lg:flex flex-col gap-4">
           {[
-            { label: 'Product Categories', value: '4+' },
-            { label: 'Brand Partners',     value: '8+' },
-            { label: 'Models Available',   value: '50+' },
+            { label: 'Gaming Categories', value: '5+'  },
+            { label: 'Brand Partners',    value: '4+'  },
+            { label: 'Products Available',value: '100+'},
           ].map(({ label, value }) => (
             <div key={label}
                  className="flex items-center gap-4 px-5 py-4 rounded-xl
@@ -224,48 +218,46 @@ export default function PrintSolutionsPage() {
         </div>
 
         {/* Hero text */}
-        <div className="relative z-10 w-full max-w-6xl mx-auto px-6
-                        pt-[120px] pb-20">
+        <div className="relative z-10 w-full max-w-6xl mx-auto px-6 pt-[120px] pb-20">
           <Animate type="fade-up">
             <div className="inline-flex items-center gap-2 text-[10.5px] font-medium
                             tracking-[0.15em] uppercase text-accent mb-6 px-3.5
                             py-1.5 pl-2 rounded-full border border-[rgba(21,167,220,0.25)]
                             bg-[rgba(21,167,220,0.12)]">
               <span className="w-1.5 h-1.5 rounded-full bg-accent animate-blink-dot" />
-              Print Solutions
+              Gaming
             </div>
           </Animate>
 
           <Animate type="fade-up" delay={100}>
-            <h1 className="font-display font-bold text-white
-                           leading-[1.1] tracking-[-0.02em] mb-5 max-w-xl"
+            <h1 className="font-display font-bold text-white leading-[1.1]
+                           tracking-[-0.02em] mb-5 max-w-xl"
                 style={{ fontSize: 'clamp(36px, 5vw, 60px)' }}>
-              High-Performance{' '}
-              <span className="text-accent">Print Technology</span>
+              Level Up Your{' '}
+              <span className="text-accent">Gaming Experience</span>
             </h1>
           </Animate>
 
           <Animate type="fade-up" delay={200}>
             <p className="font-body text-white/60 leading-[1.8] max-w-lg"
                style={{ fontSize: '16px', fontWeight: 300 }}>
-              Maximize productivity while minimizing operational costs with our
-              comprehensive range of print solutions designed to meet every
-              personal and professional need.
+              Rookie Ninja proudly distributes technology from renowned gaming brands,
+              providing a comprehensive portfolio of gaming equipment across the region.
             </p>
           </Animate>
         </div>
       </section>
 
       {/* ══════════════════════════════════════════
-          PRINTERS INTRO
+          INTRO
       ══════════════════════════════════════════ */}
       <section className="py-24 px-6 border-t border-gray-100 bg-white">
         <div className="max-w-6xl mx-auto">
           <Animate type="fade-up">
             <SectionHeader
-              label="Our Products"
-              heading="Printers"
-              subheading="Our diverse collection of printing solutions caters to different requirements to help you find the ideal option that meets your specific printing demands. From compact and efficient printers for personal use to high-capacity and robust models for commercial and industrial applications."
+              label="Gaming"
+              heading="Unlock the World of Gaming"
+              subheading="Our partnership with leading gaming brands ensures that we deliver exceptional quality and the latest innovations to enhance your gaming experience. With our extensive selection of gaming equipment, you can trust Rookie Ninja to provide the best-in-class products from the world's top gaming brands."
               align="center"
             />
           </Animate>
@@ -322,8 +314,7 @@ export default function PrintSolutionsPage() {
                   <img
                     src={logo}
                     alt={name}
-                    className="h-8 w-auto object-contain
-                               transition-opacity duration-200"
+                    className="h-8 w-auto object-contain transition-opacity duration-200"
                     style={{ maxWidth: '120px' }}
                   />
                 </div>
@@ -334,7 +325,7 @@ export default function PrintSolutionsPage() {
       </section>
 
       {/* ══════════════════════════════════════════
-          PRINTER TYPE TABS
+          GAMING CATEGORY TABS
       ══════════════════════════════════════════ */}
       <section className="py-24 px-6 border-t border-gray-100 bg-white">
         <div className="max-w-6xl mx-auto">
@@ -342,7 +333,7 @@ export default function PrintSolutionsPage() {
           {/* Tab buttons */}
           <Animate type="fade-up">
             <div className="flex flex-wrap gap-2 mb-12 border-b border-gray-100 pb-6">
-              {printerTabs.map((t, i) => (
+              {gamingTabs.map((t, i) => (
                 <button
                   key={t.id}
                   onClick={() => setActiveTab(i)}
@@ -364,8 +355,7 @@ export default function PrintSolutionsPage() {
 
           {/* Tab content */}
           <div key={activeTab}
-               className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16
-                          items-center">
+               className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
 
             {/* Left — image slider */}
             <Animate type="fade-right">
@@ -376,46 +366,39 @@ export default function PrintSolutionsPage() {
             <Animate type="fade-left" delay={100}>
               <div className="flex flex-col">
 
-                {/* Tab label */}
                 <p className="font-body font-semibold text-accent tracking-wide mb-3 uppercase"
                    style={{ fontSize: '12px', letterSpacing: '0.1em' }}>
                   {tab.label}
                 </p>
 
-                {/* Heading */}
                 <h2 className="font-display font-bold text-navy leading-[1.15]
                                tracking-[-0.02em] mb-5"
                     style={{ fontSize: 'clamp(24px, 3vw, 36px)' }}>
                   {tab.heading}
                 </h2>
 
-                {/* Body */}
                 <p className="font-body text-gray-500 leading-[1.8] mb-8"
                    style={{ fontSize: '15px' }}>
                   {tab.body}
                 </p>
 
-                {/* Highlights */}
                 <div className="flex flex-col gap-3 mb-8">
                   {tab.highlights.map((h) => (
                     <div key={h} className="flex items-center gap-3">
                       <span className="w-5 h-5 rounded-full bg-accent/10 text-accent
                                        flex items-center justify-center shrink-0">
                         <svg width="10" height="10" viewBox="0 0 16 16" fill="none">
-                          <path d="M3 8l4 4 6-6"
-                                stroke="currentColor" strokeWidth="1.8"
+                          <path d="M3 8l4 4 6-6" stroke="currentColor" strokeWidth="1.8"
                                 strokeLinecap="round" strokeLinejoin="round"/>
                         </svg>
                       </span>
-                      <span className="font-body text-gray-600"
-                            style={{ fontSize: '14px' }}>
+                      <span className="font-body text-gray-600" style={{ fontSize: '14px' }}>
                         {h}
                       </span>
                     </div>
                   ))}
                 </div>
 
-                {/* CTA */}
                 <a
                   href="/products"
                   className="inline-flex items-center gap-2 font-body font-medium
@@ -427,8 +410,7 @@ export default function PrintSolutionsPage() {
                 >
                   View Products
                   <svg width="12" height="12" viewBox="0 0 16 16" fill="none">
-                    <path d="M3 8h10M9 4l4 4-4 4"
-                          stroke="currentColor" strokeWidth="1.5"
+                    <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5"
                           strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
                 </a>
@@ -436,27 +418,24 @@ export default function PrintSolutionsPage() {
             </Animate>
           </div>
 
-          {/* Tab navigation arrows (mobile-friendly) */}
-          <div className="flex items-center justify-between mt-12 pt-8
-                          border-t border-gray-100">
+          {/* Tab navigation */}
+          <div className="flex items-center justify-between mt-12 pt-8 border-t border-gray-100">
             <button
               onClick={() => setActiveTab(i => Math.max(0, i - 1))}
               disabled={activeTab === 0}
               className="inline-flex items-center gap-2 font-body text-gray-400
-                         disabled:opacity-30 hover:text-accent transition-colors
-                         duration-200"
+                         disabled:opacity-30 hover:text-accent transition-colors duration-200"
               style={{ fontSize: '13px' }}
             >
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
-                   stroke="currentColor" strokeWidth="2"
-                   strokeLinecap="round" strokeLinejoin="round">
+                   stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M15 18l-6-6 6-6"/>
               </svg>
               Previous
             </button>
 
             <div className="flex items-center gap-1.5">
-              {printerTabs.map((_, i) => (
+              {gamingTabs.map((_, i) => (
                 <button
                   key={i}
                   onClick={() => setActiveTab(i)}
@@ -469,17 +448,15 @@ export default function PrintSolutionsPage() {
             </div>
 
             <button
-              onClick={() => setActiveTab(i => Math.min(printerTabs.length - 1, i + 1))}
-              disabled={activeTab === printerTabs.length - 1}
+              onClick={() => setActiveTab(i => Math.min(gamingTabs.length - 1, i + 1))}
+              disabled={activeTab === gamingTabs.length - 1}
               className="inline-flex items-center gap-2 font-body text-gray-400
-                         disabled:opacity-30 hover:text-accent transition-colors
-                         duration-200"
+                         disabled:opacity-30 hover:text-accent transition-colors duration-200"
               style={{ fontSize: '13px' }}
             >
               Next
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
-                   stroke="currentColor" strokeWidth="2"
-                   strokeLinecap="round" strokeLinejoin="round">
+                   stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M9 18l6-6-6-6"/>
               </svg>
             </button>

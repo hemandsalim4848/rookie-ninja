@@ -1,6 +1,6 @@
 import Navbar from '@/src/components/common/Navbar';
 import Footer from '@/src/components/common/Footer';
-import VendorContent from '@/src/components/VendorContent';
+import VendorContent from '@/src/components//vendorpage/VendorContent';
 
 export const metadata = {
   title: 'Our Vendors — Rookie Ninja',
