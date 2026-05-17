@@ -1,6 +1,6 @@
 import Navbar from '@/src/components/common/Navbar';
 import Footer from '@/src/components/common/Footer';
-import TrainingContent from '@/src/components/TrainingContent';
+import TrainingContent from '@/src/components/trainingpage/TrainingContent';
 
 export const metadata = {
   title: 'Training — Rookie Ninja',
