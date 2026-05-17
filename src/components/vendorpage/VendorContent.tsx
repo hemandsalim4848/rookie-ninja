@@ -7,7 +7,7 @@ import SectionHeader from '../SectionHeader';
 const vendors = [
   {
     name: 'Kodak Alaris',
-    logo: '/logos/kodak-alaris-logo.png',
+    logo: '/logos/Kodak-alaris-logo.png',
     description: 'World-leading provider of information capture solutions, scanners and professional services.',
     category: 'Scan & Print',
     website: 'https://www.alarisworld.com',
