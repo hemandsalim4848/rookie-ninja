@@ -108,7 +108,7 @@ const vendors = [
     logo: '/logos/aztech-logo.png',
     description: 'Trusted networking and consumer electronics brand with decades of industry presence.',
     category: 'Networking',
-    website: 'https://www.aztech.com',
+    website: 'https://www.aztechmea.com',
   },
   {
     name: 'Deli',
