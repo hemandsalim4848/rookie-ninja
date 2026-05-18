@@ -182,14 +182,14 @@ const closeQuote = () => {
                                       group-hover/solutions:translate-x-0
                                       transition-all duration-200">
                         
-                        <LightDropItem icon={<PrintIcon />}       label="Print Solutions"      href="/portfolio/print-solutions"       />
-                        <LightDropItem icon={<ScanIcon />}        label="Scan"                 href="/portfolio/scan-solutions"        />
-                        <LightDropItem icon={<ElectronicsIcon />} label="Consumer Electronics" href="/portfolio/consumer-electronics" />
-                        <LightDropItem icon={<GamingIcon />}      label="Gaming"               href="/portfolio/gaming"      />
-                        <LightDropItem icon={<ComponentsIcon />}  label="Components"           href="/portfolio/solutions/components"  />
-                        <LightDropItem icon={<SoftwareIcon />}    label="Software"             href="/portfolio/solutions/software"    />
-                        <LightDropItem icon={<AVIcon />}          label="Audio Visual"         href="/portfolio/solutions/av"          />
-                        <LightDropItem icon={<AccessoriesIcon />} label="IT Accessories"       href="/portfolio/solutions/accessories" />
+                        <LightDropItem icon={<PrintIcon />}       label="Print Solutions"      href="/print-solutions"       />
+                        <LightDropItem icon={<ScanIcon />}        label="Scan"                 href="/scan-solutions"        />
+                        <LightDropItem icon={<ElectronicsIcon />} label="Consumer Electronics" href="/consumer-electronics" />
+                        <LightDropItem icon={<GamingIcon />}      label="Gaming"               href="/gaming"      />
+                        <LightDropItem icon={<ComponentsIcon />}  label="Components"           href="/components"  />
+                        <LightDropItem icon={<SoftwareIcon />}    label="Software"             href="/software"    />
+                        <LightDropItem icon={<AVIcon />}          label="Audio Visual"         href="/audio-visual"          />
+                        <LightDropItem icon={<AccessoriesIcon />} label="IT Accessories"       href="/it-accessories" />
                       </div>
                     </div>
 
@@ -355,14 +355,14 @@ const closeQuote = () => {
                         tracking-[0.16em] px-4 pt-1 pb-1">
             Our Solutions
           </p>
-          <MobSubLink href="/portfolio/print-solutions"       icon={<PrintIconDark />}       label="Print Solutions"      />
-          <MobSubLink href="/portfolio/scan-solutions"        icon={<ScanIconDark />}        label="Scan"                 />
-          <MobSubLink href="/portfolio/consumer-electronics" icon={<ElectronicsIconDark />} label="Consumer Electronics" />
-          <MobSubLink href="/portfolio/gaming"      icon={<GamingIconDark />}      label="Gaming"               />
-          <MobSubLink href="/portfolio/solutions/components"  icon={<ComponentsIconDark />}  label="Components"           />
-          <MobSubLink href="/portfolio/solutions/software"    icon={<SoftwareIconDark />}    label="Software"             />
-          <MobSubLink href="/portfolio/solutions/av"          icon={<AVIconDark />}          label="Audio Visual"         />
-          <MobSubLink href="/portfolio/solutions/accessories" icon={<AccessoriesIconDark />} label="IT Accessories"       />
+          <MobSubLink href="/print-solutions"       icon={<PrintIconDark />}       label="Print Solutions"      />
+          <MobSubLink href="/scan-solutions"        icon={<ScanIconDark />}        label="Scan"                 />
+          <MobSubLink href="/consumer-electronics" icon={<ElectronicsIconDark />} label="Consumer Electronics" />
+          <MobSubLink href="/gaming"      icon={<GamingIconDark />}      label="Gaming"               />
+          <MobSubLink href="/components"  icon={<ComponentsIconDark />}  label="Components"           />
+          <MobSubLink href="/software"    icon={<SoftwareIconDark />}    label="Software"             />
+          <MobSubLink href="/audio-visual"          icon={<AVIconDark />}          label="Audio Visual"         />
+          <MobSubLink href="/it-accessories" icon={<AccessoriesIconDark />} label="IT Accessories"       />
         </MobItem>
 
         <a href="#" className="font-body text-[15px] text-navy/70 px-4 py-3

@@ -7,7 +7,7 @@ export const metadata = {
   description: 'Reliable document scanning and capture solutions — desktop, departmental, production, large format, and book scanners.',
 };
 
-export default function TrainingPage() {
+export default function ScanSolutions() {
   return (
     <>
       <Navbar />

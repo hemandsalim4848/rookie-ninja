@@ -7,7 +7,7 @@ export const metadata = {
   description: 'High-performance laser, inkjet, dot matrix, and multi-function printers for home, office, and industrial use.',
 };
 
-export default function TrainingPage() {
+export default function PrintSolutions() {
   return (
     <>
       <Navbar />
