@@ -52,7 +52,7 @@ const vendors = [
     logo: '/logos/viewsonic-logo.webp',
     description: 'Global provider of visual solutions including displays, projectors and collaboration tools.',
     category: 'Audio Visual',
-    website: 'https://www.viewsonic.com',
+    website: '/viewsonic-av',
   },
   {
     name: 'Dicota',
@@ -580,7 +580,7 @@ function FlipCard({
           </p>
 
           {/* Learn more */}
-          <a href={website} target="_blank" rel="noopener noreferrer"
+          <a href={website} rel="noopener noreferrer"
              className="font-body text-[10px] font-medium text-accent
                         flex items-center gap-1 no-underline
                         hover:text-white transition-colors duration-200">
