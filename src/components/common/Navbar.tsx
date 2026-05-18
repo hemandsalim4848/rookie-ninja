@@ -207,7 +207,7 @@ const closeQuote = () => {
            {/* Vendors & Partners */}
 {[
   { label: 'Vendors',  href: '/vendors'  },
-  { label: 'Partners', href: '/partners' },
+  { label: 'Partners', href: '/partner-central' },
 ].map(({ label, href }) => (
   <li key={label}>
     <a href={href}
@@ -371,7 +371,7 @@ const closeQuote = () => {
                                no-underline">
           Vendors
         </a>
-        <a href="#" className="font-body text-[15px] text-navy/70 px-4 py-3
+        <a href="/partner-central/" className="font-body text-[15px] text-navy/70 px-4 py-3
                                rounded-xl flex items-center transition-all
                                duration-150 hover:bg-navy/[0.05] hover:text-navy
                                no-underline">
