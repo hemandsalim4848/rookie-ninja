@@ -10,6 +10,7 @@ const ProductSchema = new Schema({
   description:      { type: String, default: '' },
 shortDescription: { type: String, default: '' },
   specs:       [{ key: String, value: String }],
+  downloads:   [{ label: String, url: String }],
   category:    { type: String, default: '' },
   tags:        [{ type: String }],
   featured:    { type: Boolean, default: false },
