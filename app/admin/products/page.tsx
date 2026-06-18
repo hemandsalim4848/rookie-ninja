@@ -1,6 +1,8 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+import Toast, { ToastType } from '@/src/components/admin/Toast'
+import ImageUploader from '@/src/components/admin/ImageUploader'
 
 function slugify(str: string) {
   return str.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '')
@@ -9,10 +11,11 @@ function slugify(str: string) {
 export default function AddProductPage() {
   const [brands, setBrands] = useState<any[]>([])
   const [saving, setSaving] = useState(false)
-  const [success, setSuccess] = useState(false)
+  const [toast, setToast] = useState<{ message: string; type: ToastType } | null>(null)
+  const [images, setImages] = useState<string[]>([])
   const [form, setForm] = useState({
     brand: '', brandSlug: '', name: '', slug: '', sku: '',
-    shortDescription: '', description: '', category: '', images: '', specs: '',
+    shortDescription: '', description: '', category: '', specs: '',
   })
 
   useEffect(() => {
@@ -22,25 +25,28 @@ export default function AddProductPage() {
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
     setSaving(true)
-    setSuccess(false)
     const payload = {
       ...form,
       shortDescription: form.shortDescription.trim(),
-      images: form.images.split('\n').map(s => s.trim()).filter(Boolean),
+      images,
       specs: form.specs.split('\n').map(line => {
         const [key, ...rest] = line.split(':')
         return { key: key?.trim(), value: rest.join(':').trim() }
       }).filter(s => s.key),
     }
-    await fetch('/api/products', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload),
-    })
-    resetForm()
+    try {
+      const res = await fetch('/api/products', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      })
+      if (!res.ok) throw new Error()
+      resetForm()
+      setToast({ message: 'Product added successfully.', type: 'success' })
+    } catch {
+      setToast({ message: 'Failed to add product. Please try again.', type: 'error' })
+    }
     setSaving(false)
-    setSuccess(true)
-    setTimeout(() => setSuccess(false), 3000)
   }
 
   function handleBrandChange(brandId: string) {
@@ -49,7 +55,8 @@ export default function AddProductPage() {
   }
 
   function resetForm() {
-    setForm({ brand: '', brandSlug: '', name: '', slug: '', sku: '', shortDescription: '', description: '', category: '', images: '', specs: '' })
+    setForm({ brand: '', brandSlug: '', name: '', slug: '', sku: '', shortDescription: '', description: '', category: '', specs: '' })
+    setImages([])
   }
 
   return (
@@ -59,11 +66,7 @@ export default function AddProductPage() {
         <p className="text-gray-400 text-sm mt-1">Fill in the details to add a new product.</p>
       </div>
 
-      {success && (
-        <div className="mb-6 bg-green-50 border border-green-200 text-green-700 text-sm px-4 py-3 rounded-xl">
-          Product added successfully.
-        </div>
-      )}
+      {toast && <Toast message={toast.message} type={toast.type} onClose={() => setToast(null)} />}
 
       <div className="bg-white rounded-2xl border border-gray-100 p-6">
         <form onSubmit={handleSubmit} className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -104,15 +107,15 @@ export default function AddProductPage() {
 
           <div className="sm:col-span-2 h-px bg-gray-100" />
 
-          <textarea placeholder={"Image URLs (one per line)\nhttps://...\nhttps://..."} value={form.images}
-            onChange={e => setForm({ ...form, images: e.target.value })}
-            rows={3}
-            className="border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-[#15A7DC] transition-colors resize-none" />
+          <div className="sm:col-span-2">
+            <p className="text-xs font-medium text-gray-400 mb-2">Images</p>
+            <ImageUploader images={images} onChange={setImages} />
+          </div>
 
           <textarea placeholder={"Specs (one per line)\nVoltage: 18V\nWeight: 2.5kg"} value={form.specs}
             onChange={e => setForm({ ...form, specs: e.target.value })}
             rows={3}
-            className="border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-[#15A7DC] transition-colors resize-none" />
+            className="sm:col-span-2 border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-[#15A7DC] transition-colors resize-none" />
 
           <div className="sm:col-span-2 flex gap-3 pt-2">
             <button type="submit" disabled={saving}
