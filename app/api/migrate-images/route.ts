@@ -58,6 +58,7 @@ export async function POST(req: Request) {
       } catch (err: any) {
         newImages.push(imageUrl)
         failed++
+        if (failed <= 3) console.error('FAIL:', imageUrl, '|', err?.message)
       }
     }
 
