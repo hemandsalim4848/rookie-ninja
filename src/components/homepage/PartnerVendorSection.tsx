@@ -17,7 +17,7 @@ const items = [
     title: 'Become a Vendor',
     body: 'Partner with us to expand your reach. Join as a vendor and showcase your innovative solutions to a wide audience through our extensive distribution network across MEA and CIS.',
     cta: 'Become a Vendor',
-    href: '/vendors',
+    href: '/our-vendors',
     image: 'https://images.unsplash.com/photo-1553877522-43269d4ea984?w=800&q=80',
     flip: false,
   },

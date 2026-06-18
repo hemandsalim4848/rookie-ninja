@@ -7,7 +7,7 @@ export const metadata = {
   description: 'Premium gaming monitors, peripherals, CPU cabinets, coolers, and PSUs from top brands like ViewSonic, Aerocool, MSI, and Aztech.',
 };
 
-export default function TrainingPage() {
+export default function Gaming() {
   return (
     <>
       <Navbar />

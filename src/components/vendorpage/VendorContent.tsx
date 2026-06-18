@@ -52,7 +52,7 @@ const vendors = [
     logo: '/logos/viewsonic-logo.webp',
     description: 'Global provider of visual solutions including displays, projectors and collaboration tools.',
     category: 'Audio Visual',
-    website: '/viewsonic-av',
+    website: '/our-vendors/viewsonic-av',
   },
   {
     name: 'Dicota',

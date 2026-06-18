@@ -20,7 +20,7 @@ const slides = [
     highlight: 'Channel Partners',
     sub: 'We represent the best-known IT brands — delivering sales, pre-sales and after-sales support across 42+ countries.',
     image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1800&q=80',
-    cta: { label: 'Our Vendors', href: '/vendors' },
+    cta: { label: 'Our Vendors', href: '/our-vendors' },
     ctaGhost: { label: 'Learn More', href: '/about' },
   },
   {

@@ -7,7 +7,7 @@ export const metadata = {
   description: 'Cutting-edge consumer electronics and computing solutions from industry-leading brands, tailored for every lifestyle.',
 };
 
-export default function TrainingPage() {
+export default function ConsumerElectronics() {
   return (
     <>
       <Navbar />

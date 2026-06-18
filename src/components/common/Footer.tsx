@@ -18,7 +18,7 @@ const footerLinks = {
     { label: 'IT Accessories',      href: '/portfolio' },
   ],
   Partners: [
-    { label: 'Vendors',   href: '/vendors'   },
+    { label: 'Vendors',   href: '/our-vendors'   },
     { label: 'Partners',  href: '/partners'  },
     { label: 'Portfolio', href: '/portfolio' },
   ],

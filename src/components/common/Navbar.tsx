@@ -193,7 +193,7 @@ const closeQuote = () => {
                       </div>
                     </div>
 
-                    <LightDropItem icon={<SearchIcon />}    label="Product Finder" href="https://products.rookie-ninja.com/" />
+                    <LightDropItem icon={<SearchIcon />}    label="Product Finder" href="/catalogue" />
                     
                     <LightDropItem icon={<TrainingIcon />}  label="Training"       href="/portfolio/training"       />
                   </div>
@@ -206,7 +206,7 @@ const closeQuote = () => {
             {/* Simple links */}
            {/* Vendors & Partners */}
 {[
-  { label: 'Vendors',  href: '/vendors'  },
+  { label: 'Vendors',  href: '/our-vendors'  },
   { label: 'Partners', href: '/partner-central' },
 ].map(({ label, href }) => (
   <li key={label}>
@@ -345,7 +345,7 @@ const closeQuote = () => {
                         tracking-[0.16em] px-4 pt-2 pb-1">
             Portfolio
           </p>
-          <MobSubLink href="/portfolio/product-finder" icon={<SearchIconDark />}    label="Product Finder" />
+          <MobSubLink href="/catalogue" icon={<SearchIconDark />}    label="Product Finder" />
         
           <MobSubLink href="/portfolio/training"       icon={<TrainingIconDark />}  label="Training"       />
 
