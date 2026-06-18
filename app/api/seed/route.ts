@@ -2,7 +2,9 @@ import { NextResponse } from 'next/server'
 import { connectDB } from '@/src/lib/mongodb'
 import { Brand } from '@/src/lib/models/Brands'
 import { Product } from '@/src/lib/models/Products'
-import msiProducts from '@/scripts/msi-products.json'
+import aztechProducts from '@/scripts/aztech-products.json'
+import viewsonicProducts from '@/scripts/viewsonic-products.json'
+import unvProducts from '@/scripts/unv-products.json'
 
 function slugify(str: string) {
   return str.toLowerCase().replace(/[^a-z0-9\s-]/g, '').replace(/\s+/g, '-').replace(/-+/g, '-').trim()
@@ -20,13 +22,7 @@ function parseShortDescription(html: string) {
   return stripHtml(html)
 }
 
-async function importBrand(
-  products: any[],
-  brandName: string,
-  brandSlug: string,
-  category: string,
-  country: string
-) {
+async function importBrand(products: any[], brandName: string, brandSlug: string, category: string, country: string) {
   let brand = await Brand.findOne({ slug: brandSlug })
   if (!brand) {
     brand = await Brand.create({ name: brandName, slug: brandSlug, logo: '', description: `${brandName} products.`, country, featured: false })
@@ -58,7 +54,9 @@ export async function POST(req: Request) {
 
   await connectDB()
 
-  const msi = await importBrand(msiProducts, 'MSI', 'msi', 'Gaming', 'Taiwan')
+  const aztech = await importBrand(aztechProducts, 'Aztech', 'aztech', 'Networking', 'Singapore')
+  const viewsonic = await importBrand(viewsonicProducts, 'Viewsonic', 'viewsonic', 'Displays', 'USA')
+  const unv = await importBrand(unvProducts, 'UNV', 'unv', 'Security', 'China')
 
-  return NextResponse.json({ success: true, msi })
+  return NextResponse.json({ success: true, aztech, viewsonic, unv })
 }
