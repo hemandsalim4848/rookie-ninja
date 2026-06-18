@@ -7,7 +7,7 @@ const http = require('http')
 const { v2: cloudinary } = require('cloudinary')
 
 // ── Config ──────────────────────────────────────────────
-const MONGODB_URI = 'mongodb://localhost:27017/rookie-ninja'
+const MONGODB_URI = 'mongodb://localhost:27017/rookie-ninja-main'
 
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_CLOUD_NAME,

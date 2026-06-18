@@ -7,7 +7,8 @@ import { usePathname } from 'next/navigation'
 const navItems = [
   { href: '/admin', label: 'Dashboard', icon: '⬛' },
   { href: '/admin/brands', label: 'Brands', icon: '🏷️' },
-  { href: '/admin/products', label: 'Products', icon: '📦' },
+  { href: '/admin/products/browse', label: 'Products', icon: '📦' },
+  { href: '/admin/products', label: 'Add Product', icon: '➕' },
   { href: '/admin/users', label: 'Users', icon: '👤' },
 ]
 
@@ -34,7 +35,11 @@ export default function AdminSidebar({ role, user }: { role: string; user: any }
       <nav className="flex-1 px-3 py-6 space-y-1">
         {navItems.map(item => {
           if (item.href === '/admin/users' && role !== 'admin') return null
-          const isActive = pathname === item.href
+          const isActive = item.href === '/admin/products/browse'
+            ? pathname.startsWith('/admin/products/browse')
+            : item.href === '/admin/products'
+            ? pathname === '/admin/products'
+            : pathname === item.href
           return (
             <Link
               key={item.href}
