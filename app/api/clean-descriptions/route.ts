@@ -7,6 +7,7 @@ function cleanDescription(text: string) {
   return text
     .replace(/Overview/gi, '')
     .replace(/&nbsp;/g, ' ')
+    .replace(/&amp;/g, '&')
     .replace(/\\n/g, ' ')
     .replace(/\n+/g, ' ')
     .replace(/Quick charging on the road\./gi, '')
