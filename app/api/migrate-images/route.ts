@@ -19,18 +19,8 @@ function makePublicId(url: string) {
   }
 }
 
-async function uploadToCloudinary(url: string, publicId: string): Promise<string> {
-  const result = await cloudinary.uploader.upload(url, {
-    public_id: publicId,
-    folder: 'rookie-ninja/products',
-    overwrite: false,
-    resource_type: 'image',
-  })
-  return result.secure_url
-}
-
 export async function POST(req: Request) {
-  const { secret } = await req.json()
+  const { secret, skip = 0, batchSize = 30 } = await req.json()
   if (secret !== process.env.ADMIN_SECRET) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
   }
@@ -38,6 +28,8 @@ export async function POST(req: Request) {
   await connectDB()
 
   const products = await Product.find({ images: { $exists: true, $ne: [] } })
+    .skip(skip)
+    .limit(batchSize)
 
   let migrated = 0, skipped = 0, failed = 0
 
@@ -54,11 +46,16 @@ export async function POST(req: Request) {
 
       try {
         const publicId = makePublicId(imageUrl)
-        const cloudUrl = await uploadToCloudinary(imageUrl, publicId)
-        newImages.push(cloudUrl)
+        const result = await cloudinary.uploader.upload(imageUrl, {
+          public_id: publicId,
+          folder: 'rookie-ninja/products',
+          overwrite: false,
+          resource_type: 'image',
+        })
+        newImages.push(result.secure_url)
         migrated++
         changed = true
-      } catch {
+      } catch (err: any) {
         newImages.push(imageUrl)
         failed++
       }
@@ -69,5 +66,15 @@ export async function POST(req: Request) {
     }
   }
 
-  return NextResponse.json({ success: true, migrated, skipped, failed })
+  const total = await Product.countDocuments({ images: { $exists: true, $ne: [] } })
+
+  return NextResponse.json({
+    success: true,
+    migrated,
+    skipped,
+    failed,
+    processed: skip + products.length,
+    total,
+    done: skip + products.length >= total,
+  })
 }
