@@ -30,7 +30,7 @@ export default function PdfUploader({ downloads, onChange }: Props) {
       const res = await fetch('/api/upload-pdf', { method: 'POST', body: fd })
       const data = await res.json()
       if (!res.ok) throw new Error(data.error || 'Upload failed')
-      const label = file.name.replace(/\.pdf$/i, '').replace(/[-_]/g, ' ')
+      const label = file.name.replace(/\.pdf$/i, '').replace(/_/g, ' ')
       onChange([...downloads, { label, url: data.url }])
     } catch (e: any) {
       setError(e.message || 'Upload failed')
