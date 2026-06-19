@@ -1,8 +1,9 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import Toast, { ToastType } from '@/src/components/admin/Toast'
 import ImageUploader from '@/src/components/admin/ImageUploader'
+import PdfUploader, { PdfUploaderHandle } from '@/src/components/admin/PdfUploader'
 
 function slugify(str: string) {
   return str.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '')
@@ -13,6 +14,8 @@ export default function AddProductPage() {
   const [saving, setSaving] = useState(false)
   const [toast, setToast] = useState<{ message: string; type: ToastType } | null>(null)
   const [images, setImages] = useState<string[]>([])
+  const [downloads, setDownloads] = useState<{ label: string; url: string }[]>([])
+  const pdfUploaderRef = useRef<PdfUploaderHandle>(null)
   const [form, setForm] = useState({
     brand: '', brandSlug: '', name: '', slug: '', sku: '',
     shortDescription: '', description: '', category: '', specs: '',
@@ -25,16 +28,18 @@ export default function AddProductPage() {
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
     setSaving(true)
-    const payload = {
-      ...form,
-      shortDescription: form.shortDescription.trim(),
-      images,
-      specs: form.specs.split('\n').map(line => {
-        const [key, ...rest] = line.split(':')
-        return { key: key?.trim(), value: rest.join(':').trim() }
-      }).filter(s => s.key),
-    }
     try {
+      const finalDownloads = await pdfUploaderRef.current?.uploadPending() ?? downloads
+      const payload = {
+        ...form,
+        shortDescription: form.shortDescription.trim(),
+        images,
+        downloads: finalDownloads,
+        specs: form.specs.split('\n').map(line => {
+          const [key, ...rest] = line.split(':')
+          return { key: key?.trim(), value: rest.join(':').trim() }
+        }).filter(s => s.key),
+      }
       const res = await fetch('/api/products', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -57,6 +62,7 @@ export default function AddProductPage() {
   function resetForm() {
     setForm({ brand: '', brandSlug: '', name: '', slug: '', sku: '', shortDescription: '', description: '', category: '', specs: '' })
     setImages([])
+    setDownloads([])
   }
 
   return (
@@ -116,6 +122,13 @@ export default function AddProductPage() {
             onChange={e => setForm({ ...form, specs: e.target.value })}
             rows={3}
             className="sm:col-span-2 border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-[#15A7DC] transition-colors resize-none" />
+
+          <div className="sm:col-span-2 h-px bg-gray-100" />
+
+          <div className="sm:col-span-2">
+            <p className="text-xs font-medium text-gray-400 mb-2">Downloads <span className="text-gray-300">(PDF datasheets)</span></p>
+            <PdfUploader ref={pdfUploaderRef} downloads={downloads} onChange={setDownloads} />
+          </div>
 
           <div className="sm:col-span-2 flex gap-3 pt-2">
             <button type="submit" disabled={saving}

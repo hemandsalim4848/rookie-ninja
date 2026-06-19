@@ -1,0 +1,168 @@
+[
+  {
+    "model": "ideaflow-65-4k-interactive-display",
+    "specs": [
+      { "key": "Screen Size", "value": "65 inches" },
+      { "key": "Backlight", "value": "DLED" },
+      { "key": "Resolution", "value": "3840 × 2160" },
+      { "key": "Brightness", "value": "400 cd/m²" },
+      { "key": "Contrast Ratio", "value": "5000:1" },
+      { "key": "Refresh Rate", "value": "60 Hz" },
+      { "key": "Response Time", "value": "8 ms" },
+      { "key": "Aspect Ratio", "value": "16:9" },
+      { "key": "Color", "value": "10 Bit" },
+      { "key": "Viewing Angle", "value": "178° horizontal / 178° vertical" },
+      { "key": "View Area", "value": "1428.48 × 803.52 mm" },
+      { "key": "RAM / Storage", "value": "8GB / 128GB" },
+      { "key": "Operating System", "value": "Android 14.0" },
+      { "key": "Bluetooth", "value": "Version 5.0" },
+      { "key": "Camera", "value": "48MP Inbuilt AI Camera" },
+      { "key": "Wi-Fi", "value": "Wi-Fi 6 (Inbuilt)" },
+      { "key": "Speakers", "value": "20W × 2 + 20W × 1 Subwoofer" },
+      { "key": "Other Features", "value": "Screen share, Google Playstore, Optional Windows" }
+    ]
+  },
+  {
+    "model": "ideaflow-75-4k-interactive-display",
+    "specs": [
+      { "key": "Screen Size", "value": "75 inches" },
+      { "key": "Backlight", "value": "DLED" },
+      { "key": "Resolution", "value": "3840 × 2160" },
+      { "key": "Brightness", "value": "400 cd/m²" },
+      { "key": "Contrast Ratio", "value": "5000:1" },
+      { "key": "Refresh Rate", "value": "60 Hz" },
+      { "key": "Response Time", "value": "8 ms" },
+      { "key": "Color Gamut", "value": "72%" },
+      { "key": "Lifespan", "value": "50,000 hours" },
+      { "key": "Surface Hardness", "value": "9H (Mohs scale 7)" },
+      { "key": "Viewing Angle", "value": "178° horizontal / 178° vertical" },
+      { "key": "Pixel Pitch", "value": "0.56 × 0.56 mm" },
+      { "key": "RAM / Storage", "value": "8GB / 128GB" },
+      { "key": "Operating System", "value": "Android 14" },
+      { "key": "Bluetooth", "value": "Version 5.0" }
+    ]
+  },
+  {
+    "model": "ideaflow-86-4k-interactive-display",
+    "specs": [
+      { "key": "Screen Size", "value": "86 inches" },
+      { "key": "Backlight", "value": "DLED" },
+      { "key": "Resolution", "value": "3840 × 2160" },
+      { "key": "Brightness", "value": "400 cd/m²" },
+      { "key": "Contrast Ratio", "value": "5000:1" },
+      { "key": "Refresh Rate", "value": "60 Hz" },
+      { "key": "Response Time", "value": "8 ms" },
+      { "key": "Color Gamut", "value": "72%" },
+      { "key": "Lifespan", "value": "50,000 hours" },
+      { "key": "Surface Hardness", "value": "9H (Mohs scale 7)" },
+      { "key": "Viewing Angle", "value": "178° horizontal / 178° vertical" },
+      { "key": "Pixel Pitch", "value": "0.56 × 0.56 mm" },
+      { "key": "RAM / Storage", "value": "8GB / 128GB" },
+      { "key": "Operating System", "value": "Android 14" },
+      { "key": "Bluetooth", "value": "Version 5.0" },
+      { "key": "Camera", "value": "48MP AI Camera (Built-in)" },
+      { "key": "Other Features", "value": "Built-in microphone, seamless screen mirroring, multi-touch support" }
+    ]
+  },
+  {
+    "model": "ideaflow-pro-65-4k-interactive-display",
+    "specs": [
+      { "key": "Screen Size", "value": "65 inches" },
+      { "key": "Backlight", "value": "DLED" },
+      { "key": "Resolution", "value": "3840 × 2160" },
+      { "key": "Brightness", "value": "400 cd/m²" },
+      { "key": "Contrast Ratio", "value": "5000:1" },
+      { "key": "Refresh Rate", "value": "60 Hz" },
+      { "key": "Response Time", "value": "8 ms" },
+      { "key": "Color Gamut", "value": "72%" },
+      { "key": "Lifespan", "value": "50,000 hours" },
+      { "key": "Surface Hardness", "value": "9H (Mohs scale 7)" },
+      { "key": "Viewing Angle", "value": "178° horizontal / 178° vertical" },
+      { "key": "Pixel Pitch", "value": "0.56 × 0.56 mm" },
+      { "key": "RAM / Storage", "value": "16GB / 512GB" },
+      { "key": "Operating System", "value": "Android 13.0" },
+      { "key": "Bluetooth", "value": "Version 5.2" }
+    ]
+  },
+  {
+    "model": "ideaflow-pro-75-4k-interactive-display",
+    "specs": [
+      { "key": "Screen Size", "value": "75 inches" },
+      { "key": "Backlight", "value": "DLED" },
+      { "key": "Resolution", "value": "3840 × 2160" },
+      { "key": "Brightness", "value": "400 cd/m²" },
+      { "key": "Contrast Ratio", "value": "5000:1" },
+      { "key": "Refresh Rate", "value": "60 Hz" },
+      { "key": "Response Time", "value": "8 ms" },
+      { "key": "Aspect Ratio", "value": "16:9" },
+      { "key": "Color Gamut", "value": "72%" },
+      { "key": "Lifespan", "value": "50,000 hours" },
+      { "key": "Surface Hardness", "value": "9H (Mohs scale 7)" },
+      { "key": "Viewing Angle", "value": "178° horizontal / 178° vertical" },
+      { "key": "Pixel Pitch", "value": "0.56 × 0.56 mm" },
+      { "key": "RAM / Storage", "value": "16GB / 512GB" },
+      { "key": "Operating System", "value": "Android 13.0" },
+      { "key": "Bluetooth", "value": "Version 5.2" }
+    ]
+  },
+  {
+    "model": "ideaflow-pro-98-4k-interactive-display",
+    "specs": [
+      { "key": "Screen Size", "value": "98 inches" },
+      { "key": "Backlight", "value": "DLED" },
+      { "key": "Resolution", "value": "3840 × 2160" },
+      { "key": "Brightness", "value": "400 cd/m²" },
+      { "key": "Contrast Ratio", "value": "5000:1" },
+      { "key": "Refresh Rate", "value": "60 Hz" },
+      { "key": "Response Time", "value": "8 ms" },
+      { "key": "Color Gamut", "value": "72%" },
+      { "key": "Lifespan", "value": "50,000 hours" },
+      { "key": "Surface Hardness", "value": "9H (Mohs scale 7)" },
+      { "key": "Viewing Angle", "value": "178° horizontal / 178° vertical" },
+      { "key": "Pixel Pitch", "value": "0.56 × 0.56 mm" },
+      { "key": "RAM / Storage", "value": "16GB / 512GB" },
+      { "key": "Operating System", "value": "Android 13.0" },
+      { "key": "Bluetooth", "value": "Version 5.2" }
+    ]
+  },
+  {
+    "model": "ideaflow-pro-86-4k-interactive-display",
+    "specs": [
+      { "key": "Screen Size", "value": "86 inches" },
+      { "key": "Backlight", "value": "DLED" },
+      { "key": "Resolution", "value": "3840 × 2160" },
+      { "key": "Brightness", "value": "400 cd/m²" },
+      { "key": "Contrast Ratio", "value": "5000:1" },
+      { "key": "Refresh Rate", "value": "60 Hz" },
+      { "key": "Response Time", "value": "8 ms" },
+      { "key": "Color Gamut", "value": "72%" },
+      { "key": "Lifespan", "value": "50,000 hours" },
+      { "key": "Surface Hardness", "value": "9H (Mohs scale 7)" },
+      { "key": "Viewing Angle", "value": "178° horizontal / 178° vertical" },
+      { "key": "Pixel Pitch", "value": "0.56 × 0.56 mm" },
+      { "key": "RAM / Storage", "value": "16GB / 512GB" },
+      { "key": "Operating System", "value": "Android 13.0" },
+      { "key": "Bluetooth", "value": "Version 5.2" }
+    ]
+  },
+  {
+    "model": "ideaflow-110-4k-interactive-display",
+    "specs": [
+      { "key": "Screen Size", "value": "110 inches" },
+      { "key": "Backlight", "value": "DLED" },
+      { "key": "Resolution", "value": "3840 × 2160" },
+      { "key": "Brightness", "value": "400 cd/m²" },
+      { "key": "Contrast Ratio", "value": "1200:1" },
+      { "key": "Refresh Rate", "value": "60 Hz" },
+      { "key": "Response Time", "value": "8 ms" },
+      { "key": "Color Gamut", "value": "72%" },
+      { "key": "Lifespan", "value": "50,000 hours" },
+      { "key": "Surface Hardness", "value": "9H (Mohs scale 7)" },
+      { "key": "Viewing Angle", "value": "178° horizontal / 178° vertical" },
+      { "key": "Pixel Pitch", "value": "0.56 × 0.56 mm" },
+      { "key": "RAM / Storage", "value": "8GB / 128GB" },
+      { "key": "Operating System", "value": "Android 14" },
+      { "key": "Bluetooth", "value": "Version 5.2" }
+    ]
+  }
+]

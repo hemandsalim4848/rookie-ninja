@@ -1,11 +1,11 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useParams } from 'next/navigation'
 import Link from 'next/link'
 import Toast, { ToastType } from '@/src/components/admin/Toast'
 import ImageUploader from '@/src/components/admin/ImageUploader'
-import PdfUploader from '@/src/components/admin/PdfUploader'
+import PdfUploader, { PdfUploaderHandle } from '@/src/components/admin/PdfUploader'
 
 const PAGE_SIZE = 15
 
@@ -28,6 +28,7 @@ export default function BrandProductsPage() {
   const [editForm, setEditForm] = useState(emptyForm)
   const [saving, setSaving] = useState(false)
   const [toast, setToast] = useState<{ message: string; type: ToastType } | null>(null)
+  const pdfUploaderRef = useRef<PdfUploaderHandle>(null)
 
   async function load() {
     const [bRes, pRes] = await Promise.all([
@@ -71,19 +72,23 @@ export default function BrandProductsPage() {
     })
   }
 
+  function closeEdit() {
+    setEditProduct(null)
+  }
+
   async function saveEdit() {
     if (!editProduct) return
     setSaving(true)
-    const payload = {
-      ...editForm,
-      images: editForm.images,
-      downloads: editForm.downloads,
-      specs: editForm.specs.split('\n').map(line => {
-        const [key, ...rest] = line.split(':')
-        return { key: key?.trim(), value: rest.join(':').trim() }
-      }).filter(s => s.key),
-    }
     try {
+      const downloads = await pdfUploaderRef.current?.uploadPending() ?? editForm.downloads
+      const payload = {
+        ...editForm,
+        downloads,
+        specs: editForm.specs.split('\n').map(line => {
+          const [key, ...rest] = line.split(':')
+          return { key: key?.trim(), value: rest.join(':').trim() }
+        }).filter(s => s.key),
+      }
       const res = await fetch(`/api/products/${editProduct._id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
@@ -193,7 +198,7 @@ export default function BrandProductsPage() {
       {/* Edit slide-in panel */}
       {editProduct && (
         <div className="fixed inset-0 z-50 flex">
-          <div className="flex-1 bg-black/30" onClick={() => setEditProduct(null)} />
+          <div className="flex-1 bg-black/30" onClick={closeEdit} />
           <div className="w-full max-w-lg bg-white h-full overflow-y-auto shadow-xl flex flex-col">
 
             {/* Header */}
@@ -202,7 +207,7 @@ export default function BrandProductsPage() {
                 <p className="font-semibold text-[#0A1628] text-sm">Edit Product</p>
                 <p className="text-xs text-gray-400 truncate max-w-xs mt-0.5">{editProduct.name}</p>
               </div>
-              <button onClick={() => setEditProduct(null)} className="text-gray-300 hover:text-gray-500 transition-colors">
+              <button onClick={closeEdit} className="text-gray-300 hover:text-gray-500 transition-colors">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
               </button>
             </div>
@@ -270,6 +275,7 @@ export default function BrandProductsPage() {
               <div>
                 <label className="text-xs font-medium text-gray-400 mb-1.5 block">Downloads <span className="text-gray-300">(PDF datasheets)</span></label>
                 <PdfUploader
+                  ref={pdfUploaderRef}
                   downloads={editForm.downloads}
                   onChange={downloads => setEditForm({ ...editForm, downloads })}
                 />
@@ -289,7 +295,7 @@ export default function BrandProductsPage() {
                 className="bg-[#0A1628] hover:bg-[#0F2040] text-white px-6 py-2.5 rounded-xl text-sm font-semibold disabled:opacity-50 transition-colors">
                 {saving ? 'Saving...' : 'Save Changes'}
               </button>
-              <button onClick={() => setEditProduct(null)}
+              <button onClick={closeEdit}
                 className="px-6 py-2.5 rounded-xl text-sm border border-gray-200 hover:bg-gray-50 transition-colors">
                 Cancel
               </button>
