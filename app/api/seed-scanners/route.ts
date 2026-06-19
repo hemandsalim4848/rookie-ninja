@@ -45,8 +45,12 @@ export async function POST(req: Request) {
     for (const p of products) {
       const slug = slugify(p.Name)
       const existing = await Product.findOne({ brandSlug, slug })
-      if (existing) { skipped++; continue }
       const images = p.Images ? p.Images.split(',').map((s: string) => s.trim()).filter(Boolean) : []
+      if (existing) {
+        await Product.findByIdAndUpdate(existing._id, { images })
+        skipped++
+        continue
+      }
       await Product.create({
         brand: brand._id, brandSlug, name: p.Name, slug,
         sku: p.SKU || '', images,
