@@ -290,14 +290,43 @@ export default function ProductPage() {
             )}
 
             {activeTab === 'downloads' && (
-              <div className="flex flex-col items-center justify-center py-16 text-center">
-                <div className="w-12 h-12 rounded-2xl bg-gray-50 border border-gray-100 flex items-center justify-center mb-4">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#15A7DC" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/>
-                  </svg>
-                </div>
-                <p className="text-sm font-medium text-[#0A1628] mb-1">No downloads yet</p>
-                <p className="text-xs text-gray-400">Datasheets and manuals will appear here.</p>
+              <div>
+                {product.downloads?.length > 0 ? (
+                  <div className="space-y-3 max-w-lg">
+                    {product.downloads.map((d: any, i: number) => (
+                      <a
+                        key={i}
+                        href={d.url}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="flex items-center gap-4 p-4 rounded-xl border border-gray-100 hover:border-[#15A7DC]/40 hover:bg-gray-50/50 transition-all group"
+                      >
+                        <div className="w-10 h-10 rounded-xl bg-[#15A7DC]/10 flex items-center justify-center shrink-0">
+                          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#15A7DC" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                            <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/>
+                          </svg>
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <p className="text-sm font-medium text-[#0A1628] truncate">{d.label}</p>
+                          <p className="text-xs text-gray-400">PDF Document</p>
+                        </div>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#15A7DC" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="shrink-0 opacity-0 group-hover:opacity-100 transition-opacity">
+                          <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
+                        </svg>
+                      </a>
+                    ))}
+                  </div>
+                ) : (
+                  <div className="flex flex-col items-center justify-center py-16 text-center">
+                    <div className="w-12 h-12 rounded-2xl bg-gray-50 border border-gray-100 flex items-center justify-center mb-4">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#15A7DC" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/>
+                      </svg>
+                    </div>
+                    <p className="text-sm font-medium text-[#0A1628] mb-1">No downloads yet</p>
+                    <p className="text-xs text-gray-400">Datasheets and manuals will appear here.</p>
+                  </div>
+                )}
               </div>
             )}
           </div>

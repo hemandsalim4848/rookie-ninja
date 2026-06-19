@@ -5,6 +5,7 @@ import { useParams } from 'next/navigation'
 import Link from 'next/link'
 import Toast, { ToastType } from '@/src/components/admin/Toast'
 import ImageUploader from '@/src/components/admin/ImageUploader'
+import PdfUploader from '@/src/components/admin/PdfUploader'
 
 const PAGE_SIZE = 15
 
@@ -12,6 +13,7 @@ const emptyForm = {
   name: '', slug: '', sku: '', category: '',
   shortDescription: '', description: '',
   images: [] as string[], specs: '', featured: false,
+  downloads: [] as { label: string; url: string }[],
 }
 
 export default function BrandProductsPage() {
@@ -65,6 +67,7 @@ export default function BrandProductsPage() {
       images: Array.isArray(p.images) ? p.images : [],
       specs: Array.isArray(p.specs) ? p.specs.map((s: any) => `${s.key}: ${s.value}`).join('\n') : '',
       featured: p.featured || false,
+      downloads: Array.isArray(p.downloads) ? p.downloads : [],
     })
   }
 
@@ -74,6 +77,7 @@ export default function BrandProductsPage() {
     const payload = {
       ...editForm,
       images: editForm.images,
+      downloads: editForm.downloads,
       specs: editForm.specs.split('\n').map(line => {
         const [key, ...rest] = line.split(':')
         return { key: key?.trim(), value: rest.join(':').trim() }
@@ -138,11 +142,19 @@ export default function BrandProductsPage() {
                 </td>
                 <td className="px-6 py-4 text-gray-400 font-mono text-xs">{p.sku || '—'}</td>
                 <td className="px-6 py-4 text-gray-400 text-xs">{p.category || '—'}</td>
-                <td className="px-6 py-4 text-right space-x-3">
-                  <button onClick={() => startEdit(p)}
-                    className="text-[#15A7DC] hover:underline text-xs font-medium">Edit</button>
-                  <button onClick={() => handleDelete(p._id)}
-                    className="text-red-400 hover:underline text-xs font-medium">Delete</button>
+                <td className="px-6 py-4 text-right">
+                  <div className="flex items-center justify-end gap-3">
+                    <a href={`/${brandSlug}/${p.slug}`} target="_blank" rel="noreferrer"
+                      className="text-gray-300 hover:text-[#15A7DC] transition-colors" title="View product page">
+                      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/>
+                      </svg>
+                    </a>
+                    <button onClick={() => startEdit(p)}
+                      className="text-[#15A7DC] hover:underline text-xs font-medium">Edit</button>
+                    <button onClick={() => handleDelete(p._id)}
+                      className="text-red-400 hover:underline text-xs font-medium">Delete</button>
+                  </div>
                 </td>
               </tr>
             ))}
@@ -251,6 +263,16 @@ export default function BrandProductsPage() {
                 <label className="text-xs font-medium text-gray-400 mb-1.5 block">Specs <span className="text-gray-300">(Key: Value, one per line)</span></label>
                 <textarea value={editForm.specs} onChange={e => setEditForm({ ...editForm, specs: e.target.value })}
                   rows={4} className="w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-[#15A7DC] transition-colors resize-none font-mono" />
+              </div>
+
+              <div className="h-px bg-gray-100" />
+
+              <div>
+                <label className="text-xs font-medium text-gray-400 mb-1.5 block">Downloads <span className="text-gray-300">(PDF datasheets)</span></label>
+                <PdfUploader
+                  downloads={editForm.downloads}
+                  onChange={downloads => setEditForm({ ...editForm, downloads })}
+                />
               </div>
 
               <div className="flex items-center gap-3">
