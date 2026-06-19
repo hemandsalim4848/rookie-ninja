@@ -278,6 +278,7 @@ export default function BrandProductsPage() {
                   ref={pdfUploaderRef}
                   downloads={editForm.downloads}
                   onChange={downloads => setEditForm({ ...editForm, downloads })}
+                  productName={editForm.name}
                 />
               </div>
 

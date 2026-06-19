@@ -127,7 +127,7 @@ export default function AddProductPage() {
 
           <div className="sm:col-span-2">
             <p className="text-xs font-medium text-gray-400 mb-2">Downloads <span className="text-gray-300">(PDF datasheets)</span></p>
-            <PdfUploader ref={pdfUploaderRef} downloads={downloads} onChange={setDownloads} />
+            <PdfUploader ref={pdfUploaderRef} downloads={downloads} onChange={setDownloads} productName={form.name} />
           </div>
 
           <div className="sm:col-span-2 flex gap-3 pt-2">
