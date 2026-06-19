@@ -25,6 +25,7 @@ export interface PdfUploaderHandle {
 
 const PdfUploader = forwardRef<PdfUploaderHandle, Props>(({ downloads, onChange, productName }, ref) => {
   const inputRef = useRef<HTMLInputElement>(null)
+  const inputFileNameRef = useRef<HTMLInputElement>(null)
   const [pending, setPending] = useState<Pending[]>([])
   const [error, setError] = useState('')
   const [urlInput, setUrlInput] = useState('')
@@ -59,10 +60,12 @@ const PdfUploader = forwardRef<PdfUploaderHandle, Props>(({ downloads, onChange,
     setShowUrlInput(false)
   }
 
-  function addFile(file: File) {
+  function addFile(file: File, useProductName: boolean) {
     if (file.type !== 'application/pdf') { setError('Only PDF files are allowed.'); return }
     setError('')
-    const label = file.name.replace(/\.pdf$/i, '').replace(/_/g, ' ')
+    const label = useProductName
+      ? (productName ? `Datasheet for ${productName}` : 'Product Datasheet')
+      : file.name.replace(/\.pdf$/i, '').replace(/_/g, ' ')
     setPending(prev => [...prev, { file, label, previewName: file.name }])
   }
 
@@ -127,18 +130,28 @@ const PdfUploader = forwardRef<PdfUploaderHandle, Props>(({ downloads, onChange,
 
       <div className="flex gap-2">
         <button type="button" onClick={() => inputRef.current?.click()}
-          className="flex items-center gap-2 text-xs text-[#15A7DC] border border-dashed border-[#15A7DC]/40 hover:border-[#15A7DC] rounded-xl px-4 py-2.5 flex-1 justify-center transition-colors">
+          className="flex flex-col items-center gap-1 text-xs text-[#15A7DC] border border-dashed border-[#15A7DC]/40 hover:border-[#15A7DC] rounded-xl px-4 py-3 flex-1 justify-center transition-colors">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
           </svg>
-          Upload PDF
+          <span>Upload PDF</span>
+          <span className="text-[10px] text-[#15A7DC]/60 font-normal">Named: Datasheet for {productName || 'product'}</span>
+        </button>
+        <button type="button" onClick={() => inputFileNameRef.current?.click()}
+          className="flex flex-col items-center gap-1 text-xs text-gray-400 border border-dashed border-gray-200 hover:border-[#15A7DC] hover:text-[#15A7DC] rounded-xl px-4 py-3 flex-1 justify-center transition-colors">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
+          </svg>
+          <span>Upload PDF</span>
+          <span className="text-[10px] text-gray-300 font-normal group-hover:text-[#15A7DC]/60">Named: from filename</span>
         </button>
         <button type="button" onClick={() => setShowUrlInput(v => !v)}
-          className="flex items-center gap-2 text-xs text-gray-400 border border-dashed border-gray-200 hover:border-[#15A7DC] hover:text-[#15A7DC] rounded-xl px-4 py-2.5 flex-1 justify-center transition-colors">
+          className="flex flex-col items-center gap-1 text-xs text-gray-400 border border-dashed border-gray-200 hover:border-[#15A7DC] hover:text-[#15A7DC] rounded-xl px-4 py-3 flex-1 justify-center transition-colors">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/>
           </svg>
-          Paste URL
+          <span>Paste URL</span>
+          <span className="text-[10px] text-gray-300 font-normal">Named: Datasheet for {productName || 'product'}</span>
         </button>
       </div>
 
@@ -160,7 +173,9 @@ const PdfUploader = forwardRef<PdfUploaderHandle, Props>(({ downloads, onChange,
       )}
 
       <input ref={inputRef} type="file" accept="application/pdf" className="hidden"
-        onChange={e => { const f = e.target.files?.[0]; if (f) addFile(f); e.target.value = '' }} />
+        onChange={e => { const f = e.target.files?.[0]; if (f) addFile(f, true); e.target.value = '' }} />
+      <input ref={inputFileNameRef} type="file" accept="application/pdf" className="hidden"
+        onChange={e => { const f = e.target.files?.[0]; if (f) addFile(f, false); e.target.value = '' }} />
 
       {error && <p className="text-xs text-red-400">{error}</p>}
     </div>
