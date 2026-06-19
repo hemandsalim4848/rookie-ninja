@@ -210,6 +210,15 @@ export default function ProductPage() {
               </>
             )}
 
+            {product.downloads?.length > 1 && (
+              <div className="flex items-center gap-2.5 bg-[#15A7DC]/6 border border-[#15A7DC]/25 rounded-xl px-4 py-3 mb-6">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#15A7DC" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="shrink-0">
+                  <path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>
+                </svg>
+                <p className="text-xs font-semibold text-[#0d8fb8] tracking-wide">Compatible with optional accessories</p>
+              </div>
+            )}
+
             <div className="mt-auto">
               <div className="h-px bg-gray-100 mb-6" />
 
