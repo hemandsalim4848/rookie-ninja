@@ -143,11 +143,11 @@ const visibleProducts = products.slice((currentPage - 1) * PAGE_SIZE, currentPag
                   className="bg-white border border-gray-100 rounded-2xl overflow-hidden hover:border-[#15A7DC]/50 hover:shadow-[0_4px_20px_rgba(21,167,220,0.1)] transition-all duration-200 group"
                 >
                   {product.images?.[0] ? (
-                    <div className="overflow-hidden">
+                    <div className="h-48 bg-white flex items-center justify-center p-2">
                       <img
                         src={product.images[0]}
                         alt={product.name}
-                        className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                        className="h-full w-full object-contain group-hover:scale-105 transition-transform duration-300"
                       />
                     </div>
                   ) : (
