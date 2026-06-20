@@ -1,0 +1,812 @@
+[
+  {
+    "brandSlug": "aztech",
+    "name": "NOVA 650W White Non Modular Power Supply Unit (PSU)",
+    "slug": "nova-650w-white-non-modular-power-supply-unit-psu",
+    "sku": "AZTECH N650NM",
+    "category": "Power Supply Unit",
+    "images": [
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/07/NOVA-WHITE-01.jpg",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/07/NOVA-WHITE-01-1.jpg",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/07/NOVA-WHITE-02.jpg"
+    ],
+    "shortDescription": "SKU: AZTECH N650NM \\n \\n• 650W Power Output \\n• White \\n• Non-modular design \\n• Larger cooling fan \\n \\n",
+    "description": "AZTECH NOVA 650W White Non-Modular is a power supply unit (PSU) designed to deliver reliable and efficient power to your computer components. Here are some key features you might find in this model \\n \\n \\n \\n \\n \\nSpecification \\nDetails \\n \\n \\n \\n \\nInput Voltage \\n180~240V AC, APFC \\n \\n \\nRated Power \\n650W \\n \\n \\nConnectors \\n20+4p*1 (500mm), 12V 4+4PIN*1 (550mm), (SATA+SATA+PATA+PATA) (550+150+150+150mm), (SATA+SATA+SATA+PATA) (550+150+150+150mm), (6+2)p+(6+2)p (450+150mm), Black flat wire \\n \\n \\nBuild & Cooling \\nHexagonal 0.6MM black shell, 12cm silent windmill fan, IO switch \\n \\n \\nPFC Type \\nActive PFC \\n \\n \\nEMI Protection \\nThree true EMI filters \\n \\n \\nPower Cord \\n1.2M input power cord \\n \\n \\nPackaging \\nColor box \\n \\n \\n \\n",
+    "specs": [
+      {
+        "key": "Input Voltage",
+        "value": "180~240V AC, APFC"
+      },
+      {
+        "key": "Rated Power",
+        "value": "650W"
+      },
+      {
+        "key": "Connectors",
+        "value": "20+4p*1 (500mm), 12V 4+4PIN*1 (550mm), (SATA+SATA+PATA+PATA) (550+150+150+150mm), (SATA+SATA+SATA+PATA) (550+150+150+150mm), (6+2)p+(6+2)p (450+150mm), Black flat wire"
+      },
+      {
+        "key": "Build & Cooling",
+        "value": "Hexagonal 0.6MM black shell, 12cm silent windmill fan, IO switch"
+      },
+      {
+        "key": "PFC Type",
+        "value": "Active PFC"
+      },
+      {
+        "key": "EMI Protection",
+        "value": "Three true EMI filters"
+      },
+      {
+        "key": "Power Cord",
+        "value": "1.2M input power cord"
+      },
+      {
+        "key": "Packaging",
+        "value": "Color box"
+      }
+    ],
+    "downloads": [],
+    "featured": false
+  },
+  {
+    "brandSlug": "aztech",
+    "name": "NOVA 750W White Non Modular Power Supply Unit (PSU)",
+    "slug": "nova-750w-white-non-modular-power-supply-unit-psu",
+    "sku": "",
+    "category": "Gaming",
+    "images": [
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/07/NOVA-WHITE-01-2.jpg",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/07/NOVA-WHITE-01-2.jpg",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/07/NOVA-WHITE-02.jpg"
+    ],
+    "shortDescription": "SKU: AZTECH N750NM \\n \\n• 750W Power Output \\n• White \\n• Non-modular design \\n• Larger cooling fan",
+    "description": "AZTECH NOVA 750W White Non-Modular is a power supply unit (PSU) designed to deliver reliable and efficient power to your computer components. Here are some key features you might find in this model: \\n \\n \\n \\n \\nSpecification \\nDetails \\n \\n \\n \\n \\nInput Voltage \\n180~240V AC, APFC \\n \\n \\nRated Power \\n750W \\n \\n \\nConnectors \\n20+4p*1 (500mm), 12V 4+4PIN*1 (550mm), (SATA+SATA+PATA+PATA) (550+150+150+150mm), (SATA+SATA+SATA+PATA) (550+150+150+150mm), (6+2)p+(6+2)p (450+150mm), Black flat wire \\n \\n \\nBuild & Cooling \\nHexagonal 0.6MM black shell, 12cm silent windmill fan, IO switch \\n \\n \\nPFC Type \\nActive PFC \\n \\n \\nEMI Protection \\nThree true EMI filters \\n \\n \\nPower Cord \\n1.2M input power cord \\n \\n \\nPackaging \\nColor box \\n \\n \\n \\n",
+    "specs": [
+      {
+        "key": "Input Voltage",
+        "value": "180~240V AC, APFC"
+      },
+      {
+        "key": "Rated Power",
+        "value": "750W"
+      },
+      {
+        "key": "Connectors",
+        "value": "20+4p*1 (500mm), 12V 4+4PIN*1 (550mm), (SATA+SATA+PATA+PATA) (550+150+150+150mm), (SATA+SATA+SATA+PATA) (550+150+150+150mm), (6+2)p+(6+2)p (450+150mm), Black flat wire"
+      },
+      {
+        "key": "Build & Cooling",
+        "value": "Hexagonal 0.6MM black shell, 12cm silent windmill fan, IO switch"
+      },
+      {
+        "key": "PFC Type",
+        "value": "Active PFC"
+      },
+      {
+        "key": "EMI Protection",
+        "value": "Three true EMI filters"
+      },
+      {
+        "key": "Power Cord",
+        "value": "1.2M input power cord"
+      },
+      {
+        "key": "Packaging",
+        "value": "Color box"
+      }
+    ],
+    "downloads": [],
+    "featured": false
+  },
+  {
+    "brandSlug": "aztech",
+    "name": "ALPHA 1000W 80Plus Gold Fully Modular Power Supply Unit (PSU)",
+    "slug": "alpha-1000w-80plus-gold-fully-modular-power-supply-unit-psu",
+    "sku": "",
+    "category": "Gaming",
+    "images": [
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/07/ALPHA-1000W-FM-01.jpg",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/07/ALPHA-1000W-FM-01.jpg",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/07/ALPHA-1000W-FM-02.jpg"
+    ],
+    "shortDescription": "SKU: AZTECH A1000M80P \\n \\n• 1000W Power Output \\n• Gold \\n• Fully-modular design \\n• Larger cooling fan",
+    "description": "AZTECH Alpha 1000W 80Plus Gold Fully Modular Power Supply delivers up to 90% efficiency, ensuring smooth performance with minimal energy consumption. Its fully modular design allows for cable-free customization, reducing clutter and improving airflow for better cooling. Ideal for gamers and PC enthusiasts, it combines power, efficiency, and sleek design. \\n \\n \\n \\n \\n \\nSpecification \\nDetails \\n \\n \\n \\n \\nInput Voltage \\n100~240V AC, 80Plus Gold, Rated about 1000W (额定1000W) \\n \\n \\nCables \\nBlack Flat Cable \\n \\n \\nOutput Cables \\nMainboard 20+4P (Length: 600mm) \\nSATA+SATA+SATA (Length: 500+150+150mm) \\nSATA+SATA+SATA (Length: 500+150+150mm) \\nIDE+IDE+IDE+FDD (Length: 500+150+150+150mm) \\nCPU: P8 (4+4) (Length: 700mm, x2) \\nPCI-E: P (6+2)+P (6+2) (Length: 550+150mm, x2) \\nPCI-E 5.1: 12V-2X6 12+4Pin (Length: 550mm) \\n \\n \\nBuild \\nHexagonal 0.6MM black shell + 12cm silent fan + IO switch (0.6MM厚机壳+12cm静音风扇+I/O开关) \\n \\n \\nPower Features \\nActive PFC + DC TO DC, 80Plus Gold, ATX 3.1 \\n \\n \\nEMI \\nWith 2 true EMI (2个真实的EMI) \\n \\n \\nPower Cord \\n1.5M input power cord \\n \\n \\nPackaging \\nPP package, color box (彩盒) \\n \\n \\n",
+    "specs": [
+      {
+        "key": "Input Voltage",
+        "value": "100~240V AC, 80Plus Gold, Rated about 1000W (额定1000W)"
+      },
+      {
+        "key": "Cables",
+        "value": "Black Flat Cable"
+      },
+      {
+        "key": "Output Cables",
+        "value": "Mainboard 20+4P (Length: 600mm) \\nSATA+SATA+SATA (Length: 500+150+150mm) \\nSATA+SATA+SATA (Length: 500+150+150mm) \\nIDE+IDE+IDE+FDD (Length: 500+150+150+150mm) \\nCPU: P8 (4+4) (Length: 700mm, x2) \\nPCI-E: P (6+2)+P (6+2) (Length: 550+150mm, x2) \\nPCI-E 5.1: 12V-2X6 12+4Pin (Length: 550mm)"
+      },
+      {
+        "key": "Build",
+        "value": "Hexagonal 0.6MM black shell + 12cm silent fan + IO switch (0.6MM厚机壳+12cm静音风扇+I/O开关)"
+      },
+      {
+        "key": "Power Features",
+        "value": "Active PFC + DC TO DC, 80Plus Gold, ATX 3.1"
+      },
+      {
+        "key": "EMI",
+        "value": "With 2 true EMI (2个真实的EMI)"
+      },
+      {
+        "key": "Power Cord",
+        "value": "1.5M input power cord"
+      },
+      {
+        "key": "Packaging",
+        "value": "PP package, color box (彩盒)"
+      }
+    ],
+    "downloads": [],
+    "featured": false
+  },
+  {
+    "brandSlug": "aztech",
+    "name": "NOVA 850W White Fully Modular Power Supply Unit (PSU)",
+    "slug": "nova-850w-white-fully-modular-power-supply-unit-psu",
+    "sku": "AZTECH N850M",
+    "category": "Gaming",
+    "images": [
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/07/NOVA-WHITE-01-1.jpg",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/07/NOVA-WHITE-01-1.jpg",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/07/NOVA-WHITE-02.jpg"
+    ],
+    "shortDescription": "SKU: AZTECH N850M \\n \\n• 850W Power Output \\n• White \\n• Fully-modular design \\n• Larger cooling fan",
+    "description": "AZTECH NOVA 850W White Fully Modular is a power supply unit (PSU) designed to deliver reliable and efficient power to your computer components. Here are some key features you might find in this model:",
+    "specs": [],
+    "downloads": [],
+    "featured": false
+  },
+  {
+    "brandSlug": "aztech",
+    "name": "NOVA 650W 80PLUS White Non Modular Power Supply Unit (PSU)",
+    "slug": "nova-650w-80plus-white-non-modular-power-supply-unit-psu",
+    "sku": "AZTECH N650NM80P",
+    "category": "Gaming",
+    "images": [
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/07/NOVA-80PLUS-WHITE-01.jpg",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/07/NOVA-80PLUS-WHITE-01.jpg",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/07/NOVA-80PLUS-WHITE-02.jpg"
+    ],
+    "shortDescription": "SKU: AZTECH N650NM80P \\n \\n• 650W Power Output \\n• 80Plus White \\n• Non-modular design \\n• Larger cooling fan",
+    "description": "AZTECH NOVA 650W 80 Plus White Non-Modular is a power supply unit (PSU) designed to deliver reliable and efficient power to your computer components. Here are some key features you might find in this model:",
+    "specs": [],
+    "downloads": [],
+    "featured": false
+  },
+  {
+    "brandSlug": "aztech",
+    "name": "NOVA 750W 80PLUS White Non Modular Power Supply Unit (PSU)",
+    "slug": "nova-750w-80plus-white-non-modular-power-supply-unit-psu",
+    "sku": "AZTECH N750NM80P",
+    "category": "Gaming",
+    "images": [
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/07/10.jpg",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/07/1.jpg",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/07/9.jpg",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/07/11.jpg",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/07/5.jpg",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/07/3.jpg",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/07/6.jpg",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/07/8.jpg",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/07/7.jpg",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/07/4.jpg",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/07/12.jpg",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/07/13.jpg"
+    ],
+    "shortDescription": "SKU: AZTECH N750NM80P \\n \\n• 750W Power Output \\n• 80Plus White \\n• Non-modular design \\n• Larger cooling fan",
+    "description": "AZTECH NOVA 750W 80 Plus White Non-Modular is a power supply unit (PSU) designed to deliver reliable and efficient power to your computer components. Here are some key features you might find in this model:",
+    "specs": [],
+    "downloads": [],
+    "featured": false
+  },
+  {
+    "brandSlug": "aztech",
+    "name": "NOVA 850W 80PLUS White Non Modular Power Supply Unit (PSU)",
+    "slug": "nova-850w-80plus-white-non-modular-power-supply-unit-psu",
+    "sku": "AZTECH N850NM80P",
+    "category": "Gaming",
+    "images": [
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/07/NOVA-80PLUS-WHITE-01.jpg",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/07/NOVA-80PLUS-WHITE-02.jpg"
+    ],
+    "shortDescription": "SKU: AZTECH N850NM80P \\n \\n• 850W Power Output \\n• 80Plus White \\n• Non-modular design \\n• Larger cooling fan",
+    "description": "AZTECH NOVA 850W 80 Plus White Non-Modular is a power supply unit (PSU) designed to deliver reliable and efficient power to your computer components. Here are some key features you might find in this model:",
+    "specs": [],
+    "downloads": [],
+    "featured": false
+  },
+  {
+    "brandSlug": "aztech",
+    "name": "PRIME 650W 80PLUS Bronze Non Modular Power Supply Unit",
+    "slug": "prime-650w-80plus-bronze-non-modular-power-supply-unit",
+    "sku": "AZTECH P650NM",
+    "category": "Gaming",
+    "images": [
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/07/PRIME-80PLUS-NM-01.jpg",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/07/PRIME-80PLUS-NM-01.jpg",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/07/PRIME-80PLUS-NM-02.jpg",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/07/PRIME-80PLUS-NM-03.jpg"
+    ],
+    "shortDescription": "SKU: AZTECH P650NM \\n \\n• 650W Power Output \\n• 80Plus Bronze \\n• Non-modular design \\n• Larger cooling fan",
+    "description": "The AZTECH Prime Series 650W 80Plus Bronze Non-Modular Power Supply offers reliable, efficient power for high-demand systems. With a stable 650W output and 80Plus Bronze certification for up to 85% efficiency, it ensures smooth performance even under heavy loads. The non-modular design comes with fixed cables, ideal for users who prefer simplicity and don’t mind some cable management.",
+    "specs": [],
+    "downloads": [],
+    "featured": false
+  },
+  {
+    "brandSlug": "aztech",
+    "name": "PRIME 750W 80PLUS Bronze Non Modular Power Supply Unit",
+    "slug": "prime-750w-80plus-bronze-non-modular-power-supply-unit",
+    "sku": "AZTECH P750NM",
+    "category": "Gaming",
+    "images": [
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/07/PRIME-80PLUS-NM-01.jpg",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/07/PRIME-80PLUS-NM-01.jpg",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/07/PRIME-80PLUS-NM-02.jpg",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/07/PRIME-80PLUS-NM-03.jpg"
+    ],
+    "shortDescription": "SKU: AZTECH P750NM \\n \\n• 750W Power Output \\n• 80Plus Bronze \\n• Non-modular design \\n• Larger cooling fan",
+    "description": "The AZTECH Prime Series 750W 80Plus Bronze Non-Modular Power Supply offers reliable, efficient power for high-demand systems. With a stable 750W output and 80Plus Bronze certification for up to 85% efficiency, it ensures smooth performance even under heavy loads. The non-modular design comes with fixed cables, ideal for users who prefer simplicity and don’t mind some cable management.",
+    "specs": [],
+    "downloads": [],
+    "featured": false
+  },
+  {
+    "brandSlug": "aztech",
+    "name": "PRIME 850W 80PLUS Bronze Non Modular Power Supply Unit",
+    "slug": "prime-850w-80plus-bronze-non-modular-power-supply-unit",
+    "sku": "AZTECH P850NM",
+    "category": "Gaming",
+    "images": [
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/07/PRIME-80PLUS-NM-01.jpg",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/07/PRIME-80PLUS-NM-01.jpg",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/07/PRIME-80PLUS-NM-02.jpg",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/07/PRIME-80PLUS-NM-03.jpg"
+    ],
+    "shortDescription": "SKU: AZTECH P850NM \\n \\n• 850W Power Output \\n• 80Plus Bronze \\n• Non-modular design \\n• Larger cooling fan",
+    "description": "The AZTECH Prime Series 850W 80Plus Bronze Non-Modular Power Supply offers reliable, efficient power for high-demand systems. With a stable 850W output and 80Plus Bronze certification for up to 85% efficiency, it ensures smooth performance even under heavy loads. The non-modular design comes with fixed cables, ideal for users who prefer simplicity and don’t mind some cable management.",
+    "specs": [],
+    "downloads": [],
+    "featured": false
+  },
+  {
+    "brandSlug": "aztech",
+    "name": "PRIME 1000W 80PLUS Bronze Non Modular Power Supply Unit",
+    "slug": "prime-1000w-80plus-bronze-non-modular-power-supply-unit",
+    "sku": "AZTECH P1000NM",
+    "category": "Gaming",
+    "images": [
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/07/PRIME-80PLUS-NM-01.jpg",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/07/PRIME-80PLUS-NM-01.jpg",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/07/PRIME-80PLUS-NM-02.jpg",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/07/PRIME-80PLUS-NM-03.jpg"
+    ],
+    "shortDescription": "SKU: AZTECH P1000NM \\n \\n• 1000W Power Output \\n• 80Plus Bronze \\n• Non-modular design \\n• Larger cooling fan",
+    "description": "The AZTECH Prime Series 1000W 80Plus Bronze Non-Modular Power Supply offers reliable, efficient power for high-demand systems. With a stable 1000W output and 80Plus Bronze certification for up to 85% efficiency, it ensures smooth performance even under heavy loads. The non-modular design comes with fixed cables, ideal for users who prefer simplicity and don’t mind some cable management.",
+    "specs": [],
+    "downloads": [],
+    "featured": false
+  },
+  {
+    "brandSlug": "aztech",
+    "name": "PRIME 650W 80PLUS Bronze Fully Modular Power Supply Unit",
+    "slug": "prime-650w-80plus-bronze-fully-modular-power-supply-unit",
+    "sku": "AZTECH P650M80P",
+    "category": "Gaming",
+    "images": [
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/07/PRIME-80PLUS-FM-01.jpg",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/07/PRIME-80PLUS-FM-01.jpg",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/07/PRIME-80PLUS-FM-02.jpg"
+    ],
+    "shortDescription": "SKU: AZTECH P650M80P \\n \\n• 650W Power Output \\n• 80Plus Bronze \\n• Fully-modular design \\n• Larger cooling fan",
+    "description": "The AZTECH Prime Series 650W 80Plus Bronze Fully Modular Power Supply is perfect for high-end gaming PCs and powerful workstations. With a 650W capacity and 80Plus Bronze certification, it offers up to 85% energy efficiency, reducing energy costs and keeping your system cool. The fully modular design minimizes cable clutter, improving airflow for a cleaner, more organized build.",
+    "specs": [],
+    "downloads": [],
+    "featured": false
+  },
+  {
+    "brandSlug": "aztech",
+    "name": "PRIME 750W 80PLUS Bronze Fully Modular Power Supply Unit",
+    "slug": "prime-750w-80plus-bronze-fully-modular-power-supply-unit",
+    "sku": "AZTECH P750M80P",
+    "category": "Gaming",
+    "images": [
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/07/PRIME-80PLUS-FM-01.jpg",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/07/PRIME-80PLUS-FM-01.jpg",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/07/PRIME-80PLUS-FM-02.jpg"
+    ],
+    "shortDescription": "SKU: AZTECH P750M80P \\n \\n• 750W Power Output \\n• 80Plus Bronze \\n• Fully-modular design \\n• Larger cooling fan",
+    "description": "The AZTECH Prime Series 750W 80Plus Bronze Fully Modular Power Supply is perfect for high-end gaming PCs and powerful workstations. With a 750W capacity and 80Plus Bronze certification, it offers up to 85% energy efficiency, reducing energy costs and keeping your system cool. The fully modular design minimizes cable clutter, improving airflow for a cleaner, more organized build.",
+    "specs": [],
+    "downloads": [],
+    "featured": false
+  },
+  {
+    "brandSlug": "aztech",
+    "name": "PRIME 850W 80PLUS Bronze Fully Modular Power Supply Unit",
+    "slug": "prime-850w-80plus-bronze-fully-modular-power-supply-unit",
+    "sku": "AZTECH P850M80P",
+    "category": "Gaming",
+    "images": [
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/07/PRIME-80PLUS-FM-01.jpg",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/07/PRIME-80PLUS-FM-01.jpg",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/07/PRIME-80PLUS-FM-02.jpg"
+    ],
+    "shortDescription": "SKU: AZTECH P850M80P \\n \\n• 850W Power Output \\n• 80Plus Bronze \\n• Fully-modular design \\n• Larger cooling fan",
+    "description": "The AZTECH Prime Series 850W 80Plus Bronze Fully Modular Power Supply is perfect for high-end gaming PCs and powerful workstations. With a 850W capacity and 80Plus Bronze certification, it offers up to 85% energy efficiency, reducing energy costs and keeping your system cool. The fully modular design minimizes cable clutter, improving airflow for a cleaner, more organized build.",
+    "specs": [],
+    "downloads": [],
+    "featured": false
+  },
+  {
+    "brandSlug": "aztech",
+    "name": "PRIME 1000W 80PLUS Bronze Fully Modular Power Supply Unit",
+    "slug": "prime-1000w-80plus-bronze-fully-modular-power-supply-unit",
+    "sku": "AZTECH P1000M80P",
+    "category": "Gaming",
+    "images": [
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/07/PRIME-80PLUS-FM-01.jpg",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/07/PRIME-80PLUS-FM-01.jpg",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/07/PRIME-80PLUS-FM-02.jpg"
+    ],
+    "shortDescription": "SKU: AZTECH P1000M80P \\n \\n• 1000W Power Output \\n• 80Plus Bronze \\n• Fully-modular design \\n• Larger cooling fan",
+    "description": "The AZTECH Prime Series 1000W 80Plus Bronze Fully Modular Power Supply is perfect for high-end gaming PCs and powerful workstations. With a 1000W capacity and 80Plus Bronze certification, it offers up to 85% energy efficiency, reducing energy costs and keeping your system cool. The fully modular design minimizes cable clutter, improving airflow for a cleaner, more organized build.",
+    "specs": [],
+    "downloads": [],
+    "featured": false
+  },
+  {
+    "brandSlug": "aztech",
+    "name": "PRIME 1050W 80PLUS Bronze Fully Modular Power Supply Unit",
+    "slug": "prime-1050w-80plus-bronze-fully-modular-power-supply-unit",
+    "sku": "AZTECH P1050M80P",
+    "category": "Gaming",
+    "images": [
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/07/PRIME-80PLUS-FM-01.jpg",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/07/PRIME-80PLUS-FM-01.jpg",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/07/PRIME-80PLUS-FM-02.jpg"
+    ],
+    "shortDescription": "SKU: AZTECH P1050M80P \\n \\n• 1050W Power Output \\n• 80Plus Bronze \\n• Fully-modular design \\n• Larger cooling fan",
+    "description": "The AZTECH Prime Series 1050W 80Plus Bronze Fully Modular Power Supply is perfect for high-end gaming PCs and powerful workstations. With a 1050W capacity and 80Plus Bronze certification, it offers up to 85% energy efficiency, reducing energy costs and keeping your system cool. The fully modular design minimizes cable clutter, improving airflow for a cleaner, more organized build.",
+    "specs": [],
+    "downloads": [],
+    "featured": false
+  },
+  {
+    "brandSlug": "aztech",
+    "name": "ALPHA 650W 80PLUS Gold Fully Modular Power Supply Unit",
+    "slug": "alpha-650w-80plus-gold-fully-modular-power-supply-unit",
+    "sku": "AZTECH A650M80P",
+    "category": "Gaming",
+    "images": [
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/07/ALPHA-1000W-FM-01-1.jpg",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/07/ALPHA-1000W-FM-02-1.jpg"
+    ],
+    "shortDescription": "SKU: AZTECH A650M80P \\n \\n• 650W Power Output \\n• 80Plus Gold \\n• Fully-modular design \\n• Larger cooling fan",
+    "description": "The AZTECH Alpha 650W 80Plus Gold Fully Modular Power Supply delivers up to 90% efficiency, ensuring smooth performance with minimal energy consumption. Its fully modular design allows for cable-free customization, reducing clutter and improving airflow for better cooling. Ideal for gamers and PC enthusiasts, it combines power, efficiency, and sleek design.",
+    "specs": [],
+    "downloads": [],
+    "featured": false
+  },
+  {
+    "brandSlug": "aztech",
+    "name": "ALPHA 750W 80PLUS Gold Fully Modular Power Supply Unit",
+    "slug": "alpha-750w-80plus-gold-fully-modular-power-supply-unit",
+    "sku": "AZTECH A750M80P",
+    "category": "Gaming",
+    "images": [
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/07/ALPHA-1000W-FM-01-1.jpg",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/07/ALPHA-1000W-FM-01-1.jpg",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/07/ALPHA-1000W-FM-02-1.jpg"
+    ],
+    "shortDescription": "SKU: AZTECH A750M80P \\n \\n• 750W Power Output \\n• 80Plus Gold \\n• Fully-modular design \\n• Larger cooling fan",
+    "description": "The AZTECH Alpha 750W 80Plus Gold Fully Modular Power Supply delivers up to 90% efficiency, ensuring smooth performance with minimal energy consumption. Its fully modular design allows for cable-free customization, reducing clutter and improving airflow for better cooling. Ideal for gamers and PC enthusiasts, it combines power, efficiency, and sleek design.",
+    "specs": [],
+    "downloads": [],
+    "featured": false
+  },
+  {
+    "brandSlug": "aztech",
+    "name": "ALPHA 850W 80PLUS Gold Fully Modular Power Supply Unit",
+    "slug": "alpha-850w-80plus-gold-fully-modular-power-supply-unit",
+    "sku": "AZTECH A850M80P",
+    "category": "Gaming",
+    "images": [
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/07/ALPHA-1000W-FM-01-1.jpg",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/07/ALPHA-1000W-FM-01-1.jpg",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/07/ALPHA-1000W-FM-02-1.jpg"
+    ],
+    "shortDescription": "SKU: AZTECH A850M80P \\n \\n• 850W Power Output \\n• 80Plus Gold \\n• Fully-modular design \\n• Larger cooling fan",
+    "description": "The AZTECH Alpha 850W 80Plus Gold Fully Modular Power Supply delivers up to 90% efficiency, ensuring smooth performance with minimal energy consumption. Its fully modular design allows for cable-free customization, reducing clutter and improving airflow for better cooling. Ideal for gamers and PC enthusiasts, it combines power, efficiency, and sleek design.",
+    "specs": [],
+    "downloads": [],
+    "featured": false
+  },
+  {
+    "brandSlug": "aztech",
+    "name": "ALPHA 1050W 80PLUS Gold Fully Modular Power Supply Unit",
+    "slug": "alpha-1050w-80plus-gold-fully-modular-power-supply-unit",
+    "sku": "AZTECH A1050M80P",
+    "category": "Gaming",
+    "images": [
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/07/ALPHA-1000W-FM-01-1.jpg",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/07/ALPHA-1000W-FM-01-1.jpg",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/07/ALPHA-1000W-FM-02-1.jpg"
+    ],
+    "shortDescription": "SKU: AZTECH A1050M80P \\n \\n• 1050W Power Output \\n• 80Plus Gold \\n• Fully-modular design \\n• Larger cooling fan",
+    "description": "The AZTECH Alpha 1050W 80Plus Gold Fully Modular Power Supply delivers up to 90% efficiency, ensuring smooth performance with minimal energy consumption. Its fully modular design allows for cable-free customization, reducing clutter and improving airflow for better cooling. Ideal for gamers and PC enthusiasts, it combines power, efficiency, and sleek design.",
+    "specs": [],
+    "downloads": [],
+    "featured": false
+  },
+  {
+    "brandSlug": "aztech",
+    "name": "OMEGA 1050W 80PLUS Platinum Fully Modular Power Supply Unit (PSU)",
+    "slug": "omega-1050w-80plus-platinum-fully-modular-power-supply-unit-psu",
+    "sku": "AZTECH O1050M80P",
+    "category": "Gaming",
+    "images": [
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/07/Artboard-11-1.jpg",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/07/Artboard-16.jpg"
+    ],
+    "shortDescription": "SKU: AZTECH O1050M80P \\n \\n• 1050W Power Output \\n• 80Plus Platinum \\n• Fully-modular design \\n• Larger cooling fan",
+    "description": "\\n \\n \\n \\n \\n \\n \\n \\n \\nAZTECH Omega 1000W 80Plus Platinum Fully Modular Power Supply Unit (PSU) is a high-performance, ultra-efficient power solution designed for gamers, content creators, and power users who demand the best. With a robust 1000W power output and 80Plus Platinum certification, this PSU offers superior energy efficiency, stable power delivery, and enhanced durability, making it the perfect choice for high-end gaming rigs, workstations, and custom builds. Featuring a fully modular design, the AZTECH Omega PSU ensures a clean, organized setup and optimal airflow for your system. \\n \\n \\n \\n \\n \\n \\n \\n \\n \\n \\n",
+    "specs": [],
+    "downloads": [],
+    "featured": false
+  },
+  {
+    "brandSlug": "aztech",
+    "name": "OMEGA 1200W 80PLUS Platinum Fully Modular Power Supply Unit (PSU)",
+    "slug": "omega-1200w-80plus-platinum-fully-modular-power-supply-unit-psu",
+    "sku": "AZTECH O1200M80P",
+    "category": "Gaming",
+    "images": [
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/07/Artboard-11-1.jpg",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/07/Artboard-16.jpg"
+    ],
+    "shortDescription": "SKU: AZTECH O1200M80P \\n \\n• 1200W Power Output \\n• 80Plus Platinum \\n• Fully-modular design \\n• Larger cooling fan",
+    "description": "AZTECH Omega 1200W 80Plus Platinum Fully Modular Power Supply Unit (PSU) is a high-performance, ultra-efficient power solution designed for gamers, content creators, and power users who demand the best. With a robust 1200W power output and 80Plus Platinum certification, this PSU offers superior energy efficiency, stable power delivery, and enhanced durability, making it the perfect choice for high-end gaming rigs, workstations, and custom builds. Featuring a fully modular design, the AZTECH Omega PSU ensures a clean, organized setup and optimal airflow for your system.",
+    "specs": [],
+    "downloads": [],
+    "featured": false
+  },
+  {
+    "brandSlug": "aztech",
+    "name": "OMEGA 1250W 80PLUS Platinum Fully Modular Power Supply Unit (PSU)",
+    "slug": "omega-1250w-80plus-platinum-fully-modular-power-supply-unit-psu",
+    "sku": "AZTECH O1250M80P",
+    "category": "Gaming",
+    "images": [
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/07/Artboard-11-1.jpg",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/07/Artboard-16.jpg"
+    ],
+    "shortDescription": "SKU: AZTECH O1250M80P \\n \\n• 1250W Power Output \\n• 80Plus Platinum \\n• Fully-modular design \\n• Larger cooling fan",
+    "description": "AZTECH Omega 1250W 80Plus Platinum Fully Modular Power Supply Unit (PSU) is a high-performance, ultra-efficient power solution designed for gamers, content creators, and power users who demand the best. With a robust 1250W power output and 80Plus Platinum certification, this PSU offers superior energy efficiency, stable power delivery, and enhanced durability, making it the perfect choice for high-end gaming rigs, workstations, and custom builds. Featuring a fully modular design, the AZTECH Omega PSU ensures a clean, organized setup and optimal airflow for your system.",
+    "specs": [],
+    "downloads": [],
+    "featured": false
+  },
+  {
+    "brandSlug": "aerocool",
+    "name": "Aerocool Case Beam-G-BK-v2 - ATX",
+    "slug": "aerocool-case-beam-g-bk-v2-atx",
+    "sku": "",
+    "category": "Gaming",
+    "images": [
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/09/Beam-Product-Photo-Gallery-1042x589-FRGB-04.png",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/09/Beam-Product-Photo-Gallery-1042x589-FRGB-02.png",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/09/Beam-Product-Photo-Gallery-1042x589-FRGB-11.png",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/09/Beam-Product-Photo-Gallery-1042x589-FRGB-10.png",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/09/Beam-Product-Photo-Gallery-1042x589-FRGB-12.png",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/09/Beam-Product-Photo-Gallery-1042x589-FRGB-14.png",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/09/Beam-Product-Photo-Gallery-1042x589-FRGB-13.png",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/09/Beam-Product-Photo-Gallery-1042x589-FRGB-05.png",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/09/Beam-Product-Photo-Gallery-1042x589-FRGB-06.png",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/09/Beam-Product-Photo-Gallery-1042x589-FRGB-07.png",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/09/Beam-Product-Photo-Gallery-1042x589-FRGB-08.png",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/09/Beam-Product-Photo-Gallery-1042x589-FRGB-09.png"
+    ],
+    "shortDescription": "Front panel with air vents delivers superior air flow and ventilation while allowing for viewing of your front LED fans\nFull tempered glass side panel showcases the inside of your rig\nTwo additional vertical expansion slots allow for vertical graphics card installation\nFan mounts on the PSU shroud support up to two 12cm fans for improved VGA cooling\nSupports liquid cooling in the front, top, and rear of the case\nSupports CPU cooler up to 160mm\nSupports high-end graphics cards up to 343mm (without front radiator)",
+    "description": "Overview \\nDesigned with ventilation in mind, this high-performance mid tower case delivers superior air flow while allowing for viewing of your front LED fans. Full tempered glass side panel showcases the inside of your rig. Comes with two additional vertical expansion slots, allowing for vertical graphics card installation. \\n \\nEXPANSION SLOTS FOR VERTICAL GRAPHICS CARD INSTALLATION \\nComes with two additional vertical expansion slots, allowing you to install your graphics card at a vertical position. \\n \\n \\nIMPROVED AIR VENTILATION \\nStylish front panel design with built-in air vents delivers increased air flow and ventilation while allowing for viewing of your front LED fans. \\n \\nFULL TEMPERED GLASS SIDE PANEL \\nComes equipped with a full tempered glass side panel to showcase the inside of your rig and put your components on display. \\n \\nCOOLING FOR YOUR GRAPHICS CARD \\nFan mounts on the PSU shroud support graphics card cooling : \\n2 x 120mm fans for superior VGA cooling. \\n \\n \\n \\n \\n \\n \\nAIR COOLING \\nSupports air cooling in the front, top, and rear of the case to enhance cooling performance. \\n \\n Front: 120mm x 3 or 140mm x 3 (Max.) \\n Top: 120mm x 2 or 140mm x 2 (Max.) \\n Rear: 120mm x 1 (Max.) \\n PSU Shroud: 120mm x 2 (Max.) \\n \\n \\n \\n \\n \\n \\n \\n \\n \\n \\n \\nLIQUID COOLING \\nSupports liquid cooling in the front, top, and rear of the case for maximum efficiency cooling. \\n \\n Top: 120/240/280mm Radiator (Optional) \\n(Fan + Radiator thickness <53mm) \\n Rear: 120mm Radiator (Optional) \\n \\n \\n \\n \\n \\n \\n \\n \\n \\n \\n \\n \\n \\nDUAL CHAMBER DESIGN \\nBuilt with a dual chamber design to direct heat away from the main chamber for more effective all-around cooling. \\n \\n \\n \\n \\n \\nBUILT FOR HIGH PERFORMANCE \\n \\n Supports ATX, Micro-ATX, and Mini-ITX motherboards \\n Supports CPU coolers up to 160mm \\n Supports high-end graphics cards up to 343mm (without front radiator) \\n \\n \\n \\n \\n \\n \\n \\n \\n \\n \\n \\n \\n \\n \\n \\n \\nCONVENIENT ACCESS TO YOUR MEDIA \\nQuick and easy access to USB 3.0 x 1, USB 2.0 x 2, HD audio and mic ports, and power & reset button. \\n \\n \\n \\n \\n \\n \\n \\n \\n \\n \\n \\n \\n \\n \\n \\n \\n \\n \\n \\n \\nSTORAGE CAPABILITY \\nSupports up to 2 x 3.5” HDDs (2 x 3.5”/2.5″) and 4 x 2.5” SSDs (2 x 2.5” and 2 x 2.5”/3.5”). \\n \\n \\n \\n \\n \\n \\n \\n \\nEASY MAINTENANCE \\nRemovable dust filters for convenient cleaning and maintenance. \\n \\n \\n \\n \\n \\n \\n \\n \\n \\n \\n",
+    "specs": [],
+    "downloads": [],
+    "featured": false
+  },
+  {
+    "brandSlug": "aerocool",
+    "name": "Aerocool Case Designer-G-BK-V2 -ARGB 4 / ATX / Micro / Mini ATX",
+    "slug": "aerocool-case-designer-g-bk-v2-argb-4-atx-micro-mini-atx",
+    "sku": "",
+    "category": "Gaming",
+    "images": [
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/10/Designer-V2-Product-Gallery-4.webp",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/10/Designer-V1-Product-Gallery-2.webp",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/10/Designer-V1-Product-Gallery-5.webp",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/10/Designer-V1-Product-Gallery-6.webp",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/10/Designer-V2-Product-Gallery-1.webp",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/10/Designer-V2-Product-Gallery-3.webp"
+    ],
+    "shortDescription": "Modern Design – Sleek mesh front panel design with vibrant RGB fan lighting and all-black color coating for an eye-catching appearance.\nOptimal thermal solution – Supports up to 8 fans including four pre-installed FRGB or ARGB fans, front and rear radiator support, and full mesh front bezel design to maximize heat dissipation.\nFits the best – Supports up to 345mm GPU, 360mm liquid cooler, and 158mm CPU cooler.\nCrystal-clear tempered glass side panel to showcase interior setup.\nClean look, and easy installation & maintenance with sliding tempered glass panel mechanism.",
+    "description": "Overview \\nDesigner is a versatile and minimalist mid tower case for PC enthusiasts, supporting ATX, micro ATX, and mini-ITX motherboards, making it suitable for a wide range of builds. It is equipped with advanced cooling options, including four pre-installed RGB fans and 360mm liquid cooling support, ensuring efficient heat management. With its high GPU and CPU clearance, flexible storage options, and convenient I/O ports, Designer offers a perfect blend of functionality, ease of assembly, and modern aesthetics. \\n \\n \\n \\n \\n \\n \\nModern Aesthetics \\nDesigner ensures your setup stands out with a ventilated, full mesh front panel, vibrant RGB fan lighting, and an all-black color coating. This eye-catching appearance not only enhances the look of your space but also complements any interior design. \\n \\nCool and Controlled \\nElevate your system’s cooling with our enhanced thermal solution. Supporting up to eight fans, including four pre-installed RGB fans, and featuring both front and rear radiator support plus a ventilated front panel, our design focuses on heat dissipation to keep your system running smoothly. \\nTransparent Brilliance \\nShow off your system’s internals with our crystal-clear tempered glass side panel. This sleek feature allows you to display your setup in all its glory, making it a centerpiece of your gaming station. \\n \\n \\n \\n \\n \\n \\n \\nEffortless Upkeep \\nMaintain a clean system effortlessly with our included dust filters. Magnetic filters on the top and easily removable filters at the bottom make cleaning a breeze, ensuring your system remains pristine and performing at its peak. \\nWide Compatibility \\nOur chassis fits the best and supports the biggest. Accommodate up to 345mm GPUs, 360mm liquid coolers, and 158mm CPU coolers, ensuring your build is only limited by your imagination, not your case. \\n \\n \\n \\n \\n \\n \\n \\nOrganized Elegance \\nAchieve a neat and organized setup with our effective cable management system. A 24.5mm depth behind the motherboard tray and a dedicated PSU shroud allow for easy cable routing, keeping your setup tidy and visually appealing. \\nBuild Flexibility \\nEnjoy unparalleled build flexibility with motherboard compatibility that spans ATX, micro ATX, and mini-ITX. Our versatile design options cater to your specific needs, offering a foundation for a wide range of system builds. \\n \\nFeatures \\n \\n Modern Design – Sleek mesh front panel design with vibrant RGB fan lighting and all-black color coating for an eye-catching appearance. \\n Optimal thermal solution – Supports up to 8 fans including four pre-installed FRGB or ARGB fans, front and rear radiator support, and full mesh front bezel design to maximize heat dissipation. \\n Fits the best – Supports up to 345mm GPU, 360mm liquid cooler, and 158mm CPU cooler. \\n Crystal-clear tempered glass side panel to showcase interior setup. \\n Clean look, and easy installation & maintenance with sliding tempered glass panel mechanism. \\n Clean System Maintenance – Dust filters included on the top (magnetic) and the bottom for easy cleaning. \\n Motherboard Compatibility – Fits ATX, micro ATX, and mini-ITX, offering versatile build options. \\n Effective Cable Management – 24.5 mm depth and PSU shroud for easier for neat and efficient cable organization. \\n Storage Flexibility – Max. 3.5”x2 & 2.5”x2 or max 2.5”x4 drive bays for flexible storage solutions. \\n Convenient I/O Ports – Equipped with USB3.0, USB2.0, and HD Audio & Mic for easy peripheral connectivity. \\n \\n \\n \\n \\n \\n \\n \\n \\n \\n \\n \\n \\n \\n \\n \\n \\n \\n \\n \\n \\n \\n \\n \\n",
+    "specs": [],
+    "downloads": [],
+    "featured": false
+  },
+  {
+    "brandSlug": "aerocool",
+    "name": "Aerocool Case  B507F-G ARGB 4 / ATX / Micro / Mini ATX - TYPE C",
+    "slug": "aerocool-case-b507f-g-argb-4-atx-micro-mini-atx-type-c",
+    "sku": "",
+    "category": "Gaming",
+    "images": [
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/10/Screenshot-2025-10-06-223048.webp"
+    ],
+    "shortDescription": "Panoramic Glass Panels: Enjoy a stunning wraparound view with tempered glass front and side panels.\nSuperior Cooling: Supports liquid coolers up to 360mm, 10 fan slots, and includes 4 pre-installed ARGB fans.\nOptimal Airflow: Integrated ventilation and dust cover ensure natural airflow to keep your components cool.\nDurable Build: Constructed with robust SPCC material for long-lasting durability.\nVersatile Compatibility: Supports ATX, Micro ATX, and Mini-ITX motherboards.\nEasy Maintenance: Dust filters and spacious design make maintenance a breeze.",
+    "description": "Overview \\nThe Aerocool B507F-G ARGB is a premium mid-tower gaming case designed to deliver stunning aesthetics and top-tier functionality. Engineered for gamers and PC builders who demand both performance and flair, this case comes equipped with four dazzling ARGB fans pre-installed — providing brilliant illumination and efficient cooling right out of the box. \\n \\nKey Features: \\n \\n \\n4 Pre-installed ARGB Fans: Enjoy customizable lighting effects with addressable RGB support, controllable via the RGB button or compatible motherboard software. \\n \\n \\nHigh-Speed Type-C Port: Features a USB 3.1 Type-C port for ultra-fast data transfer and next-generation device connectivity. \\n \\n \\nOptimized Airflow Design: Front mesh panel ensures superior ventilation, keeping your system cool under heavy loads. \\n \\n \\nMulti-Form Factor Support: Compatible with ATX, Micro-ATX, and Mini-ITX motherboards — perfect for flexible PC builds. \\n \\n \\nTempered Glass Side Panel: Showcase your powerful components and lighting setup with a clear, durable glass window. \\n \\n \\nAmple Hardware Support: Fits large GPUs, multiple storage drives, and high-performance cooling systems with ease. \\n \\n \\nCable Management Ready: Clean internal layout with smart routing channels for a professional build appearance. \\n \\n \\nSpecifications: \\n \\n \\nMotherboard Support: ATX / Micro-ATX / Mini-ITX \\n \\n \\nFront I/O Ports: USB 3.0 ×1, USB 2.0 ×2, Audio In/Out, Type-C ×1, LED Control Button \\n \\n \\nCooling Support: Up to 6 fans total (4 ARGB fans included) \\n \\n \\nRadiator Support: 240mm front / 120mm rear \\n \\n \\nSide Panel: Tempered glass \\n \\n \\nColor: Black \\n \\n \\n \\n \\n \\nWhy Choose Aerocool B507F-G? \\nThe Aerocool B507F-G isn’t just a case — it’s a statement. With superior airflow, RGB aesthetics, and modern connectivity, it’s built for gamers who want performance without compromise.",
+    "specs": [],
+    "downloads": [],
+    "featured": false
+  },
+  {
+    "brandSlug": "aerocool",
+    "name": "Aerocool Case Dryft-G-BK-v2 - ATX / Micro / Mini ITX",
+    "slug": "aerocool-case-dryft-g-bk-v2-atx-micro-mini-itx",
+    "sku": "",
+    "category": "Gaming",
+    "images": [
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/10/Drift-BK-V2Product-Gallery-4.jpg",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/10/Drift-BK-V2Product-Gallery-1.jpg",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/10/Drift-BK-V2Product-Gallery-2.jpg",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/10/Drift-BK-V2Product-Gallery-3.jpg",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/10/Drift-BK-V2Product-Gallery-5.jpg"
+    ],
+    "shortDescription": "Liquid Cooling Ready: Compatible with various liquid cooling configurations.\nPre-Installed RGB Fans: Six pre-installed fans with customizable lighting effects.\nHigh-End Component Support: Accommodates GPU up to 419mm and CPU cooler up to 162mm.\nDual Chamber Design: Improved cable management for a clean and clutter-free interior.\nStorage Options: Two SSD slots and one 3.5″ HDD drive bay.\nConvenient I/O Ports: Easy access to USB 3.0, USB 2.0, and HD audio ports.\nCompatibility: Supports ATX, Micro-ATX, and mini-ITX motherboards.",
+    "description": "Overview \\nExperience the stunning panoramic view of Dryft. The unique design allows the full tempered glass front and side panels to provide a perfectly clear view of your hardware. Designed with a focus on elegant aesthetics, customizable RGB lighting, improved cooling, and easy cable management, Dryft is the perfect choice for gamers seeking both style and functionality. \\nPanoramic Glass Panels \\n \\n \\n \\n \\n \\n \\nThe pre-installed cooling fans have been moved to the backplate so that the full tempered glass front and side panels can clearly showcase the heart of your rig. Display your high-performance components and vibrant RGB lighting in all their glory. \\nPre-Installed RGB Fans \\nExperience cooling that looks great right out of the box with Dryft. It comes equipped with a total of six pre-installed fans, including two 14cm RGB fans at the front and four 12cm RGB fans. Enjoy customizable lighting effects and multiple speed settings to suit your style. \\n \\n \\n \\n \\n \\n \\nVersatile Cooling Options \\nTake control of your system’s thermals with Dryft. It supports up to 10 fans, allowing you to optimize cooling performance. The case features air vents in the side panel, ensuring efficient airflow and circulation. The bottom panel fans provide localized cooling for your GPU. \\n \\n \\n \\n \\n \\n \\n \\n \\n \\n \\nLiquid Cooling Ready \\nFor those seeking even greater cooling potential, Dryft has you covered. It supports various liquid cooling configurations, including radiators of up to 360mm in the top and bottom, 280mm in the side, and 120mm in the rear. Keep your system running at peak performance, even during demanding tasks. \\n \\n \\n \\n \\n \\n \\n \\n \\n \\n \\n \\n \\n \\nDual Chamber Design \\nWith Dryft’s dual chamber design, cable management becomes a breeze. Enjoy improved airflow and a clean, clutter-free interior for optimal performance. The internal cable management depth of 96mm provides ample space to route and hide your cables effectively. \\nCompatibility and Expandability \\nDryft is compatible with ATX, Micro-ATX, and mini-ITX motherboards, ensuring versatility for your build. It supports CPU coolers up to 162mm in height and high-end graphics cards up to 419mm, allowing you to unleash your hardware’s full potential. \\n \\nConvenient I/O Ports \\nStay connected and easily access your peripherals with the convenient I/O ports located on the top of the case. Equipped with USB 3.0 and USB 2.0 ports, as well as HD audio, you’ll have everything you need at your fingertips. \\n \\nStorage Options \\nDon’t compromise on storage. Dryft offers two SSD slots and one 3.5″ HDD drive bay, providing ample room for your games, media, and files. \\n \\n \\n \\n \\n \\n \\n \\nEasy Maintenance \\nCleaning and maintaining your system is a breeze with Dryft’s magnetic top and bottom filters. Simply remove and clean them to keep your components dust-free and running smoothly. \\n \\n \\n \\n \\n \\n \\n \\n \\n \\n \\n \\n \\n \\n",
+    "specs": [],
+    "downloads": [],
+    "featured": false
+  },
+  {
+    "brandSlug": "aerocool",
+    "name": "Aerocool Case P500C-G-BK-v1",
+    "slug": "aerocool-case-p500c-g-bk-v1",
+    "sku": "",
+    "category": "Gaming",
+    "images": [
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/10/P500C-bk-product-gallery-1.webp",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/10/P500C-bk-product-gallery-3.webp",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/10/P500C-bk-product-gallery-2.webp",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/10/P500C-bk-product-gallery-4.webp",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/10/P500C-bk-product-gallery-5.webp"
+    ],
+    "shortDescription": "Mid-tower case featuring full tempered glass front and side panels for interior viewing.\nIncludes 3 pre-installed 12cm reverse-blade ARGB fans in the side panel and 1 pre-installed 12cm ARGB fan in the rear.\nEach included fan has special “mirage” infinity mirror lighting effect.\nSupports radiators up to 360mm in the top and bottom of case, 280mm in the side, and 120mm in the rear.\nMagnetic top and bottom filters allow for easy cleaning and maintenance.\nDual chamber design for improved cable management.\nSupports CPU cooler up to 162mm and high-end graphics cards up to 450mm.\nIncludes 3 SSD slots and 2 HDD drive bays.\nAvailable in black or white.",
+    "description": "Overview \\nThe AeroCool P500C is a mid-tower PC case featuring full tempered glass front and side panels for stunning interior views, complemented by four pre-installed ARGB fans (including three with reverse blades) with a unique “mirage” infinity mirror lighting effect. It offers versatile cooling options, supporting both air and liquid cooling configurations up to 360mm, and includes a 4-port PWM ARGB fan hub for enhanced performance. Designed for ATX, micro-ATX and mini-ITX motherboards, the P500C supports high-end graphics cards up to 450mm, CPU coolers up to 162mm, and provides ample storage with three SSD slots and two HDD drive bays, while ensuring easy maintenance with top and bottom magnetic filters. \\nCrystal-Clear Visibility \\nShow off your build in style with curved tempered glass front and side panels that provide panoramic view of your PC’s interior. \\n \\n \\n \\nOut of the Box Performance \\nEnjoy immediate performance and lighting with three 12cm reverse-blade ARGB fans in the side panel and one 12cm ARGB fan in the rear, all controlled via a 4-port PWM ARGB fan hub. \\n \\n \\n \\n \\n \\n \\n \\n \\nSide \\n120 mm x3 \\nARGB Fan Included \\n \\n \\n \\n \\n \\n \\nRear \\n120 mm x1 \\nARGB Fan Included \\nHypnotic Mirage Lighting \\nEach included fan features a mesmerizing “mirage” infinity mirror effect that adds depth and dynamic visuals to your setup. \\nSuperior Cooling Support \\nAlong with 10 total fan slots, support for radiators up to 360mm on the top and bottom, 280mm on the side, and 120mm in the rear ensures optimal thermal performance. \\n \\nEasy Maintenance Filters \\nMaintain a clean and efficient system with magnetic top and bottom filters that allow for effortless cleaning and dust prevention. \\n \\n \\n \\n \\n \\n \\n \\n \\nTidy Cable Management \\nBenefit from a dual chamber design that enhances cable management, providing a cleaner look and better airflow inside your case. \\n \\n \\n \\n \\n \\n \\n96 mm \\nCable Management Depth \\nAccommodates High-End Hardware \\nInstall high-performance components with ease, as the P500C supports CPU coolers up to 162mm and graphics cards up to 450mm in length. \\n \\n \\n \\n \\n \\n \\n \\n \\n \\n \\n \\n \\n \\n \\n",
+    "specs": [],
+    "downloads": [],
+    "featured": false
+  },
+  {
+    "brandSlug": "aerocool",
+    "name": "Aerocool Case P500C-G-WT-v1",
+    "slug": "aerocool-case-p500c-g-wt-v1",
+    "sku": "",
+    "category": "Gaming",
+    "images": [
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/10/P500C-wh-product-gallery-3.webp",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/10/P500C-wh-product-gallery-1.webp",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/10/P500C-wh-product-gallery-2.webp",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/10/P500C-wh-product-gallery-4.webp",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/10/P500C-wh-product-gallery-5.webp"
+    ],
+    "shortDescription": "Mid-tower case featuring full tempered glass front and side panels for interior viewing.\nIncludes 3 pre-installed 12cm reverse-blade ARGB fans in the side panel and 1 pre-installed 12cm ARGB fan in the rear.\nEach included fan has special “mirage” infinity mirror lighting effect.\nSupports radiators up to 360mm in the top and bottom of case, 280mm in the side, and 120mm in the rear.\nMagnetic top and bottom filters allow for easy cleaning and maintenance.\nDual chamber design for improved cable management.\nSupports CPU cooler up to 162mm and high-end graphics cards up to 450mm.\nIncludes 3 SSD slots and 2 HDD drive bays.\nAvailable in black or white.",
+    "description": "Overview \\nThe AeroCool P500C is a mid-tower PC case featuring full tempered glass front and side panels for stunning interior views, complemented by four pre-installed ARGB fans (including three with reverse blades) with a unique “mirage” infinity mirror lighting effect. It offers versatile cooling options, supporting both air and liquid cooling configurations up to 360mm, and includes a 4-port PWM ARGB fan hub for enhanced performance. Designed for ATX, micro-ATX and mini-ITX motherboards, the P500C supports high-end graphics cards up to 450mm, CPU coolers up to 162mm, and provides ample storage with three SSD slots and two HDD drive bays, while ensuring easy maintenance with top and bottom magnetic filters. \\nCrystal-Clear Visibility \\nShow off your build in style with curved tempered glass front and side panels that provide panoramic view of your PC’s interior. \\n \\n \\n \\nOut of the Box Performance \\nEnjoy immediate performance and lighting with three 12cm reverse-blade ARGB fans in the side panel and one 12cm ARGB fan in the rear, all controlled via a 4-port PWM ARGB fan hub. \\n \\n \\n \\n \\n \\n \\n \\n \\nSide \\n120 mm x3 \\nARGB Fan Included \\n \\n \\n \\n \\n \\n \\nRear \\n120 mm x1 \\nARGB Fan Included \\nHypnotic Mirage Lighting \\nEach included fan features a mesmerizing “mirage” infinity mirror effect that adds depth and dynamic visuals to your setup. \\nSuperior Cooling Support \\nAlong with 10 total fan slots, support for radiators up to 360mm on the top and bottom, 280mm on the side, and 120mm in the rear ensures optimal thermal performance. \\n \\nEasy Maintenance Filters \\nMaintain a clean and efficient system with magnetic top and bottom filters that allow for effortless cleaning and dust prevention. \\n \\n \\n \\n \\n \\n \\n \\n \\nTidy Cable Management \\nBenefit from a dual chamber design that enhances cable management, providing a cleaner look and better airflow inside your case. \\n \\n \\n \\n \\n \\n \\n96 mm \\nCable Management Depth \\nAccommodates High-End Hardware \\nInstall high-performance components with ease, as the P500C supports CPU coolers up to 162mm and graphics cards up to 450mm in length. \\n \\n \\n \\n \\n \\n \\n \\n \\n \\n \\n \\n \\n \\n \\n",
+    "specs": [],
+    "downloads": [],
+    "featured": false
+  },
+  {
+    "brandSlug": "aerocool",
+    "name": "Aerocool Powersupply Mirage Gold 850W Fully Modular",
+    "slug": "aerocool-powersupply-mirage-gold-850w-fully-modular",
+    "sku": "",
+    "category": "Gaming",
+    "images": [
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/10/Mirage-Gold-850W-Fully-Modular-Gallery-Image-5-removebg-preview.webp",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/10/Mirage-Gold-850W-Fully-Modular-Gallery-Image-3-removebg-preview.webp",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/10/Mirage-Gold-850W-Fully-Modular-Gallery-Image-2-removebg-preview.webp",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/10/Mirage-Gold-650W-Fully-Modular-Gallery-Image-removebg-preview.webp",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/10/Mirage-Gold-650W-Fully-Modular-Gallery-Image-4-removebg-preview.webp",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/10/Mirage-Gold-850W-Fully-Modular-Gallery-Image-6-removebg-preview.webp"
+    ],
+    "shortDescription": "80Plus Gold Certified for up to 90%+ efficiency\nFully modular design provides you with full control of your cables\nInfinity Mirror RGB design delivers a mesmerizing look and feel to your gaming setup\nAddressable RGB can be controlled using LED control button or compatible ARGB motherboard\nBuilt-in 105°C Japanese main capacitors provides low ripples and higher durability for PSU and all PC systems\nDC-to-DC conversion circuit for higher efficiency and tight voltage regulation even under heavy cross-loading conditions\nEquipped with 12cm high-pressure fan with optimized thermal fan speed control\nDual CPU power connectors allows for compatibility with high-end Intel and AMD Ryzen CPUs",
+    "description": "Overview \\nHigh-performance 80Plus Gold power supply with an Infinity Mirror RGB design that delivers a truly unique and mesmerizing lighting experience. Fully modular design provides you with full control of your cables, allowing for super efficient cable management and improved air flow. \\n \\nAddressable RGB can be controlled using one of two ways: RGB LED control button or Addressable RGB motherboard. The new Mirage PSU series is perfect for DIY PC builders who want a top-class power supply without breaking the bank. \\n \\n \\nUP TO 90%+ EFFICIENCY \\n80Plus Gold Certified for up to 90%+ efficiency, delivering maximum efficiency performance. \\nINFINITY MIRROR RGB DESIGN \\nFeaturing a glass mirror design with a single RGB LED strip, the Mirage Gold achieves an infinity effect with what seems like endless RGB strips to deliver a truly unique and mesmerizing lighting experience. \\nADDRESSABLE RGB COMPATIBLE \\nStylize and personalize your lighting experience with 16.8 million colors by connecting your power supply to your Addressable RGB motherboard. \\n \\nTo switch between motherboard and button control: \\n \\n Make sure PSU is connected to motherboard’s ARGB header \\n Hold button on PSU for 3 seconds \\n Control will switch from PSU to motherboard. \\n \\n \\n \\n \\n \\n \\n \\nFULL MODULAR POWER SUPPLY \\nFully modular design provides you with full control of your cables, allowing for super efficient cable management and improved air flow to achieve the best possible cooling performance. \\n \\n \\n \\n \\n \\n \\n \\n \\n \\nBUILT-IN 105°C JAPANESE CAPACITORS \\nBuilt-in 105°C Japanese capacitors provide uncompromised performance, reliability and durability even under the most demanding conditions. \\n \\nDC-TO-DC CONVERSION CIRCUIT \\nBuilt-in DC-to-DC conversion circuit for higher efficiency and tight voltage regulation even under heavy cross-loading conditions. \\n \\n \\n \\n \\n \\n \\n \\n \\n \\n \\n \\n \\n \\n \\n \\nOPTIMIZED THERMAL FAN SPEED CONTROL \\nOptimized fan speed allows for near inaudible fan noise and silent PSU operation. \\nSmart thermal fan control keeps the fan running at startup speed before reaching 60% load at 40°C ambient temperatures. \\n \\n \\nESTED FOR RELIABILITY AND PERFORMANCE \\nHaving undergone test after test under strict conditions and the highest standards of quality, the Mirage Gold ensures premium reliability, durability, and performance. \\n \\n \\n \\n \\n \\nACTIVE POWER FACTOR CORRECTION \\nBuilt-in APFC providing higher voltage stabilization and lower power consumption (Active Power Factor Correction rate > 0.9. \\n \\n \\n \\n \\n \\n \\nCONVENIENT CABLE MANAGEMENT \\nSoft, black, flat cables allow for more convenient cable management and easier installation. \\nDUAL CPU POWER CONNECTORS \\nDual CPU power connectors allows for compatibility with high-end Intel and AMD Ryzen CPUs. \\n \\n \\n \\n \\n \\n \\n \\n \\n \\n \\n \\n \\n \\n \\n \\n \\n \\n \\n \\n \\n \\n \\n \\n \\n \\n \\n \\n \\n \\n \\n \\n \\n \\n \\n \\n \\n \\n \\n \\n",
+    "specs": [],
+    "downloads": [],
+    "featured": false
+  },
+  {
+    "brandSlug": "aerocool",
+    "name": "Aerocool Powersupply LUX 750W 230V APFC",
+    "slug": "aerocool-powersupply-lux-750w-230v-apfc",
+    "sku": "",
+    "category": "Gaming",
+    "images": [
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/10/Lux-550W-Photo-Gallery-1042x589-01.webp",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/10/Lux-750W-Photo-Gallery-1042x589-09.webp",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/10/Lux-550W-Photo-Gallery-1042x589-08.webp",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/10/Lux-550W-Photo-Gallery-1042x589-07.webp",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/10/Lux-550W-Photo-Gallery-1042x589-06.webp",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/10/Lux-550W-Photo-Gallery-1042x589-05.webp",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/10/Lux-550W-Photo-Gallery-1042x589-04.webp",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/10/Lux-550W-Photo-Gallery-1042x589-03.webp",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/10/Lux-550W-Photo-Gallery-1042x589-02.webp"
+    ],
+    "shortDescription": "• 80Plus 230V EU Bronze Certified for up to 88%+ efficiency \\n• Built-in APFC (Active Power Factor Correction) rates > 0.9 \\n• OPP/OVP/UVP/SCP electrical protection included \\n• 30% Increased ventilation area in the body of the PSU allows for increased air flow \\n• Silent 12cm black fan with optimized thermal fan speed control \\n• Compatible with all Intel form factors up to ATX12V Ver.2.4 \\n• Soft, black, flat cables allow for more convenient cable management \\n \\nSpecifications are subject to change without notice. \\nProducts and models may vary depending on your region. \\nContact your local retailer for more information. \\n \\n",
+    "description": "Overview \\nFeaturing a stylish and elegant design, the LUX PSU delivers the perfect balance between power and luxury. This premium quality power supply efficiently powers your system while elevating the look and feel of your setup. \\n \\n80Plus 230V EU Bronze Certified, the LUX delivers up to 88%+ efficiency for top-notch performance. 30% Increased ventilation area in the body of the PSU allows for increased air flow and circulation \\nUP TO 88%+ EFFICIENCY \\n80Plus 230V EU Bronze Certified for high efficiency performance. \\nSTYLISH, ELEGANT DESIGN \\nFeaturing a stylish, elegant design, the LUX PSU is the perfect balance between power and luxury. \\n \\nThis power supply elevates the look and feel of your rig while delivering maximum efficiency power. \\nIMPROVED AIR VENTILATION \\n30% Increased ventilation area in the body of the PSU allows for increased air flow and circulation, preventing your system from overheating. \\n \\n \\n \\n \\n \\n \\n \\n \\n \\n \\n \\n \\n \\n \\n \\n \\n \\n \\n \\n \\nOPTIMIZED FAN RPM \\n12cm silent black fan with optimized thermal fan speed control. Fan runs at startup speed (less than 800RPM) before reaching 60% load at 25℃ ambient temperatures \\n \\nCONVENIENT CABLE MANAGEMENT \\nSoft, black, flat cables allow for more convenient cable management and easier installation. \\n",
+    "specs": [],
+    "downloads": [],
+    "featured": false
+  },
+  {
+    "brandSlug": "aerocool",
+    "name": "Aerocool Powersupply Integrator Gold 750W Fully Modular",
+    "slug": "aerocool-powersupply-integrator-gold-750w-fully-modular",
+    "sku": "",
+    "category": "Gaming",
+    "images": [
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/10/Integrator-Gold-750W-Gallery-Images-05.webp",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/10/Integrator-Gold-850W-Gallery-3.webp",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/10/Integrator-Gold-850W-Gallery-1.webp",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/10/Integrator-Gold-750W-Gallery-Images-02.webp",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/10/Integrator-Gold-750W-850W-1000W-Infographics-04.webp",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/10/Integrator-Gold-750W-850W-1000W-Infographics-3_1.webp",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/10/Integrator-Gold-750W-Gallery-Images-04.webp"
+    ],
+    "shortDescription": "Compatible with all Intel form factors up to ATX12V Ver.3.0.\n3yr - GEN 3.0 & PCIE 5.0 Supports\nAll premium Japanese branding capacitors.\n12cm silent black fan with optimized thermal fan speed control, plus 0RPM mode operation in low load.\nFully modular design allows for easy cable management and installation\nFour PCIe 6+2pin connectors for high-end graphics card.\nCertified by CE and UKCA for safe operation.\nUp to 90%+ efficiency with official 80Plus Gold certificate.",
+    "description": "Overview \\nThe most affordable 80Plus Gold power supply unit that delivers high efficiency and stable power output with minimum noise. Now with optimized fan speed curve and fully modular soft black cables for better cable management. \\n \\n \\nUP TO 92%+ EFFICIENCY \\n80Plus Gold Certified for high efficiency performance. \\nFULL MODULAR POWER SUPPLY \\nFully modular design provides you with full control of your cables, allowing for super efficient cable management and improved air flow to achieve the best possible cooling performance. \\nTESTED FOR RELIABILITY AND PERFORMANCE \\nHaving undergone test after test under strict conditions and the highest standards of quality, the INTEGRATOR GOLD ensures premium reliability, durability, and performance. \\nACTIVE POWER FACTOR CORRECTION \\nBuilt-in APFC providing higher voltage stabilization and lower power consumption (Active Power Factor Correction rate > 0.9. \\n \\n \\n \\n \\n \\nPREMIUM 105°C JAPANESE CAPACITORS \\nBuilt-in premium 105°C Japanese capacitors provide uncompromised performance, reliability and durability even under the most demanding conditions. \\n \\nDue to supply chain sourcing, premium capacitors from any of the following brands may be used: Rubycon, Nichicon, and Nippon Chemi-Con. \\n \\n \\n \\n \\n \\n \\n \\n \\n \\n \\nDC-TO-DC CONVERSION CIRCUIT \\nBuilt-in DC-to-DC conversion circuit for higher efficiency and tight voltage regulation even under heavy cross-loading conditions. \\nOPTIMIZED THERMAL FAN SPEED CONTROL \\nOptimized fan speed allows for near inaudible fan noise and silent PSU operation. \\n \\n12cm silent black fan with optimized thermal fan speed control, plus 0RPM mode operation in low load. \\n \\n \\n \\n \\n \\n \\n \\n \\n \\n \\n \\n \\n \\nCONNECTOR READY TO BE COMPATIBLE WITH HIGH END SYSTEM \\n]\\ \\n \\n \\nCABLES \\n \\n \\nFeatures: \\n \\n Single 12V rail for high current output and compatibility. \\n Long cable length provide easy accessibility to all components. \\n All DC cables equipped with soft black flat rubber for optimized airflow and easy management. \\n With OCP/OVP/UVP/OPP/OTP/SCP/SIP electrical protection. \\n Eco-friendly in accordance with RoHS and ErP 2014 directives. \\n \\n",
+    "specs": [],
+    "downloads": [],
+    "featured": false
+  },
+  {
+    "brandSlug": "aerocool",
+    "name": "Aerocool Air Cooler Cylon 4F ARGB PWM 4P - Black",
+    "slug": "aerocool-air-cooler-cylon-4f-argb-pwm-4p-black",
+    "sku": "",
+    "category": "Gaming",
+    "images": [
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/10/Cylon4F-Product-Photo-Gallery-1042x589-07.webp",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/10/Cylon4F-Product-Photo-Gallery-1042x589-02.webp",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/10/Cylon4F-Product-Photo-Gallery-1042x589-09.webp",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/10/Cylon4F-Product-Photo-Gallery-1042x589-06-1.webp",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/10/Cylon4F-Product-Photo-Gallery-1042x589-03.webp",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/10/Cylon4F-Product-Photo-Gallery-1042x589-01.webp",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/10/Cylon4F-Product-Photo-Gallery-1042x589-08.webp",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/10/Cylon4F-Product-Photo-Gallery-1042x589-05.webp",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/10/Cylon4F-Product-Photo-Gallery-1042x589-04.webp",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/10/Cylon4F-Product-Photo-Gallery-1042x589-11.webp",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/10/Cylon4F-Product-Photo-Gallery-1042x589-10.webp",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/10/Cylon4F-Product-Photo-Gallery-1042x589-12.webp"
+    ],
+    "shortDescription": "RGB LED design on the front and side of the air cooler adds a stylish flair to your rig\nComes equipped with 12cm Addressable RGB fan with translucent fan blades\nComes with built-in RGB lighting effects and compatibility with Addressable RGB motherboards or hubs\nHeat Core Touch Technology with 4 ultra-efficient thermal heat pipes\nCover on the side of the air cooler achieves a unidirectional air flow, improving heat dissipation\nUpgraded high efficiency fins for optimal thermal performance\nBlack coating on fins improves efficiency of heat dissipation\nTDP (Thermal Design Power) up to 145W",
+    "description": "Overview \\nPWM air cooling solution with stylish Addressable RGB LED on the front and side of the air cooler. Powered by Heat Core Touch Technology (HCTT) with 4 ultra-efficient thermal heat pipes. Black coating on fins increase heat dissipation area and improves efficiency of dissipation. Cover on the side of the air cooler achieves a unidirectional air flow, improving heat dissipation. \\n \\nComes equipped with 12cm Addressable RGB fan with translucent fan blades that can be controlled using Addressable RGB motherboard or LED control button. \\n \\n \\nDYNAMIC RGB LED DESIGN \\nFeaturing an RGB LED Ring on the front of the air cooler and a 12cm Addressable RGB fan with translucent fan blades, this cooler adds a stylish and dynamic effect to your rig. \\nEQUIPPED WITH 12 CM ADDRESSABLE RGB FAN \\nComes equipped with 12cm Addressable RGB fan that can be controlled using Addressable RGB motherboard or LED control button. \\n \\nTranslucent fan blades allow you to fully appreciate this fan’s beautiful RGB lighting. \\nADDRESSABLE RGB COMPATIBLE \\nAccess 16.8 million colors using compatible Addressable RGB motherboards including ASUS Aura Sync and MSI Mystic Light Sync as well as Gigabyte RGB Fusion motherboards using 3-Pin XWD connector. \\nTOP COVER FOR IMPROVED AIR FLOW \\nCover on the top of the air cooler with an RGB LED Slash design achieves a unidirectional air flow, allowing heat to dissipate more quickly and efficiently while delivering stylish flair. \\n \\n \\nHEAT CORE TOUCH TECHNOLOGY (HCTT) \\n4 Heatpipes provide a perfectly flat and smooth surface to maximize contact surface area. \\n \\nThis allows for minimal heat transfer loss while in direct contact with the CPU to increase the efficiency of heat dissipation. \\nPWM HIGH-PRESSURE FAN \\n120mm high-pressure fan provides a stronger airflow to push heat away from the aluminum fins faster. \\n \\n \\nHIGH EFFICIENCY FINS \\nUpgraded high efficiency fins for maximum thermal performance. \\n \\nBlack coating on fins allows for faster heat absorption, improving the efficiency of heat dissipation. \\nCOMPATIBILITY \\nCompatible with most current motherboard designs. \\n \\nSocket compatibility: LGA 2066/2011/115X/775 \\nAM4/AM3+/AM3/AM2+/AM2/FM2/FM1 \\nCOMES WITH PWM 4-PIN CONNECTOR \\n \\n \\n \\n \\n \\n",
+    "specs": [],
+    "downloads": [],
+    "featured": false
+  },
+  {
+    "brandSlug": "aerocool",
+    "name": "Aerocool Air Cooler Cylon 4F ARGB PWM 4P - White",
+    "slug": "aerocool-air-cooler-cylon-4f-argb-pwm-4p-white",
+    "sku": "",
+    "category": "Gaming",
+    "images": [
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/10/Cylon4F-Product-Photo-Gallery-1042x589-W-04.webp",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/10/Cylon4F-Product-Photo-Gallery-1042x589-W-02.webp",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/10/Cylon4F-Product-Photo-Gallery-1042x589-W-08.webp",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/10/Cylon4F-Product-Photo-Gallery-1042x589-W-10.webp",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/10/Cylon4F-Product-Photo-Gallery-1042x589-W-07.webp",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/10/Cylon4F-Product-Photo-Gallery-1042x589-W-03.webp",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/10/Cylon4F-Product-Photo-Gallery-1042x589-W-01.webp",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/10/Cylon4F-Product-Photo-Gallery-1042x589-W-09.webp",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/10/Cylon4F-Product-Photo-Gallery-1042x589-W-06.webp",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/10/Cylon4F-Product-Photo-Gallery-1042x589-W-05.webp"
+    ],
+    "shortDescription": "RGB LED design on the front and side of the air cooler adds a stylish flair to your rig\nComes equipped with 12cm Addressable RGB fan with translucent fan blades\nComes with built-in RGB lighting effects and compatibility with Addressable RGB motherboards or hubs\nHeat Core Touch Technology with 4 ultra-efficient thermal heat pipes\nCover on the side of the air cooler achieves a unidirectional air flow, improving heat dissipation\nUpgraded high efficiency fins for optimal thermal performance\nBlack coating on fins improves efficiency of heat dissipation\nTDP (Thermal Design Power) up to 145W",
+    "description": "Overview \\nPWM air cooling solution with stylish Addressable RGB LED on the front and side of the air cooler. Powered by Heat Core Touch Technology (HCTT) with 4 ultra-efficient thermal heat pipes. Black coating on fins increase heat dissipation area and improves efficiency of dissipation. Cover on the side of the air cooler achieves a unidirectional air flow, improving heat dissipation. \\n \\nComes equipped with 12cm Addressable RGB fan with translucent fan blades that can be controlled using Addressable RGB motherboard or LED control button. \\n \\n \\nDYNAMIC RGB LED DESIGN \\nFeaturing an RGB LED Ring on the front of the air cooler and a 12cm Addressable RGB fan with translucent fan blades, this cooler adds a stylish and dynamic effect to your rig. \\nEQUIPPED WITH 12 CM ADDRESSABLE RGB FAN \\nComes equipped with 12cm Addressable RGB fan that can be controlled using Addressable RGB motherboard or LED control button. \\n \\nTranslucent fan blades allow you to fully appreciate this fan’s beautiful RGB lighting. \\nADDRESSABLE RGB COMPATIBLE \\nAccess 16.8 million colors using compatible Addressable RGB motherboards including ASUS Aura Sync and MSI Mystic Light Sync as well as Gigabyte RGB Fusion motherboards using 3-Pin XWD connector. \\nTOP COVER FOR IMPROVED AIR FLOW \\nCover on the top of the air cooler with an RGB LED Slash design achieves a unidirectional air flow, allowing heat to dissipate more quickly and efficiently while delivering stylish flair. \\n \\n \\nHEAT CORE TOUCH TECHNOLOGY (HCTT) \\n4 Heatpipes provide a perfectly flat and smooth surface to maximize contact surface area. \\n \\nThis allows for minimal heat transfer loss while in direct contact with the CPU to increase the efficiency of heat dissipation. \\nPWM HIGH-PRESSURE FAN \\n120mm high-pressure fan provides a stronger airflow to push heat away from the aluminum fins faster. \\n \\n \\nHIGH EFFICIENCY FINS \\nUpgraded high efficiency fins for maximum thermal performance. \\n \\nBlack coating on fins allows for faster heat absorption, improving the efficiency of heat dissipation. \\nCOMPATIBILITY \\nCompatible with most current motherboard designs. \\n \\nSocket compatibility: LGA 2066/2011/115X/775 \\nAM4/AM3+/AM3/AM2+/AM2/FM2/FM1 \\nCOMES WITH PWM 4-PIN CONNECTOR \\n \\n \\n \\n \\n \\n",
+    "specs": [],
+    "downloads": [],
+    "featured": false
+  },
+  {
+    "brandSlug": "aerocool",
+    "name": "AeroCool B508A Flow-G-BK-v1",
+    "slug": "aerocool-b508a-flow-g-bk-v1",
+    "sku": "",
+    "category": "Gaming",
+    "images": [
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/10/B508A-bk-Infographics-1_1-removebg-preview.webp",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/10/B508A-bk-Infographics-3_1.avif",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/10/B508A-bk-Infographics-2_1.avif",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/10/B508A-bk-Infographics-6_1.avif",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/10/B508A-bk-Infographics-7_1.avif",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/10/B508A-bk-Infographics-5_1.avif",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/10/B508A-bk-Infographics-4_1.avif"
+    ],
+    "shortDescription": "Mid-tower case compatible with ATX, m-ATX, and mini-ITX motherboards\nStylish front panel design with air ventilation for better circulation\nAccommodates GPUs up to 340mm and CPU coolers up to 158mm\n5 total fan slots fit up to four 140mm fans for even greater cooling potential\nIncludes top (magnetic) and bottom dust filters\nTempered glass side panel to show components",
+    "description": "Overview The AeroCool B508A Flow is designed for optimal airflow and high-performance gaming setups. With support for powerful GPUs, liquid coolers, and multiple fan configurations, it keeps your system running smoothly even under heavy loads. Show off your build with a tempered glass side panel while enjoying easy maintenance with magnetic dust filters. Airflow Meets Style Designed with a sleek front panel featuring air ventilation, the B508A Flow maximizes airflow while maintaining a bold, modern look. Keep your system cool and performing at its best without compromising on aesthetics. Optimized Airflow Potential\\n Equipped with five total fan slots, including space for up to four 140mm fans, the B508A Flow ensures efficient heat dissipation. Keep your components running at peak performance with superior airflow. Liquid Cooling Excellence Support for radiators up to 280mm on the front and 120mm on the rear ensures optimal thermal performance. Room for High-Performance Hardware\\n With support for GPUs up to 340mm, liquid coolers up to 280mm, and CPU coolers up to 158mm, this case is built for powerful setups. Enjoy smooth gaming and seamless multitasking with the hardware you need. Easy Maintenance Filters\\n Keep your system clean and efficient with the magnetic top filter and removable bottom filter, designed for effortless cleaning and effective dust prevention. Showcase Your Build\\n \\nA sleek tempered glass side panel lets you display your components with pride. Highlight your RGB lighting and premium hardware with a clear, stylish view.\\n",
+    "specs": [],
+    "downloads": [],
+    "featured": false
+  },
+  {
+    "brandSlug": "aerocool",
+    "name": "AeroCool B508A Flow-G-WT-v1",
+    "slug": "aerocool-b508a-flow-g-wt-v1",
+    "sku": "",
+    "category": "Gaming",
+    "images": [
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/10/B508A-wh-Infographics-1_1-removebg-preview.webp",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/10/B508A-wh-Infographics-2_1.avif",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/10/B508A-wh-Infographics-3_1.webp",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/10/B508A-wh-Infographics-4_1.webp",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/10/B508A-wh-Infographics-5_1.webp"
+    ],
+    "shortDescription": "Mid-tower case compatible with ATX, m-ATX, and mini-ITX motherboards\nStylish front panel design with air ventilation for better circulation\nAccommodates GPUs up to 340mm and CPU coolers up to 158mm\n5 total fan slots fit up to four 140mm fans for even greater cooling potential\nIncludes top (magnetic) and bottom dust filters\nTempered glass side panel to show components",
+    "description": "Overview The AeroCool B508A Flow is designed for optimal airflow and high-performance gaming setups. With support for powerful GPUs, liquid coolers, and multiple fan configurations, it keeps your system running smoothly even under heavy loads. Show off your build with a tempered glass side panel while enjoying easy maintenance with magnetic dust filters. Airflow Meets Style Designed with a sleek front panel featuring air ventilation, the B508A Flow maximizes airflow while maintaining a bold, modern look. Keep your system cool and performing at its best without compromising on aesthetics. Optimized Airflow Potential\\n Equipped with five total fan slots, including space for up to four 140mm fans, the B508A Flow ensures efficient heat dissipation. Keep your components running at peak performance with superior airflow. Liquid Cooling Excellence Support for radiators up to 280mm on the front and 120mm on the rear ensures optimal thermal performance. Room for High-Performance Hardware\\n With support for GPUs up to 340mm, liquid coolers up to 280mm, and CPU coolers up to 158mm, this case is built for powerful setups. Enjoy smooth gaming and seamless multitasking with the hardware you need. Easy Maintenance Filters\\n Keep your system clean and efficient with the magnetic top filter and removable bottom filter, designed for effortless cleaning and effective dust prevention. Showcase Your Build\\n \\nA sleek tempered glass side panel lets you display your components with pride. Highlight your RGB lighting and premium hardware with a clear, stylish view.\\n",
+    "specs": [],
+    "downloads": [],
+    "featured": false
+  },
+  {
+    "brandSlug": "aerocool",
+    "name": "AeroCool B509A Flow-G-BK-v1",
+    "slug": "aerocool-b509a-flow-g-bk-v1",
+    "sku": "",
+    "category": "Gaming",
+    "images": [
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/10/B509A-bk-Infographics-1-removebg-preview.webp",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/10/B509A-bk-Infographics-2.avif",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/10/B509A-bk-Infographics-3.avif",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/10/B509A-bk-Infographics-4.avif",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/10/B509A-bk-Infographics-5.avif",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/10/B509A-bk-Infographics-6.avif",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/10/B509A-bk-Infographics-7.avif"
+    ],
+    "shortDescription": "Mid-tower case compatible with ATX, m-ATX, and mini-ITX motherboards\nFull mesh front panel for functional and eye-catching design\nSupports GPUs up to 340mm, CPU coolers up to 158mm, and liquid coolers up to 360mm\n8 total fan slots fit up to five 140mm fans for even greater cooling potential\nIncludes top (magnetic) and bottom dust filters\nTempered glass side panel to show components",
+    "description": "Overview The AeroCool B509A Flow is a mid-tower case that combines powerful performance with sleek, functional design. Its full mesh front panel maximizes airflow while showcasing your build, and with support for GPUs up to 340mm and liquid coolers up to 360mm, it’s ready for high-performance hardware. Equipped with eight fan slots, magnetic dust filters, and a tempered glass side panel, the B509A Flow keeps your system cool, clean, and looking sharp. Airflow Meets Style Designed with a sleek, full mesh front panel, the B509A Flow maximizes airflow while maintaining a bold, modern look. Keep your system cool and performing at its best without compromising on aesthetics. Optimized Airflow Potential\\n Equipped with eight total fan slots, including space for up to five 140mm fans, the B509A Flow ensures efficient heat dissipation. Keep your components running at peak performance with superior airflow. Liquid Cooling Excellence Support for radiators up to 360mm on the front and 120mm on the rear ensures optimal thermal performance. Room for High-Performance Hardware\\n With support for GPUs up to 340mm, liquid coolers up to 360mm, and CPU coolers up to 158mm, this case is built for powerful setups. Enjoy smooth gaming and seamless multitasking with the hardware you need. Easy Maintenance Filters\\n Keep your system clean and efficient with the magnetic top filter and removable bottom filter, designed for effortless cleaning and effective dust prevention. Showcase Your Build\\n \\nA sleek tempered glass side panel lets you display your components with pride. Highlight your RGB lighting and premium hardware with a clear, stylish view.\\n",
+    "specs": [],
+    "downloads": [],
+    "featured": false
+  },
+  {
+    "brandSlug": "aerocool",
+    "name": "AeroCool B509A Flow-G-WT-v1",
+    "slug": "aerocool-b509a-flow-g-wt-v1",
+    "sku": "",
+    "category": "Gaming",
+    "images": [
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/10/B509A-wh-Infographics-removebg-preview.webp",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/10/B509A-wh-Infographics-2.avif",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/10/B509A-wh-Infographics-3.avif",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/10/B509A-wh-Infographics-4.avif",
+      "https://products.rookie-ninja.com/wp-content/uploads/2025/10/B509A-wh-Infographics-5.avif"
+    ],
+    "shortDescription": "Mid-tower case compatible with ATX, m-ATX, and mini-ITX motherboards\nFull mesh front panel for functional and eye-catching design\nSupports GPUs up to 340mm, CPU coolers up to 158mm, and liquid coolers up to 360mm\n8 total fan slots fit up to five 140mm fans for even greater cooling potential\nIncludes top (magnetic) and bottom dust filters\nTempered glass side panel to show components",
+    "description": "Overview The AeroCool B509A Flow is a mid-tower case that combines powerful performance with sleek, functional design. Its full mesh front panel maximizes airflow while showcasing your build, and with support for GPUs up to 340mm and liquid coolers up to 360mm, it’s ready for high-performance hardware. Equipped with eight fan slots, magnetic dust filters, and a tempered glass side panel, the B509A Flow keeps your system cool, clean, and looking sharp. Airflow Meets Style Designed with a sleek, full mesh front panel, the B509A Flow maximizes airflow while maintaining a bold, modern look. Keep your system cool and performing at its best without compromising on aesthetics. Optimized Airflow Potential\\n Equipped with eight total fan slots, including space for up to five 140mm fans, the B509A Flow ensures efficient heat dissipation. Keep your components running at peak performance with superior airflow. Liquid Cooling Excellence Support for radiators up to 360mm on the front and 120mm on the rear ensures optimal thermal performance. Room for High-Performance Hardware\\n With support for GPUs up to 340mm, liquid coolers up to 360mm, and CPU coolers up to 158mm, this case is built for powerful setups. Enjoy smooth gaming and seamless multitasking with the hardware you need. Easy Maintenance Filters\\n Keep your system clean and efficient with the magnetic top filter and removable bottom filter, designed for effortless cleaning and effective dust prevention. Showcase Your Build\\n \\nA sleek tempered glass side panel lets you display your components with pride. Highlight your RGB lighting and premium hardware with a clear, stylish view.\\n",
+    "specs": [],
+    "downloads": [],
+    "featured": false
+  }
+]
