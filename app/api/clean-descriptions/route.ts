@@ -16,14 +16,15 @@ function cleanDescription(text: string) {
 }
 
 export async function POST(req: Request) {
-  const { secret, brandSlug = 'belkin' } = await req.json()
+  const { secret, brandSlug } = await req.json()
   if (secret !== process.env.ADMIN_SECRET) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
   }
 
   await connectDB()
 
-  const products = await Product.find({ brandSlug })
+  const query = brandSlug ? { brandSlug } : {}
+  const products = await Product.find(query)
   let updated = 0
 
   for (const product of products) {

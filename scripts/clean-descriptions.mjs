@@ -31,8 +31,8 @@ async function run() {
   await mongoose.connect(MONGODB_URI)
   console.log('✅ Connected to MongoDB')
 
-const products = await Product.find({ brandSlug: 'belkin' })
-console.log(`📦 Found ${products.length} Belkin products`)
+const products = await Product.find({})
+console.log(`📦 Found ${products.length} products`)
 
   let updated = 0
 
