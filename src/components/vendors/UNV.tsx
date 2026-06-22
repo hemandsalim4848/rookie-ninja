@@ -28,7 +28,7 @@ const heroSlides = [
     accentLine: 1,
     desc: 'Empower classrooms with smart collaboration, wireless sharing, and immersive interactive learning.',
     cta: { label: 'View Products', href: 'https://products.rookie-ninja.com/brand/unv/', solid: true },
-    bg: 'https://rookie-ninja.com/wp-content/uploads/2026/05/20220520_1831889_corporate_933925_521045_0.webp',
+    bg: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1782164332/20220520_1831889_corporate_933925_521045_0_ysracc.webp',
   },
   {
     id: 'collaboration',
@@ -37,7 +37,7 @@ const heroSlides = [
     accentLine: 1,
     desc: 'Transform every meeting and classroom with next-generation interactive displays designed for the modern workspace.',
     cta: { label: 'View Products', href: 'https://products.rookie-ninja.com/brand/unv/', solid: true },
-    bg: 'https://rookie-ninja.com/wp-content/uploads/2026/05/20220520_1831897_education_933929_521045_0.webp',
+    bg: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1782164332/20220520_1831897_education_933929_521045_0_dxqgre.webp',
   },
   {
     id: 'monitors',
@@ -46,7 +46,7 @@ const heroSlides = [
     accentLine: 1,
     desc: 'From color-accurate design monitors to ultra-wide productivity panels — UNV delivers clarity that powers your best work.',
     cta: { label: 'View Products', href: 'https://products.rookie-ninja.com/brand/unv/', solid: true },
-    bg: 'https://rookie-ninja.com/wp-content/uploads/2026/05/20220520_1831891_control-room_933926_521045_0.webp',
+    bg: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1782164332/20220520_1831891_control-room_933926_521045_0_pkrokg.webp',
   },
 ];
 
@@ -61,7 +61,7 @@ const ifpdCards = [
       'Multi-touch collaboration for teachers and students',
       'Wireless screen sharing and smart annotation tools',
     ],
-    image: 'https://www.unvdisplay.com/res/202207/27/20220727_1842574_1_933259_521044_0.jpg',
+    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1782164677/20220727_1842574_1_933259_521044_0_k0twf2.webp',
   },
   {
     id: 'highlights',
@@ -73,14 +73,14 @@ const ifpdCards = [
       'Master the IFPD in 1 minute with the easy & friendly UI just like Android phone.',
       'The brand-new appearance design is concise and generous.',
     ],
-    image: 'https://www.unvdisplay.com/res/202207/27/20220727_1842575_2_933260_521044_0.jpg',
+    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1782164677/20220727_1842575_2_933260_521044_0_xcnyxx.webp',
   },
 ];
 
 const featuredProducts = [
-  { id: 'mw3565', model: 'MW3565-U-E2', desc: '65 Inch Smart Interactive Display', href: 'https://products.rookie-ninja.com/product/mw3565-u-e2/', image: 'https://rookie-ninja.com/wp-content/uploads/2026/05/unv-65-scaled.webp' },
-  { id: 'mw3575', model: 'MW3575-U-E2', desc: '75 Inch Smart Interactive Display', href: 'https://products.rookie-ninja.com/product/mw3575-u-e2/', image: 'https://rookie-ninja.com/wp-content/uploads/2026/05/unv-75-scaled.webp' },
-  { id: 'mw3586', model: 'MW3586-U-E2', desc: '86 Inch Smart Interactive Display', href: 'https://products.rookie-ninja.com/product/mw3586-u-e2/', image: 'https://rookie-ninja.com/wp-content/uploads/2026/05/unv-86-scaled.webp' },
+  { id: 'mw3565', model: 'MW3565-U-E2', desc: '65 Inch Smart Interactive Display', href: 'https://products.rookie-ninja.com/product/mw3565-u-e2/', image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1782164464/unv-65-scaled_ognvqd.webp' },
+  { id: 'mw3575', model: 'MW3575-U-E2', desc: '75 Inch Smart Interactive Display', href: 'https://products.rookie-ninja.com/product/mw3575-u-e2/', image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1782164464/unv-75-scaled_sirrln.webp' },
+  { id: 'mw3586', model: 'MW3586-U-E2', desc: '86 Inch Smart Interactive Display', href: 'https://products.rookie-ninja.com/product/mw3586-u-e2/', image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1782164463/unv-86-scaled_iuohon.webp' },
 ];
 
 const confItems = [
@@ -88,48 +88,48 @@ const confItems = [
     eyebrow: 'Auto Framing',
     title: 'Intelligent tracking',
     desc: 'Built-in AI algorithms support speaker tracking, auto framing and close up group which make the meeting alive.',
-    image: 'https://www.unvdisplay.com/res/202208/19/20220819_1851014_2_941490_521044_0.jpg',
+    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1782165103/20220819_1851014_2_941490_521044_0_vcftkj.webp',
   },
   {
     eyebrow: 'Plug and Play',
     title: 'Easy-to-use',
     desc: 'The full line of UNV video conferencing devices supports USB plug and play without any driver.',
-    image: 'https://www.unvdisplay.com/res/202209/01/20220901_1854119_6_941489_521044_0.jpg',
+    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1782165102/20220901_1854119_6_941489_521044_0_plqa6z.webp',
   },
   {
     eyebrow: 'Extended Pickup',
     title: 'Unimagined pickup range',
     desc: 'The industry-leading daisy-chain technology makes our device support 5 units cascaded, so that to evenly pickup sounds all over the meeting room.',
-    image: 'https://www.unvdisplay.com/res/202208/10/20220810_1842768_5_941488_521044_0.jpg',
+    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1782165101/20220810_1842768_5_941488_521044_0_qkpgw7.webp',
   },
 ];
 
 const ledSeries = [
-  { id: 'xea',  label: 'XEA Series',    title: 'XEA Series',    desc: 'Explore the XEA Series — designed for versatile display solutions across a range of environments.',      productDesc: 'High-performance display engineered for modern spaces.',          image: 'https://www.unvdisplay.com/res/202508/07/20250807_2000951_XEA_1047277_521044_0.jpg' },
-  { id: 'u',    label: 'U Series',       title: 'U Series',       desc: 'The U Series delivers reliable, high-quality visuals for professional environments.',                      productDesc: 'Built for clarity and consistency across every application.',       image: 'https://www.unvdisplay.com/res/202508/07/20250807_2000950_us_973358_521044_0.jpg' },
-  { id: 'fe',   label: 'FE Series',      title: 'FE Series',      desc: 'The FE Series offers flexible display options tailored for a wide variety of settings.',                   productDesc: 'Flexible and feature-rich displays for demanding environments.',     image: 'https://www.unvdisplay.com/res/202307/11/20230711_1883823_3FE-FL_973359_521044_0.jpg' },
-  { id: 'rerl', label: 'RE/RL Series',   title: 'RE/RL Series',   desc: 'The RE/RL Series combines robust engineering with outstanding visual performance.',                        productDesc: 'Durable and dependable displays for any professional setting.',      image: 'https://www.unvdisplay.com/res/202408/23/20240823_1907099_02_973360_521044_0.jpg' },
-  { id: 'xa',   label: 'XA Series',      title: 'XA Series',      desc: 'The XA Series is crafted for environments that demand premium display quality.',                           productDesc: 'Premium displays built to impress in any space.',                   image: 'https://www.unvdisplay.com/res/202508/07/20250807_2000956_XA_1047279_521044_0.jpg' },
-  { id: 'kg',   label: 'KG Series',      title: 'KG Series',      desc: 'The KG Series brings innovation and precision to every display application.',                              productDesc: 'Innovative display technology for modern professional use.',         image: 'https://www.unvdisplay.com/res/202508/07/20250807_2000954_KG_1047281_521044_0.jpg' },
-  { id: 'kl2',  label: 'KL2 Series',     title: 'KL2 Series',     desc: 'The KL2 Series sets a new standard in display excellence and reliability.',                               productDesc: 'Next-generation displays delivering excellence in every detail.',    image: 'https://www.unvdisplay.com/res/202508/07/20250807_2000955_KL2_1047282_521044_0.jpg' },
+  { id: 'xea',  label: 'XEA Series',    title: 'XEA Series',    desc: 'Explore the XEA Series — designed for versatile display solutions across a range of environments.',      productDesc: 'High-performance display engineered for modern spaces.',          image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1782165238/20250807_2000951_XEA_1047277_521044_0_umwnae.webp' },
+  { id: 'u',    label: 'U Series',       title: 'U Series',       desc: 'The U Series delivers reliable, high-quality visuals for professional environments.',                      productDesc: 'Built for clarity and consistency across every application.',       image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1782165237/20250807_2000950_us_973358_521044_0_uy6baj.webp' },
+  { id: 'fe',   label: 'FE Series',      title: 'FE Series',      desc: 'The FE Series offers flexible display options tailored for a wide variety of settings.',                   productDesc: 'Flexible and feature-rich displays for demanding environments.',     image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1782165236/20230711_1883823_3FE-FL_973359_521044_0_brrs7x.webp' },
+  { id: 'rerl', label: 'RE/RL Series',   title: 'RE/RL Series',   desc: 'The RE/RL Series combines robust engineering with outstanding visual performance.',                        productDesc: 'Durable and dependable displays for any professional setting.',      image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1782165236/20240823_1907099_02_973360_521044_0_wzvdik.webp' },
+  { id: 'xa',   label: 'XA Series',      title: 'XA Series',      desc: 'The XA Series is crafted for environments that demand premium display quality.',                           productDesc: 'Premium displays built to impress in any space.',                   image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1782165235/20250807_2000956_XA_1047279_521044_0_uf8xhk.webp' },
+  { id: 'kg',   label: 'KG Series',      title: 'KG Series',      desc: 'The KG Series brings innovation and precision to every display application.',                              productDesc: 'Innovative display technology for modern professional use.',         image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1782165234/20250807_2000954_KG_1047281_521044_0_vns5zj.webp' },
+  { id: 'kl2',  label: 'KL2 Series',     title: 'KL2 Series',     desc: 'The KL2 Series sets a new standard in display excellence and reliability.',                               productDesc: 'Next-generation displays delivering excellence in every detail.',    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1782165234/20250807_2000955_KL2_1047282_521044_0_lryfx5.webp' },
 ];
 
 const lcdItems = [
-  { num: '01', label: 'Immersive visual experience',    tag: 'Immersive visual experience', title: 'Premium option for various business needs',               desc: 'UNV LCD video wall are widely used in industries and business scenarios from shopping malls to meeting rooms, control rooms and more. The seamless design delivers accurate content and provides immersive viewing experience.', imgs: [{ src: 'https://www.unvdisplay.com/res/202205/06/20220506_1831156_2-1_933218_521044_0.jpg', cap: 'Meeting Room' }, { src: 'https://www.unvdisplay.com/res/202205/06/20220506_1831158_2-2_933218_521044_0.jpg', cap: 'Supermarket' }, { src: 'https://www.unvdisplay.com/res/202205/06/20220506_1831159_2-3_933218_521044_0.jpg', cap: 'Lecture Hall' }] },
-  { num: '02', label: 'Brilliant content from any angle', tag: 'Viewing angle',             title: 'Brilliant content from any angle',                        desc: 'BOE ADS panel technology enables better control of liquid crystals, which in turn allows the screen to be viewed from virtually any angle. Audiences can get clear details and vivid colors regardless of where the screen is located.', imgs: [{ src: 'https://www.unvdisplay.com/res/202205/06/20220506_1831164_4-1_933220_521044_0.jpg', cap: '' }] },
-  { num: '03', label: 'Vivid image for all time',        tag: 'Anti-glare panel',           title: 'Vivid image for all time',                                desc: 'Anti-glare LCD panel is used to reduce the intensity of reflected light, improve light transmittance and contrast. Under any indoor conditions and any time in a day, it can maintain excellent display effect.', imgs: [{ src: 'https://www.unvdisplay.com/res/202205/06/20220506_1831184_5-1_933221_521044_0.jpg', cap: '' }] },
-  { num: '04', label: 'Enhanced image performance',      tag: 'Picture enhancement',        title: 'Enhanced image performance',                              desc: 'Our advanced picture enhancement technology ensures all content are clearly delivered. The image enhance mode improves color saturation and contrast, lightens the dark images, while not missing any details.', imgs: [{ src: 'https://www.unvdisplay.com/res/202205/06/20220506_1831185_6-1_933222_521044_0.jpg', cap: '' }] },
-  { num: '05', label: 'Support eye protection mode',     tag: 'Blue light reduction',       title: 'Support eye protection mode',                             desc: 'UNV LCD video wall supports eye protection mode, which adjusts the color temperature through a specific algorithm to reduce the blue light emitted by the screen to achieve the effect of eye protection.', imgs: [{ src: 'https://www.unvdisplay.com/res/202205/06/20220506_1831169_7-1_933223_521044_0.jpg', cap: '' }] },
-  { num: '06', label: 'Simplified operation',            tag: 'Daisy chain HDMI',           title: 'Advanced presentation, simplified operation',             desc: 'Daisy chain design through HDMI ports enables the display to present content on multiple screens without an external video processor.', imgs: [{ src: 'https://www.unvdisplay.com/res/202205/06/20220506_1831170_8-1_933224_521044_0.jpg', cap: '' }] },
-  { num: '07', label: 'Digital content protection',      tag: 'HDCP technology',            title: 'HDCP: Digital content protection technology',             desc: 'HDCP technology ensures digitized video and sound data is not illegally copied when transmitted through the transmission interface. Compliant with HDCP2.3, HDCP2.2 and HDCP1.4.', imgs: [{ src: 'https://www.unvdisplay.com/res/202409/12/20240912_1910714_df_999728_521044_0.jpg', cap: '' }] },
-  { num: '08', label: 'Abundant interfaces',             tag: 'DVI · VGA · HDMI · DP',     title: 'Abundant interfaces: Support 4K signal input',            desc: 'Our LCD–E model currently supports DVI, VGA, HDMI, DP rich interfaces and supports 4K signal input. HDMI and DP support 4K signal input.', imgs: [{ src: 'https://www.unvdisplay.com/res/202409/12/20240912_1910722_rt_999775_521044_0.jpg', cap: '' }] },
+  { num: '01', label: 'Immersive visual experience',    tag: 'Immersive visual experience', title: 'Premium option for various business needs',               desc: 'UNV LCD video wall are widely used in industries and business scenarios from shopping malls to meeting rooms, control rooms and more. The seamless design delivers accurate content and provides immersive viewing experience.', imgs: [{ src: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1782165502/20220506_1831156_2-1_933218_521044_0_mpzwro.webp', cap: 'Meeting Room' }, { src: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1782165501/20220506_1831158_2-2_933218_521044_0_vnhqoh.webp', cap: 'Supermarket' }, { src: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1782165500/20220506_1831159_2-3_933218_521044_0_feqnxk.webp', cap: 'Lecture Hall' }] },
+  { num: '02', label: 'Brilliant content from any angle', tag: 'Viewing angle',             title: 'Brilliant content from any angle',                        desc: 'BOE ADS panel technology enables better control of liquid crystals, which in turn allows the screen to be viewed from virtually any angle. Audiences can get clear details and vivid colors regardless of where the screen is located.', imgs: [{ src: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1782165499/20220506_1831164_4-1_933220_521044_0_qvp4hs.webp', cap: '' }] },
+  { num: '03', label: 'Vivid image for all time',        tag: 'Anti-glare panel',           title: 'Vivid image for all time',                                desc: 'Anti-glare LCD panel is used to reduce the intensity of reflected light, improve light transmittance and contrast. Under any indoor conditions and any time in a day, it can maintain excellent display effect.', imgs: [{ src: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1782165499/20220506_1831184_5-1_933221_521044_0_ghm8yf.webp', cap: '' }] },
+  { num: '04', label: 'Enhanced image performance',      tag: 'Picture enhancement',        title: 'Enhanced image performance',                              desc: 'Our advanced picture enhancement technology ensures all content are clearly delivered. The image enhance mode improves color saturation and contrast, lightens the dark images, while not missing any details.', imgs: [{ src: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1782165498/20220506_1831185_6-1_933222_521044_0_bkm1ym.webp', cap: '' }] },
+  { num: '05', label: 'Support eye protection mode',     tag: 'Blue light reduction',       title: 'Support eye protection mode',                             desc: 'UNV LCD video wall supports eye protection mode, which adjusts the color temperature through a specific algorithm to reduce the blue light emitted by the screen to achieve the effect of eye protection.', imgs: [{ src: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1782165497/20220506_1831169_7-1_933223_521044_0_f578zt.webp', cap: '' }] },
+  { num: '06', label: 'Simplified operation',            tag: 'Daisy chain HDMI',           title: 'Advanced presentation, simplified operation',             desc: 'Daisy chain design through HDMI ports enables the display to present content on multiple screens without an external video processor.', imgs: [{ src: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1782165496/20220506_1831170_8-1_933224_521044_0_vywofy.webp', cap: '' }] },
+  { num: '07', label: 'Digital content protection',      tag: 'HDCP technology',            title: 'HDCP: Digital content protection technology',             desc: 'HDCP technology ensures digitized video and sound data is not illegally copied when transmitted through the transmission interface. Compliant with HDCP2.3, HDCP2.2 and HDCP1.4.', imgs: [{ src: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1782165496/20240912_1910714_df_999728_521044_0_ma5lb8.webp', cap: '' }] },
+  { num: '08', label: 'Abundant interfaces',             tag: 'DVI · VGA · HDMI · DP',     title: 'Abundant interfaces: Support 4K signal input',            desc: 'Our LCD–E model currently supports DVI, VGA, HDMI, DP rich interfaces and supports 4K signal input. HDMI and DP support 4K signal input.', imgs: [{ src: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1782165495/20240912_1910722_rt_999775_521044_0_gjgoye.webp', cap: '' }] },
 ];
 
 const controllerItems = [
-  { title: 'Excellent splicing performance', panelTitle: 'Splicing: multiple screens splicing can be combined into a big single screen.', img: 'https://www.unvdisplay.com/res/202205/07/20220507_1831224_1-1_933271_521044_0.jpg' },
-  { title: 'Flexible roaming experience',   panelTitle: 'Roaming: the window can be dragged to anywhere in the screen.',                  img: 'https://www.unvdisplay.com/res/202205/07/20220507_1831225_1-2_933272_521044_0.jpg' },
-  { title: 'Open windows freely',           panelTitle: 'Open window: open windows at anywhere in the screen.',                           img: 'https://www.unvdisplay.com/res/202205/07/20220507_1831226_1-3_933273_521044_0.jpg' },
-  { title: 'Picture in picture',            panelTitle: 'Picture in picture: one picture can be displayed above another one.',            img: 'https://www.unvdisplay.com/res/202205/07/20220507_1831227_1-4_933274_521044_0.jpg' },
+  { title: 'Excellent splicing performance', panelTitle: 'Splicing: multiple screens splicing can be combined into a big single screen.', img: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1782165716/20220507_1831224_1-1_933271_521044_0_yta6af.webp' },
+  { title: 'Flexible roaming experience',   panelTitle: 'Roaming: the window can be dragged to anywhere in the screen.',                  img: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1782165715/20220507_1831225_1-2_933272_521044_0_endxzr.webp' },
+  { title: 'Open windows freely',           panelTitle: 'Open window: open windows at anywhere in the screen.',                           img: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1782165714/20220507_1831226_1-3_933273_521044_0_rbu53o.webp' },
+  { title: 'Picture in picture',            panelTitle: 'Picture in picture: one picture can be displayed above another one.',            img: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1782165713/20220507_1831227_1-4_933274_521044_0_eulcyw.webp' },
 ];
 
 /* ─────────────────────────────────────────────
@@ -423,7 +423,7 @@ export default function UNVPage() {
         <div style={{ maxWidth: 1140, margin: '0 auto' }}>
 
           <div className="unv-reveal" style={{ textAlign: 'center', marginBottom: 48 }}>
-            <img src="https://rookie-ninja.com/wp-content/uploads/2023/10/unv.png" alt="UNV Logo"
+            <img src="https://res.cloudinary.com/df52xzi3y/image/upload/v1782164463/unv_omj1kx.webp" alt="UNV Logo"
                  style={{ maxHeight: 80, width: 'auto', display: 'block', margin: '0 auto 20px' }} />
             <h2 style={{ fontSize: 'clamp(24px, 3vw, 36px)', fontWeight: 700, color: u.text, lineHeight: 1.2, marginBottom: 14 }}>
               Interactive Flat-Panel Display (IFPD)
@@ -760,8 +760,8 @@ export default function UNVPage() {
           {monTab === 0 && (
             <div className="unv-mon-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 1, background: '#f3f4f6', border: `1px solid #f3f4f6`, borderRadius: 10, overflow: 'hidden' }}>
               {[
-                { tag: 'Viewing angle', title: 'Wide viewing angle ensures a good visual experience', desc: 'Designed with wide-angle panel technology to deliver consistent, accurate visuals from virtually any viewing position — perfect for control rooms and surveillance environments.', img: 'https://www.unvdisplay.com/res/202205/07/20220507_1831220_1-1_933267_521044_0.jpg' },
-                { tag: '24/7 stability', title: 'Anti-electromagnetic interference designed for 24x7 operation', desc: 'Built with industrial-grade components to withstand electromagnetic interference and operate continuously without interruption — reliability you can count on around the clock.', img: 'https://www.unvdisplay.com/res/202205/07/20220507_1831221_1-2_933268_521044_0.jpg' },
+                { tag: 'Viewing angle', title: 'Wide viewing angle ensures a good visual experience', desc: 'Designed with wide-angle panel technology to deliver consistent, accurate visuals from virtually any viewing position — perfect for control rooms and surveillance environments.', img: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1782165617/20220507_1831220_1-1_933267_521044_0_kpcydc.webp' },
+                { tag: '24/7 stability', title: 'Anti-electromagnetic interference designed for 24x7 operation', desc: 'Built with industrial-grade components to withstand electromagnetic interference and operate continuously without interruption — reliability you can count on around the clock.', img: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1782165617/20220507_1831221_1-2_933268_521044_0_rolk3b.webp' },
               ].map((cell, ci) => (
                 <div key={ci} style={{ background: '#fff', padding: '36px 36px', display: 'flex', flexDirection: 'column', gap: 14 }}>
                   <p style={{ fontSize: 11, fontWeight: 700, color: u.accent, textTransform: 'uppercase', letterSpacing: 1.2, margin: 0 }}>{cell.tag}</p>
@@ -778,7 +778,7 @@ export default function UNVPage() {
           {/* IT Monitor Panel */}
           {monTab === 1 && (
             <div style={{ borderRadius: 10, overflow: 'hidden', border: `1px solid #f3f4f6`, background: u.alt2, display: 'flex', justifyContent: 'center', padding: 40 }}>
-              <img src="https://www.unvdisplay.com/res/202408/23/20240823_1907065_01_973369_521044_0.jpg" alt="IT Monitor"
+              <img src="https://res.cloudinary.com/df52xzi3y/image/upload/v1782165616/20240823_1907065_01_973369_521044_0_ozypov.webp" alt="IT Monitor"
                    style={{ maxWidth: '100%', maxHeight: 420, objectFit: 'contain', borderRadius: 8 }} />
             </div>
           )}
