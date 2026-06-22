@@ -10,7 +10,7 @@ const vendors = [
     logo: '/logos/Kodak-alaris-logo.png',
     description: 'World-leading provider of information capture solutions, scanners and professional services.',
     category: 'Scan & Print',
-    website: 'https://www.alarisworld.com',
+    website: '/our-vendors/kodak-alaris',
   },
   {
     name: 'Canon',
@@ -66,7 +66,7 @@ const vendors = [
     logo: '/logos/unv-logo.svg',
     description: 'Uniview — professional IP video surveillance solutions for smart and safe cities.',
     category: 'Security',
-    website: 'https://www.uniview.com',
+    website: '/our-vendors/unv',
   },
   {
     name: 'Belkin',

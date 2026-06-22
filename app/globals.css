@@ -57,3 +57,8 @@
   .accent-glow    { box-shadow: 0 4px 28px rgba(21, 167, 220, 0.28); }
   .accent-glow-lg { box-shadow: 0 10px 36px rgba(21, 167, 220, 0.28); }
 }
+
+body.ka-subnav-active .ka-navbar-hide {
+  transform: translateY(-100%);
+  pointer-events: none;
+}

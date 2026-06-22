@@ -41,8 +41,9 @@ const closeQuote = () => {
   return (
     <>
       {/* ── FLOATING NAVBAR ── */}
-      <div className="fixed top-0 left-0 right-0 z-[1000] flex justify-center
-                      pointer-events-none pt-4 px-4">
+      <div className="ka-navbar-hide fixed top-0 left-0 right-0 z-[1000] flex justify-center
+                      pointer-events-none pt-4 px-4"
+           style={{ transition: 'transform 0.3s cubic-bezier(0.4,0,0.2,1)' }}>
         <nav
   className={`pointer-events-auto w-full max-w-6xl
             flex items-center justify-between
@@ -682,14 +683,14 @@ function EmailIcon() {
 }
 function ClockIcon() {
   return <svg width="13" height="13" viewBox="0 0 16 16" fill="none"
-              stroke="#15A7DC" strokeWidth="1.4"
+              stroke="var(--color-accent)" strokeWidth="1.4"
               strokeLinecap="round" strokeLinejoin="round">
     <circle cx="8" cy="8" r="6"/><path d="M8 5v3l2 2"/>
   </svg>;
 }
 function TeamIcon() {
   return <svg width="13" height="13" viewBox="0 0 16 16" fill="none"
-              stroke="#15A7DC" strokeWidth="1.4"
+              stroke="var(--color-accent)" strokeWidth="1.4"
               strokeLinecap="round" strokeLinejoin="round">
     <circle cx="6" cy="5" r="2"/><circle cx="11" cy="5" r="2"/>
     <path d="M2 14c0-2.21 1.79-4 4-4h4c2.21 0 4 1.79 4 4"/>
@@ -697,7 +698,7 @@ function TeamIcon() {
 }
 function SolutionsIcon() {
   return <svg width="13" height="13" viewBox="0 0 16 16" fill="none"
-              stroke="#15A7DC" strokeWidth="1.4"
+              stroke="var(--color-accent)" strokeWidth="1.4"
               strokeLinecap="round" strokeLinejoin="round">
     <rect x="1" y="1" width="6" height="6" rx="1"/>
     <rect x="9" y="1" width="6" height="6" rx="1"/>
@@ -707,21 +708,21 @@ function SolutionsIcon() {
 }
 function SearchIcon() {
   return <svg width="13" height="13" viewBox="0 0 16 16" fill="none"
-              stroke="#15A7DC" strokeWidth="1.4"
+              stroke="var(--color-accent)" strokeWidth="1.4"
               strokeLinecap="round" strokeLinejoin="round">
     <circle cx="7" cy="7" r="4.5"/><path d="M10.5 10.5L14 14"/>
   </svg>;
 }
 function OfferingsIcon() {
   return <svg width="13" height="13" viewBox="0 0 16 16" fill="none"
-              stroke="#15A7DC" strokeWidth="1.4"
+              stroke="var(--color-accent)" strokeWidth="1.4"
               strokeLinecap="round" strokeLinejoin="round">
     <path d="M2 4h12M2 8h8M2 12h5"/>
   </svg>;
 }
 function TrainingIcon() {
   return <svg width="13" height="13" viewBox="0 0 16 16" fill="none"
-              stroke="#15A7DC" strokeWidth="1.4"
+              stroke="var(--color-accent)" strokeWidth="1.4"
               strokeLinecap="round" strokeLinejoin="round">
     <path d="M2 2h6a4 4 0 014 4v8a3 3 0 00-3-3H2z"/>
     <path d="M14 2h-2a4 4 0 00-4 4v8a3 3 0 013-3h3z"/>
@@ -729,7 +730,7 @@ function TrainingIcon() {
 }
 function PrintIcon() {
   return <svg width="13" height="13" viewBox="0 0 16 16" fill="none"
-              stroke="#15A7DC" strokeWidth="1.4"
+              stroke="var(--color-accent)" strokeWidth="1.4"
               strokeLinecap="round" strokeLinejoin="round">
     <polyline points="4 6 4 1 12 1 12 6"/>
     <path d="M4 12H2a1 1 0 01-1-1V7a1 1 0 011-1h12a1 1 0 011 1v4a1 1 0 01-1 1h-2"/>
@@ -738,7 +739,7 @@ function PrintIcon() {
 }
 function ScanIcon() {
   return <svg width="13" height="13" viewBox="0 0 16 16" fill="none"
-              stroke="#15A7DC" strokeWidth="1.4"
+              stroke="var(--color-accent)" strokeWidth="1.4"
               strokeLinecap="round" strokeLinejoin="round">
     <path d="M2 5V3a1 1 0 011-1h2M11 2h2a1 1 0 011 1v2M14 11v2a1 1 0 01-1 1h-2M5 14H3a1 1 0 01-1-1v-2"/>
     <line x1="2" y1="8" x2="14" y2="8"/>
@@ -746,7 +747,7 @@ function ScanIcon() {
 }
 function ElectronicsIcon() {
   return <svg width="13" height="13" viewBox="0 0 16 16" fill="none"
-              stroke="#15A7DC" strokeWidth="1.4"
+              stroke="var(--color-accent)" strokeWidth="1.4"
               strokeLinecap="round" strokeLinejoin="round">
     <rect x="1" y="2" width="14" height="9" rx="1"/>
     <path d="M5 14h6M8 11v3"/>
@@ -754,7 +755,7 @@ function ElectronicsIcon() {
 }
 function GamingIcon() {
   return <svg width="13" height="13" viewBox="0 0 16 16" fill="none"
-              stroke="#15A7DC" strokeWidth="1.4"
+              stroke="var(--color-accent)" strokeWidth="1.4"
               strokeLinecap="round" strokeLinejoin="round">
     <path d="M11.5 3.5H4.5a3 3 0 00-2.98 2.7L1 10l.45 3.3A2.5 2.5 0 004 15h.5a1.5 1.5 0 001.2-.6L7 13h2l1.3 1.4a1.5 1.5 0 001.2.6h.5a2.5 2.5 0 002.55-1.7L15 10l-.52-3.8a3 3 0 00-2.98-2.7z"/>
     <path d="M5 7v2M4 8h2M10.5 8h1"/>
@@ -762,7 +763,7 @@ function GamingIcon() {
 }
 function ComponentsIcon() {
   return <svg width="13" height="13" viewBox="0 0 16 16" fill="none"
-              stroke="#15A7DC" strokeWidth="1.4"
+              stroke="var(--color-accent)" strokeWidth="1.4"
               strokeLinecap="round" strokeLinejoin="round">
     <rect x="4" y="1" width="8" height="14" rx="1"/>
     <path d="M7 4h2M7 7h2M7 10h2"/>
@@ -770,7 +771,7 @@ function ComponentsIcon() {
 }
 function SoftwareIcon() {
   return <svg width="13" height="13" viewBox="0 0 16 16" fill="none"
-              stroke="#15A7DC" strokeWidth="1.4"
+              stroke="var(--color-accent)" strokeWidth="1.4"
               strokeLinecap="round" strokeLinejoin="round">
     <polyline points="10 12 14 8 10 4"/>
     <polyline points="6 4 2 8 6 12"/>
@@ -778,7 +779,7 @@ function SoftwareIcon() {
 }
 function AVIcon() {
   return <svg width="13" height="13" viewBox="0 0 16 16" fill="none"
-              stroke="#15A7DC" strokeWidth="1.4"
+              stroke="var(--color-accent)" strokeWidth="1.4"
               strokeLinecap="round" strokeLinejoin="round">
     <rect x="1" y="4" width="14" height="9" rx="1"/>
     <path d="M10 1l-3 3-3-3"/>
@@ -787,7 +788,7 @@ function AVIcon() {
 }
 function AccessoriesIcon() {
   return <svg width="13" height="13" viewBox="0 0 16 16" fill="none"
-              stroke="#15A7DC" strokeWidth="1.4"
+              stroke="var(--color-accent)" strokeWidth="1.4"
               strokeLinecap="round" strokeLinejoin="round">
     <path d="M4 1L2 4v9a1 1 0 001 1h10a1 1 0 001-1V4l-2-3z"/>
     <line x1="2" y1="4" x2="14" y2="4"/>
@@ -813,14 +814,14 @@ function EmailIconDark() {
 }
 function ClockIconDark() {
   return <svg width="13" height="13" viewBox="0 0 16 16" fill="none"
-              stroke="#15A7DC" strokeWidth="1.4"
+              stroke="var(--color-accent)" strokeWidth="1.4"
               strokeLinecap="round" strokeLinejoin="round">
     <circle cx="8" cy="8" r="6"/><path d="M8 5v3l2 2"/>
   </svg>;
 }
 function TeamIconDark() {
   return <svg width="13" height="13" viewBox="0 0 16 16" fill="none"
-              stroke="#15A7DC" strokeWidth="1.4"
+              stroke="var(--color-accent)" strokeWidth="1.4"
               strokeLinecap="round" strokeLinejoin="round">
     <circle cx="6" cy="5" r="2"/><circle cx="11" cy="5" r="2"/>
     <path d="M2 14c0-2.21 1.79-4 4-4h4c2.21 0 4 1.79 4 4"/>
@@ -830,7 +831,7 @@ function TeamIconDark() {
 function CultureIcon() {
   return (
     <svg width="13" height="13" viewBox="0 0 16 16" fill="none"
-         stroke="#15A7DC" strokeWidth="1.4"
+         stroke="var(--color-accent)" strokeWidth="1.4"
          strokeLinecap="round" strokeLinejoin="round">
       <path d="M8 1a4 4 0 100 8A4 4 0 008 1z"/>
       <path d="M2 14s0-4 6-4 6 4 6 4"/>
@@ -842,7 +843,7 @@ function CultureIcon() {
 function JoinIcon() {
   return (
     <svg width="13" height="13" viewBox="0 0 16 16" fill="none"
-         stroke="#15A7DC" strokeWidth="1.4"
+         stroke="var(--color-accent)" strokeWidth="1.4"
          strokeLinecap="round" strokeLinejoin="round">
       <path d="M11 2H3a1 1 0 00-1 1v10a1 1 0 001 1h10a1 1 0 001-1V5l-3-3z"/>
       <path d="M11 2v3h3"/>

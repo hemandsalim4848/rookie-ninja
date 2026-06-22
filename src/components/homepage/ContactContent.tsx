@@ -178,6 +178,36 @@ export default function ContactContent() {
         </div>
       </section>
 
+            {/* ── MAP SECTION ── */}
+      <section className="py-24 px-6 border-t border-gray-100 bg-white">
+        <div className="max-w-6xl mx-auto">
+          <Animate type="fade-up">
+            <SectionHeader
+              label="Find Us"
+              heading="Our Location"
+              subheading="Visit us at our Head Office in Dubai, UAE."
+              align="center"
+            />
+          </Animate>
+
+          <Animate type="fade-up" delay={100}>
+            <div className="mt-10 rounded-2xl overflow-hidden border border-gray-100
+                            shadow-[0_8px_40px_rgba(0,0,0,0.06)]">
+              <iframe
+                title="Rookie Ninja Head Office"
+                src="https://maps.google.com/maps?q=Al+Nasr+Sports+Complex,+Oud+Metha,+Dubai,+UAE&t=&z=16&ie=UTF8&iwloc=&output=embed"
+                width="100%"
+                height="420"
+                style={{ border: 0, display: 'block' }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+            </div>
+          </Animate>
+        </div>
+      </section>
+
       {/* ── CONTACT FORM + INFO ── */}
       <section className="py-24 px-6 border-t border-gray-100 bg-white">
         <div className="max-w-6xl mx-auto">
@@ -356,6 +386,8 @@ export default function ContactContent() {
           </div>
         </div>
       </section>
+
+
 
       {/* ── COUNTRIES WE CATER TO ── */}
       <section className="py-24 px-6 border-t border-gray-100"
