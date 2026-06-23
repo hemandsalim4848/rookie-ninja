@@ -17,7 +17,7 @@ const vendors = [
     logo: '/logos/canon-logo.png',
     description: 'Global leader in imaging, optical and industrial products with a legacy of innovation.',
     category: 'Print & Imaging',
-    website: 'https://www.canon.com',
+    website: '/our-vendors/canon',
   },
   {
     name: 'Brother',
@@ -38,7 +38,7 @@ const vendors = [
     logo: '/logos/colortrac-logo.png',
     description: 'Specialists in wide-format scanning solutions for AEC, GIS and reprographics industries.',
     category: 'Wide Format',
-    website: 'https://www.colortrac.com',
+    website: '/our-vendors/colortrac',
   },
   {
     name: 'Rowe',
@@ -310,148 +310,6 @@ export default function VendorContent() {
         </div>
       </section>
 
-      {/* ── WHY ROOKIE NINJA ── */}
-      <section className="py-24 px-6 border-t border-gray-100"
-               style={{ background: 'linear-gradient(180deg, #f8fbff 0%, #ffffff 100%)' }}>
-        <div className="max-w-6xl mx-auto">
-          <Animate type="fade-up">
-            <SectionHeader
-              label="Why Partner With Us"
-              heading="Your Go-To Distribution Partner"
-              subheading="Five reasons why the world's leading technology brands choose Rookie Ninja as their distribution partner."
-              align="center"
-            />
-          </Animate>
-
-          <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.4fr] gap-8 mt-14">
-
-            {/* Left — tab list */}
-            <Animate type="fade-right">
-              <div className="flex flex-col gap-2">
-                {whyUs.map((item, i) => (
-                  <button
-                    key={item.title}
-                    onClick={() => setActiveWhy(i)}
-                    className={`group flex items-center gap-4 px-5 py-4
-                                rounded-xl text-left transition-all duration-300
-                                border cursor-pointer
-                                ${activeWhy === i
-                                  ? 'bg-navy border-navy shadow-[0_4px_20px_rgba(10,22,40,0.15)]'
-                                  : 'bg-white border-gray-100 hover:border-accent/20'}`}
-                  >
-                    <div className={`w-10 h-10 rounded-xl flex items-center
-                                     justify-center shrink-0 transition-all duration-300
-                                     ${activeWhy === i
-                                       ? 'bg-accent/20 text-accent'
-                                       : 'bg-gray-100 text-gray-400 group-hover:bg-accent/10 group-hover:text-accent'}`}>
-                      {item.icon}
-                    </div>
-                    <span className={`font-display text-[15px] font-bold
-                                      transition-colors duration-300
-                                      ${activeWhy === i ? 'text-white' : 'text-navy'}`}>
-                      {item.title}
-                    </span>
-                    <svg
-                      className={`ml-auto w-4 h-4 shrink-0 transition-all duration-300
-                                   ${activeWhy === i ? 'text-accent' : 'text-gray-300'}`}
-                      viewBox="0 0 16 16" fill="none">
-                      <path d="M6 4l4 4-4 4" stroke="currentColor"
-                            strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                    </svg>
-                  </button>
-                ))}
-              </div>
-            </Animate>
-
-            {/* Right — active content */}
-            <Animate type="fade-left" delay={100}>
-              <div key={activeWhy}
-                   className="bg-white rounded-2xl border border-gray-100 p-8
-                              shadow-[0_4px_32px_rgba(0,0,0,0.05)]
-                              animate-fade-up">
-
-                {/* Icon + title */}
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="w-12 h-12 rounded-xl bg-accent/10 text-accent
-                                  flex items-center justify-center shrink-0">
-                    {whyUs[activeWhy].icon}
-                  </div>
-                  <h3 className="font-display text-[20px] font-bold text-navy
-                                 leading-tight">
-                    {whyUs[activeWhy].title}
-                  </h3>
-                </div>
-
-                {/* Points */}
-                <div className="flex flex-col gap-4 mb-8">
-                  {whyUs[activeWhy].points.map((point, i) => (
-                    <div key={i} className="flex items-start gap-3">
-                      <div className="w-5 h-5 rounded-full bg-accent/10
-                                      flex items-center justify-center shrink-0 mt-0.5">
-                        <svg width="10" height="10" viewBox="0 0 12 12" fill="none">
-                          <path d="M2 6l3 3 5-5" stroke="#15A7DC"
-                                strokeWidth="1.5" strokeLinecap="round"
-                                strokeLinejoin="round"/>
-                        </svg>
-                      </div>
-                      <p className="font-body text-[14px] text-gray-500
-                                    leading-[1.7] font-light">
-                        {point}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-
-                {/* Navigation */}
-                <div className="flex items-center justify-between pt-6
-                                border-t border-gray-100">
-                  <div className="flex gap-2">
-                    {whyUs.map((_, i) => (
-                      <button
-                        key={i}
-                        onClick={() => setActiveWhy(i)}
-                        className="h-1.5 rounded-full transition-all duration-300"
-                        style={{
-                          width: activeWhy === i ? '24px' : '8px',
-                          background: activeWhy === i ? '#15A7DC' : '#e5e7eb',
-                        }}
-                      />
-                    ))}
-                  </div>
-                  <div className="flex gap-2">
-                    <button
-                      onClick={() => setActiveWhy(p => Math.max(0, p - 1))}
-                      disabled={activeWhy === 0}
-                      className="w-8 h-8 rounded-lg border border-gray-200
-                                 flex items-center justify-center text-gray-400
-                                 transition-all duration-200 disabled:opacity-30
-                                 hover:border-accent/40 hover:text-accent">
-                      <svg width="12" height="12" viewBox="0 0 16 16" fill="none">
-                        <path d="M10 4L6 8l4 4" stroke="currentColor"
-                              strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                      </svg>
-                    </button>
-                    <button
-                      onClick={() => setActiveWhy(p => Math.min(whyUs.length - 1, p + 1))}
-                      disabled={activeWhy === whyUs.length - 1}
-                      className="w-8 h-8 rounded-lg border border-gray-200
-                                 flex items-center justify-center text-gray-400
-                                 transition-all duration-200 disabled:opacity-30
-                                 hover:border-accent/40 hover:text-accent">
-                      <svg width="12" height="12" viewBox="0 0 16 16" fill="none">
-                        <path d="M6 4l4 4-4 4" stroke="currentColor"
-                              strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                      </svg>
-                    </button>
-                  </div>
-                </div>
-
-              </div>
-            </Animate>
-
-          </div>
-        </div>
-      </section>
 
       {/* ── BECOME A VENDOR CTA ── */}
       <section className="py-20 px-6 border-t border-gray-100 bg-white">

@@ -370,13 +370,13 @@ export default function KodakAlarisPage() {
       {isSticky && <div className="ka-nav-placeholder" style={{ height: 58 }} />}
       <div className="ka-nav-wrap" style={{
         width: '100%',
-        background: isSticky ? ka.navy : '#fff',
-        borderBottom: isSticky ? 'none' : '1px solid rgba(0,0,0,0.09)',
+        background: '#fff',
+        borderBottom: `1px solid rgba(0,0,0,0.09)`,
         position: isSticky ? 'fixed' : 'relative',
         top: isSticky ? 0 : undefined,
         left: 0, right: 0, zIndex: 1001,
-        boxShadow: isSticky ? '0 4px 24px rgba(0,0,0,0.18)' : 'none',
-        transition: 'background 0.3s ease, box-shadow 0.3s ease',
+        boxShadow: isSticky ? '0 2px 20px rgba(0,0,0,0.12)' : 'none',
+        transition: 'box-shadow 0.3s ease',
       }}>
         <div className="ka-nav-inner"
              style={{
@@ -402,19 +402,19 @@ export default function KodakAlarisPage() {
                 <a href={link.href}
                    style={{
                      display: 'inline-block', fontSize: 14, fontWeight: 500,
-                     color: isSticky ? 'rgba(255,255,255,0.75)' : '#111',
+                     color: '#111',
                      textDecoration: 'none', letterSpacing: '0.15px',
                      whiteSpace: 'nowrap', position: 'relative', paddingBottom: 3,
                      transition: 'color 0.2s',
                    }}
                    onMouseEnter={e => {
                      const el = e.currentTarget as HTMLAnchorElement;
-                     el.style.color = isSticky ? '#fff' : ka.accent;
+                     el.style.color = ka.accent;
                      (el.querySelector('.ka-underline') as HTMLElement | null)?.style.setProperty('width', '100%');
                    }}
                    onMouseLeave={e => {
                      const el = e.currentTarget as HTMLAnchorElement;
-                     el.style.color = isSticky ? 'rgba(255,255,255,0.75)' : '#111';
+                     el.style.color = '#111';
                      (el.querySelector('.ka-underline') as HTMLElement | null)?.style.setProperty('width', '0');
                    }}>
                   {link.label}
