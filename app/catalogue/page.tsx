@@ -15,24 +15,30 @@ const categories = [
 ]
 
 const brands = [
-  { name: 'Kodak Alaris', slug: 'kodak-alaris', logo: '/logos/Kodak-alaris-logo.png', category: 'Scan Solutions' },
-  { name: 'Brother', slug: 'brother', logo: '/logos/brother-logo.png', category: 'Print Solutions' },
-  { name: 'Canon', slug: 'canon', logo: '/logos/canon-logo.png', category: 'Print & Scan' },
-  { name: 'Czur', slug: 'czur', logo: '/logos/czur-logo.webp', category: 'Scan Solutions' },
-  { name: 'Colortrac', slug: 'colortrac', logo: '/logos/colortrac-logo.png', category: 'Scan Solutions' },
-  { name: 'UNV', slug: 'unv', logo: '/logos/unv-logo.svg', category: 'IT Accessories' },
-  { name: 'Silex', slug: 'silex', logo: '/logos/silex-logo.png', category: 'Networking' },
-  { name: 'Viewsonic', slug: 'viewsonic', logo: '/logos/viewsonic-logo.webp', category: 'Audio Visual' },
-  { name: 'Dicota', slug: 'dicota', logo: '/logos/dicota-logo.webp', category: 'IT Accessories' },
-  { name: 'Belkin', slug: 'belkin', logo: '/logos/belkin_logo.svg', category: 'IT Accessories' },
-  { name: 'MSI', slug: 'msi', logo: '/logos/msi-logo.png', category: 'Components' },
-  { name: 'Aztech', slug: 'aztech', logo: '/logos/aztech-logo.png', category: 'Networking' },
-  { name: 'Deli', slug: 'deli', logo: '/logos/deli-logo.png', category: 'Office' },
-  { name: 'Contex', slug: 'contex', logo: '/logos/contex-logo.png', category: 'Scan Solutions' },
-  { name: 'Dahua', slug: 'dahua', logo: '/logos/dahua-logo.png', category: 'Security' },
-  { name: 'Fujitsu', slug: 'fujitsu', logo: '/logos/fujitsu-logo.svg', category: 'Scan Solutions' },
-  { name: 'Aerocool', slug: 'aerocool', logo: '/logos/aerocool-logo.svg', category: 'Gaming' },
-  { name: 'Rowe', slug: 'rowe', logo: '/logos/rowe-logo.png', category: 'Print Solutions' },
+  { name: 'Kodak Alaris', slug: 'kodak-alaris', logo: '/logos/Kodak-alaris-logo.png' },
+  { name: 'Canon', slug: 'canon', logo: '/logos/canon-logo.png'},
+    { name: 'Brother', slug: 'brother', logo: '/logos/brother-logo.png'},
+  { name: 'Czur', slug: 'czur', logo: '/logos/czur-logo.webp' },
+  { name: 'Colortrac', slug: 'colortrac', logo: '/logos/colortrac-logo.png' },
+    { name: 'Viewsonic', slug: 'viewsonic', logo: '/logos/viewsonic-logo.webp' },
+    
+  { name: 'Dicota', slug: 'dicota', logo: '/logos/dicota-logo.webp'},
+  { name: 'UNV', slug: 'unv', logo: '/logos/unv-logo.svg'},
+    { name: 'Aerocool', slug: 'aerocool', logo: '/logos/aerocool-logo.svg'},
+      { name: 'MSI', slug: 'msi', logo: '/logos/msi-logo.png' },
+  { name: 'Silex', slug: 'silex', logo: '/logos/silex-logo.png'},
+{ name: 'Ezofis', slug: 'ezofis', logo: '/logos/ezofis-logo.png'},
+
+  { name: 'Aztech', slug: 'aztech', logo: '/logos/aztech-logo.png'},
+  { name: 'Deli', slug: 'deli', logo: '/logos/deli-logo.png'},
+  { name: 'Contex', slug: 'contex', logo: '/logos/contex-logo.png' },
+  { name: 'Dahua', slug: 'dahua', logo: '/logos/dahua-logo.png' },
+      { name: 'Ricoh', slug: 'ricoh', logo: '/logos/ricoh-logo.svg' },
+  { name: 'Fujitsu', slug: 'fujitsu', logo: '/logos/fujitsu-logo.svg'},
+
+
+  { name: 'IRIS', slug: 'iris', logo: '/logos/iris-logo.svg'},
+  
 ]
 export default function CataloguePage() {
   const [query, setQuery] = useState('')
@@ -124,18 +130,27 @@ export default function CataloguePage() {
       </div>
 
       {/* Categories */}
-      <div className="max-w-7xl mx-auto px-4 py-10">
+      <div className="max-w-7xl mx-auto px-4 py-24">
         
 
         {/* Brands grid */}
-        <div className="flex items-center justify-between mb-6">
-          <div>
-            <h2 className="text-lg font-semibold text-[#0A1628]">Our Brands</h2>
-            <p className="text-sm text-gray-400 mt-0.5">Click any brand to explore its products</p>
+        <div className="mb-10 text-center">
+          <div className="inline-flex items-center gap-3 mb-4 justify-center">
+            <span className="block w-8 h-px bg-[#15A7DC] shrink-0" />
+            <span className="font-body text-[11px] font-medium tracking-[0.22em] uppercase text-[#15A7DC]">
+              Browse by Brand
+            </span>
+            <span className="block w-8 h-px bg-[#15A7DC] shrink-0" />
           </div>
+          <h2 className="font-display font-bold text-[#0A1628] text-[clamp(28px,4vw,42px)] leading-[1.15] tracking-[-0.02em]">
+            Shop Our Brand Catalogue
+          </h2>
+          <p className="font-body text-[16px] font-light text-gray-500 leading-[1.7] mt-4 max-w-2xl mx-auto">
+            Select a brand to explore its full product lineup — from scanners and displays to accessories and components.
+          </p>
         </div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
           {brands.map(brand => (
             <Link
               key={brand.slug}
@@ -155,10 +170,7 @@ export default function CataloguePage() {
     {brand.name.slice(0, 2).toUpperCase()}
   </div>
 )}
-              <div className="text-center">
-                {/* <p className="text-sm font-semibold text-[#0A1628] leading-tight">{brand.name}</p> */}
-                <p className="text-xs text-gray-400 mt-0.5">{brand.category}</p>
-              </div>
+              
             </Link>
           ))}
         </div>

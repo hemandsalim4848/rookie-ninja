@@ -5,219 +5,142 @@ import Animate from '../Animate';
 import SectionHeader from '../SectionHeader';
 
 const vendors = [
-  {
+ {
     name: 'Kodak Alaris',
     logo: '/logos/Kodak-alaris-logo.png',
-    description: 'World-leading provider of information capture solutions, scanners and professional services.',
+    description: 'Information capture and document scanning solutions.',
     category: 'Scan & Print',
     website: '/our-vendors/kodak-alaris',
-  },
-  {
+},
+{
     name: 'Canon',
     logo: '/logos/canon-logo.png',
-    description: 'Global leader in imaging, optical and industrial products with a legacy of innovation.',
+    description: 'Global leader in imaging and printing technology.',
     category: 'Print & Imaging',
     website: '/our-vendors/canon',
-  },
-  {
+},
+{
     name: 'Brother',
     logo: '/logos/brother-logo.png',
-    description: 'Trusted manufacturer of printers, labelling machines and document management solutions.',
+    description: 'Printers, labelling and document management solutions.',
     category: 'Print',
     website: 'https://www.brother.com',
-  },
-  {
+},
+{
     name: 'Czur',
     logo: '/logos/czur-logo.webp',
-    description: 'Innovative document scanners and smart desk lamps redefining digital productivity.',
+    description: 'Smart scanners for efficient digital productivity.',
     category: 'Scan',
     website: 'https://www.czur.com',
-  },
-  {
+},
+{
     name: 'Colortrac',
     logo: '/logos/colortrac-logo.png',
-    description: 'Specialists in wide-format scanning solutions for AEC, GIS and reprographics industries.',
+    description: 'Wide-format scanning solutions for professionals.',
     category: 'Wide Format',
     website: '/our-vendors/colortrac',
-  },
-  {
-    name: 'Rowe',
-    logo: '/logos/rowe-logo.png',
-    description: 'Leading manufacturer of wide-format scanners and multifunction systems for professionals.',
-    category: 'Wide Format',
-    website: 'https://www.rowe.de',
-  },
-  {
+},
+{
     name: 'Viewsonic',
     logo: '/logos/viewsonic-logo.webp',
-    description: 'Global provider of visual solutions including displays, projectors and collaboration tools.',
+    description: 'Displays, projectors and collaboration solutions.',
     category: 'Audio Visual',
     website: '/our-vendors/viewsonic-av',
-  },
-  {
+},
+{
     name: 'Dicota',
     logo: '/logos/dicota-logo.webp',
-    description: 'Premium European brand offering laptop bags, backpacks and IT accessories.',
+    description: 'Premium laptop bags and IT accessories.',
     category: 'IT Accessories',
     website: 'https://www.dicota.com',
-  },
-  {
+},
+{
     name: 'UNV',
     logo: '/logos/unv-logo.svg',
-    description: 'Uniview — professional IP video surveillance solutions for smart and safe cities.',
+    description: 'Professional IP video surveillance solutions.',
     category: 'Security',
     website: '/our-vendors/unv',
-  },
-  {
-    name: 'Belkin',
-    logo: '/logos/belkin_logo.svg',
-    description: 'Leading accessories brand delivering connectivity and charging solutions worldwide.',
-    category: 'IT Accessories',
-    website: 'https://www.belkin.com',
-  },
-  {
+},
+{
     name: 'Aerocool',
     logo: '/logos/aerocool-logo.svg',
-    description: 'Gaming peripherals, PC cases, cooling solutions and power supplies for enthusiasts.',
+    description: 'Gaming hardware, cooling and power solutions.',
     category: 'Gaming',
     website: 'https://www.aerocool.io',
-  },
-  {
+},
+{
     name: 'MSI',
     logo: '/logos/msi-logo.png',
-    description: 'World-class manufacturer of gaming laptops, desktops, motherboards and graphics cards.',
+    description: 'Gaming laptops, desktops and PC components.',
     category: 'Gaming',
     website: 'https://www.msi.com',
-  },
-  {
+},
+{
     name: 'Silex',
     logo: '/logos/silex-logo.png',
-    description: 'Innovative connectivity solutions enabling seamless device sharing over networks.',
+    description: 'Network connectivity and device sharing solutions.',
     category: 'Networking',
     website: 'https://www.silexeurope.com',
-  },
-  {
+},
+{
     name: 'Ezofis',
     logo: '/logos/ezofis-logo.png',
-    description: 'Cloud-based document management and intelligent process automation platform.',
+    description: 'Cloud document management and automation platform.',
     category: 'Software',
     website: 'https://www.ezofis.com',
-  },
-  {
+},
+{
     name: 'Aztech',
     logo: '/logos/aztech-logo.png',
-    description: 'Trusted networking and consumer electronics brand with decades of industry presence.',
+    description: 'Networking and consumer electronics solutions.',
     category: 'Networking',
     website: 'https://www.aztechmea.com',
-  },
-  {
+},
+{
     name: 'Deli',
     logo: '/logos/deli-logo.png',
-    description: 'Global stationery and office supply brand known for quality and innovation.',
+    description: 'Quality stationery and office supply products.',
     category: 'Office',
     website: 'https://www.deli.com',
-  },
-  {
+},
+{
     name: 'Contex',
     logo: '/logos/contex-logo.png',
-    description: 'World\'s leading wide-format scanner manufacturer for AEC and graphics professionals.',
+    description: 'Leading manufacturer of wide-format scanners.',
     category: 'Wide Format',
     website: 'https://www.contex.com',
-  },
-  {
+},
+{
     name: 'Dahua',
     logo: '/logos/dahua-logo.png',
-    description: 'Leading solution provider in the global video-centric smart IoT ecosystem.',
+    description: 'Smart video surveillance and IoT solutions.',
     category: 'Security',
     website: 'https://www.dahuasecurity.com',
-  },
-];
-
-const whyUs = [
-  {
-    title: 'Amplify Your Reach',
-    points: [
-      'Expand your market presence with our extensive network of resellers, system integrators, and technology consultants.',
-      'Tap into new customer segments and geographies, maximising your reach and driving sales growth.',
-      'We have a finger on the pulse of local trends, customer preferences, and market dynamics.',
-    ],
-    icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
-           stroke="currentColor" strokeWidth="1.6"
-           strokeLinecap="round" strokeLinejoin="round">
-        <circle cx="12" cy="12" r="10"/>
-        <path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/>
-      </svg>
-    ),
-  },
-  {
-    title: 'Tailored Go-to-Market Strategies',
-    points: [
-      'Leverage our market insights, strategic positioning, and targeted campaigns to accelerate market penetration.',
-      'Our professionals work closely with vendors to develop strategies aligned with your unique goals.',
-      'Customised marketing campaigns that resonate with regional audiences.',
-    ],
-    icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
-           stroke="currentColor" strokeWidth="1.6"
-           strokeLinecap="round" strokeLinejoin="round">
-        <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
-      </svg>
-    ),
-  },
-  {
-    title: 'Industry-Leading Logistics',
-    points: [
-      'Rely on our efficient supply chain management and robust logistics network for timely delivery.',
-      'Streamline operations, reduce lead times, and enhance customer experience.',
-      'Agile and reliable distribution capabilities across MEA and CIS regions.',
-    ],
-    icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
-           stroke="currentColor" strokeWidth="1.6"
-           strokeLinecap="round" strokeLinejoin="round">
-        <path d="M5 17H3a2 2 0 01-2-2V5a2 2 0 012-2h11a2 2 0 012 2v3"/>
-        <rect x="9" y="11" width="14" height="10" rx="2"/>
-        <circle cx="12" cy="21" r="1"/>
-        <circle cx="20" cy="21" r="1"/>
-      </svg>
-    ),
-  },
-  {
-    title: 'Product Support & Training',
-    points: [
-      'Dedicated team experienced with your product ensuring client satisfaction at every stage.',
-      'End-to-end pre-sales and post-sales support and training for partners and customers.',
-      'Expertise in identifying trends and creating customer demand for your products.',
-    ],
-    icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
-           stroke="currentColor" strokeWidth="1.6"
-           strokeLinecap="round" strokeLinejoin="round">
-        <path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/>
-        <path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/>
-      </svg>
-    ),
-  },
-  {
-    title: 'Agility & Flexibility',
-    points: [
-      'Swiftly adapt to changing market dynamics and emerging trends with our agile approach.',
-      'Flexibility to adjust strategies, seize new opportunities, and pivot quickly.',
-      'Meet evolving customer demands without compromising on speed or quality.',
-    ],
-    icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
-           stroke="currentColor" strokeWidth="1.6"
-           strokeLinecap="round" strokeLinejoin="round">
-        <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
-      </svg>
-    ),
-  },
+},
+{
+    name: 'Ricoh',
+    logo: '/logos/ricoh-logo.svg',
+    description: 'Printing, imaging and workplace technology solutions.',
+    category: 'Printing Solutions',
+    website: 'https://www.ricoh.com',
+},
+{
+    name: 'Fujitsu',
+    logo: '/logos/fujitsu-logo.svg',
+    description: 'Advanced document scanning and IT solutions.',
+    category: 'Document Scanners',
+    website: 'https://www.fujitsu.com',
+},
+{
+    name: 'IRIS',
+    logo: '/logos/iris-logo.svg',
+    description: 'AI-powered OCR and document scanning solutions.',
+    category: 'Document Scanners',
+    website: 'https://iriscorporate.com/',
+},
 ];
 
 export default function VendorContent() {
-  const [activeWhy, setActiveWhy] = useState(0);
 
   return (
     <main className="bg-white">
@@ -299,7 +222,7 @@ export default function VendorContent() {
           </Animate>
 
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4
-                          lg:grid-cols-6 gap-4 mt-14">
+                          lg:grid-cols-5 gap-4 mt-14">
             {vendors.map((vendor, i) => (
               <Animate key={vendor.name} type="fade-up" delay={i * 40}>
                 <FlipCard {...vendor} />
