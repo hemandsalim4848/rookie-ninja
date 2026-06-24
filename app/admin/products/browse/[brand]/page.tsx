@@ -152,14 +152,20 @@ export default function BrandProductsPage() {
     setSaving(false)
   }
 
-  const totalPages = Math.ceil(products.length / PAGE_SIZE)
-  const paginated = products.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE)
+  const [search, setSearch] = useState('')
+
+  const filtered = products.filter(p =>
+    p.name.toLowerCase().includes(search.toLowerCase()) ||
+    (p.sku || '').toLowerCase().includes(search.toLowerCase())
+  )
+  const totalPages = Math.ceil(filtered.length / PAGE_SIZE)
+  const paginated = filtered.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE)
 
   if (loading) return <p className="text-gray-400 text-sm">Loading...</p>
 
   return (
     <div>
-      <div className="mb-8 flex items-center gap-3">
+      <div className="mb-8 flex items-center gap-3 flex-wrap">
         <Link href="/admin/products/browse" className="text-gray-400 hover:text-[#15A7DC] text-sm transition-colors">
           ← Products
         </Link>
@@ -168,6 +174,24 @@ export default function BrandProductsPage() {
         <span className="text-xs text-gray-400 bg-gray-50 border border-gray-100 px-2.5 py-1 rounded-full">
           {products.length} products
         </span>
+        <div className="ml-auto relative">
+          <svg className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-300" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+          </svg>
+          <input
+            type="text"
+            placeholder="Search by name or SKU..."
+            value={search}
+            onChange={e => { setSearch(e.target.value); setPage(1) }}
+            className="pl-8 pr-4 py-2 text-xs border border-gray-200 rounded-xl focus:outline-none focus:border-[#15A7DC] transition-colors w-64"
+          />
+          {search && (
+            <button onClick={() => { setSearch(''); setPage(1) }}
+              className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-300 hover:text-gray-500">
+              ✕
+            </button>
+          )}
+        </div>
       </div>
 
       {/* Bulk action bar */}

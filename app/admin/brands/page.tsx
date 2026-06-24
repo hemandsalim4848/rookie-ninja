@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+import Link from 'next/link'
 
 const PAGE_SIZE = 10
 
@@ -137,11 +138,19 @@ export default function AdminBrandsPage() {
                 </td>
                 <td className="px-6 py-4 text-gray-400 font-mono text-xs">{brand.slug}</td>
                 <td className="px-6 py-4 text-gray-400">{brand.country || '—'}</td>
-                <td className="px-6 py-4 text-right space-x-3">
-                  <button onClick={() => startEdit(brand)}
-                    className="text-[#15A7DC] hover:underline text-xs font-medium">Edit</button>
-                  <button onClick={() => handleDelete(brand._id)}
-                    className="text-red-400 hover:underline text-xs font-medium">Delete</button>
+                <td className="px-6 py-4 text-right">
+                  <div className="flex items-center justify-end gap-3">
+                    <Link href={`/admin/products/browse/${brand.slug}`}
+                      className="text-gray-300 hover:text-[#15A7DC] transition-colors" title="View products">
+                      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/>
+                      </svg>
+                    </Link>
+                    <button onClick={() => startEdit(brand)}
+                      className="text-[#15A7DC] hover:underline text-xs font-medium">Edit</button>
+                    <button onClick={() => handleDelete(brand._id)}
+                      className="text-red-400 hover:underline text-xs font-medium">Delete</button>
+                  </div>
                 </td>
               </tr>
             ))}
