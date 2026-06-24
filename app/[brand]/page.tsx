@@ -1,20 +1,30 @@
 'use client'
 
 import Link from 'next/link'
-import { useEffect, useState, useRef } from 'react'
-import { useParams } from 'next/navigation'
+import { useEffect, useState, useRef, Suspense } from 'react'
+import { useParams, useSearchParams, useRouter } from 'next/navigation'
 
 const PAGE_SIZE = 16
 
-export default function BrandPage() {
+function BrandPageInner() {
   const params = useParams()
+  const searchParams = useSearchParams()
+  const router = useRouter()
   const brandSlug = params.brand as string
 
   const [brand, setBrand] = useState<any>(null)
   const [products, setProducts] = useState<any[]>([])
-  const [currentPage, setCurrentPage] = useState(1)
   const [loading, setLoading] = useState(true)
   const gridRef = useRef<HTMLDivElement>(null)
+
+  const currentPage = Math.max(1, parseInt(searchParams.get('page') || '1', 10))
+
+  function goToPage(page: number) {
+    const params = new URLSearchParams(searchParams.toString())
+    params.set('page', String(page))
+    router.push(`?${params.toString()}`, { scroll: false })
+    gridRef.current?.scrollIntoView({ behavior: 'smooth' })
+  }
 
   useEffect(() => {
     async function load() {
@@ -190,7 +200,7 @@ const visibleProducts = products.slice((currentPage - 1) * PAGE_SIZE, currentPag
   <div className="flex items-center justify-center gap-2 mt-12">
     {/* Prev */}
     <button
-      onClick={() => { setCurrentPage(p => p - 1); gridRef.current?.scrollIntoView({ behavior: 'smooth' }) }}
+      onClick={() => goToPage(currentPage - 1)}
       disabled={currentPage === 1}
       className="px-4 py-2 rounded-xl border border-gray-200 text-sm font-medium text-[#0A1628] hover:border-[#15A7DC] hover:text-[#15A7DC] disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
     >
@@ -211,7 +221,7 @@ const visibleProducts = products.slice((currentPage - 1) * PAGE_SIZE, currentPag
       return (
         <button
           key={page}
-          onClick={() => { setCurrentPage(page); gridRef.current?.scrollIntoView({ behavior: 'smooth' }) }}
+          onClick={() => goToPage(page)}
           className={`w-10 h-10 rounded-xl text-sm font-medium transition-colors ${
             currentPage === page
               ? 'bg-[#15A7DC] text-white border border-[#15A7DC]'
@@ -225,7 +235,7 @@ const visibleProducts = products.slice((currentPage - 1) * PAGE_SIZE, currentPag
 
     {/* Next */}
     <button
-      onClick={() => { setCurrentPage(p => p + 1); gridRef.current?.scrollIntoView({ behavior: 'smooth' }) }}
+      onClick={() => goToPage(currentPage + 1)}
       disabled={currentPage === totalPages}
       className="px-4 py-2 rounded-xl border border-gray-200 text-sm font-medium text-[#0A1628] hover:border-[#15A7DC] hover:text-[#15A7DC] disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
     >
@@ -237,5 +247,13 @@ const visibleProducts = products.slice((currentPage - 1) * PAGE_SIZE, currentPag
         )}
       </div>
     </main>
+  )
+}
+
+export default function BrandPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen bg-white flex items-center justify-center text-[#0A1628]/40">Loading...</div>}>
+      <BrandPageInner />
+    </Suspense>
   )
 }
