@@ -29,6 +29,8 @@ export default function BrandProductsPage() {
   const [saving, setSaving] = useState(false)
   const [toast, setToast] = useState<{ message: string; type: ToastType } | null>(null)
   const pdfUploaderRef = useRef<PdfUploaderHandle>(null)
+  const [selected, setSelected] = useState<Set<string>>(new Set())
+  const [bulkDeleting, setBulkDeleting] = useState(false)
 
   async function load() {
     const [bRes, pRes] = await Promise.all([
@@ -53,6 +55,52 @@ export default function BrandProductsPage() {
       load()
     } catch {
       setToast({ message: 'Failed to delete product.', type: 'error' })
+    }
+  }
+
+  async function handleBulkDelete() {
+    if (!confirm(`Delete ${selected.size} selected product(s)? This will also remove their images from Cloudinary.`)) return
+    setBulkDeleting(true)
+    let failed = 0
+    for (const id of selected) {
+      try {
+        const res = await fetch(`/api/products/${id}`, { method: 'DELETE' })
+        if (!res.ok) failed++
+      } catch {
+        failed++
+      }
+    }
+    setBulkDeleting(false)
+    setSelected(new Set())
+    if (failed > 0) {
+      setToast({ message: `Deleted with ${failed} error(s).`, type: 'error' })
+    } else {
+      setToast({ message: `${selected.size} product(s) deleted.`, type: 'info' })
+    }
+    load()
+  }
+
+  function toggleSelect(id: string) {
+    setSelected(prev => {
+      const next = new Set(prev)
+      next.has(id) ? next.delete(id) : next.add(id)
+      return next
+    })
+  }
+
+  function toggleSelectAll() {
+    if (paginated.every(p => selected.has(p._id))) {
+      setSelected(prev => {
+        const next = new Set(prev)
+        paginated.forEach(p => next.delete(p._id))
+        return next
+      })
+    } else {
+      setSelected(prev => {
+        const next = new Set(prev)
+        paginated.forEach(p => next.add(p._id))
+        return next
+      })
     }
   }
 
@@ -122,10 +170,45 @@ export default function BrandProductsPage() {
         </span>
       </div>
 
+      {/* Bulk action bar */}
+      {selected.size > 0 && (
+        <div className="mb-3 flex items-center gap-3 px-4 py-3 bg-red-50 border border-red-100 rounded-xl">
+          <span className="text-xs font-medium text-red-600">{selected.size} product(s) selected</span>
+          <button
+            onClick={handleBulkDelete}
+            disabled={bulkDeleting}
+            className="ml-auto flex items-center gap-1.5 bg-red-500 hover:bg-red-600 text-white text-xs font-semibold px-4 py-2 rounded-lg transition-colors disabled:opacity-50"
+          >
+            {bulkDeleting ? 'Deleting...' : (
+              <>
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                  <polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 01-2 2H8a2 2 0 01-2-2L5 6"/><path d="M10 11v6M14 11v6"/><path d="M9 6V4h6v2"/>
+                </svg>
+                Delete Selected
+              </>
+            )}
+          </button>
+          <button
+            onClick={() => setSelected(new Set())}
+            className="text-xs text-gray-400 hover:text-gray-600 transition-colors"
+          >
+            Clear
+          </button>
+        </div>
+      )}
+
       <div className="bg-white rounded-2xl border border-gray-100 overflow-hidden">
         <table className="w-full text-sm">
           <thead className="bg-gray-50/80 text-gray-400 text-xs uppercase tracking-wide">
             <tr>
+              <th className="px-4 py-3 w-8">
+                <input
+                  type="checkbox"
+                  checked={paginated.length > 0 && paginated.every(p => selected.has(p._id))}
+                  onChange={toggleSelectAll}
+                  className="w-4 h-4 accent-[#15A7DC] cursor-pointer"
+                />
+              </th>
               <th className="px-6 py-3 text-left">Product</th>
               <th className="px-6 py-3 text-left">SKU</th>
               <th className="px-6 py-3 text-left">Category</th>
@@ -134,7 +217,15 @@ export default function BrandProductsPage() {
           </thead>
           <tbody className="divide-y divide-gray-50">
             {paginated.map(p => (
-              <tr key={p._id} className="hover:bg-gray-50/50 transition-colors">
+              <tr key={p._id} className={`hover:bg-gray-50/50 transition-colors ${selected.has(p._id) ? 'bg-red-50/40' : ''}`}>
+                <td className="px-4 py-4">
+                  <input
+                    type="checkbox"
+                    checked={selected.has(p._id)}
+                    onChange={() => toggleSelect(p._id)}
+                    className="w-4 h-4 accent-[#15A7DC] cursor-pointer"
+                  />
+                </td>
                 <td className="px-6 py-4">
                   <div className="flex items-center gap-3">
                     {p.images?.[0] ? (
