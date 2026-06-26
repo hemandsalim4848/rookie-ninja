@@ -105,7 +105,6 @@ const closeQuote = () => {
                       About Us
                     </p>
                 <LightDropItem icon={<ClockIcon />} label="Mission & Vision" href="/about/mission" />
-                <div className="h-px bg-gray-100 my-1 mx-1.5" />
                 <LightDropItem icon={<TeamIcon />}  label="Team"             href="/about/team"    />
               </div>
             </li>
