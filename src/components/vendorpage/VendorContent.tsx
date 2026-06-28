@@ -24,7 +24,7 @@ const vendors = [
     logo: '/logos/brother-logo.png',
     description: 'Printers, labelling and document management solutions.',
     category: 'Print',
-    website: 'https://www.brother.com',
+    website: '/our-vendors/brother',
 },
 {
     name: 'Czur',
@@ -136,7 +136,7 @@ const vendors = [
     logo: '/logos/iris-logo.svg',
     description: 'AI-powered OCR and document scanning solutions.',
     category: 'Document Scanners',
-    website: 'https://iriscorporate.com/',
+    website: '/our-vendors/iris',
 },
 ];
 
