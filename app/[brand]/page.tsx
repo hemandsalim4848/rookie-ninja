@@ -182,9 +182,9 @@ const visibleProducts = products.slice((currentPage - 1) * PAGE_SIZE, currentPag
         .filter((l: string) => l.length > 2)
         .slice(0, 2)
         .map((line: string, i: number) => (
-          <li key={i} className="flex items-center gap-2 text-xs text-[#0A1628]/50 min-w-0">
-            <span className="w-1 h-1 rounded-full bg-[#15A7DC] shrink-0" />
-            <span className="truncate">{line}</span>
+          <li key={i} className="flex items-start gap-2 text-xs text-[#0A1628]/50 leading-relaxed">
+            <span className="w-1 h-1 rounded-full bg-[#15A7DC] mt-1.5 shrink-0" />
+            {line}
           </li>
         ))
       }
