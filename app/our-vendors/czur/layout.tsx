@@ -3,7 +3,7 @@ import Footer from "@/src/components/common/Footer";
 
 export default function CzurLayout({ children }: { children: React.ReactNode }) {
   return (
-    <div style={{ '--color-accent': '#0057B8' } as React.CSSProperties}>
+    <div style={{ '--color-accent': '#0982cb' } as React.CSSProperties}>
       <Navbar />
       {children}
       <Footer />
