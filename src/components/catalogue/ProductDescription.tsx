@@ -3,16 +3,83 @@ import React from 'react'
 interface Props {
   description: string
   shortDescription?: string
+  images?: string[]
 }
 
+// ── Structured format ─────────────────────────────────────────────────────────
+// [stats: Value§Label | Value§Label | Value§Label]
+// Intro paragraph (no heading)
+// ## Section heading
+// Section body paragraph
+// ─────────────────────────────────────────────────────────────────────────────
+
+function parseStructured(text: string): {
+  stats: { value: string; label: string }[]
+  lead: string
+  sections: { heading: string; body: string }[]
+} | null {
+  const lines = text.split('\n').map(l => l.trim()).filter(Boolean)
+  if (!lines[0]?.startsWith('[stats:')) return null
+
+  const statsLine = lines[0].replace(/^\[stats:\s*/, '').replace(/\]$/, '')
+  const stats = statsLine.split('|').map(s => {
+    const [value, label] = s.trim().split('§')
+    return { value: value?.trim() ?? '', label: label?.trim() ?? '' }
+  }).filter(s => s.value && s.label)
+
+  const sections: { heading: string; body: string }[] = []
+  let current: { heading: string; body: string } | null = null
+  let lead = ''
+
+  for (let i = 1; i < lines.length; i++) {
+    const line = lines[i]
+    if (line.startsWith('## ')) {
+      if (current) sections.push(current)
+      current = { heading: line.replace('## ', ''), body: '' }
+    } else {
+      if (!current) {
+        lead += (lead ? ' ' : '') + line
+      } else {
+        current.body += (current.body ? ' ' : '') + line
+      }
+    }
+  }
+  if (current) sections.push(current)
+
+  return { stats, lead, sections }
+}
+
+// ── Icon map: pick a Tabler icon from heading keywords ────────────────────────
+function sectionIcon(heading: string): string {
+  const h = heading.toLowerCase()
+  if (/effici|scanning|scan|capture/.test(h)) return 'ti-scan'
+  if (/image|quality|accuracy|ocr/.test(h)) return 'ti-eye'
+  if (/workflow|integrat|connect|systems|existing/.test(h)) return 'ti-arrows-right-left'
+  if (/scalab|grow|expand/.test(h)) return 'ti-trending-up'
+  if (/productiv|cost|reduc/.test(h)) return 'ti-chart-bar'
+  if (/automat|journey|document/.test(h)) return 'ti-robot'
+  if (/recogni|technolog|ai|intelligence/.test(h)) return 'ti-cpu'
+  if (/config|low.code|setup/.test(h)) return 'ti-settings'
+  if (/regulat|industri|complian/.test(h)) return 'ti-building'
+  if (/speed|fast|throughput|ppm/.test(h)) return 'ti-bolt'
+  if (/secur|protect|encrypt/.test(h)) return 'ti-shield-check'
+  if (/network|share|wireless|wifi/.test(h)) return 'ti-wifi'
+  if (/flatbed|exception|versatil/.test(h)) return 'ti-layout-board'
+  if (/smart|touch|distribut|route/.test(h)) return 'ti-hand-click'
+  if (/paper|feed|handl/.test(h)) return 'ti-stack'
+  if (/softwar|application|platform/.test(h)) return 'ti-code'
+  if (/certif|award|gold|sustainab/.test(h)) return 'ti-certificate'
+  if (/manag|admin|remote/.test(h)) return 'ti-server'
+  return 'ti-file-description'
+}
+
+// ── Legacy parsers (fallback for plain-text descriptions) ─────────────────────
 function parseFeatures(text: string): string[] {
   const lines = text.split('\n')
   const features: string[] = []
   for (const line of lines) {
     const cleaned = line.replace(/^[-•*]\s*/, '').trim()
-    if (cleaned.length > 5 && cleaned.length < 120) {
-      features.push(cleaned)
-    }
+    if (cleaned.length > 5 && cleaned.length < 120) features.push(cleaned)
   }
   return features.slice(0, 6)
 }
@@ -23,12 +90,13 @@ function parseSections(text: string): { title: string; body: string }[] {
   let current: { title: string; body: string } | null = null
 
   for (const line of lines) {
-    const isHeading = line.length < 60 && (
-      line.endsWith('.') === false &&
+    const isHeading =
+      line.length < 60 &&
+      !line.endsWith('.') &&
       !line.includes(',') &&
-      line === line.replace(/[^a-zA-Z0-9\s&/-]/g, '')
-    )
-    if (isHeading && line.split(' ').length <= 6) {
+      line === line.replace(/[^a-zA-Z0-9\s&/-]/g, '') &&
+      line.split(' ').length <= 6
+    if (isHeading) {
       if (current && current.body.trim()) sections.push(current)
       current = { title: line, body: '' }
     } else {
@@ -42,8 +110,6 @@ function parseSections(text: string): { title: string; body: string }[] {
 
 function extractHighlights(text: string): { icon: string; label: string; value: string }[] {
   const highlights: { icon: string; label: string; value: string }[] = []
-  const lower = text.toLowerCase()
-
   const patterns = [
     { regex: /(\d+w)\s*(usb|power|charging)/i, label: 'Power Output', icon: '⚡' },
     { regex: /usb-if certified/i, label: 'Certification', icon: '🛡️' },
@@ -56,7 +122,6 @@ function extractHighlights(text: string): { icon: string; label: string; value: 
     { regex: /mfi.?approved|mfi certified/i, label: 'MFi', icon: '🍎' },
     { regex: /(\d+)\s*port/i, label: 'Ports', icon: '🔌' },
   ]
-
   for (const p of patterns) {
     const match = text.match(p.regex)
     if (match) {
@@ -70,56 +135,149 @@ function extractHighlights(text: string): { icon: string; label: string; value: 
       if (highlights.length === 4) break
     }
   }
-
   return highlights
 }
 
-export default function ProductDescription({ description, shortDescription }: Props) {
+// ── Component ─────────────────────────────────────────────────────────────────
+export default function ProductDescription({ description, shortDescription, images }: Props) {
   if (!description && !shortDescription) {
+    return <p className="text-[#0A1628]/40 text-sm">No description available.</p>
+  }
+
+  const structured = description ? parseStructured(description) : null
+
+  // ── New editorial layout (structured format) ─────────────────────────────────
+  if (structured) {
+    const { stats, lead, sections } = structured
+    const heroImage = images?.[0]
+    const bodyCount = sections.length
+    const lastIdx = bodyCount - 1
+
     return (
-      <p className="text-[#0A1628]/40 text-sm">No description available.</p>
+      <div className="max-w-3xl">
+
+        {/* Stat callouts */}
+        {stats.length > 0 && (
+          <div className="grid grid-cols-3 gap-3 mb-8">
+            {stats.map((s, i) => (
+              <div key={i} className="bg-gray-50 rounded-xl p-4 text-center border border-gray-100">
+                <p className="text-xl font-semibold text-[#15A7DC] mb-1 leading-tight">{s.value}</p>
+                <p className="text-[11px] text-[#0A1628]/45 leading-snug tracking-wide uppercase">{s.label}</p>
+              </div>
+            ))}
+          </div>
+        )}
+
+        {/* Lead paragraph */}
+        {lead && (
+          <p className="text-[14px] text-[#0A1628]/70 leading-relaxed mb-8 pl-4 border-l-[3px] border-[#15A7DC]">
+            {lead}
+          </p>
+        )}
+
+        {/* Section cards */}
+        {sections.map((sec, i) => {
+          const isLast = i === lastIdx
+          const isEven = i % 2 === 0
+          const tag = String(i + 1).padStart(2, '0')
+
+          // Last section → full-width banner
+          if (isLast) {
+            return (
+              <div
+                key={i}
+                className="border border-gray-100 rounded-2xl p-6 mb-3 flex gap-5 items-start bg-gray-50/60"
+              >
+                <div className="w-12 h-12 rounded-xl bg-[#15A7DC]/10 flex items-center justify-center shrink-0">
+                  <i className={`ti ${sectionIcon(sec.heading)} text-[22px] text-[#15A7DC]`} aria-hidden="true" />
+                </div>
+                <div>
+                  <p className="text-[10px] font-semibold tracking-[0.1em] uppercase text-[#15A7DC] mb-2">{tag} — {sec.heading}</p>
+                  <p className="text-[13px] text-[#0A1628]/60 leading-relaxed">{sec.body}</p>
+                </div>
+              </div>
+            )
+          }
+
+          // First section with product image → image gets a real photo
+          const usePhoto = i === 0 && heroImage
+          const imgPane = usePhoto ? (
+            <div className="bg-gray-50 rounded-xl overflow-hidden" style={{ minHeight: 200 }}>
+              <img
+                src={heroImage}
+                alt={sec.heading}
+                className="w-full h-full object-contain p-4"
+                style={{ minHeight: 180, maxHeight: 220 }}
+              />
+            </div>
+          ) : (
+            <div className="bg-gray-50 rounded-xl flex flex-col items-center justify-center gap-3 p-8" style={{ minHeight: 180 }}>
+              <div className="w-14 h-14 rounded-2xl bg-[#15A7DC]/10 flex items-center justify-center">
+                <i className={`ti ${sectionIcon(sec.heading)} text-[26px] text-[#15A7DC]`} aria-hidden="true" />
+              </div>
+              <p className="text-[11px] text-[#0A1628]/30 text-center leading-snug max-w-[120px]">{sec.heading}</p>
+            </div>
+          )
+
+          const textPane = (
+            <div className="flex flex-col justify-center py-1">
+              <p className="text-[10px] font-semibold tracking-[0.1em] uppercase text-[#15A7DC] mb-2">{tag} — {sec.heading}</p>
+              <p className="text-[13px] text-[#0A1628]/60 leading-relaxed">{sec.body}</p>
+            </div>
+          )
+
+          return (
+            <div
+              key={i}
+              className="grid gap-5 border border-gray-100 rounded-2xl overflow-hidden mb-3"
+              style={{ gridTemplateColumns: '1fr 1fr' }}
+            >
+              {isEven ? (
+                <>
+                  <div>{imgPane}</div>
+                  <div className="pr-5 py-5">{textPane}</div>
+                </>
+              ) : (
+                <>
+                  <div className="pl-5 py-5">{textPane}</div>
+                  <div>{imgPane}</div>
+                </>
+              )}
+            </div>
+          )
+        })}
+      </div>
     )
   }
 
-  const fullText = [shortDescription, description].filter(Boolean).join('\n')
+  // ── Legacy layout (plain text fallback) ──────────────────────────────────────
+  const fullText   = [shortDescription, description].filter(Boolean).join('\n')
   const highlights = extractHighlights(fullText)
-  const features = parseFeatures(fullText)
-  const sections = parseSections(description || '')
-  const leadText = shortDescription?.replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim()
+  const features   = parseFeatures(fullText)
+  const sections   = parseSections(description || '')
+  const leadText   = shortDescription?.replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim()
 
   return (
     <div className="max-w-3xl">
-
-      {/* Lead paragraph */}
       {leadText && (
         <p className="text-base text-[#0A1628] leading-relaxed mb-8 pl-5 border-l-[3px] border-[#15A7DC]">
           {leadText}
         </p>
       )}
 
-      {/* Highlight cards */}
       {highlights.length > 0 && (
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-8">
           {highlights.map((h, i) => (
             <div key={i} className="bg-gray-50 rounded-xl p-4 flex flex-col gap-1.5">
               <span className="text-xl">{h.icon}</span>
-              <span className="text-[10px] text-[#0A1628]/40 uppercase tracking-widest font-medium">
-                {h.label}
-              </span>
-              <span className="text-sm font-semibold text-[#0A1628] leading-tight">
-                {h.value}
-              </span>
+              <span className="text-[10px] text-[#0A1628]/40 uppercase tracking-widest font-medium">{h.label}</span>
+              <span className="text-sm font-semibold text-[#0A1628] leading-tight">{h.value}</span>
             </div>
           ))}
         </div>
       )}
+      {highlights.length > 0 && <div className="h-px bg-gray-100 mb-8" />}
 
-      {/* Divider */}
-      {highlights.length > 0 && (
-        <div className="h-px bg-gray-100 mb-8" />
-      )}
-
-      {/* Body sections */}
       {sections.length > 0 && (
         <div className="space-y-6 mb-8">
           {sections.map((section, i) => (
@@ -129,22 +287,17 @@ export default function ProductDescription({ description, shortDescription }: Pr
                   {section.title}
                 </p>
               )}
-              <p className="text-sm text-[#0A1628]/60 leading-relaxed">
-                {section.body.trim()}
-              </p>
+              <p className="text-sm text-[#0A1628]/60 leading-relaxed">{section.body.trim()}</p>
             </div>
           ))}
         </div>
       )}
 
-      {/* Key features */}
       {features.length > 0 && (
         <>
           <div className="h-px bg-gray-100 mb-8" />
           <div>
-            <p className="text-[11px] font-semibold text-[#15A7DC] uppercase tracking-widest mb-4">
-              Key Features
-            </p>
+            <p className="text-[11px] font-semibold text-[#15A7DC] uppercase tracking-widest mb-4">Key Features</p>
             <ul className="space-y-3">
               {features.map((f, i) => (
                 <li key={i} className="flex items-start gap-3 text-sm text-[#0A1628]/60 leading-relaxed">

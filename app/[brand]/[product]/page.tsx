@@ -276,6 +276,7 @@ export default function ProductPage() {
               <ProductDescription
                 description={product.description}
                 shortDescription={product.shortDescription}
+                images={product.images}
               />
             )}
 
