@@ -157,6 +157,71 @@ const productionScanners = [
   },
 ];
 
+const KA_NAV_LINKS = [
+  { label: 'Software Solutions',           href: '#software-solutions' },
+  { label: 'Office Scanners',              href: '#office-scanners' },
+  { label: 'Network / Connected Scanners', href: '#network-connected-scanners' },
+  { label: 'Production Scanners',          href: '#production-scanners' },
+  { label: 'Flatbed Accessories',          href: '#flatbed-accessories' },
+];
+
+function KaNavInner({ accent }: { accent: string }) {
+  return (
+    <div style={{
+      display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+      flexWrap: 'nowrap', gap: 20,
+      maxWidth: 1140, width: '100%', margin: '0 auto',
+      height: 58, padding: '0 20px',
+    }}>
+      <ul style={{
+        display: 'flex', alignItems: 'center', flex: 1,
+        gap: 36, listStyle: 'none', margin: 0, padding: 0,
+        overflowX: 'auto', scrollbarWidth: 'none',
+      }}>
+        {KA_NAV_LINKS.map(link => (
+          <li key={link.href} style={{ flexShrink: 0 }}>
+            <a href={link.href}
+               style={{
+                 display: 'inline-block', fontSize: 14, fontWeight: 500,
+                 color: '#111', textDecoration: 'none', letterSpacing: '0.15px',
+                 whiteSpace: 'nowrap', position: 'relative', paddingBottom: 3,
+                 transition: 'color 0.2s',
+               }}
+               onMouseEnter={e => {
+                 const el = e.currentTarget as HTMLAnchorElement;
+                 el.style.color = accent;
+                 (el.querySelector('.ka-underline') as HTMLElement | null)?.style.setProperty('width', '100%');
+               }}
+               onMouseLeave={e => {
+                 const el = e.currentTarget as HTMLAnchorElement;
+                 el.style.color = '#111';
+                 (el.querySelector('.ka-underline') as HTMLElement | null)?.style.setProperty('width', '0');
+               }}>
+              {link.label}
+              <span className="ka-underline" style={{
+                position: 'absolute', bottom: 0, left: 0, width: 0, height: 2,
+                background: accent, borderRadius: 2, transition: 'width 0.25s ease',
+              }} />
+            </a>
+          </li>
+        ))}
+      </ul>
+      <a href="#network-connected-scanners"
+         style={{
+           flexShrink: 0, padding: '11px 26px',
+           background: accent, color: '#fff',
+           fontSize: 14, fontWeight: 600,
+           textDecoration: 'none', borderRadius: 50, whiteSpace: 'nowrap',
+           transition: 'transform 0.15s',
+         }}
+         onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.transform = 'translateY(-1px)'; }}
+         onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.transform = 'translateY(0)'; }}>
+        Get a Quote
+      </a>
+    </div>
+  );
+}
+
 /* ─────────────────────────────────────────────
    MAIN COMPONENT
 ───────────────────────────────────────────── */
@@ -367,78 +432,25 @@ export default function KodakAlarisPage() {
       {/* ══════════════════════════════════════════
           STICKY NAV
       ══════════════════════════════════════════ */}
-      <div className="ka-nav-wrap" style={{
-        width: '100%',
-        background: '#fff',
+      {/* Inline nav — visible below hero in page flow */}
+      <div style={{
+        width: '100%', background: '#fff',
         borderBottom: `1px solid rgba(0,0,0,0.09)`,
-        position: 'fixed',
-        top: 0,
-        left: 0, right: 0, zIndex: 1001,
+        visibility: isSticky ? 'hidden' : 'visible',
+      }}>
+        <KaNavInner accent={ka.accent} />
+      </div>
+
+      {/* Fixed nav — slides in from top after hero exits */}
+      <div className="ka-nav-wrap" style={{
+        width: '100%', background: '#fff',
+        borderBottom: `1px solid rgba(0,0,0,0.09)`,
+        position: 'fixed', top: 0, left: 0, right: 0, zIndex: 1001,
         boxShadow: '0 2px 20px rgba(0,0,0,0.12)',
         transform: isSticky ? 'translateY(0)' : 'translateY(-100%)',
         transition: 'transform 0.35s cubic-bezier(0.4,0,0.2,1)',
       }}>
-        <div className="ka-nav-inner"
-             style={{
-               display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-               flexWrap: 'nowrap', gap: 20,
-               maxWidth: 1140, width: '100%', margin: '0 auto',
-               height: 58, padding: '0 20px',
-             }}>
-          <ul className="ka-nav-links"
-              style={{
-                display: 'flex', alignItems: 'center', flex: 1,
-                gap: 36, listStyle: 'none', margin: 0, padding: 0,
-                overflowX: 'auto', scrollbarWidth: 'none',
-              }}>
-            {[
-              { label: 'Software Solutions',           href: '#software-solutions' },
-              { label: 'Office Scanners',              href: '#office-scanners' },
-              { label: 'Network / Connected Scanners', href: '#network-connected-scanners' },
-              { label: 'Production Scanners',          href: '#production-scanners' },
-              { label: 'Flatbed Accessories',          href: '#flatbed-accessories' },
-            ].map(link => (
-              <li key={link.href} style={{ flexShrink: 0 }}>
-                <a href={link.href}
-                   style={{
-                     display: 'inline-block', fontSize: 14, fontWeight: 500,
-                     color: '#111',
-                     textDecoration: 'none', letterSpacing: '0.15px',
-                     whiteSpace: 'nowrap', position: 'relative', paddingBottom: 3,
-                     transition: 'color 0.2s',
-                   }}
-                   onMouseEnter={e => {
-                     const el = e.currentTarget as HTMLAnchorElement;
-                     el.style.color = ka.accent;
-                     (el.querySelector('.ka-underline') as HTMLElement | null)?.style.setProperty('width', '100%');
-                   }}
-                   onMouseLeave={e => {
-                     const el = e.currentTarget as HTMLAnchorElement;
-                     el.style.color = '#111';
-                     (el.querySelector('.ka-underline') as HTMLElement | null)?.style.setProperty('width', '0');
-                   }}>
-                  {link.label}
-                  <span className="ka-underline" style={{
-                    position: 'absolute', bottom: 0, left: 0, width: 0, height: 2,
-                    background: ka.accent, borderRadius: 2, transition: 'width 0.25s ease',
-                  }} />
-                </a>
-              </li>
-            ))}
-          </ul>
-          <a href="#network-connected-scanners" className="ka-nav-cta"
-             style={{
-               flexShrink: 0, padding: '11px 26px',
-               background: ka.accent, color: '#fff',
-               fontSize: 14, fontWeight: 600,
-               textDecoration: 'none', borderRadius: 50, whiteSpace: 'nowrap',
-               transition: 'transform 0.15s',
-             }}
-             onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.transform = 'translateY(-1px)'; }}
-             onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.transform = 'translateY(0)'; }}>
-            Get a Quote
-          </a>
-        </div>
+        <KaNavInner accent={ka.accent} />
       </div>
 
       {/* ══════════════════════════════════════════
