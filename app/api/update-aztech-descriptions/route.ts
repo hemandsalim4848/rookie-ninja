@@ -3,6 +3,40 @@ import { connectDB } from '@/src/lib/mongodb'
 import { Product } from '@/src/lib/models/Products'
 
 const updates = [
+  // IFP — Ideaflow series
+  // Title has: screen size, 4K, Interactive Display — don't repeat size or resolution
+  {
+    slug: 'ideaflow-65-4k-interactive-display',
+    shortDescription: 'UltraTouch multi-touch display\nBuilt-in 48MP AI camera and microphone\nSeamless screen mirroring\nFluent writing experience\nScan to transfer files\nBYOM (Bring Your Own Meeting)',
+  },
+  {
+    slug: 'ideaflow-75-4k-interactive-display',
+    shortDescription: 'UltraTouch multi-touch display\nBuilt-in 48MP AI camera and microphone\nSeamless screen mirroring\nFluent writing experience\nScan to transfer files\nBYOM (Bring Your Own Meeting)',
+  },
+  {
+    slug: 'ideaflow-86-4k-interactive-display',
+    shortDescription: 'UltraTouch multi-touch display\nBuilt-in 48MP AI camera and microphone\nSeamless screen mirroring\nFluent writing experience\nScan to transfer files\nBYOM (Bring Your Own Meeting)',
+  },
+  {
+    slug: 'ideaflow-110-4k-interactive-display',
+    shortDescription: 'UltraTouch multi-touch display\nBuilt-in 48MP AI camera and microphone\nSeamless screen mirroring\nFluent writing experience\nScan to transfer files\nBYOM (Bring Your Own Meeting)',
+  },
+  {
+    slug: 'ideaflow-pro-65-4k-interactive-display',
+    shortDescription: 'UltraTouch multi-touch display\nBuilt-in 48MP AI camera and microphone\nSeamless screen mirroring\nFluent writing experience\nScan to transfer files\nBYOM (Bring Your Own Meeting)',
+  },
+  {
+    slug: 'ideaflow-pro-75-4k-interactive-display',
+    shortDescription: 'UltraTouch multi-touch display\nBuilt-in AI camera\nAndroid 13 operating system\nSeamless connectivity\nAspect ratio 16:9\nFluent writing experience',
+  },
+  {
+    slug: 'ideaflow-pro-86-4k-interactive-display',
+    shortDescription: 'UltraTouch multi-touch display\nBuilt-in 48MP AI camera and microphone\nSeamless screen mirroring\nFluent writing experience\nScan to transfer files\nBYOM (Bring Your Own Meeting)',
+  },
+  {
+    slug: 'ideaflow-pro-98-4k-interactive-display',
+    shortDescription: 'UltraTouch multi-touch display\nBuilt-in 48MP AI camera and microphone\nSeamless screen mirroring\nFluent writing experience\nScan to transfer files\nBYOM (Bring Your Own Meeting)',
+  },
   // Alpha series — 80Plus Gold, Fully-modular
   // Title has: wattage, 80Plus Gold, Fully Modular — describe what title doesn't say
   {
