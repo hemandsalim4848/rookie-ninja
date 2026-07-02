@@ -56,7 +56,7 @@ export async function POST(req: Request) {
         sku: p.SKU || '', images,
         description: stripHtml(p.Description || ''),
         shortDescription: parseShortDescription(p['Short description'] || ''),
-        category: p.Category || 'Scanner',
+        category: p.Category || 'Document Scanners',
         tags: [], featured: false, specs: [], downloads: [],
       })
       inserted++

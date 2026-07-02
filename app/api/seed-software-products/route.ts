@@ -11,7 +11,7 @@ const products = [
     name: 'KODAK Info Input Solution',
     slug: 'kodak-info-input-solution',
     sku: '',
-    category: 'Softwares',
+    category: 'Software',
     images: ['https://products.rookie-ninja.com/wp-content/uploads/2026/05/KODAK-Info-Input-Solution-1.png.webp'],
     shortDescription: `AI-powered document processing
 Automated data extraction
@@ -37,7 +37,7 @@ KODAK Info Input Solution also supports integration with leading cloud AI and bu
     name: 'KODAK Capture Pro Software',
     slug: 'kodak-capture-pro-software',
     sku: '',
-    category: 'Softwares',
+    category: 'Software',
     images: ['https://products.rookie-ninja.com/wp-content/uploads/2026/05/KODAK-Capture-Pro.png.webp'],
     shortDescription: `High-volume document capture
 Advanced OCR & barcode recognition
@@ -61,7 +61,7 @@ By automating document capture and data extraction, KODAK Capture Pro Software h
     name: 'Readiris PDF Essential',
     slug: 'readiris-pdf-essential',
     sku: '',
-    category: 'Softwares',
+    category: 'Software',
     images: [
       'https://products.rookie-ninja.com/wp-content/uploads/2026/06/RIPDF25-new-eshop-660x660-01-en-min.webp',
       'https://products.rookie-ninja.com/wp-content/uploads/2026/06/RIPDF25-new-eshop-660x660-02-en-min.webp',
@@ -93,7 +93,7 @@ Readiris PDF Essential also streamlines document conversion by enabling fast exp
     name: 'Readiris PDF Elite',
     slug: 'readiris-pdf-elite',
     sku: '',
-    category: 'Softwares',
+    category: 'Software',
     images: [
       'https://products.rookie-ninja.com/wp-content/uploads/2026/06/RIPDF25-new-eshop-660x660-04-en-min.webp',
       'https://products.rookie-ninja.com/wp-content/uploads/2026/06/RIPDF25-new-eshop-660x660-05-en-min.webp',
