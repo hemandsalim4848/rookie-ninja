@@ -367,16 +367,16 @@ export default function KodakAlarisPage() {
       {/* ══════════════════════════════════════════
           STICKY NAV
       ══════════════════════════════════════════ */}
-      {isSticky && <div className="ka-nav-placeholder" style={{ height: 58 }} />}
       <div className="ka-nav-wrap" style={{
         width: '100%',
         background: '#fff',
         borderBottom: `1px solid rgba(0,0,0,0.09)`,
-        position: isSticky ? 'fixed' : 'relative',
-        top: isSticky ? 0 : undefined,
+        position: 'fixed',
+        top: 0,
         left: 0, right: 0, zIndex: 1001,
-        boxShadow: isSticky ? '0 2px 20px rgba(0,0,0,0.12)' : 'none',
-        transition: 'box-shadow 0.3s ease',
+        boxShadow: '0 2px 20px rgba(0,0,0,0.12)',
+        transform: isSticky ? 'translateY(0)' : 'translateY(-100%)',
+        transition: 'transform 0.35s cubic-bezier(0.4,0,0.2,1)',
       }}>
         <div className="ka-nav-inner"
              style={{
