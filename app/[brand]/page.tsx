@@ -225,22 +225,21 @@ const visibleProducts = filteredProducts.slice((currentPage - 1) * PAGE_SIZE, cu
       {product.category}
     </span>
   )}
-  {product.shortDescription && (
-    <ul className="space-y-1.5 mt-2">
-      {product.shortDescription
-        .split('\n')
-        .map((l: string) => l.trim())
-        .filter((l: string) => l.length > 2)
-        .slice(0, 2)
-        .map((line: string, i: number) => (
+  {product.shortDescription && (() => {
+    const lines = product.shortDescription.split('\n').map((l: string) => l.trim()).filter((l: string) => l.length > 2)
+    const offset = product.slug ? product.slug.split('').reduce((a: number, c: string) => a + c.charCodeAt(0), 0) % Math.max(lines.length - 1, 1) : 0
+    const visible = [...lines.slice(offset), ...lines.slice(0, offset)].slice(0, 2)
+    return (
+      <ul className="space-y-1.5 mt-2">
+        {visible.map((line: string, i: number) => (
           <li key={i} className="flex items-start gap-2 text-xs text-[#0A1628]/50 leading-relaxed">
             <span className="w-1 h-1 rounded-full bg-[#15A7DC] mt-1.5 shrink-0" />
             {line}
           </li>
-        ))
-      }
-    </ul>
-  )}
+        ))}
+      </ul>
+    )
+  })()}
 </div>
                 </Link>
               ))}
