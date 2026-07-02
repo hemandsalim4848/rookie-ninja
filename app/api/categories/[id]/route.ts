@@ -3,12 +3,13 @@ import { connectDB } from '@/src/lib/mongodb'
 import { Category } from '@/src/lib/models/Category'
 import { Product } from '@/src/lib/models/Products'
 
-export async function PATCH(req: Request, { params }: { params: { id: string } }) {
+export async function PATCH(req: Request, { params }: { params: Promise<{ id: string }> }) {
   await connectDB()
+  const { id } = await params
   const { name } = await req.json()
   if (!name?.trim()) return NextResponse.json({ error: 'Name required' }, { status: 400 })
 
-  const existing = await Category.findById(params.id)
+  const existing = await Category.findById(id)
   if (!existing) return NextResponse.json({ error: 'Not found' }, { status: 404 })
 
   const oldName = existing.name
@@ -17,7 +18,6 @@ export async function PATCH(req: Request, { params }: { params: { id: string } }
   try {
     existing.name = newName
     await existing.save()
-    // Cascade rename to all products
     await Product.updateMany({ category: oldName }, { $set: { category: newName } })
     return NextResponse.json(existing)
   } catch {
@@ -25,10 +25,11 @@ export async function PATCH(req: Request, { params }: { params: { id: string } }
   }
 }
 
-export async function DELETE(_req: Request, { params }: { params: { id: string } }) {
+export async function DELETE(_req: Request, { params }: { params: Promise<{ id: string }> }) {
   await connectDB()
+  const { id } = await params
 
-  const category = await Category.findById(params.id)
+  const category = await Category.findById(id)
   if (!category) return NextResponse.json({ error: 'Not found' }, { status: 404 })
 
   const productCount = await Product.countDocuments({ category: category.name })
