@@ -454,6 +454,75 @@ export default function KodakAlarisPage() {
       </div>
 
       {/* ══════════════════════════════════════════
+          SOFTWARE SOLUTIONS
+      ══════════════════════════════════════════ */}
+      <section id="software-solutions" style={{ width: '100%', background: '#f8fafc', padding: '72px 20px' }}>
+        <div style={{ maxWidth: 1140, margin: '0 auto' }}>
+          <div className="ka-reveal" style={{ textAlign: 'center', marginBottom: 48 }}>
+            <h2 style={{ fontSize: 'clamp(24px, 3vw, 36px)', fontWeight: 700, color: ka.text, marginBottom: 14, letterSpacing: -0.3 }}>
+              Software Solutions
+            </h2>
+            <p style={{ fontSize: 15, color: '#64748b', lineHeight: 1.65, maxWidth: 560, margin: '0 auto' }}>
+              Intelligent document capture and automation software from Kodak Alaris — purpose-built to digitise, classify, and route information across every business workflow.
+            </p>
+          </div>
+          <div className="ka-sw-grid ka-reveal ka-reveal-d1" style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 24 }}>
+            {[
+              {
+                tag: 'Document Capture',
+                title: 'KODAK Capture Pro Software',
+                desc: 'A powerful capture platform that automates the conversion of paper documents into high-quality digital information — with intelligent image processing, OCR, and flexible ECM integration.',
+                image: 'https://products.rookie-ninja.com/wp-content/uploads/2026/05/KODAK-Capture-Pro.png.webp',
+                href: '/kodak-alaris/kodak-capture-pro-software',
+                features: ['High-volume document capture', 'Advanced OCR & barcode recognition', 'Intelligent image processing', 'Supports multiple scanner brands', 'Enterprise workflow automation'],
+              },
+              {
+                tag: 'Intelligent Document Processing',
+                title: 'KODAK Info Input Solution',
+                desc: 'An AI-powered IDP platform that automates the entire document journey — from multi-channel capture to data extraction, validation, and seamless integration with business systems.',
+                image: 'https://products.rookie-ninja.com/wp-content/uploads/2026/05/KODAK-Info-Input-Solution-1.png.webp',
+                href: '/kodak-alaris/kodak-info-input-solution',
+                features: ['AI-powered document processing', 'Automated data extraction', 'Paper & digital capture', 'Low-code workflow automation', 'Business system integration'],
+              },
+            ].map((card, i) => (
+              <div key={i} className={`ka-reveal ka-reveal-d${i + 1}`}
+                   style={{ background: '#fff', borderRadius: 16, border: '1px solid #e5e7eb', overflow: 'hidden', boxShadow: '0 2px 16px rgba(0,0,0,0.06)', display: 'flex', flexDirection: 'column', transition: 'box-shadow 0.3s ease, transform 0.3s ease' }}
+                   onMouseEnter={e => { const el = e.currentTarget as HTMLDivElement; el.style.transform = 'translateY(-4px)'; el.style.boxShadow = '0 8px 32px rgba(0,0,0,0.12)'; }}
+                   onMouseLeave={e => { const el = e.currentTarget as HTMLDivElement; el.style.transform = 'translateY(0)'; el.style.boxShadow = '0 2px 16px rgba(0,0,0,0.06)'; }}>
+                <div style={{ width: '100%', height: 220, background: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', borderBottom: '1px solid #f1f5f9' }}>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={card.image} alt={card.title} style={{ width: '100%', height: '100%', objectFit: 'contain', padding: 24, display: 'block' }} />
+                </div>
+                <div style={{ padding: '24px 24px 28px', display: 'flex', flexDirection: 'column', flex: 1 }}>
+                  <p style={{ fontSize: 11, fontWeight: 700, color: ka.accent, textTransform: 'uppercase', letterSpacing: 1.2, marginBottom: 8 }}>{card.tag}</p>
+                  <h3 style={{ fontSize: 17, fontWeight: 700, color: ka.text, marginBottom: 10, lineHeight: 1.3 }}>{card.title}</h3>
+                  <p style={{ fontSize: 13.5, color: '#64748b', lineHeight: 1.65, marginBottom: 16 }}>{card.desc}</p>
+                  <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: 7, flex: 1 }}>
+                    {card.features.map((f, j) => (
+                      <li key={j} style={{ fontSize: 13, fontWeight: 500, color: '#374151', paddingLeft: 16, position: 'relative', lineHeight: 1.4 }}>
+                        <span style={{ position: 'absolute', left: 0, top: 6, width: 6, height: 6, borderRadius: '50%', background: ka.accent, display: 'inline-block' }} />
+                        {f}
+                      </li>
+                    ))}
+                  </ul>
+                  <a href={card.href} style={{
+                    marginTop: 20, display: 'inline-block', padding: '10px 20px',
+                    background: ka.accent, color: '#fff', fontSize: 13, fontWeight: 600,
+                    borderRadius: 50, textDecoration: 'none', alignSelf: 'flex-start',
+                    transition: 'opacity 0.2s',
+                  }}
+                  onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.opacity = '0.85'; }}
+                  onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.opacity = '1'; }}>
+                    View Product
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════════════
           OFFICE SCANNERS
       ══════════════════════════════════════════ */}
       <section id="office-scanners" style={{ width: '100%', padding: '80px 20px', background: '#fff' }}>
@@ -832,6 +901,7 @@ export default function KodakAlarisPage() {
           .ka-flat-grid  { grid-template-columns: 1fr !important; }
           .ka-scanner-layout { flex-direction: column-reverse !important; gap: 32px !important; min-height: unset !important; }
           .ka-scanner-img { height: 320px !important; }
+          .ka-sw-grid    { grid-template-columns: 1fr !important; }
         }
 
         /* ── Tablet 768px ── */
