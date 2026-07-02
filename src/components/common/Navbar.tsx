@@ -1,12 +1,55 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
+import { useRouter } from 'next/navigation';
 
 export default function Navbar() {
+  const router = useRouter();
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const [mobileOpen, setMobileOpen]     = useState<boolean>(false);
   const [mobileSubOpen, setMobileSubOpen] = useState<string | null>(null);
   const [scrolled, setScrolled] = useState<boolean>(false);
+
+  /* ── Search ── */
+  const [searchOpen, setSearchOpen]   = useState(false);
+  const [searchVisible, setSearchVisible] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
+  const [searchResults, setSearchResults] = useState<any[]>([]);
+  const [allProducts, setAllProducts] = useState<any[]>([]);
+  const searchInputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    fetch('/api/products')
+      .then(r => r.json())
+      .then(d => setAllProducts(Array.isArray(d) ? d : []))
+      .catch(() => {});
+  }, []);
+
+  const openSearch = () => {
+    setSearchOpen(true);
+    setTimeout(() => { setSearchVisible(true); searchInputRef.current?.focus(); }, 10);
+  };
+  const closeSearch = useCallback(() => {
+    setSearchVisible(false);
+    setTimeout(() => { setSearchOpen(false); setSearchQuery(''); setSearchResults([]); }, 250);
+  }, []);
+
+  useEffect(() => {
+    if (!searchOpen) return;
+    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') closeSearch(); };
+    document.addEventListener('keydown', onKey);
+    return () => document.removeEventListener('keydown', onKey);
+  }, [searchOpen, closeSearch]);
+
+  useEffect(() => {
+    if (searchQuery.length < 2) { setSearchResults([]); return; }
+    const q = searchQuery.toLowerCase();
+    setSearchResults(
+      allProducts
+        .filter(p => p.name.toLowerCase().includes(q) || p.category?.toLowerCase().includes(q) || p.brandSlug?.toLowerCase().includes(q))
+        .slice(0, 7)
+    );
+  }, [searchQuery, allProducts]);
 
   useEffect(() => {
     const handler = (e: MouseEvent) => {
@@ -254,6 +297,18 @@ const closeQuote = () => {
           {/* Desktop Actions */}
           <div className="hidden xl:flex items-center gap-2">
 
+            {/* Search */}
+            <button
+              onClick={openSearch}
+              title="Search products"
+              className={`w-8 h-8 rounded-lg border flex items-center
+                          justify-center cursor-pointer transition-all duration-200
+                          ${scrolled
+                            ? 'border-navy/15 text-navy/50 hover:bg-navy/[0.06] hover:text-navy hover:border-navy/25'
+                            : 'text-white hover:text-white/70 hover:bg-white/[0.1] hover:text-white hover:border-white/25'}`}>
+              <NavSearchIcon />
+            </button>
+
             {/* Phone */}
             <button
               title="Call us"
@@ -394,6 +449,17 @@ const closeQuote = () => {
 
         <div className="h-px bg-gray-100 my-2" />
 
+        <button
+          onClick={() => { setMobileOpen(false); openSearch(); }}
+          className="flex items-center gap-3 px-4 py-3 rounded-xl w-full text-left
+                     text-navy/60 hover:bg-navy/[0.05] hover:text-navy transition-colors border border-gray-100"
+        >
+          <span className="w-7 h-7 rounded-[7px] bg-[#15A7DC]/10 flex items-center justify-center shrink-0">
+            <SearchIcon />
+          </span>
+          <span className="font-body text-[15px]">Search Products</span>
+        </button>
+
         <div className="mt-4 flex flex-col gap-2.5">
           <button
   onClick={() => { setQuoteOpen(true); setMobileOpen(false); setTimeout(() => setQuoteVisible(true), 10); }}
@@ -421,6 +487,93 @@ const closeQuote = () => {
           </div>
         </div>
       </div>
+    {/* ── SEARCH OVERLAY ── */}
+    {searchOpen && (
+      <div
+        className={`fixed inset-0 z-[9998] transition-all duration-250 ${searchVisible ? 'opacity-100' : 'opacity-0'}`}
+        style={{ background: 'rgba(8,18,34,0.82)', backdropFilter: 'blur(8px)' }}
+        onClick={e => { if (e.target === e.currentTarget) closeSearch(); }}
+      >
+        <div className={`max-w-2xl mx-auto px-4 transition-all duration-250 ${searchVisible ? 'translate-y-0 opacity-100' : '-translate-y-4 opacity-0'}`}
+             style={{ paddingTop: 'clamp(80px, 12vh, 140px)' }}>
+
+          {/* Input */}
+          <div className="relative">
+            <span className="absolute left-4 top-1/2 -translate-y-1/2 text-white/40 pointer-events-none">
+              <NavSearchIcon size={18} />
+            </span>
+            <input
+              ref={searchInputRef}
+              type="text"
+              value={searchQuery}
+              onChange={e => setSearchQuery(e.target.value)}
+              placeholder="Search products, brands, categories…"
+              className="w-full h-14 rounded-2xl pl-12 pr-12 text-white text-[15px]
+                         placeholder-white/30 outline-none border border-white/10
+                         focus:border-[#15A7DC]/60"
+              style={{ background: 'rgba(255,255,255,0.08)' }}
+            />
+            <button
+              onClick={closeSearch}
+              className="absolute right-4 top-1/2 -translate-y-1/2 text-white/40
+                         hover:text-white/80 transition-colors"
+            >
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <path d="M2 2l12 12M14 2L2 14" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round"/>
+              </svg>
+            </button>
+          </div>
+
+          {/* Results */}
+          {searchResults.length > 0 && (
+            <div className="mt-2 rounded-2xl overflow-hidden border border-white/8"
+                 style={{ background: 'rgba(15,32,64,0.95)' }}>
+              {searchResults.map((p, i) => (
+                <button
+                  key={p._id}
+                  onClick={() => { router.push(`/${p.brandSlug}/${p.slug}`); closeSearch(); }}
+                  className="w-full flex items-center gap-3 px-4 py-3 text-left
+                             border-b border-white/5 last:border-0
+                             hover:bg-[#15A7DC]/10 transition-colors group"
+                >
+                  {p.images?.[0] ? (
+                    <div className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center shrink-0 overflow-hidden">
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img src={p.images[0]} alt={p.name} className="w-full h-full object-contain p-1" />
+                    </div>
+                  ) : (
+                    <div className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center shrink-0 text-lg">📦</div>
+                  )}
+                  <div className="flex-1 min-w-0">
+                    <p className="text-sm font-medium text-white/90 group-hover:text-white truncate">{p.name}</p>
+                    {p.category && (
+                      <p className="text-[11px] text-white/40 mt-0.5">{p.category}</p>
+                    )}
+                  </div>
+                  <span className="text-[11px] text-[#15A7DC] bg-[#15A7DC]/10 px-2 py-0.5 rounded-full shrink-0 capitalize">
+                    {p.brandSlug?.replace(/-/g, ' ')}
+                  </span>
+                </button>
+              ))}
+            </div>
+          )}
+
+          {searchQuery.length >= 2 && searchResults.length === 0 && (
+            <div className="mt-2 rounded-2xl px-4 py-6 text-center text-white/40 text-sm border border-white/8"
+                 style={{ background: 'rgba(15,32,64,0.95)' }}>
+              No products found for &quot;{searchQuery}&quot;
+            </div>
+          )}
+
+          {searchQuery.length < 2 && (
+            <p className="mt-4 text-center text-white/25 text-xs tracking-wide">
+              Type at least 2 characters to search
+            </p>
+          )}
+        </div>
+      </div>
+    )}
+
     {/* ── QUOTE MODAL ── */}
       {quoteOpen && (
   <div
@@ -665,6 +818,14 @@ function MobSubLink({ href, icon, label }: {
 }
 
 /* ── Icons — accent stroke (for dark dropdowns / desktop) ── */
+function NavSearchIcon({ size = 14 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 16 16" fill="none">
+      <circle cx="7" cy="7" r="4.5" stroke="currentColor" strokeWidth="1.4"/>
+      <path d="M10.5 10.5L14 14" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round"/>
+    </svg>
+  );
+}
 function PhoneIcon() {
   return <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
     <path d="M3 2h3l1.5 3.5L6 7a9 9 0 004 4l1.5-1.5L15 11v3a1 1 0 01-1 1A13 13 0 012 3a1 1 0 011-1z"

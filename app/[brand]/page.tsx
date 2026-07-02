@@ -16,6 +16,7 @@ function BrandPageInner() {
   const [products, setProducts] = useState<any[]>([])
   const [loading, setLoading] = useState(true)
   const gridRef = useRef<HTMLDivElement>(null)
+  const [activeCategory, setActiveCategory] = useState('')
 
   const currentPage = Math.max(1, parseInt(searchParams.get('page') || '1', 10))
 
@@ -48,8 +49,23 @@ function BrandPageInner() {
     load()
   }, [brandSlug])
 
-const totalPages = Math.ceil(products.length / PAGE_SIZE)
-const visibleProducts = products.slice((currentPage - 1) * PAGE_SIZE, currentPage * PAGE_SIZE)
+  const categories = Array.from(
+    new Set(products.map((p: any) => p.category).filter(Boolean))
+  ).sort() as string[]
+
+  function selectCategory(cat: string) {
+    setActiveCategory(cat)
+    const params = new URLSearchParams(searchParams.toString())
+    params.set('page', '1')
+    router.push(`?${params.toString()}`, { scroll: false })
+  }
+
+  const filteredProducts = activeCategory
+    ? products.filter((p: any) => p.category === activeCategory)
+    : products
+
+const totalPages = Math.ceil(filteredProducts.length / PAGE_SIZE)
+const visibleProducts = filteredProducts.slice((currentPage - 1) * PAGE_SIZE, currentPage * PAGE_SIZE)
 
   if (loading) return (
     <div className="min-h-screen bg-white flex items-center justify-center text-[#0A1628]/40">
@@ -127,21 +143,56 @@ const visibleProducts = products.slice((currentPage - 1) * PAGE_SIZE, currentPag
         </div>
       </div>
 
+      {/* Category Filter */}
+      {categories.length > 1 && (
+        <div className="border-b border-gray-100 bg-white sticky top-0 z-10">
+          <div className="max-w-7xl mx-auto px-4 py-3 flex items-center gap-2 overflow-x-auto scrollbar-hide">
+            <button
+              onClick={() => selectCategory('')}
+              className={`shrink-0 px-4 py-1.5 rounded-full text-xs font-semibold border transition-colors ${
+                activeCategory === ''
+                  ? 'bg-[#0A1628] text-white border-[#0A1628]'
+                  : 'bg-white text-[#0A1628]/60 border-gray-200 hover:border-[#15A7DC] hover:text-[#15A7DC]'
+              }`}
+            >
+              All
+            </button>
+            {categories.map(cat => (
+              <button
+                key={cat}
+                onClick={() => selectCategory(cat)}
+                className={`shrink-0 px-4 py-1.5 rounded-full text-xs font-semibold border transition-colors whitespace-nowrap ${
+                  activeCategory === cat
+                    ? 'bg-[#15A7DC] text-white border-[#15A7DC]'
+                    : 'bg-white text-[#0A1628]/60 border-gray-200 hover:border-[#15A7DC] hover:text-[#15A7DC]'
+                }`}
+              >
+                {cat}
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
+
       {/* Products Grid */}
       <div ref={gridRef} className="max-w-7xl mx-auto px-4 py-12">
         <div className="flex items-center justify-between mb-8">
           <div>
-            <h2 className="text-lg font-semibold text-[#0A1628]">All Products</h2>
-           <p className="text-sm text-gray-400 mt-0.5">
-  Page {currentPage} of {totalPages} · {products.length} products total
-</p>
+            <h2 className="text-lg font-semibold text-[#0A1628]">
+              {activeCategory || 'All Products'}
+            </h2>
+            <p className="text-sm text-gray-400 mt-0.5">
+              Page {currentPage} of {totalPages} · {filteredProducts.length} product{filteredProducts.length !== 1 ? 's' : ''}
+            </p>
           </div>
         </div>
 
-        {products.length === 0 ? (
+        {filteredProducts.length === 0 ? (
           <div className="flex flex-col items-center justify-center py-24 text-center">
             <div className="text-5xl mb-4">📦</div>
-            <p className="text-gray-400">No products listed for this brand yet.</p>
+            <p className="text-gray-400">
+              {activeCategory ? `No products in "${activeCategory}".` : 'No products listed for this brand yet.'}
+            </p>
           </div>
         ) : (
           <>
