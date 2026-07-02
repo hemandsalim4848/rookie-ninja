@@ -4,100 +4,104 @@ import { Product } from '@/src/lib/models/Products'
 
 const updates = [
   // Alpha series — 80Plus Gold, Fully-modular
+  // Title has: wattage, 80Plus Gold, Fully Modular — describe what title doesn't say
   {
     slug: 'alpha-650w-80plus-gold-fully-modular-power-supply-unit',
-    shortDescription: '650W Power Output\n80Plus Gold certified\nFully-modular design\nLarger cooling fan for improved airflow\nATX form factor\nMultiple connector types included',
+    shortDescription: 'Up to 90% energy efficiency\nATX 3.1 standard\nActive PFC + DC to DC conversion\n12cm silent cooling fan\nBlack flat cable set\nDual EMI protection',
   },
   {
     slug: 'alpha-750w-80plus-gold-fully-modular-power-supply-unit',
-    shortDescription: '750W Power Output\n80Plus Gold certified\nFully-modular design\nLarger cooling fan for improved airflow\nATX form factor\nMultiple connector types included',
+    shortDescription: 'Up to 90% energy efficiency\nATX 3.1 standard\nActive PFC + DC to DC conversion\n12cm silent cooling fan\nBlack flat cable set\nDual EMI protection',
   },
   {
     slug: 'alpha-850w-80plus-gold-fully-modular-power-supply-unit',
-    shortDescription: '850W Power Output\n80Plus Gold certified\nFully-modular design\nLarger cooling fan for improved airflow\nATX form factor\nMultiple connector types included',
+    shortDescription: 'Up to 90% energy efficiency\nATX 3.1 standard\nActive PFC + DC to DC conversion\n12cm silent cooling fan\nBlack flat cable set\nDual EMI protection',
   },
   {
     slug: 'alpha-1000w-80plus-gold-fully-modular-power-supply-unit-psu',
-    shortDescription: '1000W Power Output\n80Plus Gold certified\nFully-modular design\nLarger cooling fan for improved airflow\nATX form factor\nMultiple connector types included',
+    shortDescription: 'Up to 90% energy efficiency\nATX 3.1 standard\nActive PFC + DC to DC conversion\n12cm silent cooling fan\nBlack flat cable set\nDual EMI protection',
   },
   {
     slug: 'alpha-1050w-80plus-gold-fully-modular-power-supply-unit',
-    shortDescription: '1050W Power Output\n80Plus Gold certified\nFully-modular design\nLarger cooling fan for improved airflow\nATX form factor\nMultiple connector types included',
+    shortDescription: 'Up to 90% energy efficiency\nATX 3.1 standard\nActive PFC + DC to DC conversion\n12cm silent cooling fan\nBlack flat cable set\nDual EMI protection',
   },
-  // Nova series — White, Non-modular / Fully-modular
+  // Nova series — White finish, Non-modular / Fully-modular
+  // Title has: wattage, White, Non/Fully Modular
   {
     slug: 'nova-650w-white-non-modular-power-supply-unit-psu',
-    shortDescription: '650W Power Output\nWhite colour\nNon-modular design\nLarger cooling fan for improved airflow\nATX form factor\nMultiple connector types included',
+    shortDescription: 'Reliable power for everyday builds\nLarger cooling fan for stable thermals\nStable voltage output under load\nMultiple protection circuits\nATX form factor\n1.5m input power cord',
   },
   {
     slug: 'nova-650w-80plus-white-non-modular-power-supply-unit-psu',
-    shortDescription: '650W Power Output\n80Plus White certified\nNon-modular design\nLarger cooling fan for improved airflow\nATX form factor\nMultiple connector types included',
+    shortDescription: 'Up to 80% energy efficiency\nLarger cooling fan for stable thermals\nStable voltage output under load\nMultiple protection circuits\nATX form factor\n1.5m input power cord',
   },
   {
     slug: 'nova-750w-white-non-modular-power-supply-unit-psu',
-    shortDescription: '750W Power Output\nWhite colour\nNon-modular design\nLarger cooling fan for improved airflow\nATX form factor\nMultiple connector types included',
+    shortDescription: 'Reliable power for everyday builds\nLarger cooling fan for stable thermals\nStable voltage output under load\nMultiple protection circuits\nATX form factor\n1.5m input power cord',
   },
   {
     slug: 'nova-750w-80plus-white-non-modular-power-supply-unit-psu',
-    shortDescription: '750W Power Output\n80Plus White certified\nNon-modular design\nLarger cooling fan for improved airflow\nATX form factor\nMultiple connector types included',
+    shortDescription: 'Up to 80% energy efficiency\nLarger cooling fan for stable thermals\nStable voltage output under load\nMultiple protection circuits\nATX form factor\n1.5m input power cord',
   },
   {
     slug: 'nova-850w-white-fully-modular-power-supply-unit-psu',
-    shortDescription: '850W Power Output\nWhite colour\nFully-modular design\nLarger cooling fan for improved airflow\nATX form factor\nMultiple connector types included',
+    shortDescription: 'Reliable power for everyday builds\nDetachable cables for a cleaner build\nLarger cooling fan for stable thermals\nStable voltage output under load\nMultiple protection circuits\nATX form factor',
   },
   {
     slug: 'nova-850w-80plus-white-non-modular-power-supply-unit-psu',
-    shortDescription: '850W Power Output\n80Plus White certified\nNon-modular design\nLarger cooling fan for improved airflow\nATX form factor\nMultiple connector types included',
+    shortDescription: 'Up to 80% energy efficiency\nLarger cooling fan for stable thermals\nStable voltage output under load\nMultiple protection circuits\nATX form factor\n1.5m input power cord',
   },
   // Omega series — 80Plus Platinum, Fully-modular
+  // Title has: wattage, 80Plus Platinum, Fully Modular
   {
     slug: 'omega-1050w-80plus-platinum-fully-modular-power-supply-unit-psu',
-    shortDescription: '1050W Power Output\n80Plus Platinum certified\nFully-modular design\nLarger cooling fan for improved airflow\nATX form factor\nMultiple connector types included',
+    shortDescription: 'Up to 92% energy efficiency\nUltra-quiet operation for silent builds\nAdvanced multi-protection circuits\nATX 3.1 standard\nHigh-quality Japanese capacitors\n1.5m input power cord',
   },
   {
     slug: 'omega-1200w-80plus-platinum-fully-modular-power-supply-unit-psu',
-    shortDescription: '1200W Power Output\n80Plus Platinum certified\nFully-modular design\nLarger cooling fan for improved airflow\nATX form factor\nMultiple connector types included',
+    shortDescription: 'Up to 92% energy efficiency\nUltra-quiet operation for silent builds\nAdvanced multi-protection circuits\nATX 3.1 standard\nHigh-quality Japanese capacitors\n1.5m input power cord',
   },
   {
     slug: 'omega-1250w-80plus-platinum-fully-modular-power-supply-unit-psu',
-    shortDescription: '1250W Power Output\n80Plus Platinum certified\nFully-modular design\nLarger cooling fan for improved airflow\nATX form factor\nMultiple connector types included',
+    shortDescription: 'Up to 92% energy efficiency\nUltra-quiet operation for silent builds\nAdvanced multi-protection circuits\nATX 3.1 standard\nHigh-quality Japanese capacitors\n1.5m input power cord',
   },
   // Prime series — 80Plus Bronze, Fully-modular & Non-modular
+  // Title has: wattage, 80Plus Bronze, Fully/Non Modular
   {
     slug: 'prime-650w-80plus-bronze-fully-modular-power-supply-unit',
-    shortDescription: '650W Power Output\n80Plus Bronze certified\nFully-modular design\nLarger cooling fan for improved airflow\nATX form factor\nMultiple connector types included',
+    shortDescription: 'Up to 85% energy efficiency\nDetachable cables for a cleaner build\nStable power delivery for gaming PCs\n12cm quiet cooling fan\nMultiple protection circuits\nATX form factor',
   },
   {
     slug: 'prime-650w-80plus-bronze-non-modular-power-supply-unit',
-    shortDescription: '650W Power Output\n80Plus Bronze certified\nNon-modular design\nLarger cooling fan for improved airflow\nATX form factor\nMultiple connector types included',
+    shortDescription: 'Up to 85% energy efficiency\nStable power delivery for gaming PCs\n12cm quiet cooling fan\nMultiple protection circuits\nATX form factor\n1.5m input power cord',
   },
   {
     slug: 'prime-750w-80plus-bronze-fully-modular-power-supply-unit',
-    shortDescription: '750W Power Output\n80Plus Bronze certified\nFully-modular design\nLarger cooling fan for improved airflow\nATX form factor\nMultiple connector types included',
+    shortDescription: 'Up to 85% energy efficiency\nDetachable cables for a cleaner build\nStable power delivery for gaming PCs\n12cm quiet cooling fan\nMultiple protection circuits\nATX form factor',
   },
   {
     slug: 'prime-750w-80plus-bronze-non-modular-power-supply-unit',
-    shortDescription: '750W Power Output\n80Plus Bronze certified\nNon-modular design\nLarger cooling fan for improved airflow\nATX form factor\nMultiple connector types included',
+    shortDescription: 'Up to 85% energy efficiency\nStable power delivery for gaming PCs\n12cm quiet cooling fan\nMultiple protection circuits\nATX form factor\n1.5m input power cord',
   },
   {
     slug: 'prime-850w-80plus-bronze-fully-modular-power-supply-unit',
-    shortDescription: '850W Power Output\n80Plus Bronze certified\nFully-modular design\nLarger cooling fan for improved airflow\nATX form factor\nMultiple connector types included',
+    shortDescription: 'Up to 85% energy efficiency\nDetachable cables for a cleaner build\nStable power delivery for gaming PCs\n12cm quiet cooling fan\nMultiple protection circuits\nATX form factor',
   },
   {
     slug: 'prime-850w-80plus-bronze-non-modular-power-supply-unit',
-    shortDescription: '850W Power Output\n80Plus Bronze certified\nNon-modular design\nLarger cooling fan for improved airflow\nATX form factor\nMultiple connector types included',
+    shortDescription: 'Up to 85% energy efficiency\nStable power delivery for gaming PCs\n12cm quiet cooling fan\nMultiple protection circuits\nATX form factor\n1.5m input power cord',
   },
   {
     slug: 'prime-1000w-80plus-bronze-fully-modular-power-supply-unit',
-    shortDescription: '1000W Power Output\n80Plus Bronze certified\nFully-modular design\nLarger cooling fan for improved airflow\nATX form factor\nMultiple connector types included',
+    shortDescription: 'Up to 85% energy efficiency\nDetachable cables for a cleaner build\nStable power delivery for gaming PCs\n12cm quiet cooling fan\nMultiple protection circuits\nATX form factor',
   },
   {
     slug: 'prime-1000w-80plus-bronze-non-modular-power-supply-unit',
-    shortDescription: '1000W Power Output\n80Plus Bronze certified\nNon-modular design\nLarger cooling fan for improved airflow\nATX form factor\nMultiple connector types included',
+    shortDescription: 'Up to 85% energy efficiency\nStable power delivery for gaming PCs\n12cm quiet cooling fan\nMultiple protection circuits\nATX form factor\n1.5m input power cord',
   },
   {
     slug: 'prime-1050w-80plus-bronze-fully-modular-power-supply-unit',
-    shortDescription: '1050W Power Output\n80Plus Bronze certified\nFully-modular design\nLarger cooling fan for improved airflow\nATX form factor\nMultiple connector types included',
+    shortDescription: 'Up to 85% energy efficiency\nDetachable cables for a cleaner build\nStable power delivery for gaming PCs\n12cm quiet cooling fan\nMultiple protection circuits\nATX form factor',
   },
   {
     slug: 'aztech-32-smart-movable-screen-4k',
