@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
-import { useParams } from 'next/navigation'
+import { useParams, useRouter } from 'next/navigation'
 import Link from 'next/link'
 import Toast, { ToastType } from '@/src/components/admin/Toast'
 import ImageUploader from '@/src/components/admin/ImageUploader'
@@ -11,6 +11,7 @@ const PAGE_SIZE = 15
 
 const emptyForm = {
   name: '', slug: '', sku: '', category: '',
+  brand: '', brandSlug: '',
   shortDescription: '', description: '',
   images: [] as string[], specs: '', featured: false,
   downloads: [] as { label: string; url: string }[],
@@ -18,10 +19,13 @@ const emptyForm = {
 
 export default function BrandProductsPage() {
   const params = useParams()
+  const router = useRouter()
   const brandSlug = params.brand as string
 
   const [products, setProducts] = useState<any[]>([])
   const [brand, setBrand] = useState<any>(null)
+  const [allBrands, setAllBrands] = useState<any[]>([])
+  const [categories, setCategories] = useState<any[]>([])
   const [loading, setLoading] = useState(true)
   const [page, setPage] = useState(1)
   const [editProduct, setEditProduct] = useState<any>(null)
@@ -33,14 +37,19 @@ export default function BrandProductsPage() {
   const [bulkDeleting, setBulkDeleting] = useState(false)
 
   async function load() {
-    const [bRes, pRes] = await Promise.all([
+    const [bRes, pRes, cRes] = await Promise.all([
       fetch('/api/brands'),
       fetch(`/api/products?brand=${brandSlug}`),
+      fetch('/api/categories'),
     ])
     const brands = await bRes.json()
     const prods = await pRes.json()
-    setBrand((Array.isArray(brands) ? brands : []).find((b: any) => b.slug === brandSlug))
+    const cats = await cRes.json()
+    const brandList = Array.isArray(brands) ? brands : []
+    setAllBrands(brandList)
+    setBrand(brandList.find((b: any) => b.slug === brandSlug))
     setProducts(Array.isArray(prods) ? prods : [])
+    setCategories(Array.isArray(cats) ? cats : [])
     setLoading(false)
   }
 
@@ -111,6 +120,8 @@ export default function BrandProductsPage() {
       slug: p.slug || '',
       sku: p.sku || '',
       category: p.category || '',
+      brand: typeof p.brand === 'object' ? p.brand?._id : p.brand || '',
+      brandSlug: p.brandSlug || '',
       shortDescription: p.shortDescription || '',
       description: p.description || '',
       images: Array.isArray(p.images) ? p.images : [],
@@ -145,7 +156,13 @@ export default function BrandProductsPage() {
       if (!res.ok) throw new Error()
       setEditProduct(null)
       setToast({ message: 'Product updated successfully.', type: 'success' })
-      load()
+
+      // If brand changed, redirect to the new brand's listing
+      if (editForm.brandSlug && editForm.brandSlug !== brandSlug) {
+        router.push(`/admin/products/browse/${editForm.brandSlug}`)
+      } else {
+        load()
+      }
     } catch {
       setToast({ message: 'Failed to update product.', type: 'error' })
     }
@@ -349,10 +366,35 @@ export default function BrandProductsPage() {
                 </div>
               </div>
 
-              <div>
-                <label className="text-xs font-medium text-gray-400 mb-1.5 block">Category</label>
-                <input value={editForm.category} onChange={e => setEditForm({ ...editForm, category: e.target.value })}
-                  className="w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-[#15A7DC] transition-colors" />
+              <div className="grid grid-cols-2 gap-3">
+                <div>
+                  <label className="text-xs font-medium text-gray-400 mb-1.5 block">Brand</label>
+                  <select
+                    value={editForm.brand}
+                    onChange={e => {
+                      const selected = allBrands.find(b => b._id === e.target.value)
+                      setEditForm({ ...editForm, brand: e.target.value, brandSlug: selected?.slug || '' })
+                    }}
+                    className="w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-[#15A7DC] transition-colors"
+                  >
+                    <option value="">Select Brand</option>
+                    {allBrands.map(b => <option key={b._id} value={b._id}>{b.name}</option>)}
+                  </select>
+                  {editForm.brandSlug && editForm.brandSlug !== brandSlug && (
+                    <p className="text-[11px] text-amber-500 mt-1">⚠ Will move to {editForm.brandSlug}</p>
+                  )}
+                </div>
+                <div>
+                  <label className="text-xs font-medium text-gray-400 mb-1.5 block">Category</label>
+                  <select
+                    value={editForm.category}
+                    onChange={e => setEditForm({ ...editForm, category: e.target.value })}
+                    className="w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-[#15A7DC] transition-colors"
+                  >
+                    <option value="">Select Category</option>
+                    {categories.map(c => <option key={c._id} value={c.name}>{c.name}</option>)}
+                  </select>
+                </div>
               </div>
 
               <div className="h-px bg-gray-100" />

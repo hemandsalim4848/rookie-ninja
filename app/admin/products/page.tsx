@@ -11,6 +11,7 @@ function slugify(str: string) {
 
 export default function AddProductPage() {
   const [brands, setBrands] = useState<any[]>([])
+  const [categories, setCategories] = useState<any[]>([])
   const [saving, setSaving] = useState(false)
   const [toast, setToast] = useState<{ message: string; type: ToastType } | null>(null)
   const [images, setImages] = useState<string[]>([])
@@ -23,6 +24,7 @@ export default function AddProductPage() {
 
   useEffect(() => {
     fetch('/api/brands').then(r => r.json()).then(d => setBrands(Array.isArray(d) ? d : []))
+    fetch('/api/categories').then(r => r.json()).then(d => setCategories(Array.isArray(d) ? d : []))
   }, [])
 
   async function handleSubmit(e: React.FormEvent) {
@@ -95,9 +97,11 @@ export default function AddProductPage() {
             onChange={e => setForm({ ...form, sku: e.target.value })}
             className="border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-[#15A7DC] transition-colors" />
 
-          <input placeholder="Category" value={form.category}
-            onChange={e => setForm({ ...form, category: e.target.value })}
-            className="border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-[#15A7DC] transition-colors" />
+          <select value={form.category} onChange={e => setForm({ ...form, category: e.target.value })}
+            className="border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-[#15A7DC] transition-colors">
+            <option value="">Select Category</option>
+            {categories.map(c => <option key={c._id} value={c.name}>{c.name}</option>)}
+          </select>
 
           <div className="sm:col-span-2 h-px bg-gray-100" />
 

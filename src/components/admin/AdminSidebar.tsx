@@ -7,6 +7,7 @@ import { usePathname } from 'next/navigation'
 const navItems = [
   { href: '/admin', label: 'Dashboard', icon: '⬛' },
   { href: '/admin/brands', label: 'Brands', icon: '🏷️' },
+  { href: '/admin/categories', label: 'Categories', icon: '🗂️' },
   { href: '/admin/products/browse', label: 'Products', icon: '📦' },
   { href: '/admin/products', label: 'Add Product', icon: '➕' },
   { href: '/admin/users', label: 'Users', icon: '👤' },
@@ -39,6 +40,8 @@ export default function AdminSidebar({ role, user }: { role: string; user: any }
             ? pathname.startsWith('/admin/products/browse')
             : item.href === '/admin/products'
             ? pathname === '/admin/products'
+            : item.href === '/admin/categories'
+            ? pathname.startsWith('/admin/categories')
             : pathname === item.href
           return (
             <Link
