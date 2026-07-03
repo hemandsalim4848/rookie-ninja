@@ -31,7 +31,7 @@ const vendors = [
     logo: '/logos/czur-logo.webp',
     description: 'Smart scanners for efficient digital productivity.',
     category: 'Scan',
-    website: 'https://www.czur.com',
+    website: '/our-vendors/czur',
 },
 {
     name: 'Colortrac',
