@@ -7,11 +7,11 @@ export async function GET() {
 
   const res = await Product.updateMany(
     {
-      brand: { $regex: /aerocool/i },
+      brandSlug: 'aerocool',
       category: 'Gaming',
       $or: [
-        { name: { $regex: /psu|power supply/i } },
-        { subcategory: { $regex: /psu|power supply/i } },
+        { name: { $regex: /psu|power\s*supply/i } },
+        { subcategory: { $regex: /psu|power\s*supply/i } },
       ],
     },
     { $set: { category: 'Power Supply Units' } }
