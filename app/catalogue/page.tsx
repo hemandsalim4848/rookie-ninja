@@ -69,8 +69,8 @@ export default function CataloguePage() {
     <main className="min-h-screen bg-white">
 
       {/* Hero */}
-      <div className="bg-[#0A1628] px-4 py-40 text-center relative overflow-hidden">
-        <div className="absolute inset-0 pointer-events-none"
+      <div className="bg-[#0A1628] px-4 py-40 text-center relative">
+        <div className="absolute inset-0 pointer-events-none overflow-hidden"
           style={{ background: 'radial-gradient(ellipse at 50% 0%, rgba(21,167,220,0.15) 0%, transparent 65%)' }} />
         <div className="relative z-10 max-w-2xl mx-auto">
           <span className="inline-block text-[11px] font-semibold tracking-widest uppercase text-[#15A7DC] border border-[#15A7DC]/30 px-3 py-1 rounded-full mb-5">

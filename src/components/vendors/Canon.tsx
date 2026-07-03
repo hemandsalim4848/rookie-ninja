@@ -195,7 +195,7 @@ const navLinks = [
   { label: 'Cheque Scanners',                href: '#cheque-scanners' },
   { label: 'Workgroup & Departmental',       href: '#workgroup-departmental-scanners' },
   { label: 'Production Scanners',            href: '#production-scanners' },
-  { label: 'Canon PDF Editor',               href: '/readiris-pdf' },
+  { label: 'Canon PDF Editor',               href: '/our-vendors/iris' },
 ];
 
 /* ─────────────────────────────────────────────

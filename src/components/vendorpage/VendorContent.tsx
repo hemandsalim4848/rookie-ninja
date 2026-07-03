@@ -52,7 +52,7 @@ const vendors = [
     logo: '/logos/dicota-logo.webp',
     description: 'Premium laptop bags and IT accessories.',
     category: 'IT Accessories',
-    website: 'https://www.dicota.com',
+    website: '/our-vendors/dicota',
 },
 {
     name: 'UNV',
