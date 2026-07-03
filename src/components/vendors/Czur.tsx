@@ -30,39 +30,39 @@ const heroSlides = [
   },
 ];
 
-// Section 3 — image switcher (mirrors KA "Office Scanners")
+// Section 3 — image switcher: Aura Scanners only
 const bookScanners = [
   {
-    id: 'aura',
+    id: 'aura-pro',
     eyebrow: 'Portable Book Scanning',
-    title: 'Aura Series',
+    title: 'Aura Pro',
     intro: 'Compact, eye-friendly, and powerful — designed for home users, students, and educators who scan books every day.',
     bullets: [
-      'Aura Pro — 14MP | A3/A4 book scanning',
-      'Aura X Pro — 14MP | Foot pedal + side lights',
+      '14MP CMOS | A3/A4 book scanning',
       '2-second fast scan per page',
       'Laser-assisted curve flattening',
       'OCR in 180+ languages',
+      'PDF, Word, Excel export',
     ],
     image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1781893186/rookie-ninja/products/lg_1000p_481c29e8-feb5-4e60-ae72-62cebe1d7d29.webp',
   },
   {
-    id: 'et16-18',
-    eyebrow: 'Smart Desktop Scanning',
-    title: 'ET16 Plus & ET18 Pro',
-    intro: 'Reliable smart scanning for offices, libraries, schools, and personal archives — with professional-grade image processing.',
+    id: 'aura-x-pro',
+    eyebrow: 'Portable Book Scanning — Enhanced',
+    title: 'Aura X Pro',
+    intro: 'Everything in the Aura Pro, plus a foot pedal and side lighting for hands-free, glare-free scanning in any environment.',
     bullets: [
-      'ET16 Plus — 16MP | OCR by ABBYY',
-      'ET18 Pro — 18MP | Auto page-turn detection',
-      '~1.5s scan speed | A3 support up to 480×360mm',
-      'Auto curve flattening, finger removal, tilt correction',
-      'Full HD visual presenter — HDMI output',
+      '14MP CMOS | A3/A4 book scanning',
+      'Foot pedal for hands-free page turning',
+      'Side LED lights for even illumination',
+      'Laser-assisted curve flattening',
+      'OCR in 180+ languages',
     ],
-    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1781893209/rookie-ninja/products/lg_1000p_ddc092c5-f57b-4efb-90f8-8ffcd996dd99.webp',
+    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1783074480/rookie-ninja/products/jh4qvcedqqzyt2sbjgjz.webp',
   },
 ];
 
-// Section 5 — underline tabs + product cards (mirrors KA "Network tabs")
+// Section 5 — underline tabs + product cards: full ET series
 const etTabs = {
   flagship: {
     heading: 'ET Max & ET Ultra',
@@ -101,6 +101,26 @@ const etTabs = {
         intro: '25MP ultra-clear — the highest resolution in the ET series, with fixed-focus optics and Linux support.',
         bullets: ['25MP CMOS | 5824×4368', 'Fixed-focus optics | Dual LED + side lights', '3-laser alignment | ~1.5s scan', 'HDMI full HD output', 'Windows, macOS & Linux'],
         slug: 'czur-et25-pro',
+      },
+    ],
+  },
+  smart: {
+    heading: 'ET16 Plus & ET18 Pro',
+    desc: 'Reliable smart scanning for offices, libraries, schools, and personal archives — with professional-grade image processing and full HD HDMI presentation.',
+    products: [
+      {
+        image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1781893209/rookie-ninja/products/lg_1000p_ddc092c5-f57b-4efb-90f8-8ffcd996dd99.webp',
+        title: 'CZUR ET16 Plus',
+        intro: '16MP smart book scanner with ABBYY OCR and HDMI output — ideal for offices and classroom presentations.',
+        bullets: ['16MP CMOS | A3 support up to 480×360mm', '~1.5s scan speed', 'OCR by ABBYY — 180+ languages', 'Auto curve flattening + finger removal', 'Full HD HDMI visual presenter'],
+        slug: 'czur-et16-plus-smart-book-scanner',
+      },
+      {
+        image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1781893209/rookie-ninja/products/lg_1000p_ddc092c5-f57b-4efb-90f8-8ffcd996dd99.webp',
+        title: 'CZUR ET18 Pro',
+        intro: '18MP with auto page-turn detection — scans a full book hands-free with intelligent correction at every step.',
+        bullets: ['18MP CMOS | A3 support', 'Auto page-turn detection', 'Auto curve flattening, tilt correction', 'OCR in 180+ languages', 'Full HD HDMI visual presenter'],
+        slug: 'czur-et18-pro-smart-book-scanner',
       },
     ],
   },
@@ -178,45 +198,11 @@ const compactScanners = [
   },
 ];
 
-// Section 7 — pill tabs + 2-col panels (mirrors KA "Flatbed Accessories")
+// Section 7 — pill tabs + 2-col panels
 const mfTabs = [
   {
     num: '01',
-    label: 'Multi-function Devices',
-    panels: [
-      {
-        tag: 'Scanner + Webcam + Visualizer',
-        title: 'CZUR Fancy S Pro',
-        desc: 'One device replaces three — scans A3 documents, records 4K video at 15fps, streams Full HD 1080p at 60fps, and includes a built-in microphone for remote meetings.',
-        features: [
-          '12MP CMOS | 4K video at 15fps',
-          '1080p 60fps webcam streaming',
-          'A3 scanning area | adjustable multi-joint arm',
-          'Built-in microphone',
-          'Adjustable LED lighting',
-        ],
-        image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1781893235/rookie-ninja/products/d4318ff39996531f594cf0978cb3c9e0_1024x1024.webp',
-        slug: 'czur-fancy-s-pro',
-      },
-      {
-        tag: 'Dual-Camera Webcam',
-        title: 'CZUR Halo X Pro',
-        desc: 'Two Full HD cameras on a single device — main rotates 180°, secondary 270°. Perfect for multi-angle demonstrations, online presentations, and streaming.',
-        features: [
-          'Dual 1080p cameras | up to 30fps',
-          'Main camera 180° + secondary 270° rotation',
-          'Wide-angle lens for more coverage',
-          'Built-in microphone',
-          'USB plug-and-play | Windows & macOS',
-        ],
-        image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1781893257/rookie-ninja/products/41LRQRCqCyL__SL1500_.webp',
-        slug: 'czur-halo-x-pro',
-      },
-    ],
-  },
-  {
-    num: '02',
-    label: 'Conference Systems',
+    label: 'StarryHub',
     panels: [
       {
         tag: 'All-in-One Conference System',
@@ -231,6 +217,40 @@ const mfTabs = [
         ],
         image: 'https://products.rookie-ninja.com/wp-content/uploads/2026/01/czur-starryhub-q1-pro-600x698-1.webp',
         slug: 'czur-starryhub-q1s-pro',
+      },
+    ],
+  },
+  {
+    num: '02',
+    label: 'Document & Web Camera',
+    panels: [
+      {
+        tag: '4K Document Camera',
+        title: 'CZUR Fancy S Pro',
+        desc: 'One device replaces three — scans A3 documents, records 4K video at 15fps, streams Full HD 1080p at 60fps, and includes a built-in microphone for remote meetings.',
+        features: [
+          '12MP CMOS | 4K video at 15fps',
+          '1080p 60fps webcam streaming',
+          'A3 scanning area | adjustable multi-joint arm',
+          'Built-in microphone',
+          'Adjustable LED lighting',
+        ],
+        image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1781893235/rookie-ninja/products/d4318ff39996531f594cf0978cb3c9e0_1024x1024.webp',
+        slug: 'czur-fancy-s-pro',
+      },
+      {
+        tag: 'Webcam',
+        title: 'CZUR Halo X Pro',
+        desc: 'Two Full HD cameras on a single device — main rotates 180°, secondary 270°. Perfect for multi-angle demonstrations, online presentations, and streaming.',
+        features: [
+          'Dual 1080p cameras | up to 30fps',
+          'Main camera 180° + secondary 270° rotation',
+          'Wide-angle lens for more coverage',
+          'Built-in microphone',
+          'USB plug-and-play | Windows & macOS',
+        ],
+        image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1781893257/rookie-ninja/products/41LRQRCqCyL__SL1500_.webp',
+        slug: 'czur-halo-x-pro',
       },
     ],
   },
@@ -250,7 +270,7 @@ export default function CzurPage() {
   const [isSticky, setIsSticky]       = useState(false);
   const [bookActive, setBookActive]   = useState(0);
   const [bookImgFade, setBookImgFade] = useState(false);
-  const [etTab, setEtTab]             = useState<'flagship' | 'ultraclear'>('flagship');
+  const [etTab, setEtTab]             = useState<'flagship' | 'ultraclear' | 'smart'>('flagship');
   const [compactActive, setCompactActive] = useState(0);
   const [mfTab, setMfTab]             = useState(0);
   const [formState, setFormState]     = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
@@ -362,10 +382,10 @@ export default function CzurPage() {
         <div className="cz-nav-inner" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'nowrap', gap: 20, maxWidth: 1140, width: '100%', margin: '0 auto', height: 58, padding: '0 20px' }}>
           <ul className="cz-nav-links" style={{ display: 'flex', alignItems: 'center', flex: 1, gap: 36, listStyle: 'none', margin: 0, padding: 0, overflowX: 'auto', scrollbarWidth: 'none' }}>
             {[
-              { label: 'Book Scanners',         href: '#book-scanners' },
-              { label: 'Professional ET Series', href: '#et-scanners' },
-              { label: 'Compact Scanners',       href: '#compact-scanners' },
-              { label: 'Multi-function & Conference', href: '#multi-function' },
+              { label: 'Aura Scanners',            href: '#book-scanners' },
+              { label: 'ET Scanners',              href: '#et-scanners' },
+              { label: 'Shine & Lens Scanners',    href: '#compact-scanners' },
+              { label: 'StarryHub & Cameras',         href: '#multi-function' },
             ].map(link => (
               <li key={link.href} style={{ flexShrink: 0 }}>
                 <a href={link.href} style={{ display: 'inline-block', fontSize: 14, fontWeight: 500, color: '#111', textDecoration: 'none', letterSpacing: '0.15px', whiteSpace: 'nowrap', position: 'relative', paddingBottom: 3, transition: 'color 0.2s' }}
@@ -391,8 +411,8 @@ export default function CzurPage() {
       <section id="book-scanners" style={{ width: '100%', padding: '80px 20px', background: '#fff' }}>
         <div style={{ maxWidth: 1140, margin: '0 auto' }}>
           <div className="cz-reveal" style={{ marginBottom: 40 }}>
-            <h2 style={{ fontSize: 'clamp(22px, 3vw, 34px)', fontWeight: 700, color: '#0f1320', marginBottom: 10 }}>Book & Document Scanners</h2>
-            <p style={{ fontSize: 16, color: '#64748b', maxWidth: 700, lineHeight: 1.7 }}>Overhead scanning that captures pages in seconds — no flattening, no binding damage, no re-scanning.</p>
+            <h2 style={{ fontSize: 'clamp(22px, 3vw, 34px)', fontWeight: 700, color: '#0f1320', marginBottom: 10 }}>Aura Scanners</h2>
+            <p style={{ fontSize: 16, color: '#64748b', maxWidth: 700, lineHeight: 1.7 }}>Compact, portable overhead scanners designed for everyday book and document scanning at home, school, or the office.</p>
           </div>
           <div className="cz-scanner-layout cz-reveal cz-reveal-d1" style={{ display: 'flex', gap: 60, alignItems: 'center', justifyContent: 'center', minHeight: 500 }}>
             {/* Left — switcher items */}
@@ -421,7 +441,7 @@ export default function CzurPage() {
             <div className="cz-scanner-img-wrap" style={{ flex: 1.2, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src={bookScanners[bookActive].image} alt={bookScanners[bookActive].title} className="cz-scanner-img"
-                   style={{ width: '100%', maxWidth: 600, height: 450, objectFit: 'cover', borderRadius: 20, opacity: bookImgFade ? 0 : 1, transition: 'opacity 0.4s ease' }} />
+                   style={{ width: '100%', maxWidth: 600, height: 450, objectFit: 'contain', borderRadius: 20, opacity: bookImgFade ? 0 : 1, transition: 'opacity 0.4s ease' }} />
             </div>
           </div>
         </div>
@@ -433,12 +453,12 @@ export default function CzurPage() {
       <section id="et-scanners" style={{ width: '100%', background: 'linear-gradient(90deg, #0b1a2e, #0d223d)', padding: '80px 20px', color: '#fff' }}>
         <div className="cz-comm-inner" style={{ maxWidth: 1140, margin: '0 auto', display: 'grid', gridTemplateColumns: '1fr 420px', gap: 60, alignItems: 'center' }}>
           <div className="cz-reveal">
-            <h2 style={{ fontSize: 'clamp(22px, 3vw, 36px)', fontWeight: 700, marginBottom: 20, color: '#fff', lineHeight: 1.2 }}>Professional ET Scanners</h2>
+            <h2 style={{ fontSize: 'clamp(22px, 3vw, 36px)', fontWeight: 700, marginBottom: 20, color: '#fff', lineHeight: 1.2 }}>ET Scanners</h2>
             <p style={{ fontSize: 15, color: '#cbd5e1', lineHeight: 1.7 }}>
               The CZUR ET series delivers professional-grade overhead scanning for offices, libraries, educational institutions, and service centres — combining high-resolution capture, intelligent auto-correction, advanced OCR, and built-in HDMI presentation into a single, space-saving device.
             </p>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: 10, marginTop: 24 }}>
-              {['ET Max', 'ET Ultra', 'ET24 Pro', 'ET25 Pro'].map(name => (
+              {['ET Max', 'ET Ultra', 'ET24 Pro', 'ET25 Pro', 'ET18 Pro', 'ET16 Plus'].map(name => (
                 <span key={name} style={{ fontSize: 12, fontWeight: 600, padding: '5px 14px', background: 'rgba(255,255,255,0.08)', border: `1px solid ${cz.accent}`, color: '#e2e8f0', borderRadius: 4 }}>{name}</span>
               ))}
             </div>
@@ -459,7 +479,7 @@ export default function CzurPage() {
                 })}
                 <select name="category" required style={{ width: '100%', padding: '12px 14px', borderRadius: 6, border: 'none', background: 'rgba(255,255,255,0.12)', color: '#e5e7eb', fontSize: 14, outline: 'none', fontFamily: 'var(--font-poppins)' }}>
                   <option value="" style={{ background: '#fff', color: '#000' }}>Select Product Category</option>
-                  {['Book Scanners (Aura Series)', 'Professional ET Scanners', 'Compact Scanners', 'Multi-function Devices', 'Conference Systems'].map(o => (
+                  {['Aura Scanners', 'ET Scanners', 'Shine & Lens Scanners', 'StarryHub Conference', 'Document & Web Camera'].map(o => (
                     <option key={o} style={{ background: '#fff', color: '#000' }}>{o}</option>
                   ))}
                 </select>
@@ -477,7 +497,7 @@ export default function CzurPage() {
       <section style={{ width: '100%', padding: '40px 20px 60px', background: '#fff' }}>
         <div style={{ maxWidth: 1200, margin: '0 auto' }}>
           <div style={{ display: 'flex', flexWrap: 'wrap', borderBottom: '2px solid #eee', marginBottom: 40, gap: 10 }}>
-            {([['flagship', 'ET Max & ET Ultra'], ['ultraclear', 'ET24 Pro & ET25 Pro']] as const).map(([key, label]) => (
+            {([['flagship', 'ET Max & ET Ultra'], ['ultraclear', 'ET24 Pro & ET25 Pro'], ['smart', 'ET16 Plus & ET18 Pro']] as const).map(([key, label]) => (
               <button key={key} onClick={() => setEtTab(key)}
                       style={{ padding: '15px 22px', cursor: 'pointer', fontWeight: 700, fontSize: 14, textTransform: 'uppercase', letterSpacing: 1, color: etTab === key ? cz.accent : '#888', border: 'none', background: 'none', position: 'relative', fontFamily: 'var(--font-poppins)' }}>
                 {label}
@@ -517,8 +537,8 @@ export default function CzurPage() {
       <section id="compact-scanners" style={{ width: '100%', background: '#f8fafc', padding: '60px 20px' }}>
         <div style={{ maxWidth: 1200, margin: '0 auto' }}>
           <div className="cz-reveal" style={{ marginBottom: 36 }}>
-            <h2 style={{ fontSize: 'clamp(22px, 3vw, 34px)', fontWeight: 700, color: '#000', marginBottom: 6 }}>Compact & Specialist Scanners</h2>
-            <p style={{ fontSize: 15, color: '#6b7280' }}>From portable A4 to high-resolution professional archive — a CZUR scanner for every environment.</p>
+            <h2 style={{ fontSize: 'clamp(22px, 3vw, 34px)', fontWeight: 700, color: '#000', marginBottom: 6 }}>Shine & Lens Scanners</h2>
+            <p style={{ fontSize: 15, color: '#6b7280' }}>From portable A4 to high-resolution professional archive — lightweight, fast, and built for every environment.</p>
           </div>
           <div className="cz-prod-body cz-reveal cz-reveal-d1" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 0, border: '1px solid #e5e7eb', borderRadius: 8, overflow: 'hidden', minHeight: 520 }}>
             {/* Left nav */}
@@ -571,8 +591,8 @@ export default function CzurPage() {
       <section id="multi-function" style={{ width: '100%', background: '#fff', padding: '60px 20px 80px' }}>
         <div style={{ maxWidth: 1200, margin: '0 auto' }}>
           <div className="cz-reveal" style={{ marginBottom: 36 }}>
-            <h2 style={{ fontSize: 'clamp(22px, 3vw, 34px)', fontWeight: 700, color: '#000', marginBottom: 6 }}>Multi-function & Conference</h2>
-            <p style={{ fontSize: 15, color: '#6b7280' }}>One device. Multiple roles — scanner, webcam, presenter, and meeting room system.</p>
+            <h2 style={{ fontSize: 'clamp(22px, 3vw, 34px)', fontWeight: 700, color: '#000', marginBottom: 6 }}>StarryHub & Cameras</h2>
+            <p style={{ fontSize: 15, color: '#6b7280' }}>All-in-one conference systems and document cameras — built for modern meeting rooms and hybrid workspaces.</p>
           </div>
 
           {/* Pill tabs */}
