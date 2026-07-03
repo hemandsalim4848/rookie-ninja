@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from 'react';
 
 const dc = {
-  accent: '#E2001A',
+  accent: '#000000',
   navy:   '#1a1a1a',
   alt:    '#f9f9f9',
   dim:    '#6b7280',
@@ -21,7 +21,7 @@ const heroSlides = [
     accentLine: 1,
     desc: 'DICOTA laptop bags, backpacks and sleeves are engineered for professionals who demand protection, sustainability, and style in every commute.',
     cta: { label: 'Explore Collection', href: '/dicota', solid: true },
-    bg: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1780052682/rookie-ninja/products/lg_1000p_dfc61a48-894b-4175-8551-ec935c3a6e37.webp',
+    bg: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1783101174/HybridWorking_main_teaser_1_hoxzhm.webp',
   },
   {
     id: 'eco',
@@ -30,7 +30,7 @@ const heroSlides = [
     accentLine: 0,
     desc: 'DICOTA Eco series products are crafted from recycled PET materials — reducing environmental impact without compromising performance.',
     cta: { label: 'View Eco Range', href: '/dicota', solid: false },
-    bg: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1780053015/rookie-ninja/products/lg_1000p_094276ed-853c-4083-a40c-3f510b64a09a.webp',
+    bg: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1783101174/Commuter_Reflex_3_1_sgqas2.webp',
   },
 ];
 
@@ -290,21 +290,22 @@ const extraTabs = [
    NAV LINKS
 ───────────────────────────────────────────── */
 const DC_NAV_LINKS = [
-  { label: 'Eco Laptop Sleeves',   href: '#sleeves' },
-  { label: 'Shoulder Bags',        href: '#shoulder-bags' },
-  { label: 'Backpacks',            href: '#backpacks' },
-  { label: 'Trolley Bags',         href: '#extras' },
-  { label: 'Eco Accessory Pouch',  href: '#extras' },
-  { label: 'Dicota Webcam',        href: '#extras' },
+  { label: 'Eco Laptop Sleeves',   href: '#sleeves',       tabIdx: null },
+  { label: 'Shoulder Bags',        href: '#shoulder-bags', tabIdx: null },
+  { label: 'Backpacks',            href: '#backpacks',     tabIdx: null },
+  { label: 'Trolley Bags',         href: '#extras',        tabIdx: 0 },
+  { label: 'Eco Accessory Pouch',  href: '#extras',        tabIdx: 1 },
+  { label: 'Dicota Webcam',        href: '#extras',        tabIdx: 2 },
 ];
 
-function DcNavInner({ accent }: { accent: string }) {
+function DcNavInner({ accent, onTabClick }: { accent: string; onTabClick: (idx: number) => void }) {
   return (
     <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'nowrap', gap: 20, maxWidth: 1140, width: '100%', margin: '0 auto', height: 58, padding: '0 20px' }}>
       <ul style={{ display: 'flex', alignItems: 'center', flex: 1, gap: 28, listStyle: 'none', margin: 0, padding: 0, overflowX: 'auto', scrollbarWidth: 'none' }}>
         {DC_NAV_LINKS.map(link => (
           <li key={link.label} style={{ flexShrink: 0 }}>
             <a href={link.href}
+               onClick={link.tabIdx !== null ? (e) => { e.preventDefault(); onTabClick(link.tabIdx as number); document.getElementById('extras')?.scrollIntoView({ behavior: 'smooth' }); } : undefined}
                style={{ display: 'inline-block', fontSize: 13, fontWeight: 500, color: '#111', textDecoration: 'none', whiteSpace: 'nowrap', position: 'relative', paddingBottom: 3, transition: 'color 0.2s' }}
                onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.color = accent; }}
                onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.color = '#111'; }}>
@@ -422,7 +423,7 @@ export default function DicotaPage() {
                   {s.badge}
                 </span>
                 <h1 className="dc-hero-heading" style={{ fontSize: 'clamp(40px, 6vw, 78px)', color: '#fff', lineHeight: 0.95, marginBottom: 18, fontWeight: 700, letterSpacing: 1 }}>
-                  {s.lines.map((line, li) => <span key={li} style={{ display: 'block', color: li === s.accentLine ? dc.accent : '#fff' }}>{line}</span>)}
+                  {s.lines.map((line, li) => <span key={li} style={{ display: 'block', color: '#fff' }}>{line}</span>)}
                 </h1>
                 <p style={{ fontSize: 15, color: 'rgba(255,255,255,0.72)', lineHeight: 1.65, marginBottom: 32, fontWeight: 300, maxWidth: 420 }}>{s.desc}</p>
                 <a href={s.cta.href}
@@ -447,10 +448,10 @@ export default function DicotaPage() {
           STICKY NAV (dual-nav pattern)
       ══════════════════════════════════════════ */}
       <div style={{ width: '100%', background: '#fff', borderBottom: `1px solid ${dc.line}`, visibility: isSticky ? 'hidden' : 'visible' }}>
-        <DcNavInner accent={dc.accent} />
+        <DcNavInner accent={dc.accent} onTabClick={setExtraTab} />
       </div>
       <div className="dc-nav-wrap" style={{ position: 'fixed', top: 0, left: 0, right: 0, zIndex: 1001, background: '#fff', borderBottom: `1px solid ${dc.line}`, boxShadow: '0 2px 20px rgba(0,0,0,0.10)', transform: isSticky ? 'translateY(0)' : 'translateY(-100%)', transition: 'transform 0.35s cubic-bezier(0.4,0,0.2,1)' }}>
-        <DcNavInner accent={dc.accent} />
+        <DcNavInner accent={dc.accent} onTabClick={setExtraTab} />
       </div>
 
       {/* ══════════════════════════════════════════
@@ -590,7 +591,7 @@ export default function DicotaPage() {
             <div className="dc-prod-list" style={{ borderRight: '1px solid #e5e7eb', display: 'flex', flexDirection: 'column', background: '#fff' }}>
               {backpackItems.map((item, idx) => (
                 <div key={item.num} onClick={() => setBackpackActive(idx)} style={{ borderBottom: idx < backpackItems.length - 1 ? '1px solid #e5e7eb' : 'none', cursor: 'pointer' }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: 14, padding: '18px 24px', background: backpackActive === idx ? '#fff5f5' : '#fff', transition: 'background 0.2s' }}
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 14, padding: '18px 24px', background: backpackActive === idx ? '#f5f5f5' : '#fff', transition: 'background 0.2s' }}
                        onMouseEnter={e => { if (backpackActive !== idx) (e.currentTarget as HTMLDivElement).style.background = '#f9fafb'; }}
                        onMouseLeave={e => { if (backpackActive !== idx) (e.currentTarget as HTMLDivElement).style.background = '#fff'; }}>
                     <span style={{ fontSize: 11, fontWeight: 700, color: dc.accent, letterSpacing: 1, minWidth: 24 }}>{item.num}</span>
