@@ -25,11 +25,15 @@ export default function ImageUploader({ images, onChange }: Props) {
   const [dragOver, setDragOver] = useState(false)
   const [error, setError] = useState('')
 
+  // Index being dragged; null when not dragging
+  const dragIndex = useRef<number | null>(null)
+  const [dropTarget, setDropTarget] = useState<number | null>(null)
+
+  /* ── Upload ── */
   async function uploadFiles(files: FileList | File[]) {
     setUploading(true)
     setError('')
     const newUrls: string[] = []
-
     for (const file of Array.from(files)) {
       if (!file.type.startsWith('image/')) continue
       const fd = new FormData()
@@ -43,11 +47,47 @@ export default function ImageUploader({ images, onChange }: Props) {
         setError('Upload failed. Please try again.')
       }
     }
-
     onChange([...images, ...newUrls])
     setUploading(false)
   }
 
+  /* ── Reorder (drag between thumbnails) ── */
+  function onThumbDragStart(e: React.DragEvent, i: number) {
+    dragIndex.current = i
+    e.dataTransfer.effectAllowed = 'move'
+    // Use a transparent image so the ghost doesn't show
+    const ghost = document.createElement('div')
+    ghost.style.position = 'absolute'
+    ghost.style.top = '-9999px'
+    document.body.appendChild(ghost)
+    e.dataTransfer.setDragImage(ghost, 0, 0)
+    setTimeout(() => document.body.removeChild(ghost), 0)
+  }
+
+  function onThumbDragOver(e: React.DragEvent, i: number) {
+    e.preventDefault()
+    e.stopPropagation()
+    if (dragIndex.current !== null && dragIndex.current !== i) setDropTarget(i)
+  }
+
+  function onThumbDrop(e: React.DragEvent, i: number) {
+    e.preventDefault()
+    e.stopPropagation()
+    const from = dragIndex.current
+    if (from === null || from === i) { cleanup(); return }
+    const reordered = [...images]
+    const [moved] = reordered.splice(from, 1)
+    reordered.splice(i, 0, moved)
+    onChange(reordered)
+    cleanup()
+  }
+
+  function cleanup() {
+    dragIndex.current = null
+    setDropTarget(null)
+  }
+
+  /* ── Set primary ── */
   function setPrimary(index: number) {
     if (index === 0) return
     const reordered = [...images]
@@ -55,6 +95,7 @@ export default function ImageUploader({ images, onChange }: Props) {
     onChange([picked, ...reordered])
   }
 
+  /* ── Delete ── */
   async function removeImage(url: string, index: number) {
     const publicId = getPublicId(url)
     if (publicId) {
@@ -69,22 +110,37 @@ export default function ImageUploader({ images, onChange }: Props) {
     onChange(images.filter((_, i) => i !== index))
   }
 
-  function onDrop(e: React.DragEvent) {
+  /* ── File drop zone ── */
+  function onZoneDrop(e: React.DragEvent) {
     e.preventDefault()
     setDragOver(false)
+    // Ignore thumbnail reorder drops that bubble up
+    if (dragIndex.current !== null) { cleanup(); return }
     if (e.dataTransfer.files?.length) uploadFiles(e.dataTransfer.files)
   }
 
   return (
     <div className="space-y-3">
 
-      {/* Image previews */}
+      {/* Image thumbnails */}
       {images.length > 0 && (
         <div className="flex flex-wrap gap-2">
           {images.map((url, i) => (
-            <div key={i} className="relative group w-20 h-20 rounded-xl overflow-hidden border-2 border-gray-200"
-                 style={i === 0 ? { borderColor: '#15A7DC' } : {}}>
-              <img src={url} alt="" className="w-full h-full object-cover" />
+            <div
+              key={url + i}
+              draggable
+              onDragStart={e => onThumbDragStart(e, i)}
+              onDragOver={e => onThumbDragOver(e, i)}
+              onDrop={e => onThumbDrop(e, i)}
+              onDragEnd={cleanup}
+              className="relative group w-20 h-20 rounded-xl overflow-hidden border-2 transition-all duration-150 cursor-grab active:cursor-grabbing"
+              style={{
+                borderColor: i === 0 ? '#15A7DC' : dropTarget === i ? '#15A7DC' : '#e5e7eb',
+                opacity: dragIndex.current === i ? 0.4 : 1,
+                transform: dropTarget === i && dragIndex.current !== i ? 'scale(1.06)' : 'scale(1)',
+              }}
+            >
+              <img src={url} alt="" className="w-full h-full object-cover pointer-events-none" />
 
               {/* Primary badge */}
               {i === 0 && (
@@ -92,6 +148,15 @@ export default function ImageUploader({ images, onChange }: Props) {
                   Primary
                 </span>
               )}
+
+              {/* Drag handle hint */}
+              <div className="absolute bottom-1 right-1 opacity-0 group-hover:opacity-60 transition-opacity pointer-events-none">
+                <svg width="10" height="10" viewBox="0 0 16 16" fill="white">
+                  <circle cx="5" cy="4" r="1.5"/><circle cx="11" cy="4" r="1.5"/>
+                  <circle cx="5" cy="8" r="1.5"/><circle cx="11" cy="8" r="1.5"/>
+                  <circle cx="5" cy="12" r="1.5"/><circle cx="11" cy="12" r="1.5"/>
+                </svg>
+              </div>
 
               {/* Hover overlay */}
               <div className="absolute inset-0 bg-black/55 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center gap-1.5">
@@ -125,11 +190,11 @@ export default function ImageUploader({ images, onChange }: Props) {
         </div>
       )}
 
-      {/* Drop zone */}
+      {/* Upload drop zone */}
       <div
-        onDragOver={e => { e.preventDefault(); setDragOver(true) }}
+        onDragOver={e => { e.preventDefault(); if (dragIndex.current === null) setDragOver(true) }}
         onDragLeave={() => setDragOver(false)}
-        onDrop={onDrop}
+        onDrop={onZoneDrop}
         onClick={() => inputRef.current?.click()}
         className={`flex flex-col items-center justify-center gap-2 border-2 border-dashed rounded-xl px-4 py-6 cursor-pointer transition-colors ${
           dragOver ? 'border-[#15A7DC] bg-[#15A7DC]/5' : 'border-gray-200 hover:border-[#15A7DC] hover:bg-gray-50'
