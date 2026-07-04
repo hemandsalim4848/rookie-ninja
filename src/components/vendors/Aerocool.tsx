@@ -110,42 +110,93 @@ const psuTabData = {
 };
 
 /* ─────────────────────────────────────────────
-   AIR COOLERS — accordion
+   LIQUID COOLERS — accordion (grouped by series)
 ───────────────────────────────────────────── */
 const coolerItems = [
   {
     num: '01',
-    navTitle: 'Cylon 4F ARGB — Black',
-    tag: 'ARGB Air Cooler',
-    heading: 'Cylon 4F ARGB PWM — Black',
-    desc: 'A high-performance ARGB air cooler with 4 PWM fans and 4-pin connector — delivering exceptional cooling performance with vivid addressable RGB lighting for black-themed builds.',
+    navTitle: 'Abyss Series',
+    tag: 'ARGB Liquid Cooler',
+    heading: 'Abyss L240R / L360R Series',
+    desc: 'The Abyss series features an illuminated pump head display showing real-time CPU and GPU temperatures. Available in 240mm and 360mm radiator sizes, with or without the Digi display — in Black and White.',
     features: [
-      '4× ARGB PWM 120mm fans',
-      '4-pin PWM control for precise speed',
-      'Addressable RGB with sync support',
-      'Aluminium heatsink with heat pipes',
-      'Compatible with Intel and AMD sockets',
-      'Low-noise operation at high airflow',
+      'Optional real-time temperature display on pump head',
+      '240mm and 360mm radiator options',
+      'Copper water block for maximum heat transfer',
+      'Up to 320W TDP (L360R)',
+      'ARGB fans + pump — 3-pin 5V connector',
+      'Intel LGA1851/1700 & AMD AM5/AM4 support',
     ],
-    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1781989220/rookie-ninja/products/Cylon4F-Product-Photo-Gallery-1042x589-07.webp',
-    slug: 'aerocool-air-cooler-cylon-4f-argb-pwm-4p-black',
+    image: 'https://res.cloudinary.com/df52xzi3y/image/fetch/f_auto,q_auto/https://aerocool.io/wp-content/uploads/2025/10/abyssL360R-digi_product-gallery_bk_1-700x700.png',
+    slug: 'aerocool-liquid-cooler-abyss-l360r-digi',
   },
   {
     num: '02',
-    navTitle: 'Cylon 4F ARGB — White',
-    tag: 'ARGB Air Cooler',
-    heading: 'Cylon 4F ARGB PWM — White',
-    desc: 'The white edition of the Cylon 4F — the same high-performance ARGB cooling with a clean white finish, perfect for white or light-themed PC builds.',
+    navTitle: 'Oasis Series',
+    tag: 'ARGB Liquid Cooler',
+    heading: 'Oasis L360',
+    desc: 'The Oasis L360 pairs a mirage-design ARGB pump head with a 360mm radiator and high-airflow fans — delivering 300W of TDP for demanding CPUs in black and white variants.',
     features: [
-      '4× ARGB PWM 120mm fans (white)',
-      '4-pin PWM control',
-      'Addressable RGB lighting',
-      'Aluminium heatsink with heat pipes',
-      'Intel & AMD socket compatible',
-      'Ideal for white / light-themed builds',
+      '360mm radiator — 300W TDP',
+      'Mirage design ARGB pump head',
+      'Copper water block',
+      'PWM fans: 500–2200 RPM',
+      'Hydraulic bearing fans',
+      'Intel LGA1851/1700 & AMD AM5/AM4 support',
     ],
-    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1781989242/rookie-ninja/products/Cylon4F-Product-Photo-Gallery-1042x589-W-04.webp',
-    slug: 'aerocool-air-cooler-cylon-4f-argb-pwm-4p-white',
+    image: 'https://res.cloudinary.com/df52xzi3y/image/fetch/f_auto,q_auto/https://aerocool.io/wp-content/uploads/2024/08/OasisL360-BK-Product-Gallery-1.jpg',
+    slug: 'aerocool-liquid-cooler-oasis-l360',
+  },
+  {
+    num: '03',
+    navTitle: 'Mirage Series',
+    tag: 'ARGB Liquid Cooler',
+    heading: 'Mirage L120 / L240 / L360',
+    desc: 'The Mirage series uses an Infinity Mirror ARGB pump head for a mesmerizing depth effect. Available in 120mm, 240mm, and 360mm configurations — with up to 550W TDP on the L360.',
+    features: [
+      'Infinity Mirror ARGB pump head design',
+      '120mm, 240mm, and 360mm sizes',
+      'Up to 550W TDP (Mirage L360)',
+      'Copper water block',
+      'Hydraulic bearing fans',
+      'Wide socket support: Intel & AMD',
+    ],
+    image: 'https://res.cloudinary.com/df52xzi3y/image/fetch/f_auto,q_auto/https://aerocool.io/wp-content/uploads/2020/08/Mirage-L360-Infographic700x700px-02.png',
+    slug: 'aerocool-liquid-cooler-mirage-l360',
+  },
+  {
+    num: '04',
+    navTitle: 'Pulse Series',
+    tag: 'RGB Liquid Cooler',
+    heading: 'Pulse L120 / L120F / L240 / L240F',
+    desc: 'The Pulse series delivers performance cooling with a stylish Halo LED pump head and 8 switchable RGB lighting modes. Available in 120mm and 240mm, with standard and ARGB fan variants.',
+    features: [
+      'Halo LED pump head — 8 RGB modes',
+      '120mm and 240mm radiator options',
+      'F-variants include ARGB fans',
+      '400W TDP on 240mm models',
+      'Ceramics bearing pump — 80,000 hrs MTBF',
+      'Intel LGA2066/1200/115X & AMD AM4/AM3 support',
+    ],
+    image: 'https://res.cloudinary.com/df52xzi3y/image/fetch/f_auto,q_auto/https://aerocool.io/wp-content/uploads/2019/04/Pulse-L240-F-Infographic700x700px-01.jpg',
+    slug: 'aerocool-liquid-cooler-pulse-l240f',
+  },
+  {
+    num: '05',
+    navTitle: 'P7-L240',
+    tag: 'RGB Liquid Cooler',
+    heading: 'P7-L240',
+    desc: 'The P7-L240 features a 16.8 million color RGB pump head with a translucent design — part of the premium P7 series. Delivers 380W TDP with closed-loop liquid cooling and dual 120mm fans.',
+    features: [
+      '16.8 million color RGB pump head',
+      '380W TDP — 240mm radiator',
+      'Translucent pump housing design',
+      'Ceramics bearing pump — 80,000 hrs MTBF',
+      'Dual 120mm PWM fans',
+      'Intel LGA2066/2011-V3/115X & AMD AM4/AM3 support',
+    ],
+    image: 'https://res.cloudinary.com/df52xzi3y/image/fetch/f_auto,q_auto/https://aerocool.io/wp-content/uploads/2018/05/Aerocool-P7-L240-Infographic700x700px-5-1.jpg',
+    slug: 'aerocool-liquid-cooler-p7-l240',
   },
 ];
 
@@ -155,7 +206,7 @@ const coolerItems = [
 const AC_NAV_LINKS = [
   { label: 'Cases',               href: '#cases' },
   { label: 'Power Supply Units',  href: '#psu-inquiry' },
-  { label: 'Air Coolers',         href: '#air-coolers' },
+  { label: 'Liquid Coolers',       href: '#liquid-coolers' },
 ];
 
 function AcNavInner({ accent }: { accent: string }) {
@@ -378,7 +429,7 @@ export default function AerocoolPage() {
                 })}
                 <select name="category" required style={{ width: '100%', padding: '12px 14px', borderRadius: 6, border: 'none', background: 'rgba(255,255,255,0.12)', color: '#e5e7eb', fontSize: 14, outline: 'none', fontFamily: 'var(--font-poppins)' }}>
                   <option value="" style={{ background: '#fff', color: '#000' }}>Select Product Category</option>
-                  {['Cases', 'Power Supply Units', 'Air Coolers'].map(o => (
+                  {['Cases', 'Power Supply Units', 'Liquid Coolers'].map(o => (
                     <option key={o} style={{ background: '#fff', color: '#000' }}>{o}</option>
                   ))}
                 </select>
@@ -431,13 +482,13 @@ export default function AerocoolPage() {
       </section>
 
       {/* ══════════════════════════════════════════
-          AIR COOLERS — accordion
+          LIQUID COOLERS — accordion
       ══════════════════════════════════════════ */}
-      <section id="air-coolers" style={{ width: '100%', background: ac.alt, padding: '60px 20px 80px' }}>
+      <section id="liquid-coolers" style={{ width: '100%', background: ac.alt, padding: '60px 20px 80px' }}>
         <div style={{ maxWidth: 1200, margin: '0 auto' }}>
           <div className="ac-reveal" style={{ marginBottom: 36 }}>
-            <h2 style={{ fontSize: 'clamp(22px, 3vw, 34px)', fontWeight: 700, color: '#000', marginBottom: 6 }}>Air Coolers</h2>
-            <p style={{ fontSize: 15, color: ac.dim }}>High-performance ARGB air cooling for Intel and AMD — available in Black and White to match your build.</p>
+            <h2 style={{ fontSize: 'clamp(22px, 3vw, 34px)', fontWeight: 700, color: '#000', marginBottom: 6 }}>Liquid Coolers</h2>
+            <p style={{ fontSize: 15, color: ac.dim }}>High-performance ARGB liquid cooling for Intel and AMD — Abyss, Oasis, Mirage, Pulse, and P7 series.</p>
           </div>
           <div className="ka-prod-body ac-reveal ac-reveal-d1" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 0, border: '1px solid #e5e7eb', borderRadius: 8, overflow: 'hidden', minHeight: 480 }}>
             <div className="ka-prod-list" style={{ borderRight: '1px solid #e5e7eb', display: 'flex', flexDirection: 'column', background: '#fff' }}>
