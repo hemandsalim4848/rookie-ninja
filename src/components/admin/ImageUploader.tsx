@@ -48,6 +48,13 @@ export default function ImageUploader({ images, onChange }: Props) {
     setUploading(false)
   }
 
+  function setPrimary(index: number) {
+    if (index === 0) return
+    const reordered = [...images]
+    const [picked] = reordered.splice(index, 1)
+    onChange([picked, ...reordered])
+  }
+
   async function removeImage(url: string, index: number) {
     const publicId = getPublicId(url)
     if (publicId) {
@@ -75,20 +82,44 @@ export default function ImageUploader({ images, onChange }: Props) {
       {images.length > 0 && (
         <div className="flex flex-wrap gap-2">
           {images.map((url, i) => (
-            <div key={i} className="relative group w-20 h-20 rounded-xl overflow-hidden border border-gray-200">
+            <div key={i} className="relative group w-20 h-20 rounded-xl overflow-hidden border-2 border-gray-200"
+                 style={i === 0 ? { borderColor: '#15A7DC' } : {}}>
               <img src={url} alt="" className="w-full h-full object-cover" />
-              <button
-                type="button"
-                onClick={() => removeImage(url, i)}
-                className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center"
-              >
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <polyline points="3 6 5 6 21 6" />
-                  <path d="M19 6l-1 14a2 2 0 01-2 2H8a2 2 0 01-2-2L5 6" />
-                  <path d="M10 11v6M14 11v6" />
-                  <path d="M9 6V4a1 1 0 011-1h4a1 1 0 011 1v2" />
-                </svg>
-              </button>
+
+              {/* Primary badge */}
+              {i === 0 && (
+                <span className="absolute top-1 left-1 text-[9px] font-bold bg-[#15A7DC] text-white px-1.5 py-0.5 rounded leading-none pointer-events-none">
+                  Primary
+                </span>
+              )}
+
+              {/* Hover overlay */}
+              <div className="absolute inset-0 bg-black/55 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center gap-1.5">
+                {i !== 0 && (
+                  <button
+                    type="button"
+                    title="Set as primary"
+                    onClick={() => setPrimary(i)}
+                    className="flex items-center justify-center w-7 h-7 rounded-full bg-[#15A7DC] hover:bg-[#0d8fb8] transition-colors"
+                  >
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="white" stroke="none">
+                      <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                    </svg>
+                  </button>
+                )}
+                <button
+                  type="button"
+                  onClick={() => removeImage(url, i)}
+                  className="flex items-center justify-center w-7 h-7 rounded-full bg-white/20 hover:bg-red-500 transition-colors"
+                >
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <polyline points="3 6 5 6 21 6" />
+                    <path d="M19 6l-1 14a2 2 0 01-2 2H8a2 2 0 01-2-2L5 6" />
+                    <path d="M10 11v6M14 11v6" />
+                    <path d="M9 6V4a1 1 0 011-1h4a1 1 0 011 1v2" />
+                  </svg>
+                </button>
+              </div>
             </div>
           ))}
         </div>
