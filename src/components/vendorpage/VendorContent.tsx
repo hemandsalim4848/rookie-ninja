@@ -66,7 +66,7 @@ const vendors = [
     logo: '/logos/aerocool-logo.svg',
     description: 'Gaming hardware, cooling and power solutions.',
     category: 'Gaming',
-    website: 'https://www.aerocool.io',
+    website: '/our-vendors/aerocool',
 },
 {
     name: 'MSI',
