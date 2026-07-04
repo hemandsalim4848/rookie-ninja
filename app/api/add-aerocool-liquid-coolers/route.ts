@@ -384,10 +384,10 @@ const coolers = [
       'Compatible with Intel LGA2066/2011-V3/115X/1366/1200 and AMD AM4/AM3+',
     ].join('\n'),
     images: [
-      'https://aerocool.io/wp-content/uploads/2018/05/AeroCool-P7-L240-Photo-Gallery18-1042x589.jpg',
-      'https://aerocool.io/wp-content/uploads/2018/05/AeroCool-P7-L240-Photo-Gallery17-1042x589.jpg',
-      'https://aerocool.io/wp-content/uploads/2018/05/AeroCool-P7-L240-Photo-Gallery16-1042x589.png',
-      'https://aerocool.io/wp-content/uploads/2018/05/AeroCool-P7-L240-Photo-Gallery14-1042x589.png',
+      'https://aerocool.io/wp-content/uploads/2018/05/Aerocool-P7-L240-Infographic700x700px-5-1.jpg',
+      'https://aerocool.io/wp-content/uploads/2018/05/Aerocool-P7-L240-Infographic700x700px-1-1.jpg',
+      'https://aerocool.io/wp-content/uploads/2018/05/Aerocool-P7-L240-Infographic700x700px-2-1.jpg',
+      'https://aerocool.io/wp-content/uploads/2018/05/Aerocool-P7-L240-Infographic700x700px-4-1.jpg',
     ].map(cf),
     specs: [
       { key: 'Radiator Size', value: '240mm' },
