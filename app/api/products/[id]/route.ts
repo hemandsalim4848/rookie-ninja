@@ -36,6 +36,23 @@ export async function PUT(req: Request, { params }: { params: Promise<{ id: stri
     const { id } = await params
     await connectDB()
     const body = await req.json()
+
+    if (Array.isArray(body.images)) {
+      const existing = await Product.findById(id)
+      if (existing) {
+        const newImages = new Set(body.images as string[])
+        const removedImages = (existing.images as string[]).filter(
+          (url) => url.includes('cloudinary.com') && !newImages.has(url)
+        )
+        for (const url of removedImages) {
+          const publicId = extractPublicId(url)
+          if (publicId) {
+            await cloudinary.uploader.destroy(publicId, { invalidate: true }).catch(() => {})
+          }
+        }
+      }
+    }
+
     const product = await Product.findByIdAndUpdate(id, body, { new: true })
     return NextResponse.json(product)
   } catch {
@@ -58,7 +75,7 @@ export async function DELETE(_: Request, { params }: { params: Promise<{ id: str
     for (const url of cloudinaryImages) {
       const publicId = extractPublicId(url)
       if (publicId) {
-        await cloudinary.uploader.destroy(publicId).catch(() => {})
+        await cloudinary.uploader.destroy(publicId, { invalidate: true }).catch(() => {})
       }
     }
 

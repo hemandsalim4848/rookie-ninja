@@ -33,7 +33,7 @@ export async function DELETE(req: Request) {
   try {
     const { publicId } = await req.json()
     if (!publicId) return NextResponse.json({ error: 'No publicId provided' }, { status: 400 })
-    await cloudinary.uploader.destroy(publicId)
+    await cloudinary.uploader.destroy(publicId, { invalidate: true })
     return NextResponse.json({ success: true })
   } catch (err: any) {
     return NextResponse.json({ error: err.message }, { status: 500 })
