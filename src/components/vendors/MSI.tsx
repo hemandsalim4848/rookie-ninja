@@ -334,11 +334,11 @@ export default function MSIPage() {
           )}
 
           <div className="ms-reveal" style={{ textAlign: 'center', marginTop: 36 }}>
-            <a href="/msi?category=Graphic+Cards"
+            <a href="/msi?category=Graphics+Cards"
                style={{ display: 'inline-flex', alignItems: 'center', gap: 8, fontSize: 14, fontWeight: 600, color: ms.accent, textDecoration: 'none', border: `1.5px solid ${ms.accent}`, padding: '10px 24px', borderRadius: 50, transition: 'background 0.2s, color 0.2s' }}
                onMouseEnter={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = ms.accent; el.style.color = '#fff'; }}
                onMouseLeave={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = 'transparent'; el.style.color = ms.accent; }}>
-              View All Graphic Cards
+              View All Graphics Cards
               <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
             </a>
           </div>
@@ -435,7 +435,7 @@ export default function MSIPage() {
           )}
 
           <div className="ms-reveal" style={{ textAlign: 'center', marginTop: 32 }}>
-            <a href={`/msi?category=Motherboards`}
+            <a href="/msi?category=Motherboards"
                style={{ display: 'inline-flex', alignItems: 'center', gap: 8, fontSize: 14, fontWeight: 600, color: ms.accent, textDecoration: 'none', border: `1.5px solid ${ms.accent}`, padding: '10px 24px', borderRadius: 50, transition: 'background 0.2s, color 0.2s' }}
                onMouseEnter={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = ms.accent; el.style.color = '#fff'; }}
                onMouseLeave={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = 'transparent'; el.style.color = ms.accent; }}>

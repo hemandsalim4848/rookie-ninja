@@ -16,7 +16,7 @@ function BrandPageInner() {
   const [products, setProducts] = useState<any[]>([])
   const [loading, setLoading] = useState(true)
   const gridRef = useRef<HTMLDivElement>(null)
-  const [activeCategory, setActiveCategory] = useState('')
+  const [activeCategory, setActiveCategory] = useState(searchParams.get('category') || '')
 
   const currentPage = Math.max(1, parseInt(searchParams.get('page') || '1', 10))
 
