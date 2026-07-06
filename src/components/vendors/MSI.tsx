@@ -16,7 +16,7 @@ const heroSlides = [
   {
     id: 'gpus',
     badge: 'Official Distributor',
-    lines: ['Game Without', 'Limits.'],
+    lines: ['Game', 'Without Limits.'],
     accentLine: 1,
     desc: 'MSI GeForce graphic cards deliver next-generation gaming performance, ray tracing, and AI-powered DLSS features — engineered for every build tier from mid-range to flagship.',
     cta: { label: 'Explore GPUs', href: '#graphic-cards', solid: true },
@@ -24,7 +24,7 @@ const heroSlides = [
   {
     id: 'motherboards',
     badge: 'Motherboards',
-    lines: ['The Foundation', 'of Performance.'],
+    lines: ['Built to', 'Perform.'],
     accentLine: 0,
     desc: 'From entry-level PRO series to flagship MEG boards — MSI motherboards combine robust power delivery with feature-rich connectivity for AMD and Intel platforms.',
     cta: { label: 'View Motherboards', href: '#motherboards', solid: false },
