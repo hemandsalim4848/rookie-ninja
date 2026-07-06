@@ -20,7 +20,6 @@ const heroSlides = [
     accentLine: 1,
     desc: 'MSI GeForce graphic cards deliver next-generation gaming performance, ray tracing, and AI-powered DLSS features — engineered for every build tier from mid-range to flagship.',
     cta: { label: 'Explore GPUs', href: '#graphic-cards', solid: true },
-    bg: 'https://storage-asset.msi.com/global/picture/image/feature/vga/GeForce-RTX-5090/RTX-5090-GAMING-X-TRIO/RTX-5090-GAMING-X-TRIO-overview-1.png',
   },
   {
     id: 'motherboards',
@@ -29,7 +28,6 @@ const heroSlides = [
     accentLine: 0,
     desc: 'From entry-level PRO series to flagship MEG boards — MSI motherboards combine robust power delivery with feature-rich connectivity for AMD and Intel platforms.',
     cta: { label: 'View Motherboards', href: '#motherboards', solid: false },
-    bg: 'https://storage-asset.msi.com/global/picture/image/feature/mb/MEG/MEG-Z890-GODLIKE/MEG-Z890-GODLIKE-overview-1.png',
   },
 ];
 
@@ -153,6 +151,7 @@ export default function MSIPage() {
   /* products loaded from API */
   const [gpus,  setGpus]  = useState<any[]>([]);
   const [boards, setBoards] = useState<{ intel: any[]; amd: any[] }>({ intel: [], amd: [] });
+  const [heroBgs, setHeroBgs] = useState<string[]>(['', '']);
 
   /* ── Fetch MSI products ── */
   useEffect(() => {
@@ -169,6 +168,11 @@ export default function MSIPage() {
           .slice(0, 4);
         setGpus(gpuList);
         setBoards({ intel: intelBoards, amd: amdBoards });
+        // Use actual product images for hero backgrounds
+        setHeroBgs([
+          gpuList[0]?.images?.[0] || '',
+          (intelBoards[0] || amdBoards[0])?.images?.[0] || '',
+        ]);
       })
       .catch(() => {});
   }, []);
@@ -233,7 +237,7 @@ export default function MSIPage() {
         {heroSlides.map((s, i) => (
           <div key={s.id} className="ka-slide"
                style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', opacity: i === heroIdx ? 1 : 0, transition: 'opacity 0.9s cubic-bezier(0.77,0,0.175,1)', zIndex: i === heroIdx ? 2 : 1 }}>
-            <div style={{ position: 'absolute', inset: 0, backgroundImage: `url('${s.bg}')`, backgroundSize: 'cover', backgroundPosition: 'center', transform: i === heroIdx ? 'scale(1)' : 'scale(1.06)', transition: 'transform 6s ease', filter: 'brightness(0.38)' }} />
+            <div style={{ position: 'absolute', inset: 0, backgroundImage: heroBgs[i] ? `url('${heroBgs[i]}')` : undefined, backgroundSize: 'cover', backgroundPosition: 'center', transform: i === heroIdx ? 'scale(1)' : 'scale(1.06)', transition: 'transform 6s ease', filter: 'brightness(0.38)' }} />
             <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(90deg, rgba(0,0,0,0.72) 38%, transparent 80%)' }} />
             <div className="ka-hero-container" style={{ position: 'relative', zIndex: 3, width: '100%', maxWidth: 1220, margin: '0 auto', padding: '0 20px' }}>
               <div className="ka-hero-content"
