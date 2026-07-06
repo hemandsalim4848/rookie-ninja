@@ -159,7 +159,7 @@ export default function MSIPage() {
       .then(r => r.json())
       .then((all: any[]) => {
         if (!Array.isArray(all)) return;
-        const gpuList = all.filter(p => /graphics?\s*cards?|gpu|vga/i.test(p.category)).slice(0, 4);
+        const gpuList = all.filter(p => /graphics?\s*cards?|gpu|vga/i.test(p.category)).reverse().slice(0, 4);
         const intelBoards = all
           .filter(p => p.category === 'Motherboards' && /z890|b860|z790|b760/i.test(p.name))
           .slice(0, 4);
