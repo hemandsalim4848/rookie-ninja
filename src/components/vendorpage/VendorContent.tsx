@@ -73,7 +73,7 @@ const vendors = [
     logo: '/logos/msi-logo.png',
     description: 'Gaming laptops, desktops and PC components.',
     category: 'Gaming',
-    website: 'https://www.msi.com',
+    website: '/our-vendors/msi',
 },
 {
     name: 'Silex',
