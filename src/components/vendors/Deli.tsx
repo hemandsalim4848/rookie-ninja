@@ -22,7 +22,7 @@ const heroSlides = [
     lines: ['Print. Copy.', 'Scan.'],
     accentLine: 1,
     desc: 'The Deli M1820W and M3100ADNW deliver all-in-one laser performance — combining fast print speeds, flatbed scanning, and wireless connectivity for modern office environments.',
-    cta: { label: 'View MFP Printers', href: '#printers', solid: true },
+    cta: { label: 'View MFP Printers', href: '#printers', solid: true, productIdx: 0 },
   },
   {
     id: 'laser',
@@ -30,7 +30,7 @@ const heroSlides = [
     lines: ['Laser Precision.', 'Simplified.'],
     accentLine: 0,
     desc: 'The Deli P1820W brings reliable A4 monochrome laser printing to compact workspaces — wireless, app-controlled, and built for daily office demands.',
-    cta: { label: 'View P1820W', href: '#printers', solid: false },
+    cta: { label: 'View P1820W', href: '#printers', solid: false, productIdx: 2 },
   },
 ];
 
@@ -281,6 +281,7 @@ export default function DeliPage() {
                 </h1>
                 <p style={{ fontSize: 15, color: 'rgba(255,255,255,0.72)', lineHeight: 1.65, marginBottom: 32, fontWeight: 300, maxWidth: 420 }}>{s.desc}</p>
                 <a href={s.cta.href}
+                   onClick={e => { e.preventDefault(); switchProduct(s.cta.productIdx); document.getElementById('printers')?.scrollIntoView({ behavior: 'smooth' }); }}
                    style={{ display: 'inline-block', padding: '13px 28px', background: s.cta.solid ? '#fff' : 'transparent', color: s.cta.solid ? '#0d0d0d' : '#fff', border: '2px solid #fff', fontSize: 13, fontWeight: 600, letterSpacing: 1, textTransform: 'uppercase', textDecoration: 'none', borderRadius: 2, transition: 'background 0.25s, color 0.25s, border-color 0.25s' }}
                    onMouseEnter={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = d.accent; el.style.borderColor = d.accent; el.style.color = '#fff'; }}
                    onMouseLeave={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = s.cta.solid ? '#fff' : 'transparent'; el.style.borderColor = '#fff'; el.style.color = s.cta.solid ? '#0d0d0d' : '#fff'; }}>
