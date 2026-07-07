@@ -67,8 +67,8 @@ const printers = [
   {
     id:       'm3100adnw',
     slug:     'deli-m3100adnw',
-    tag:      'Pro MFP',
-    title:    'M3100ADNW Pro',
+    tag:      'MFP',
+    title:    'M3100ADNW',
     subtitle: 'Print, Copy, Scan + ADF',
     intro:    'High-throughput monochrome laser MFP with auto duplex, 35-sheet document feeder, and full network connectivity — built for demanding workgroup environments.',
     bullets: [
@@ -126,7 +126,7 @@ const printers = [
 
 const navLinks = [
   { label: 'M1820W MFP',    idx: 0 },
-  { label: 'M3100ADNW Pro', idx: 1 },
+  { label: 'M3100ADNW', idx: 1 },
   { label: 'P1820W',        idx: 2 },
 ];
 
@@ -219,6 +219,12 @@ export default function DeliPage() {
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
+
+  useEffect(() => {
+    if (isSticky) document.body.classList.add('ka-subnav-active');
+    else document.body.classList.remove('ka-subnav-active');
+    return () => document.body.classList.remove('ka-subnav-active');
+  }, [isSticky]);
 
   /* ── Reveal observer ── */
   useEffect(() => {

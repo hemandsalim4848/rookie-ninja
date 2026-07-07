@@ -22,7 +22,7 @@ const heroSlides = [
     accentLine: 1,
     desc: 'The Fujitsu DL4850+ delivers high-speed 24-pin SIDM printing for wide-carriage industrial and business forms — built for continuous, high-volume environments.',
     cta: { label: 'View DL4850+', href: '#printers', solid: true, productIdx: 0 },
-    bg: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1749800000/fujitsu-dl4850-hero_placeholder.jpg',
+    bg: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1783429060/dl4850-img_01_en-1200x800_ulvffs.webp',
   },
   {
     id: 'dl3100',
@@ -31,7 +31,7 @@ const heroSlides = [
     accentLine: 0,
     desc: 'The Fujitsu DL3100 offers dependable 9-pin dot matrix printing for receipts, invoices and multi-part forms — compact, efficient, and easy to deploy.',
     cta: { label: 'View DL3100', href: '#printers', solid: false, productIdx: 1 },
-    bg: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1749800000/fujitsu-dl3100-hero_placeholder.jpg',
+    bg: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1783429060/dl3100-img01-1200x800_f2ilzg.webp',
   },
 ];
 
@@ -42,7 +42,7 @@ const printers = [
     title:    'DL4850+',
     subtitle: 'Fujitsu SIDM Printer',
     intro:    'High-speed 24-pin wide-carriage SIDM printer designed for demanding business environments — handles multi-part forms, invoices, and industrial continuous paper with precision.',
-    image:    'https://res.cloudinary.com/df52xzi3y/image/upload/v1749800000/fujitsu-dl4850.jpg',
+    image:    'https://res.cloudinary.com/df52xzi3y/image/upload/v1783429060/dl4850-img_01_en-1200x800_ulvffs.webp',
     bullets: [
       '24-pin SIDM print head',
       'Up to 600 cps (draft) / 200 cps (LQ)',
@@ -71,10 +71,10 @@ const printers = [
     title:    'DL3100',
     subtitle: 'Fujitsu Dot Matrix Printer',
     intro:    'Compact 9-pin dot matrix printer for everyday business printing — reliable multi-part form handling, low running costs, and straightforward deployment for any office.',
-    image:    'https://res.cloudinary.com/df52xzi3y/image/upload/v1749800000/fujitsu-dl3100.jpg',
+    image:    'https://res.cloudinary.com/df52xzi3y/image/upload/v1783429060/dl3100-img01-1200x800_f2ilzg.webp',
     bullets: [
       '9-pin dot matrix print head',
-      'Up to 300 cps (draft) / 80 cps (NLQ)',
+      'Up to 450 cps (draft) / 80 cps (NLQ)',
       '80-column standard carriage',
       'Multi-part forms up to 4 copies',
       'USB + Parallel interface',
@@ -83,7 +83,7 @@ const printers = [
     ],
     specs: [
       { key: 'Print Head',     value: '9-pin dot matrix' },
-      { key: 'Print Speed',    value: '300 cps draft / 80 cps NLQ' },
+      { key: 'Print Speed',    value: '450 cps draft / 80 cps NLQ' },
       { key: 'Carriage Width', value: '80 columns (standard carriage)' },
       { key: 'Multi-part',     value: 'Up to 4 copies (original + 3)' },
       { key: 'Interface',      value: 'USB + Parallel (Centronics)' },
@@ -200,6 +200,12 @@ export default function FujitsuPage() {
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
+
+  useEffect(() => {
+    if (isSticky) document.body.classList.add('ka-subnav-active');
+    else document.body.classList.remove('ka-subnav-active');
+    return () => document.body.classList.remove('ka-subnav-active');
+  }, [isSticky]);
 
   /* ── Scroll reveal ── */
   useEffect(() => {
