@@ -129,7 +129,7 @@ const vendors = [
     logo: '/logos/fujitsu-logo.svg',
     description: 'Advanced document scanning and IT solutions.',
     category: 'Document Scanners',
-    website: 'https://www.fujitsu.com',
+    website: '/our-vendors/fujitsu',
 },
 {
     name: 'IRIS',
