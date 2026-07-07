@@ -198,6 +198,47 @@ const navLinks = [
   { label: 'Canon PDF Editor',               href: '/our-vendors/iris' },
 ];
 
+function CnNavInner({ navLinks, accent }: { navLinks: { label: string; href: string }[]; accent: string }) {
+  return (
+    <div style={{ maxWidth: 1140, margin: '0 auto', height: 58, display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0 20px', gap: 20 }}>
+      <div className="cn-subnav-links" style={{ display: 'flex', alignItems: 'center', flex: 1, gap: 28, overflowX: 'auto', scrollbarWidth: 'none' }}>
+        {navLinks.map((lnk, i) => (
+          <a key={i} href={lnk.href} style={{
+            fontSize: 13, fontWeight: 500, color: '#111', textDecoration: 'none',
+            whiteSpace: 'nowrap', padding: '4px 0', position: 'relative',
+            letterSpacing: 0.15, transition: 'color 0.2s',
+          }}
+          onMouseEnter={e => {
+            const el = e.currentTarget as HTMLAnchorElement;
+            el.style.color = accent;
+            (el.querySelector('.cn-underline') as HTMLElement | null)?.style.setProperty('width', '100%');
+          }}
+          onMouseLeave={e => {
+            const el = e.currentTarget as HTMLAnchorElement;
+            el.style.color = '#111';
+            (el.querySelector('.cn-underline') as HTMLElement | null)?.style.setProperty('width', '0');
+          }}>
+            {lnk.label}
+            <span className="cn-underline" style={{
+              position: 'absolute', bottom: 0, left: 0, width: 0, height: 2,
+              background: accent, borderRadius: 2, transition: 'width 0.25s ease',
+            }} />
+          </a>
+        ))}
+      </div>
+      <a href="#workgroup-departmental-scanners" style={{
+        flexShrink: 0, padding: '10px 22px', background: accent, color: '#fff',
+        fontSize: 13, fontWeight: 600, borderRadius: 50, textDecoration: 'none',
+        whiteSpace: 'nowrap', transition: 'background 0.2s',
+      }}
+      onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.background = '#aa0000'; }}
+      onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.background = accent; }}>
+        Get a Quote
+      </a>
+    </div>
+  );
+}
+
 /* ─────────────────────────────────────────────
    COMPONENT
 ───────────────────────────────────────────── */
@@ -386,6 +427,16 @@ export default function CanonPage() {
       {/* ══════════════════════════════════════════
           STICKY SUB-NAV
       ══════════════════════════════════════════ */}
+
+      {/* Inline nav — always in page flow below hero */}
+      <nav style={{
+        width: '100%', background: '#fff', borderBottom: `1px solid ${c.line}`,
+        visibility: isSticky ? 'hidden' : 'visible',
+      }}>
+        <CnNavInner navLinks={navLinks} accent={c.accent} />
+      </nav>
+
+      {/* Fixed nav — slides in from top once hero is scrolled past */}
       <nav style={{
         position: 'fixed', top: 0, left: 0, right: 0, zIndex: 999,
         background: '#fff', borderBottom: `1px solid ${c.line}`,
@@ -393,42 +444,7 @@ export default function CanonPage() {
         transform: isSticky ? 'translateY(0)' : 'translateY(-100%)',
         transition: 'transform 0.35s cubic-bezier(0.4,0,0.2,1)',
       }}>
-        <div style={{ maxWidth: 1140, margin: '0 auto', height: 58, display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0 20px', gap: 20 }}>
-          <div className="cn-subnav-links" style={{ display: 'flex', alignItems: 'center', flex: 1, gap: 28, overflowX: 'auto', scrollbarWidth: 'none' }}>
-            {navLinks.map((lnk, i) => (
-              <a key={i} href={lnk.href} style={{
-                fontSize: 13, fontWeight: 500, color: '#111', textDecoration: 'none',
-                whiteSpace: 'nowrap', padding: '4px 0', position: 'relative',
-                letterSpacing: 0.15, transition: 'color 0.2s',
-              }}
-              onMouseEnter={e => {
-                const el = e.currentTarget as HTMLAnchorElement;
-                el.style.color = c.accent;
-                (el.querySelector('.cn-underline') as HTMLElement | null)?.style.setProperty('width', '100%');
-              }}
-              onMouseLeave={e => {
-                const el = e.currentTarget as HTMLAnchorElement;
-                el.style.color = '#111';
-                (el.querySelector('.cn-underline') as HTMLElement | null)?.style.setProperty('width', '0');
-              }}>
-                {lnk.label}
-                <span className="cn-underline" style={{
-                  position: 'absolute', bottom: 0, left: 0, width: 0, height: 2,
-                  background: c.accent, borderRadius: 2, transition: 'width 0.25s ease',
-                }} />
-              </a>
-            ))}
-          </div>
-          <a href="#workgroup-departmental-scanners" style={{
-            flexShrink: 0, padding: '10px 22px', background: c.accent, color: '#fff',
-            fontSize: 13, fontWeight: 600, borderRadius: 50, textDecoration: 'none',
-            whiteSpace: 'nowrap', transition: 'background 0.2s',
-          }}
-          onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.background = '#aa0000'; }}
-          onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.background = c.accent; }}>
-            Get a Quote
-          </a>
-        </div>
+        <CnNavInner navLinks={navLinks} accent={c.accent} />
       </nav>
 
       {/* ══════════════════════════════════════════
