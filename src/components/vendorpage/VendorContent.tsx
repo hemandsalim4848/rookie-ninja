@@ -101,7 +101,7 @@ const vendors = [
     logo: '/logos/deli-logo.png',
     description: 'Quality stationery and office supply products.',
     category: 'Office',
-    website: 'https://www.deli.com',
+    website: '/our-vendors/deli',
 },
 {
     name: 'Contex',
