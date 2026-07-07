@@ -125,26 +125,27 @@ const printers = [
 ];
 
 const navLinks = [
-  { label: 'M1820W MFP',      href: '#printers' },
-  { label: 'M3100ADNW Pro',   href: '#printers' },
-  { label: 'P1820W',          href: '#printers' },
+  { label: 'M1820W MFP',    idx: 0 },
+  { label: 'M3100ADNW Pro', idx: 1 },
+  { label: 'P1820W',        idx: 2 },
 ];
 
 /* ─────────────────────────────────────────────
    NAV INNER
 ───────────────────────────────────────────── */
-function DlNavInner() {
+function DlNavInner({ onSelect, active }: { onSelect: (idx: number) => void; active: number }) {
   return (
     <div style={{ maxWidth: 1140, margin: '0 auto', height: 58, display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0 20px', gap: 20 }}>
       <ul style={{ display: 'flex', alignItems: 'center', flex: 1, gap: 32, listStyle: 'none', margin: 0, padding: 0, overflowX: 'auto', scrollbarWidth: 'none' }}>
         {navLinks.map(lnk => (
           <li key={lnk.label} style={{ flexShrink: 0 }}>
-            <a href={lnk.href}
-               style={{ fontSize: 14, fontWeight: 500, color: '#111', textDecoration: 'none', whiteSpace: 'nowrap', position: 'relative', paddingBottom: 3, transition: 'color 0.2s' }}
+            <a href="#printers"
+               onClick={e => { e.preventDefault(); onSelect(lnk.idx); document.getElementById('printers')?.scrollIntoView({ behavior: 'smooth' }); }}
+               style={{ fontSize: 14, fontWeight: 500, color: active === lnk.idx ? d.accent : '#111', textDecoration: 'none', whiteSpace: 'nowrap', position: 'relative', paddingBottom: 3, transition: 'color 0.2s', cursor: 'pointer' }}
                onMouseEnter={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.color = d.accent; (el.querySelector('.dl-ul') as HTMLElement | null)?.style.setProperty('width', '100%'); }}
-               onMouseLeave={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.color = '#111'; (el.querySelector('.dl-ul') as HTMLElement | null)?.style.setProperty('width', '0'); }}>
+               onMouseLeave={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.color = active === lnk.idx ? d.accent : '#111'; (el.querySelector('.dl-ul') as HTMLElement | null)?.style.setProperty('width', active === lnk.idx ? '100%' : '0'); }}>
               {lnk.label}
-              <span className="dl-ul" style={{ position: 'absolute', bottom: 0, left: 0, width: 0, height: 2, background: d.accent, borderRadius: 2, transition: 'width 0.25s ease' }} />
+              <span className="dl-ul" style={{ position: 'absolute', bottom: 0, left: 0, width: active === lnk.idx ? '100%' : '0', height: 2, background: d.accent, borderRadius: 2, transition: 'width 0.25s ease' }} />
             </a>
           </li>
         ))}
@@ -170,10 +171,11 @@ export default function DeliPage() {
   const heroRef                   = useRef<HTMLElement>(null);
   const DURATION                  = 5500;
 
-  const [isSticky, setIsSticky]   = useState(false);
-  const [active, setActive]       = useState(0);
-  const [imgFade, setImgFade]     = useState(false);
-  const [formState, setFormState] = useState<'idle'|'sending'|'success'|'error'>('idle');
+  const [isSticky, setIsSticky]     = useState(false);
+  const [active, setActive]         = useState(0);
+  const [activeThumb, setActiveThumb] = useState(0);
+  const [imgFade, setImgFade]       = useState(false);
+  const [formState, setFormState]   = useState<'idle'|'sending'|'success'|'error'>('idle');
 
   /* product images from API */
   const [images, setImages] = useState<Record<string, string[]>>({});
@@ -232,7 +234,13 @@ export default function DeliPage() {
   function switchProduct(idx: number) {
     if (idx === active) return;
     setImgFade(true);
-    setTimeout(() => { setActive(idx); setImgFade(false); }, 280);
+    setTimeout(() => { setActive(idx); setActiveThumb(0); setImgFade(false); }, 280);
+  }
+
+  function switchThumb(idx: number) {
+    if (idx === activeThumb) return;
+    setImgFade(true);
+    setTimeout(() => { setActiveThumb(idx); setImgFade(false); }, 180);
   }
 
   /* ── Form ── */
@@ -259,9 +267,9 @@ export default function DeliPage() {
           <div key={s.id} className="ka-slide"
                style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', opacity: i === heroIdx ? 1 : 0, transition: 'opacity 0.9s cubic-bezier(0.77,0,0.175,1)', zIndex: i === heroIdx ? 2 : 1 }}>
             <div style={{ position: 'absolute', inset: 0, backgroundImage: heroBgs[i] ? `url('${heroBgs[i]}')` : undefined, backgroundSize: 'cover', backgroundPosition: 'center', transform: i === heroIdx ? 'scale(1)' : 'scale(1.06)', transition: 'transform 6s ease', filter: 'brightness(0.35)' }} />
-            <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(90deg, rgba(0,0,0,0.75) 38%, transparent 80%)' }} />
-            <div style={{ position: 'relative', zIndex: 3, width: '100%', maxWidth: 1140, margin: '0 auto', padding: '0 20px' }}>
-              <div style={{ maxWidth: 560, opacity: i === heroIdx ? 1 : 0, transform: i === heroIdx ? 'translateY(0)' : 'translateY(24px)', transition: 'opacity 0.7s ease 0.4s, transform 0.7s ease 0.4s' }}>
+            <div className="ka-vignette" style={{ position: 'absolute', inset: 0, background: 'linear-gradient(90deg, rgba(0,0,0,0.75) 38%, transparent 80%)' }} />
+            <div className="ka-hero-container" style={{ position: 'relative', zIndex: 3, width: '100%', maxWidth: 1140, margin: '0 auto', padding: '0 20px' }}>
+              <div className="ka-hero-content" style={{ maxWidth: 560, opacity: i === heroIdx ? 1 : 0, transform: i === heroIdx ? 'translateY(0)' : 'translateY(24px)', transition: 'opacity 0.7s ease 0.4s, transform 0.7s ease 0.4s' }}>
                 <span style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: d.accent, color: '#fff', fontSize: 11, fontWeight: 600, letterSpacing: 2, textTransform: 'uppercase', padding: '5px 12px', marginBottom: 18, borderRadius: 2 }}>
                   <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#fff', opacity: 0.9, display: 'inline-block', animation: 'dlPulse 2s infinite' }} />
                   {s.badge}
@@ -299,10 +307,10 @@ export default function DeliPage() {
           STICKY NAV
       ══════════════════════════════════════════ */}
       <div style={{ width: '100%', background: '#fff', borderBottom: `1px solid ${d.line}`, visibility: isSticky ? 'hidden' : 'visible' }}>
-        <DlNavInner />
+        <DlNavInner onSelect={switchProduct} active={active} />
       </div>
       <div style={{ position: 'fixed', top: 0, left: 0, right: 0, zIndex: 1001, background: '#fff', borderBottom: `1px solid ${d.line}`, boxShadow: '0 2px 20px rgba(0,0,0,0.12)', transform: isSticky ? 'translateY(0)' : 'translateY(-100%)', transition: 'transform 0.35s cubic-bezier(0.4,0,0.2,1)' }}>
-        <DlNavInner />
+        <DlNavInner onSelect={switchProduct} active={active} />
       </div>
 
       {/* ══════════════════════════════════════════
@@ -320,15 +328,15 @@ export default function DeliPage() {
             </p>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 48, alignItems: 'start' }}>
+          <div className="dl-printer-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 48, alignItems: 'start' }}>
 
             {/* Left — image */}
             <div className="dl-reveal" style={{ position: 'relative' }}>
               <div style={{ background: '#fff', borderRadius: 16, overflow: 'hidden', boxShadow: '0 4px 32px rgba(0,0,0,0.08)', aspectRatio: '1 / 1', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 32 }}>
-                {activeImages[0] ? (
+                {activeImages[activeThumb] ? (
                   /* eslint-disable-next-line @next/next/no-img-element */
                   <img
-                    src={activeImages[0]}
+                    src={activeImages[activeThumb]}
                     alt={activePrinter.title}
                     style={{ width: '100%', height: '100%', objectFit: 'contain', opacity: imgFade ? 0 : 1, transition: 'opacity 0.28s ease' }}
                   />
@@ -342,9 +350,10 @@ export default function DeliPage() {
                 <div style={{ display: 'flex', gap: 8, marginTop: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
                   {activeImages.slice(0, 5).map((img, idx) => (
                     /* eslint-disable-next-line @next/next/no-img-element */
-                    <img key={idx} src={img} alt="" style={{ width: 52, height: 52, objectFit: 'contain', borderRadius: 8, background: '#fff', border: `2px solid ${idx === 0 ? d.accent : '#e5e7eb'}`, padding: 4, cursor: 'pointer', transition: 'border-color 0.2s' }}
+                    <img key={idx} src={img} alt="" onClick={() => switchThumb(idx)}
+                         style={{ width: 52, height: 52, objectFit: 'contain', borderRadius: 8, background: '#fff', border: `2px solid ${idx === activeThumb ? d.accent : '#e5e7eb'}`, padding: 4, cursor: 'pointer', transition: 'border-color 0.2s' }}
                          onMouseEnter={e => { (e.currentTarget as HTMLImageElement).style.borderColor = d.accent; }}
-                         onMouseLeave={e => { (e.currentTarget as HTMLImageElement).style.borderColor = '#e5e7eb'; }} />
+                         onMouseLeave={e => { (e.currentTarget as HTMLImageElement).style.borderColor = idx === activeThumb ? d.accent : '#e5e7eb'; }} />
                   ))}
                 </div>
               )}
@@ -411,73 +420,46 @@ export default function DeliPage() {
       {/* ══════════════════════════════════════════
           ENQUIRY FORM — DARK
       ══════════════════════════════════════════ */}
-      <section id="enquire" style={{ width: '100%', background: d.dark, padding: '80px 20px' }}>
-        <div style={{ maxWidth: 1140, margin: '0 auto', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 64, alignItems: 'center' }} className="dl-comm-inner">
+      <section id="enquire" style={{ width: '100%', background: 'linear-gradient(90deg, #0b1a2e, #0d223d)', padding: '80px 20px', color: '#fff' }}>
+        <div className="dl-comm-inner"
+             style={{ maxWidth: 1140, margin: '0 auto', display: 'grid', gridTemplateColumns: '1fr 420px', gap: 60, alignItems: 'center' }}>
 
-          {/* Left copy */}
           <div className="dl-reveal">
-            <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: 3, textTransform: 'uppercase', color: d.accent }}>Get in Touch</span>
-            <h2 style={{ fontSize: 'clamp(26px,4vw,40px)', fontWeight: 700, color: '#fff', marginTop: 10, marginBottom: 16, lineHeight: 1.15 }}>
-              Enquire About<br />Deli Printers
+            <h2 style={{ fontSize: 'clamp(22px, 3vw, 36px)', fontWeight: 700, marginBottom: 20, color: '#fff', lineHeight: 1.2 }}>
+              Deli Printer Solutions
             </h2>
-            <p style={{ fontSize: 15, color: 'rgba(255,255,255,0.5)', lineHeight: 1.7, marginBottom: 32, maxWidth: 400 }}>
-              Looking for a reliable laser printer for your office? Our team will help you choose the right Deli model and provide pricing, availability, and support across UAE & MEA.
+            <p style={{ fontSize: 15, color: '#cbd5e1', lineHeight: 1.7 }}>
+              From compact wireless printers to high-throughput all-in-one MFPs — Deli laser printers deliver reliable monochrome performance, low running costs, and seamless app-based control for modern office environments across UAE &amp; MEA.
             </p>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
-              {[
-                { icon: '🖨️', text: 'M1820W MFP — Print, Copy & Scan' },
-                { icon: '⚡', text: 'M3100ADNW Pro — High-throughput MFP' },
-                { icon: '✅', text: 'P1820W — Compact laser print' },
-              ].map(item => (
-                <div key={item.text} style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-                  <span style={{ fontSize: 18 }}>{item.icon}</span>
-                  <span style={{ fontSize: 14, color: 'rgba(255,255,255,0.65)' }}>{item.text}</span>
-                </div>
-              ))}
-            </div>
           </div>
 
-          {/* Right form */}
-          <div className="dl-reveal" style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.09)', borderRadius: 20, padding: '36px 32px' }}>
+          <div style={{ background: 'rgba(255,255,255,0.06)', padding: 30, borderRadius: 14, border: '1px solid rgba(255,255,255,0.1)', backdropFilter: 'blur(8px)' }}>
+            <h3 style={{ fontSize: 20, fontWeight: 600, marginBottom: 20, color: '#fff' }}>Inquire for Distribution</h3>
             {formState === 'success' ? (
-              <div style={{ textAlign: 'center', padding: '32px 0' }}>
-                <div style={{ fontSize: 40, marginBottom: 12 }}>✅</div>
-                <h3 style={{ color: '#fff', fontWeight: 600, marginBottom: 8 }}>Enquiry Sent!</h3>
-                <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: 14 }}>We'll get back to you shortly.</p>
+              <div style={{ textAlign: 'center', padding: '24px 0' }}>
+                <div style={{ fontSize: 32, marginBottom: 12 }}>✓</div>
+                <p style={{ color: '#86efac', fontWeight: 600, fontSize: 15 }}>Inquiry sent successfully!</p>
+                <p style={{ color: '#cbd5e1', fontSize: 13, marginTop: 6 }}>We&apos;ll be in touch shortly.</p>
               </div>
             ) : (
               <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
-                <h3 style={{ color: '#fff', fontWeight: 600, fontSize: 18, marginBottom: 6 }}>Request Information</h3>
-                {[
-                  { name: 'name',    label: 'Full Name',        type: 'text' },
-                  { name: 'company', label: 'Company',          type: 'text' },
-                  { name: 'email',   label: 'Email Address',    type: 'email' },
-                  { name: 'phone',   label: 'Phone Number',     type: 'tel' },
-                ].map(f => (
-                  <div key={f.name}>
-                    <label style={{ fontSize: 12, fontWeight: 500, color: 'rgba(255,255,255,0.5)', display: 'block', marginBottom: 5 }}>{f.label}</label>
-                    <input name={f.name} type={f.type} required
-                           style={{ width: '100%', background: 'rgba(255,255,255,0.07)', border: '1px solid rgba(255,255,255,0.12)', borderRadius: 8, padding: '10px 14px', color: '#fff', fontSize: 14, outline: 'none', boxSizing: 'border-box' }} />
-                  </div>
-                ))}
-                <div>
-                  <label style={{ fontSize: 12, fontWeight: 500, color: 'rgba(255,255,255,0.5)', display: 'block', marginBottom: 5 }}>Product Interest</label>
-                  <select name="product" style={{ width: '100%', background: '#1e2a3a', border: '1px solid rgba(255,255,255,0.12)', borderRadius: 8, padding: '10px 14px', color: '#fff', fontSize: 14, outline: 'none', boxSizing: 'border-box' }}>
-                    <option value="">Select a product</option>
-                    <option>M1820W MFP</option>
-                    <option>M3100ADNW Pro</option>
-                    <option>P1820W</option>
-                    <option>General Enquiry</option>
-                  </select>
-                </div>
-                <div>
-                  <label style={{ fontSize: 12, fontWeight: 500, color: 'rgba(255,255,255,0.5)', display: 'block', marginBottom: 5 }}>Message (optional)</label>
-                  <textarea name="message" rows={3}
-                            style={{ width: '100%', background: 'rgba(255,255,255,0.07)', border: '1px solid rgba(255,255,255,0.12)', borderRadius: 8, padding: '10px 14px', color: '#fff', fontSize: 14, outline: 'none', resize: 'none', boxSizing: 'border-box' }} />
-                </div>
-                {formState === 'error' && <p style={{ fontSize: 12, color: '#f87171' }}>Something went wrong. Please try again.</p>}
+                {(['text:name:Full Name', 'email:email:Business Email'] as const).map(raw => {
+                  const [type, name, placeholder] = raw.split(':');
+                  return (
+                    <input key={name} type={type} name={name} placeholder={placeholder} required
+                           style={{ width: '100%', padding: '12px 14px', borderRadius: 6, border: 'none', background: 'rgba(255,255,255,0.12)', color: '#fff', fontSize: 14, outline: 'none', fontFamily: 'var(--font-poppins)' }} />
+                  );
+                })}
+                <select name="category" required
+                        style={{ width: '100%', padding: '12px 14px', borderRadius: 6, border: 'none', background: 'rgba(255,255,255,0.12)', color: '#e5e7eb', fontSize: 14, outline: 'none', fontFamily: 'var(--font-poppins)' }}>
+                  <option value="" style={{ background: '#fff', color: '#000' }}>Select Product Category</option>
+                  {['M1820W MFP', 'M3100ADNW Pro', 'P1820W'].map(o => (
+                    <option key={o} style={{ background: '#fff', color: '#000' }}>{o}</option>
+                  ))}
+                </select>
+                {formState === 'error' && <p style={{ fontSize: 12, color: '#fca5a5' }}>Something went wrong. Please try again.</p>}
                 <button type="submit" disabled={formState === 'sending'}
-                        style={{ padding: '13px 0', background: d.accent, color: '#fff', border: 'none', borderRadius: 10, fontSize: 14, fontWeight: 600, cursor: 'pointer', transition: 'opacity 0.2s', opacity: formState === 'sending' ? 0.6 : 1 }}>
+                        style={{ marginTop: 10, padding: 13, background: d.accent, color: '#fff', fontWeight: 600, border: 'none', borderRadius: 6, cursor: formState === 'sending' ? 'not-allowed' : 'pointer', letterSpacing: 1, fontSize: 13, opacity: formState === 'sending' ? 0.7 : 1, transition: 'opacity 0.2s', fontFamily: 'var(--font-poppins)' }}>
                   {formState === 'sending' ? 'Sending…' : 'Submit Enquiry'}
                 </button>
               </form>
@@ -490,18 +472,42 @@ export default function DeliPage() {
           STYLES
       ══════════════════════════════════════════ */}
       <style>{`
-        .ka-hero  { height: 680px; }
+        /* ── Animations ── */
+        @keyframes dlPulse { 0%,100%{ opacity:1; transform:scale(1); } 50%{ opacity:.5; transform:scale(.8); } }
+
+        /* ── Scroll reveal ── */
         .dl-reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.65s cubic-bezier(0.22,1,0.36,1), transform 0.65s cubic-bezier(0.22,1,0.36,1); }
         .dl-reveal.dl-visible { opacity: 1; transform: translateY(0); }
-        @keyframes dlPulse { 0%,100%{ opacity:1; transform:scale(1); } 50%{ opacity:.5; transform:scale(.8); } }
-        .dl-comm-inner { grid-template-columns: 1fr 1fr; }
-        @media (max-width: 900px) {
-          .ka-hero  { height: 520px !important; }
-          .dl-comm-inner { grid-template-columns: 1fr !important; gap: 40px !important; }
-          .dl-prod-grid  { grid-template-columns: 1fr !important; }
+
+        /* ── Hero ── */
+        .ka-hero { height: 680px; }
+
+        /* ── Enquiry grid ── */
+        .dl-comm-inner { grid-template-columns: 1fr 420px; }
+
+        /* ── Tablet 1024px ── */
+        @media (max-width: 1024px) {
+          .dl-printer-grid { grid-template-columns: 1fr !important; gap: 32px !important; }
+          .dl-comm-inner   { grid-template-columns: 1fr !important; gap: 40px !important; }
         }
-        @media (max-width: 640px) {
-          .ka-hero { height: 420px !important; }
+
+        /* ── Tablet 768px ── */
+        @media (max-width: 768px) {
+          .ka-hero { height: 460px !important; }
+          .ka-slide { align-items: flex-end !important; padding-bottom: 72px !important; }
+          .ka-hero-container { padding: 0 24px !important; }
+          .ka-hero-content  { max-width: 100% !important; }
+          .ka-vignette { background: linear-gradient(180deg, transparent 10%, rgba(0,0,0,0.85) 70%) !important; }
+          .ka-dots { left: 24px !important; transform: none !important; bottom: 22px !important; }
+          .dl-printer-grid { grid-template-columns: 1fr !important; }
+        }
+
+        /* ── Mobile 480px ── */
+        @media (max-width: 480px) {
+          .ka-hero { height: 540px !important; }
+          .ka-hero-heading { letter-spacing: 0 !important; }
+          .ka-hero-desc { font-size: 13px !important; margin-bottom: 20px !important; }
+          .ka-hero-btn { padding: 10px 20px !important; font-size: 12px !important; }
         }
       `}</style>
     </main>
