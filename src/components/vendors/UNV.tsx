@@ -27,7 +27,7 @@ const heroSlides = [
     lines: ['Smart', 'Interactive Display'],
     accentLine: 1,
     desc: 'Empower classrooms with smart collaboration, wireless sharing, and immersive interactive learning.',
-    cta: { label: 'View Products', href: 'https://products.rookie-ninja.com/brand/unv/', solid: true },
+    cta: { label: 'View Products', href: '#ifpd', solid: true },
     bg: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1782164332/20220520_1831889_corporate_933925_521045_0_ysracc.webp',
   },
   {
@@ -36,7 +36,7 @@ const heroSlides = [
     lines: ['Built for', 'Collaboration.'],
     accentLine: 1,
     desc: 'Transform every meeting and classroom with next-generation interactive displays designed for the modern workspace.',
-    cta: { label: 'View Products', href: 'https://products.rookie-ninja.com/brand/unv/', solid: true },
+    cta: { label: 'View Products', href: '#ifpd', solid: true },
     bg: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1782164332/20220520_1831897_education_933929_521045_0_dxqgre.webp',
   },
   {
@@ -45,7 +45,7 @@ const heroSlides = [
     lines: ['Precision', 'in Every Pixel.'],
     accentLine: 1,
     desc: 'From color-accurate design monitors to ultra-wide productivity panels — UNV delivers clarity that powers your best work.',
-    cta: { label: 'View Products', href: 'https://products.rookie-ninja.com/brand/unv/', solid: true },
+    cta: { label: 'View Products', href: '#monitors', solid: true },
     bg: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1782164332/20220520_1831891_control-room_933926_521045_0_pkrokg.webp',
   },
 ];
@@ -78,9 +78,9 @@ const ifpdCards = [
 ];
 
 const featuredProducts = [
-  { id: 'mw3565', model: 'MW3565-U-E2', desc: '65 Inch Smart Interactive Display', href: 'https://products.rookie-ninja.com/product/mw3565-u-e2/', image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1782164464/unv-65-scaled_ognvqd.webp' },
-  { id: 'mw3575', model: 'MW3575-U-E2', desc: '75 Inch Smart Interactive Display', href: 'https://products.rookie-ninja.com/product/mw3575-u-e2/', image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1782164464/unv-75-scaled_sirrln.webp' },
-  { id: 'mw3586', model: 'MW3586-U-E2', desc: '86 Inch Smart Interactive Display', href: 'https://products.rookie-ninja.com/product/mw3586-u-e2/', image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1782164463/unv-86-scaled_iuohon.webp' },
+  { id: 'mw3565', model: 'MW3565-U-E2', desc: '65 Inch Smart Interactive Display', href: '/unv/mw3565-u-e2', image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1782164464/unv-65-scaled_ognvqd.webp' },
+  { id: 'mw3575', model: 'MW3575-U-E2', desc: '75 Inch Smart Interactive Display', href: '/unv/mw3575-u-e2', image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1782164464/unv-75-scaled_sirrln.webp' },
+  { id: 'mw3586', model: 'MW3586-U-E2', desc: '86 Inch Smart Interactive Display', href: '/unv/mw3586-u-e2', image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1782164463/unv-86-scaled_iuohon.webp' },
 ];
 
 const confItems = [
@@ -289,6 +289,7 @@ export default function UNVPage() {
                 </p>
                 {s.cta && (
                   <a href={s.cta.href} className="unv-hero-btn"
+                     onClick={e => { e.preventDefault(); document.querySelector(s.cta!.href)?.scrollIntoView({ behavior: 'smooth' }); }}
                      style={{
                        display: 'inline-block', padding: '13px 28px',
                        background: s.cta.solid ? '#fff' : 'transparent',
