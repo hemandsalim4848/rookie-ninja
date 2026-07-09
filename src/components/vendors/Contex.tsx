@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from 'react';
 
 const c = {
-  accent: '#007A73',
+  accent: '#f94e58',
   bg:     '#ffffff',
   alt:    '#f8fafc',
   text:   '#0f1320',
@@ -321,7 +321,7 @@ export default function ContexPage() {
                   return (
                     <div key={p.slug}
                          onClick={() => switchProduct(idx)}
-                         style={{ cursor: 'pointer', border: `1.5px solid ${active === idx ? c.accent : '#e5e7eb'}`, borderRadius: 14, padding: '20px 22px', background: active === idx ? '#fff' : 'transparent', transition: 'all 0.25s', boxShadow: active === idx ? '0 4px 20px rgba(0,122,115,0.1)' : 'none' }}>
+                         style={{ cursor: 'pointer', border: `1.5px solid ${active === idx ? c.accent : '#e5e7eb'}`, borderRadius: 14, padding: '20px 22px', background: active === idx ? '#fff' : 'transparent', transition: 'all 0.25s', boxShadow: active === idx ? '0 4px 20px rgba(249,78,88,0.1)' : 'none' }}>
 
                       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: active === idx ? 12 : 0 }}>
                         <div>
