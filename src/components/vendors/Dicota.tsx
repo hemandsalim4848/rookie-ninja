@@ -20,7 +20,7 @@ const heroSlides = [
     lines: ['Carry More.', 'Stress Less.'],
     accentLine: 1,
     desc: 'DICOTA laptop bags, backpacks and sleeves are engineered for professionals who demand protection, sustainability, and style in every commute.',
-    cta: { label: 'Explore Collection', href: '/dicota', solid: true },
+    cta: { label: 'Explore Collection', href: '#sleeves', solid: true },
     bg: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1783101174/HybridWorking_main_teaser_1_hoxzhm.webp',
   },
   {
@@ -29,7 +29,7 @@ const heroSlides = [
     lines: ['Eco.', 'Professional.'],
     accentLine: 0,
     desc: 'DICOTA Eco series products are crafted from recycled PET materials — reducing environmental impact without compromising performance.',
-    cta: { label: 'View Eco Range', href: '/dicota', solid: false },
+    cta: { label: 'View Eco Range', href: '#shoulder-bags', solid: false },
     bg: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1783101174/Commuter_Reflex_3_1_sgqas2.webp',
   },
 ];
@@ -51,6 +51,7 @@ const sleeveSeries = [
       'Carry handle for easy grab-and-go',
     ],
     image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1780052665/rookie-ninja/products/lg_1000p_c710afb1-e3a6-4ac7-86b5-6cd14ad02216.webp',
+    slug: 'laptop-sleeve-plus-pro-13-133',
   },
   {
     id: 'smart',
@@ -65,6 +66,7 @@ const sleeveSeries = [
       'Easy to slip into a larger bag',
     ],
     image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1780052631/rookie-ninja/products/lg_1000p_67c1f801-e743-4a22-8d92-8e3a6b172736.webp',
+    slug: 'laptop-sleeve-smart-13-133',
   },
   {
     id: 'urban',
@@ -79,6 +81,7 @@ const sleeveSeries = [
       'Durable outer material',
     ],
     image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1780052649/rookie-ninja/products/lg_1000p_f13163ec-073d-4f20-b9b1-bbe94f83c885.webp',
+    slug: 'laptop-sleeve-urban-16-anthracite',
   },
 ];
 
@@ -427,6 +430,7 @@ export default function DicotaPage() {
                 </h1>
                 <p style={{ fontSize: 15, color: 'rgba(255,255,255,0.72)', lineHeight: 1.65, marginBottom: 32, fontWeight: 300, maxWidth: 420 }}>{s.desc}</p>
                 <a href={s.cta.href}
+                   onClick={e => { e.preventDefault(); document.querySelector(s.cta.href)?.scrollIntoView({ behavior: 'smooth' }); }}
                    style={{ display: 'inline-block', padding: '13px 28px', background: s.cta.solid ? '#fff' : 'transparent', color: s.cta.solid ? '#0d0d0d' : '#fff', border: '2px solid #fff', fontSize: 13, fontWeight: 600, letterSpacing: 1, textTransform: 'uppercase', textDecoration: 'none', borderRadius: 2, transition: 'background 0.25s, color 0.25s, border-color 0.25s' }}
                    onMouseEnter={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = dc.accent; el.style.borderColor = dc.accent; el.style.color = '#fff'; }}
                    onMouseLeave={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = s.cta.solid ? '#fff' : 'transparent'; el.style.borderColor = '#fff'; el.style.color = s.cta.solid ? '#0d0d0d' : '#fff'; }}>
@@ -474,13 +478,23 @@ export default function DicotaPage() {
                   <h3 style={{ fontSize: 22, marginBottom: 14, color: dc.navy, fontWeight: 600 }}>{item.title}</h3>
                   <p style={{ fontSize: 14, color: '#475569', lineHeight: 1.7, margin: 0 }}>{item.intro}</p>
                   {sleeveActive === idx && (
-                    <ul style={{ marginTop: 12, paddingLeft: 0, listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 4 }}>
-                      {item.bullets.map(b => (
-                        <li key={b} style={{ fontSize: 14, color: '#475569', lineHeight: 1.8, display: 'flex', alignItems: 'center', gap: 8 }}>
-                          <span style={{ width: 5, height: 5, borderRadius: '50%', background: dc.accent, flexShrink: 0, display: 'inline-block' }} />{b}
-                        </li>
-                      ))}
-                    </ul>
+                    <>
+                      <ul style={{ marginTop: 12, paddingLeft: 0, listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 4 }}>
+                        {item.bullets.map(b => (
+                          <li key={b} style={{ fontSize: 14, color: '#475569', lineHeight: 1.8, display: 'flex', alignItems: 'center', gap: 8 }}>
+                            <span style={{ width: 5, height: 5, borderRadius: '50%', background: dc.accent, flexShrink: 0, display: 'inline-block' }} />{b}
+                          </li>
+                        ))}
+                      </ul>
+                      <div style={{ marginTop: 16 }}>
+                        <a href={`/dicota/${item.slug}`}
+                           style={{ display: 'inline-block', fontSize: 13, fontWeight: 600, padding: '7px 18px', border: `1.5px solid ${dc.accent}`, color: dc.accent, borderRadius: 4, textDecoration: 'none', transition: 'background 0.2s, color 0.2s' }}
+                           onMouseEnter={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = dc.accent; el.style.color = '#fff'; }}
+                           onMouseLeave={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = 'transparent'; el.style.color = dc.accent; }}>
+                          View Product
+                        </a>
+                      </div>
+                    </>
                   )}
                 </div>
               ))}
@@ -559,7 +573,7 @@ export default function DicotaPage() {
             </div>
             <div className="dc-net-products" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 30 }}>
               {shoulderData.products.map(p => (
-                <div key={p.title} style={{ background: '#fff', border: '1px solid #eee', padding: 24, borderRadius: 8 }}>
+                <div key={p.title} style={{ background: '#fff', border: '1px solid #eee', padding: 24, borderRadius: 8, display: 'flex', flexDirection: 'column' }}>
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img src={p.image} alt={p.title} className="dc-net-img" style={{ width: '100%', height: 240, objectFit: 'contain', marginBottom: 20, borderRadius: 6 }} />
                   <h4 style={{ fontSize: 20, margin: '10px 0 12px', color: '#000' }}>{p.title}</h4>
@@ -571,6 +585,14 @@ export default function DicotaPage() {
                       </li>
                     ))}
                   </ul>
+                  <div style={{ marginTop: 18 }}>
+                    <a href={`/dicota/${p.slug}`}
+                       style={{ display: 'inline-block', fontSize: 13, fontWeight: 600, padding: '7px 18px', border: `1.5px solid ${dc.accent}`, color: dc.accent, borderRadius: 4, textDecoration: 'none', transition: 'background 0.2s, color 0.2s' }}
+                       onMouseEnter={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = dc.accent; el.style.color = '#fff'; }}
+                       onMouseLeave={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = 'transparent'; el.style.color = dc.accent; }}>
+                      View Product
+                    </a>
+                  </div>
                 </div>
               ))}
             </div>
@@ -619,7 +641,7 @@ export default function DicotaPage() {
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img src={item.image} alt={item.heading} style={{ width: '100%', height: 180, objectFit: 'contain', display: 'block' }} />
                       <a href={`/dicota/${item.slug}`} style={{ display: 'block', fontSize: 11, fontWeight: 700, textAlign: 'center', background: dc.accent, color: '#fff', padding: '6px 0', letterSpacing: '0.5px', textTransform: 'uppercase', textDecoration: 'none' }}>
-                        {item.heading}
+                        View Product
                       </a>
                     </div>
                   </div>
