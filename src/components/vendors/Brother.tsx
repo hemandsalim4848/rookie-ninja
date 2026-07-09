@@ -26,7 +26,7 @@ const heroSlides = [
     heading: 'Desktop',
     accentWord: 'Scanners.',
     desc: 'From the compact ADS-1300 to the versatile ADS-3100 — Brother desktop scanners deliver fast, reliable document capture for every workspace.',
-    cta: { label: 'View Scanners', href: 'https://products.rookie-ninja.com/brand/brother/', solid: true },
+    cta: { label: 'View Scanners', href: '#desktop-scanners', solid: true },
     bg: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1782247892/category-desktop-scanners-desktop_j1d46b.webp',
   },
   {
@@ -34,7 +34,7 @@ const heroSlides = [
     heading: 'Network',
     accentWord: 'Scanners.',
     desc: 'The ADS-1350W, ADS-4300N, ADS-4700w, and ADS-4900w — wireless and wired network scanners built for connected office environments.',
-    cta: null,
+    cta: { label: 'View Scanners', href: '#wireless-network-scanners', solid: true },
     bg: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1782247893/portable-scanner-category-desktop_yny2pr.webp',
   },
   {
@@ -42,7 +42,7 @@ const heroSlides = [
     heading: 'Brother',
     accentWord: 'Printers.',
     desc: 'Inkjet, Colour Laser, Monochrome Laser, and Toner Box Series — Brother printers engineered for performance, efficiency, and reliability.',
-    cta: null,
+    cta: { label: 'View Printers', href: '#printers', solid: true },
     bg: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1782247890/inkjet-filter-category-desktop_d3uuf1.webp',
   },
 ];
@@ -68,6 +68,9 @@ const desktopCards = [
       'Scans to PDF, JPEG, TIFF & more',
       'Compatible with Windows & macOS',
     ],
+    links: [
+      { label: 'ADS-1300', href: '/brother/brother-ads-1300-portable-document-scanner' },
+    ],
   },
   {
     tag: 'Professional Desktop',
@@ -81,6 +84,9 @@ const desktopCards = [
       'USB 3.0 connectivity',
       'Ultrasonic double-feed detection',
     ],
+    links: [
+      { label: 'ADS-3100', href: '/brother/brother-ads-3100-desktop-document-scanner' },
+    ],
   },
 ];
 
@@ -91,6 +97,7 @@ const networkRows = [
     desc: 'Portable wireless scanner with Wi-Fi for flexible scanning anywhere.',
     image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1782247890/ADS-1350W_F_mbfppy.webp',
     features: ['30ppm / 60ipm duplex', 'Wi-Fi & USB connectivity', '20 Sheet ADF', 'Scan to cloud & mobile', 'USB bus-powered'],
+    links: [{ label: 'ADS-1350W', href: '/brother/brother-ads-1350w-portable-document-scanner' }],
     reverse: false,
   },
   {
@@ -99,6 +106,7 @@ const networkRows = [
     desc: 'Wired network scanner for reliable, high-speed shared scanning.',
     image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1782247892/lg_1000p_dc4545fa-b202-43b3-8277-370ab4d1c3d9-600x600_c3vsa6.webp',
     features: ['40ppm / 80ipm duplex', 'Gigabit Ethernet & USB', '80 Sheet ADF', 'Scan to network folders & FTP', 'Touchscreen LCD panel'],
+    links: [{ label: 'ADS-4300N', href: '/brother/brother-ads-4300n-professional-desktop-document-scanner' }],
     reverse: true,
   },
   {
@@ -107,6 +115,7 @@ const networkRows = [
     desc: 'Feature-rich wireless scanner with large touchscreen for departmental use.',
     image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1782247891/lg_1000p_224e8e5c-42ea-4ed8-a3b2-31d80405ab3e_b4mkqi.webp',
     features: ['60ppm / 120ipm duplex', 'Wi-Fi, LAN & USB', '80 Sheet ADF', '4.3" colour touchscreen', 'Scan to SharePoint & cloud'],
+    links: [{ label: 'ADS-4700W', href: '/brother/brother-ads-4700w-professional-desktop-document-scanner' }],
     reverse: false,
   },
   {
@@ -115,6 +124,7 @@ const networkRows = [
     desc: 'High-volume wireless & wired network scanner for demanding workgroups.',
     image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1782247887/lg_1000p_a31a4911-15fb-4cea-9107-5b63fcf2eb21-600x600_lcgozm.webp',
     features: ['60ppm / 120ipm duplex', 'Wi-Fi, LAN & USB', '100 Sheet ADF', '4.3" colour touchscreen', 'Ultrasonic double-feed detection'],
+    links: [{ label: 'ADS-4900W', href: '/brother/brother-ads-4900w-professional-desktop-document-scanner' }],
     reverse: true,
   },
 ];
@@ -127,6 +137,9 @@ const printerTabs = [
     image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1782247888/MFC_J3940DW_F-removebg-preview_tybl78.webp',
     cardTitle: 'Inkjet Printers',
     points: ['Wireless (Wi-Fi) & USB connectivity', 'Colour & mono printing, copying & scanning', 'Mobile printing via AirPrint & Mopria', 'Suitable for home & small office use', 'Low cost-per-page ink systems'],
+    links: [
+      { label: 'MFC-J3540DW', href: '/brother/brother-mfc-j3540dw' },
+    ],
   },
   {
     label: 'Colour Laser',
@@ -135,6 +148,22 @@ const printerTabs = [
     image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1782247889/MFC-L8730CDW_front_No_Reflection-removebg-preview_izv91j.webp',
     cardTitle: 'Colour Laser Printers',
     points: ['Fast colour & mono output (up to 30ppm)', 'Wired LAN, Wi-Fi & USB connectivity', 'Automatic duplex printing', 'High-yield toner options', 'Compact footprint for office use'],
+    links: [
+      { label: 'DCP-L3510CDW', href: '/brother/brother-dcp-l3510cdw' },
+      { label: 'DCP-L3520CDW', href: '/brother/brother-dcp-l3520cdw' },
+      { label: 'DCP-L3551CDW', href: '/brother/brother-dcp-l3551cdw' },
+      { label: 'DCP-L3560CDW', href: '/brother/brother-dcp-l3560cdw' },
+      { label: 'HL-L3220CW',   href: '/brother/brother-hl-l3220cw' },
+      { label: 'HL-L3270CDW',  href: '/brother/brother-hl-l3270cdw' },
+      { label: 'HL-L3280CDW',  href: '/brother/brother-hl-l3280cdw' },
+      { label: 'HL-L8360CDW',  href: '/brother/brother-hl-l8360cdw' },
+      { label: 'MFC-L3720CDW', href: '/brother/brother-mfc-l3720cdw' },
+      { label: 'MFC-L3750CDW', href: '/brother/brother-mfc-l3750cdw' },
+      { label: 'MFC-L3760CDW', href: '/brother/brother-mfc-l3760cdw' },
+      { label: 'MFC-L8390CDW', href: '/brother/brother-mfc-l8390cdw' },
+      { label: 'MFC-L8690CDW', href: '/brother/brother-mfc-l8690cdw' },
+      { label: 'MFC-L9570CDW', href: '/brother/brother-mfc-l9570cdw' },
+    ],
   },
   {
     label: 'Monochrome Laser',
@@ -143,6 +172,27 @@ const printerTabs = [
     image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1782247888/MFC-L2885DW_F-removebg-preview_f9t3df.webp',
     cardTitle: 'Monochrome Laser Printers',
     points: ['High-speed mono printing (up to 50ppm)', 'Network & wireless ready', 'Automatic duplex printing', 'Large paper capacity options', 'Ultra-high yield toner compatible'],
+    links: [
+      { label: 'DCP-L2535D',  href: '/brother/brother-dcp-l2535d' },
+      { label: 'DCP-L2550DW', href: '/brother/brother-dcp-l2550dw' },
+      { label: 'DCP-L2600D',  href: '/brother/brother-dcp-l2600d' },
+      { label: 'DCP-L2625DW', href: '/brother/brother-dcp-l2625dw' },
+      { label: 'DCP-L2640DW', href: '/brother/brother-dcp-l2640dw' },
+      { label: 'HL-L2370DN',  href: '/brother/brother-hl-l2370dn' },
+      { label: 'HL-L2375DW',  href: '/brother/brother-hl-l2375dw' },
+      { label: 'HL-L2400D',   href: '/brother/brother-hl-l2400d' },
+      { label: 'HL-L2460DN',  href: '/brother/brother-hl-l2460dn' },
+      { label: 'HL-L2461DW',  href: '/brother/brother-hl-l2461dw' },
+      { label: 'HL-L5200DW',  href: '/brother/brother-hl-l5200dw' },
+      { label: 'HL-L6200DW',  href: '/brother/brother-hl-l6200dw' },
+      { label: 'HL-L6400DW',  href: '/brother/brother-hl-l6400dw' },
+      { label: 'MFC-L2715DW', href: '/brother/brother-mfc-l2715dw' },
+      { label: 'MFC-L2750DW', href: '/brother/brother-mfc-l2750dw' },
+      { label: 'MFC-L2805DW', href: '/brother/brother-mfc-l2805dw' },
+      { label: 'MFC-L2885DW', href: '/brother/brother-mfc-l2885dw' },
+      { label: 'MFC-L5755DW', href: '/brother/brother-mfc-l5755dw' },
+      { label: 'MFC-L6900DW', href: '/brother/brother-mfc-l6900dw' },
+    ],
   },
   {
     label: 'Toner Box Series',
@@ -151,6 +201,7 @@ const printerTabs = [
     image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1782247886/20240701063551_MFC-B7810DW_F-removebg-preview_rksdvc.webp',
     cardTitle: 'Toner Box Series Printers',
     points: ['Refillable toner box system', 'Ultra-low cost per page', 'High-speed mono laser output', 'Wired & wireless network ready', 'Ideal for high-volume environments'],
+    links: [] as { label: string; href: string }[],
   },
 ];
 
@@ -330,14 +381,15 @@ export default function BrotherPage() {
               <div style={{ maxWidth: isMobile ? '100%' : 580, opacity: i === slide ? 1 : 0, transform: i === slide ? 'translateY(0)' : 'translateY(24px)', transition: 'opacity 0.7s ease 0.4s, transform 0.7s ease 0.4s' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 14 }}>
                   <span style={{ display: 'inline-block', background: c.accent, color: '#fff', fontSize: isMobile ? 10 : 11, fontWeight: 600, letterSpacing: 2, textTransform: 'uppercase', padding: isMobile ? '4px 10px' : '5px 12px', borderRadius: 2 }}>{s.badge}</span>
-                  <span style={{ width: 8, height: 8, borderRadius: '50%', background: c.highlight, animation: 'brPulse 2s infinite', display: 'inline-block' }} />
                 </div>
                 <h1 style={{ fontFamily: "'Poppins', sans-serif", fontSize: isMobile ? 'clamp(34px,10vw,48px)' : 'clamp(48px,6vw,78px)', color: '#fff', lineHeight: 0.95, marginBottom: 16, fontWeight: 700, letterSpacing: 1 }}>
                   {s.heading}<br /><span style={{ color: c.highlight }}>{s.accentWord}</span>
                 </h1>
                 <p style={{ fontSize: isMobile ? 13 : 15, color: 'rgba(255,255,255,0.72)', lineHeight: 1.65, marginBottom: isMobile ? 22 : 32, fontWeight: 300, maxWidth: isMobile ? '100%' : 420 }}>{s.desc}</p>
                 {s.cta && (
-                  <a href={s.cta.href} style={{ display: 'inline-block', padding: isMobile ? '10px 20px' : '13px 28px', background: s.cta.solid ? '#fff' : 'transparent', color: s.cta.solid ? '#0d0d0d' : '#fff', border: '2px solid #fff', fontSize: isMobile ? 12 : 13, fontWeight: 600, letterSpacing: 1, textTransform: 'uppercase', textDecoration: 'none' }}>{s.cta.label}</a>
+                  <a href={s.cta.href}
+                    onClick={e => { e.preventDefault(); document.querySelector(s.cta!.href)?.scrollIntoView({ behavior: 'smooth' }); }}
+                    style={{ display: 'inline-block', padding: isMobile ? '10px 20px' : '13px 28px', background: s.cta.solid ? '#fff' : 'transparent', color: s.cta.solid ? '#0d0d0d' : '#fff', border: '2px solid #fff', fontSize: isMobile ? 12 : 13, fontWeight: 600, letterSpacing: 1, textTransform: 'uppercase', textDecoration: 'none' }}>{s.cta.label}</a>
                 )}
               </div>
             </div>
@@ -402,6 +454,18 @@ export default function BrotherPage() {
                       </li>
                     ))}
                   </ul>
+                  {card.links.length > 0 && (
+                    <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', marginTop: 16 }}>
+                      {card.links.map(lnk => (
+                        <a key={lnk.href} href={lnk.href}
+                           style={{ fontSize: 12, fontWeight: 600, padding: '5px 14px', borderRadius: 4, border: `1.5px solid ${c.accent}`, color: c.accent, textDecoration: 'none', background: '#fff', transition: 'all 0.2s' }}
+                           onMouseEnter={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = c.accent; el.style.color = '#fff'; }}
+                           onMouseLeave={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = '#fff'; el.style.color = c.accent; }}>
+                          View Product
+                        </a>
+                      ))}
+                    </div>
+                  )}
                 </div>
               </div>
             ))}
@@ -432,6 +496,18 @@ export default function BrotherPage() {
                     </li>
                   ))}
                 </ul>
+                {row.links.length > 0 && (
+                  <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', marginTop: 20 }}>
+                    {row.links.map(lnk => (
+                      <a key={lnk.href} href={lnk.href}
+                         style={{ fontSize: 12, fontWeight: 600, padding: '5px 14px', borderRadius: 4, border: `1.5px solid ${c.accent}`, color: c.accent, textDecoration: 'none', background: '#fff', transition: 'all 0.2s' }}
+                         onMouseEnter={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = c.accent; el.style.color = '#fff'; }}
+                         onMouseLeave={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = '#fff'; el.style.color = c.accent; }}>
+                        View Product
+                      </a>
+                    ))}
+                  </div>
+                )}
               </div>
               <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                 <img src={row.image} alt={row.title} style={{ width: '100%', maxWidth: 420, height: isMobile ? 200 : isTablet ? 240 : 320, objectFit: 'contain', borderRadius: 16 }} />
@@ -488,6 +564,18 @@ export default function BrotherPage() {
                   <p style={{ fontSize: 14, lineHeight: 1.9, color: '#555' }}>
                     {tab.points.map((pt, j) => <span key={j}>• {pt}<br /></span>)}
                   </p>
+                  {tab.links.length > 0 && (
+                    <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', marginTop: 16 }}>
+                      {tab.links.map(lnk => (
+                        <a key={lnk.href} href={lnk.href}
+                           style={{ fontSize: 12, fontWeight: 600, padding: '5px 14px', borderRadius: 4, border: `1.5px solid ${c.accent}`, color: c.accent, textDecoration: 'none', background: '#fff', transition: 'all 0.2s' }}
+                           onMouseEnter={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = c.accent; el.style.color = '#fff'; }}
+                           onMouseLeave={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = '#fff'; el.style.color = c.accent; }}>
+                          {lnk.label}
+                        </a>
+                      ))}
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
@@ -588,15 +676,15 @@ function BrotherForm({ highlight, accentDark }: { highlight: string; accentDark:
       <input name="name" type="text" placeholder="Full Name" required style={{ width: '100%', padding: '12px 14px', borderRadius: 6, border: 'none', background: 'rgba(255,255,255,0.12)', color: '#fff', fontSize: 14, outline: 'none' }} />
       <input name="email" type="email" placeholder="Business Email" required style={{ width: '100%', padding: '12px 14px', borderRadius: 6, border: 'none', background: 'rgba(255,255,255,0.12)', color: '#fff', fontSize: 14, outline: 'none' }} />
       <select name="category" required style={{ width: '100%', padding: '12px 14px', borderRadius: 6, border: 'none', background: 'rgba(255,255,255,0.12)', color: '#e5e7eb', fontSize: 14, outline: 'none' }}>
-        <option value="">Select Product Category</option>
-        <option>Brother Desktop Scanners</option>
-        <option>Brother Wireless &amp; Network Scanners</option>
-        <option>Brother Inkjet Printers</option>
-        <option>Brother Colour Laser Printers</option>
-        <option>Brother Monochrome Laser Printers</option>
-        <option>Brother Toner Box Series</option>
-        <option>Brother Ink &amp; Toner Cartridges</option>
-        <option>Brother Consumables &amp; Accessories</option>
+        <option value="" style={{ background: '#fff', color: '#000' }}>Select Product Category</option>
+        <option style={{ background: '#fff', color: '#000' }}>Brother Desktop Scanners</option>
+        <option style={{ background: '#fff', color: '#000' }}>Brother Wireless &amp; Network Scanners</option>
+        <option style={{ background: '#fff', color: '#000' }}>Brother Inkjet Printers</option>
+        <option style={{ background: '#fff', color: '#000' }}>Brother Colour Laser Printers</option>
+        <option style={{ background: '#fff', color: '#000' }}>Brother Monochrome Laser Printers</option>
+        <option style={{ background: '#fff', color: '#000' }}>Brother Toner Box Series</option>
+        <option style={{ background: '#fff', color: '#000' }}>Brother Ink &amp; Toner Cartridges</option>
+        <option style={{ background: '#fff', color: '#000' }}>Brother Consumables &amp; Accessories</option>
       </select>
       <button type="submit" disabled={status === 'sending'} style={{ marginTop: 10, padding: 13, background: highlight, color: accentDark, fontWeight: 700, border: 'none', borderRadius: 6, cursor: 'pointer', letterSpacing: 1, fontSize: 14 }}>
         {status === 'sending' ? 'SENDING…' : 'SEND INQUIRY'}
