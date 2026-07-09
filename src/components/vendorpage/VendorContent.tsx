@@ -108,7 +108,7 @@ const vendors = [
     logo: '/logos/contex-logo.png',
     description: 'Leading manufacturer of wide-format scanners.',
     category: 'Wide Format',
-    website: 'https://www.contex.com',
+    website: '/our-vendors/contex',
 },
 {
     name: 'Dahua',
