@@ -115,7 +115,7 @@ const vendors = [
     logo: '/logos/dahua-logo.png',
     description: 'Smart video surveillance and IoT solutions.',
     category: 'Security',
-    website: 'https://www.dahuasecurity.com',
+    website: '/our-vendors/dahua',
 },
 {
     name: 'Ricoh',
