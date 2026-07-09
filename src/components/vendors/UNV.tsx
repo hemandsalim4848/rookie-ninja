@@ -36,7 +36,7 @@ const heroSlides = [
     lines: ['Built for', 'Collaboration.'],
     accentLine: 1,
     desc: 'Transform every meeting and classroom with next-generation interactive displays designed for the modern workspace.',
-    cta: { label: 'View Products', href: '#ifpd', solid: true },
+    cta: { label: 'Explore Solutions', href: '#conferencing', solid: true },
     bg: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1782164332/20220520_1831897_education_933929_521045_0_dxqgre.webp',
   },
   {
