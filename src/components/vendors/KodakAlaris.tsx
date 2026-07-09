@@ -175,9 +175,14 @@ const productionScanners = [
     features: [
       'S5160 — 160ppm | S5180 — 180ppm | S5210 — 210ppm',
       '750 Sheet ADF | High speed, high capacity scanning',
-      'Surepath™ intelligent document feed technology',
-      'USB and wired Ethernet',
+      'Dynamic Flow Technology for sustained throughput',
+      'USB 3.2 Gen 1 and Gigabit Ethernet',
       'FADGI 2023: General Collections 3-Star and MTR Compliant',
+    ],
+    links: [
+      { label: 'S5160', href: '/kodak-alaris/kodak-s5160-scanner' },
+      { label: 'S5180', href: '/kodak-alaris/kodak-s5180-scanner' },
+      { label: 'S5210', href: '/kodak-alaris/kodak-s5210-scanner' },
     ],
     image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1782152342/03_S5160_HERO_LF_closed.png_t4eh6p.webp?h=60f9f39d&itok=TJpEOnkT',
     imageLabel: 'S5000 Series',
