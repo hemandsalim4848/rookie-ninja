@@ -26,7 +26,7 @@ const heroSlides = [
     lines: ['Paper to Insights.', 'Instantly.'],
     accentLine: 1,
     desc: 'Eliminate manual document processing with Kodak Alaris intelligent capture and automation software — built for every department, every workflow.',
-    cta: { label: 'Explore Software', href: 'https://products.rookie-ninja.com/product-category/softwares/', solid: true },
+    cta: { label: 'Explore Software', href: '#software-solutions', solid: true },
     bg: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1782152344/i4x50-Photo-Using-the-Scanner-Closeup.png-1_nvl59w.webp',
   },
   {
@@ -35,7 +35,7 @@ const heroSlides = [
     lines: ['Built to Scan.', 'Built to Last'],
     accentLine: 1,
     desc: 'From compact office scanners to ultra-fast production workhorses — Kodak Alaris delivers reliable, high-accuracy scanning for every environment.',
-    cta: { label: 'View Scanners', href: 'https://products.rookie-ninja.com/brand/kodakalaris/?cate=document-scanner', solid: false },
+    cta: { label: 'View Scanners', href: '#office-scanners', solid: false },
     bg: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1782152343/Scanner-Lifestyle.jpg_m2cwhg.webp',
   },
 ];
@@ -54,6 +54,10 @@ const officeScanners = [
     ],
     intro: 'Fast, reliable desktop scanning for front-office and customer-facing workflows.',
     image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1782152343/alaris_e1035_scanner-sq.jpg_rhpnuw.webp',
+    links: [
+      { label: 'E1030', href: '/kodak-alaris/kodak-e1030-document-scanner' },
+      { label: 'E1040', href: '/kodak-alaris/kodak-e1040-document-scanner' },
+    ],
   },
   {
     id: 's2000',
@@ -68,6 +72,11 @@ const officeScanners = [
     ],
     intro: 'Professional sheet-fed solutions with robust feeding and embedded image processing.',
     image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1782152343/S2000_bss1gy.webp',
+    links: [
+      { label: 'S2050', href: '/kodak-alaris/kodak-s2050-scanner' },
+      { label: 'S2070', href: '/kodak-alaris/kodak-s2070-scanner' },
+      { label: 'S2085f', href: '/kodak-alaris/kodak-s2085f-scanner' },
+    ],
   },
 ];
 
@@ -86,6 +95,10 @@ const networkData = {
         'Wi-Fi and Ethernet connectivity',
       ],
       intro: 'Productive shared network scanning — up to 20 jobs per department, no IT complexity.',
+      links: [
+        { label: 'S2060w', href: '/kodak-alaris/kodak-s2060w-scanner' },
+        { label: 'S2080w', href: '/kodak-alaris/kodak-s2080w-scanner' },
+      ],
     }],
   },
   standalone: {
@@ -101,6 +114,10 @@ const networkData = {
         'No connected PC required',
       ],
       intro: 'PC-free customisable scanning kiosk — powerful, secure, and ready to deploy.',
+      links: [
+        { label: 'Scan Station 730EX Plus', href: '/kodak-alaris/kodak-scan-station-730ex-plus-scanner' },
+        { label: 'Scan Station 710', href: '/kodak-alaris/kodak-scan-station-710-scanner' },
+      ],
     }],
   },
 };
@@ -122,6 +139,12 @@ const productionScanners = [
     ],
     image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1782152342/S3140_Max_Scanner.png_z3oyry.webp?h=7e49063a&itok=2zMnsBE8',
     imageLabel: 'S3000 Series',
+    links: [
+      { label: 'S3060', href: '/kodak-alaris/kodak-s3060-scanner' },
+      { label: 'S3100', href: '/kodak-alaris/kodak-s3100-scanner' },
+      { label: 'S3120 Max', href: '/kodak-alaris/kodak-s3120-max-scanner' },
+      { label: 'S3140 Max', href: '/kodak-alaris/kodak-s3140-max-scanner' },
+    ],
   },
   {
     num: '02',
@@ -138,6 +161,10 @@ const productionScanners = [
     ],
     image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1782152342/i5650_Scanner.png_x5s8cs.webp?h=7e49063a&itok=5jJvezef',
     imageLabel: 'i4000 / i5000 Series',
+    links: [
+      { label: 'i4650', href: '/kodak-alaris/kodak-i4650-scanner' },
+      { label: 'i4850', href: '/kodak-alaris/kodak-i4850-scanner' },
+    ],
   },
   {
     num: '03',
@@ -381,6 +408,7 @@ export default function KodakAlarisPage() {
                   {s.desc}
                 </p>
                 <a href={s.cta.href} className="ka-hero-btn"
+                   onClick={e => { e.preventDefault(); document.querySelector(s.cta.href)?.scrollIntoView({ behavior: 'smooth' }); }}
                    style={{
                      display: 'inline-block', padding: '13px 28px',
                      background: s.cta.solid ? '#fff' : 'transparent',
@@ -559,14 +587,28 @@ export default function KodakAlarisPage() {
                   <h3 style={{ fontSize: 22, marginBottom: 14, color: '#0f1320', fontWeight: 600 }}>{item.title}</h3>
                   <p style={{ fontSize: 14, color: '#475569', lineHeight: 1.7, margin: 0 }}>{item.intro}</p>
                   {activeScanner === idx && (
-                    <ul style={{ marginTop: 12, paddingLeft: 0, listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 4 }}>
-                      {item.bullets.map(b => (
-                        <li key={b} style={{ fontSize: 14, color: '#475569', lineHeight: 1.8, display: 'flex', alignItems: 'center', gap: 8 }}>
-                          <span style={{ width: 5, height: 5, borderRadius: '50%', background: ka.accent, flexShrink: 0, display: 'inline-block' }} />
-                          {b}
-                        </li>
-                      ))}
-                    </ul>
+                    <>
+                      <ul style={{ marginTop: 12, paddingLeft: 0, listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 4 }}>
+                        {item.bullets.map(b => (
+                          <li key={b} style={{ fontSize: 14, color: '#475569', lineHeight: 1.8, display: 'flex', alignItems: 'center', gap: 8 }}>
+                            <span style={{ width: 5, height: 5, borderRadius: '50%', background: ka.accent, flexShrink: 0, display: 'inline-block' }} />
+                            {b}
+                          </li>
+                        ))}
+                      </ul>
+                      {(item as any).links && (
+                        <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', marginTop: 14 }}>
+                          {(item as any).links.map((lnk: any) => (
+                            <a key={lnk.href} href={lnk.href}
+                               style={{ fontSize: 12, fontWeight: 600, padding: '5px 14px', borderRadius: 4, border: `1.5px solid ${ka.accent}`, color: ka.accent, textDecoration: 'none', background: '#fff', transition: 'all 0.2s' }}
+                               onMouseEnter={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = ka.accent; el.style.color = '#fff'; }}
+                               onMouseLeave={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = '#fff'; el.style.color = ka.accent; }}>
+                              {lnk.label}
+                            </a>
+                          ))}
+                        </div>
+                      )}
+                    </>
                   )}
                 </div>
               ))}
@@ -704,6 +746,18 @@ export default function KodakAlarisPage() {
                       </li>
                     ))}
                   </ul>
+                  {(p as any).links && (
+                    <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', marginTop: 14 }}>
+                      {(p as any).links.map((lnk: any) => (
+                        <a key={lnk.href} href={lnk.href}
+                           style={{ fontSize: 12, fontWeight: 600, padding: '5px 14px', borderRadius: 4, border: `1.5px solid ${ka.accent}`, color: ka.accent, textDecoration: 'none', background: '#fff', transition: 'all 0.2s' }}
+                           onMouseEnter={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = ka.accent; el.style.color = '#fff'; }}
+                           onMouseLeave={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = '#fff'; el.style.color = ka.accent; }}>
+                          {lnk.label}
+                        </a>
+                      ))}
+                    </div>
+                  )}
                 </div>
               ))}
             </div>
@@ -764,6 +818,18 @@ export default function KodakAlarisPage() {
                       </div>
                     ))}
                   </div>
+                  {(item as any).links && (
+                    <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+                      {(item as any).links.map((lnk: any) => (
+                        <a key={lnk.href} href={lnk.href}
+                           style={{ fontSize: 12, fontWeight: 600, padding: '5px 14px', borderRadius: 4, border: `1.5px solid ${ka.accent}`, color: ka.accent, textDecoration: 'none', background: '#fff', transition: 'all 0.2s' }}
+                           onMouseEnter={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = ka.accent; el.style.color = '#fff'; }}
+                           onMouseLeave={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = '#fff'; el.style.color = ka.accent; }}>
+                          {lnk.label}
+                        </a>
+                      ))}
+                    </div>
+                  )}
                   <div style={{ marginTop: 'auto', paddingTop: 20 }}>
                     <div style={{ borderRadius: 6, overflow: 'hidden', border: '1px solid #e5e7eb', background: '#fff' }}>
                       {/* eslint-disable-next-line @next/next/no-img-element */}
