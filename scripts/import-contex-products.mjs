@@ -23,7 +23,7 @@ const Product = mongoose.models.Product || mongoose.model('Product', ProductSche
 
 const products = [
   {
-    name:             'HD Apeiron/42',
+    name:             'Contex HD Apeiron/42',
     slug:             'contex-hd-apeiron-42',
     sku:              'HD-APEIRON-42',
     category:         'Wide Format Scanners',
@@ -60,7 +60,7 @@ const products = [
     ],
   },
   {
-    name:             'SD One X',
+    name:             'Contex SD One X',
     slug:             'contex-sd-one-x',
     sku:              'SD-ONE-X',
     category:         'Wide Format Scanners',
