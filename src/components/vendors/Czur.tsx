@@ -16,7 +16,7 @@ const heroSlides = [
     lines: ['Scan Smarter.', 'Work Faster.'],
     accentLine: 1,
     desc: 'CZUR intelligent overhead scanners capture books, documents, and IDs in seconds — with auto-flattening, OCR, and zero binding damage.',
-    cta: { label: 'Explore Scanners', href: '/czur', solid: true },
+    cta: { label: 'Explore Scanners', href: '#book-scanners', solid: true },
     bg: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1781893191/rookie-ninja/products/et.webp',
   },
   {
@@ -25,7 +25,7 @@ const heroSlides = [
     lines: ['Meetings. Redefined.', 'All-in-One.'],
     accentLine: 0,
     desc: 'The CZUR StarryHub combines a 4K camera, 2400 ANSI projector, and 360° audio in a single device — no cables, no clutter.',
-    cta: { label: 'View Conference Solutions', href: '/czur', solid: false },
+    cta: { label: 'View Conference Solutions', href: '#multi-function', solid: false },
     bg: 'https://products.rookie-ninja.com/wp-content/uploads/2026/01/DH-Czur-StarryHub-Product-Image-16-scaled-1-600x600-1.webp',
   },
 ];
@@ -45,6 +45,7 @@ const bookScanners = [
       'PDF, Word, Excel export',
     ],
     image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1781893186/rookie-ninja/products/lg_1000p_481c29e8-feb5-4e60-ae72-62cebe1d7d29.webp',
+    slug: 'czur-aura-pro-portable-book-scanner',
   },
   {
     id: 'aura-x-pro',
@@ -59,6 +60,7 @@ const bookScanners = [
       'OCR in 180+ languages',
     ],
     image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1783074480/rookie-ninja/products/jh4qvcedqqzyt2sbjgjz.webp',
+    slug: 'czur-aura-x-pro-portable-book-scanner',
   },
 ];
 
@@ -357,6 +359,7 @@ export default function CzurPage() {
                 </h1>
                 <p className="cz-hero-desc" style={{ fontSize: 15, color: 'rgba(255,255,255,0.72)', lineHeight: 1.65, marginBottom: 32, fontWeight: 300, maxWidth: 420 }}>{s.desc}</p>
                 <a href={s.cta.href} className="cz-hero-btn"
+                   onClick={e => { e.preventDefault(); document.querySelector(s.cta.href)?.scrollIntoView({ behavior: 'smooth' }); }}
                    style={{ display: 'inline-block', padding: '13px 28px', background: s.cta.solid ? '#fff' : 'transparent', color: s.cta.solid ? '#0d0d0d' : '#fff', border: '2px solid #fff', fontSize: 13, fontWeight: 600, letterSpacing: 1, textTransform: 'uppercase', textDecoration: 'none', borderRadius: 2, transition: 'background 0.25s, color 0.25s, border-color 0.25s' }}
                    onMouseEnter={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = cz.accent; el.style.borderColor = cz.accent; el.style.color = '#fff'; }}
                    onMouseLeave={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = s.cta.solid ? '#fff' : 'transparent'; el.style.borderColor = '#fff'; el.style.color = s.cta.solid ? '#0d0d0d' : '#fff'; }}>
@@ -426,13 +429,23 @@ export default function CzurPage() {
                   <h3 style={{ fontSize: 22, marginBottom: 14, color: '#0f1320', fontWeight: 600 }}>{item.title}</h3>
                   <p style={{ fontSize: 14, color: '#475569', lineHeight: 1.7, margin: 0 }}>{item.intro}</p>
                   {bookActive === idx && (
-                    <ul style={{ marginTop: 12, paddingLeft: 0, listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 4 }}>
-                      {item.bullets.map(b => (
-                        <li key={b} style={{ fontSize: 14, color: '#475569', lineHeight: 1.8, display: 'flex', alignItems: 'center', gap: 8 }}>
-                          <span style={{ width: 5, height: 5, borderRadius: '50%', background: cz.accent, flexShrink: 0, display: 'inline-block' }} />{b}
-                        </li>
-                      ))}
-                    </ul>
+                    <>
+                      <ul style={{ marginTop: 12, paddingLeft: 0, listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 4 }}>
+                        {item.bullets.map(b => (
+                          <li key={b} style={{ fontSize: 14, color: '#475569', lineHeight: 1.8, display: 'flex', alignItems: 'center', gap: 8 }}>
+                            <span style={{ width: 5, height: 5, borderRadius: '50%', background: cz.accent, flexShrink: 0, display: 'inline-block' }} />{b}
+                          </li>
+                        ))}
+                      </ul>
+                      <div style={{ marginTop: 16 }}>
+                        <a href={`/czur/${item.slug}`}
+                           style={{ display: 'inline-block', fontSize: 13, fontWeight: 600, padding: '7px 18px', border: `1.5px solid ${cz.accent}`, color: cz.accent, borderRadius: 4, textDecoration: 'none', transition: 'background 0.2s, color 0.2s' }}
+                           onMouseEnter={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = cz.accent; el.style.color = '#fff'; }}
+                           onMouseLeave={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = 'transparent'; el.style.color = cz.accent; }}>
+                          View Product
+                        </a>
+                      </div>
+                    </>
                   )}
                 </div>
               ))}
@@ -512,7 +525,7 @@ export default function CzurPage() {
             </div>
             <div className="cz-net-products" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 30 }}>
               {etContent.products.map(p => (
-                <div key={p.title} style={{ background: '#fff', border: '1px solid #eee', padding: 24, borderRadius: 8 }}>
+                <div key={p.title} style={{ background: '#fff', border: '1px solid #eee', padding: 24, borderRadius: 8, display: 'flex', flexDirection: 'column' }}>
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img src={p.image} alt={p.title} className="cz-net-img" style={{ width: '100%', height: 260, objectFit: 'cover', marginBottom: 20, borderRadius: 6 }} />
                   <h4 style={{ fontSize: 22, margin: '10px 0 14px', color: '#000' }}>{p.title}</h4>
@@ -524,6 +537,14 @@ export default function CzurPage() {
                       </li>
                     ))}
                   </ul>
+                  <div style={{ marginTop: 18 }}>
+                    <a href={`/czur/${p.slug}`}
+                       style={{ display: 'inline-block', fontSize: 13, fontWeight: 600, padding: '7px 18px', border: `1.5px solid ${cz.accent}`, color: cz.accent, borderRadius: 4, textDecoration: 'none', transition: 'background 0.2s, color 0.2s' }}
+                       onMouseEnter={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = cz.accent; el.style.color = '#fff'; }}
+                       onMouseLeave={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = 'transparent'; el.style.color = cz.accent; }}>
+                      View Product
+                    </a>
+                  </div>
                 </div>
               ))}
             </div>
@@ -574,7 +595,7 @@ export default function CzurPage() {
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img src={item.image} alt={item.heading} style={{ width: '100%', height: 200, objectFit: 'contain', display: 'block' }} />
                       <a href={`/czur/${item.slug}`} style={{ display: 'block', fontSize: 11, fontWeight: 700, textAlign: 'center', background: cz.accent, color: '#fff', padding: '6px 0', letterSpacing: '0.5px', textTransform: 'uppercase', textDecoration: 'none' }}>
-                        {item.heading}
+                        View Product
                       </a>
                     </div>
                   </div>
