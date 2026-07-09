@@ -26,7 +26,7 @@ const heroSlides = [
     lines: ['Desktop', 'Scanners.'],
     accentLine: 1,
     desc: 'From the compact DR-C225II to the high-speed DR-M160II — Canon desktop scanners deliver precision and reliability for every workspace.',
-    cta: { label: 'View Scanners', href: 'https://products.rookie-ninja.com/brand/canon/', solid: true },
+    cta: { label: 'View Scanners', href: '#desktop-scanners', solid: true },
     bg: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1782244677/desktop-scanners_yiwicw.webp',
   },
   {
@@ -34,7 +34,7 @@ const heroSlides = [
     lines: ['Cheque', 'Scanners.'],
     accentLine: 1,
     desc: 'The Canon CR-190ii UV and CR-120 Series deliver high-speed, accurate cheque processing with UV counterfeit detection for banking environments.',
-    cta: { label: 'View Scanners', href: 'https://products.rookie-ninja.com/brand/canon/', solid: true },
+    cta: { label: 'View Scanners', href: '#cheque-scanners', solid: true },
     bg: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1782244677/cheque-scanners_qc70ms.webp',
   },
   {
@@ -42,7 +42,7 @@ const heroSlides = [
     lines: ['Workgroup', 'Scanners.'],
     accentLine: 1,
     desc: 'Canon DR-S130/S150, ScanFront 400, and S350NW — network-ready scanners built for shared office environments and high daily throughput.',
-    cta: { label: 'View Scanners', href: 'https://products.rookie-ninja.com/brand/canon/', solid: true },
+    cta: { label: 'View Scanners', href: '#workgroup-departmental-scanners', solid: true },
     bg: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1782244677/document-scanners_nzfa4o.webp',
   },
   {
@@ -50,7 +50,7 @@ const heroSlides = [
     lines: ['Production', 'Scanners.'],
     accentLine: 1,
     desc: 'The Canon DR-6030C and DR-G2090/G2110/G2140 handle the highest-volume scanning demands with unmatched speed and durability.',
-    cta: { label: 'View Scanners', href: 'https://products.rookie-ninja.com/brand/canon/', solid: true },
+    cta: { label: 'View Scanners', href: '#production-scanners', solid: true },
     bg: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1782244676/production-scanners_j2btop.webp',
   },
 ];
@@ -68,6 +68,11 @@ const desktopCards = [
       'DR-M260 — 60ppm | 60 Sheet ADF',
       'Ultrasonic double-feed detection',
     ],
+    links: [
+      { label: 'DR-C225 II', href: '/canon/canon-imageformula-dr-c225-ii-document-scanner' },
+      { label: 'DR-C340/C350', href: '/canon/canon-imageformula-dr-c340c350' },
+      { label: 'DR-M260', href: '/canon/canon-imageformula-dr-m260-document-scanner' },
+    ],
   },
   {
     tag: 'High Speed Desktop',
@@ -80,6 +85,9 @@ const desktopCards = [
       'Handles A3 by folding documents',
       'USB 3.0 connectivity',
       'Compatible with CaptureOnTouch',
+    ],
+    links: [
+      { label: 'DR-M160II', href: '/canon/canon-imageformula-dr-m160ii-document-scanner' },
     ],
   },
   {
@@ -94,6 +102,9 @@ const desktopCards = [
       'Compact footprint for desktop use',
       'USB connectivity',
     ],
+    links: [
+      { label: 'DR-M140', href: '/canon/canon-imageformula-dr-m140-scanner' },
+    ],
   },
 ];
 
@@ -104,6 +115,7 @@ const chequeItems = [
     desc: "Canon's fastest cheque scanner with UV counterfeit detection for high-volume banking.",
     bullets: ['190 cheques/min', 'UV counterfeit detection', 'MICR (E13B & CMC7) reading', 'Endorsement printing', 'Double-feed detection'],
     image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1782244839/cr-190i190iuv-b1_tevpee.webp',
+    links: [{ label: 'CR-190i II UV', href: '/canon/canon-cr-190i-ii-uv-cheque-scanner' }],
   },
   {
     tag: 'Compact Series',
@@ -111,6 +123,7 @@ const chequeItems = [
     desc: 'Compact, reliable cheque scanner for branch-level and mid-volume environments.',
     bullets: ['120 cheques/min', 'Compact and space-saving design', 'MICR reading (E13B)', 'Endorsement printing', 'Ultrasonic double-feed detection'],
     image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1782244839/CR-120-Gallery-3-removebg-preview_gxui0l.webp',
+    links: [{ label: 'CR-120 / CR-120UV', href: '/canon/canon-cr-120-cr-120uv-cheque-scanner' }],
   },
 ];
 
@@ -125,11 +138,13 @@ const workgroupTabs = [
         title: 'DR-S130',
         image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1782244927/dr-s130-fra-800x800_c85d1d7c618f49328014c3bc908beb20_vymrq4.avif',
         bullets: ['30ppm | 50 Sheet ADF', 'USB 3.1 connectivity', 'Ultrasonic double-feed detection', 'Compatible with CaptureOnTouch Pro'],
+        links: [{ label: 'DR-S130', href: '/canon/canon-imageformula-dr-s130-document-scanner' }],
       },
       {
         title: 'DR-S150',
         image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1782244927/dr-s150-bk-fra-800x800_710d1bd4971c4f7c9f19845009c5f8bb_ktg2lh.avif',
         bullets: ['50ppm | 50 Sheet ADF', 'USB 3.1 connectivity', 'Ultrasonic double-feed detection', 'Slim, space-saving design'],
+        links: [{ label: 'DR-S150', href: '/canon/canon-dr-s150' }],
       },
     ],
   },
@@ -143,11 +158,13 @@ const workgroupTabs = [
         title: 'ScanFront 400',
         image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1782244926/imageformula-scanfront-400-open-frt_810x475_xvcnco.webp',
         bullets: ['45ppm | 60 Sheet ADF', '10.1" colour touchscreen', 'Wired & Wi-Fi connectivity', 'Scan-to-email, FTP, cloud & USB', 'No PC required'],
+        links: [{ label: 'ScanFront 400', href: '/canon/canon-scanfront-400-document-scanner' }],
       },
       {
         title: 'S350NW',
         image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1782244926/s350nw_uwq1yh.webp',
         bullets: ['35ppm | 50 Sheet ADF', 'Wi-Fi and wired LAN', 'Scan-to-cloud and scan-to-folder', 'Lightweight, portable design'],
+        links: [{ label: 'DR-S350NW', href: '/canon/canon-imageformula-dr-s350nw' }],
       },
     ],
   },
@@ -170,6 +187,7 @@ const productionItems = [
     ],
     image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1782244999/dr-6030c-frt-closed_e097546322ac4f139e9e8aece3feeff3_pxlqq3.avif',
     cap: '',
+    links: [{ label: 'DR-6030C', href: '/canon/canon-imageformula-dr-6030c-document-scanner' }],
   },
   {
     num: '02',
@@ -187,6 +205,11 @@ const productionItems = [
     ],
     image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1782244999/dr-g2090-fra-02_a2c23412e2e7436b93cca63f1587dc7c_zyqan0.webp',
     cap: 'DR-G2090 / DR-G2110 / DR-G2140',
+    links: [
+      { label: 'DR-G2090', href: '/canon/canon-imageformula-dr-g2090-document-scanner' },
+      { label: 'DR-G2110', href: '/canon/canon-imageformula-dr-g2110-document-scanner' },
+      { label: 'DR-G2140', href: '/canon/canon-dr-g2140' },
+    ],
   },
 ];
 
@@ -387,7 +410,9 @@ export default function CanonPage() {
                 </p>
 
                 {s.cta && (
-                  <a href={s.cta.href} style={{
+                  <a href={s.cta.href}
+                    onClick={e => { e.preventDefault(); document.querySelector(s.cta!.href)?.scrollIntoView({ behavior: 'smooth' }); }}
+                    style={{
                     display: 'inline-block', padding: '13px 28px',
                     background: s.cta.solid ? '#fff' : 'transparent',
                     color: s.cta.solid ? '#0d0d0d' : '#fff',
@@ -490,6 +515,18 @@ export default function CanonPage() {
                       </li>
                     ))}
                   </ul>
+                  {card.links.length > 0 && (
+                    <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', marginTop: 16 }}>
+                      {card.links.map(lnk => (
+                        <a key={lnk.href} href={lnk.href}
+                           style={{ fontSize: 12, fontWeight: 600, padding: '5px 14px', borderRadius: 4, border: `1.5px solid ${c.accent}`, color: c.accent, textDecoration: 'none', background: '#fff', transition: 'all 0.2s' }}
+                           onMouseEnter={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = c.accent; el.style.color = '#fff'; }}
+                           onMouseLeave={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = '#fff'; el.style.color = c.accent; }}>
+                          {lnk.label}
+                        </a>
+                      ))}
+                    </div>
+                  )}
                 </div>
               </div>
             ))}
@@ -527,14 +564,28 @@ export default function CanonPage() {
                   <h3 style={{ fontSize: 22, fontWeight: 600, color: c.text, margin: '0 0 14px' }}>{item.title}</h3>
                   <p style={{ fontSize: 14, color: '#475569', lineHeight: 1.9, margin: 0 }}>{item.desc}</p>
                   {i === chequeTab && (
-                    <ul style={{ listStyle: 'none', margin: '14px 0 0', padding: 0, display: 'flex', flexDirection: 'column', gap: 6 }}>
-                      {item.bullets.map((b, bi) => (
-                        <li key={bi} style={{ fontSize: 13, color: '#374151', paddingLeft: 16, position: 'relative', lineHeight: 1.5 }}>
-                          <span style={{ position: 'absolute', left: 0, top: 6, width: 5, height: 5, borderRadius: '50%', background: c.accent, display: 'block' }} />
-                          {b}
-                        </li>
-                      ))}
-                    </ul>
+                    <>
+                      <ul style={{ listStyle: 'none', margin: '14px 0 0', padding: 0, display: 'flex', flexDirection: 'column', gap: 6 }}>
+                        {item.bullets.map((b, bi) => (
+                          <li key={bi} style={{ fontSize: 13, color: '#374151', paddingLeft: 16, position: 'relative', lineHeight: 1.5 }}>
+                            <span style={{ position: 'absolute', left: 0, top: 6, width: 5, height: 5, borderRadius: '50%', background: c.accent, display: 'block' }} />
+                            {b}
+                          </li>
+                        ))}
+                      </ul>
+                      {item.links.length > 0 && (
+                        <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', marginTop: 14 }}>
+                          {item.links.map(lnk => (
+                            <a key={lnk.href} href={lnk.href}
+                               style={{ fontSize: 12, fontWeight: 600, padding: '5px 14px', borderRadius: 4, border: `1.5px solid ${c.accent}`, color: c.accent, textDecoration: 'none', background: '#fff', transition: 'all 0.2s' }}
+                               onMouseEnter={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = c.accent; el.style.color = '#fff'; }}
+                               onMouseLeave={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = '#fff'; el.style.color = c.accent; }}>
+                              {lnk.label}
+                            </a>
+                          ))}
+                        </div>
+                      )}
+                    </>
                   )}
                 </div>
               ))}
@@ -677,6 +728,18 @@ export default function CanonPage() {
                       </li>
                     ))}
                   </ul>
+                  {p.links.length > 0 && (
+                    <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', marginTop: 14 }}>
+                      {p.links.map(lnk => (
+                        <a key={lnk.href} href={lnk.href}
+                           style={{ fontSize: 12, fontWeight: 600, padding: '5px 14px', borderRadius: 4, border: `1.5px solid ${c.accent}`, color: c.accent, textDecoration: 'none', background: '#fff', transition: 'all 0.2s' }}
+                           onMouseEnter={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = c.accent; el.style.color = '#fff'; }}
+                           onMouseLeave={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = '#fff'; el.style.color = c.accent; }}>
+                          {lnk.label}
+                        </a>
+                      ))}
+                    </div>
+                  )}
                 </div>
               ))}
             </div>
@@ -738,6 +801,18 @@ export default function CanonPage() {
                   </div>
                 ))}
               </div>
+              {(productionItems[prodItem] as any).links?.length > 0 && (
+                <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+                  {(productionItems[prodItem] as any).links.map((lnk: { label: string; href: string }) => (
+                    <a key={lnk.href} href={lnk.href}
+                       style={{ fontSize: 12, fontWeight: 600, padding: '5px 14px', borderRadius: 4, border: `1.5px solid ${c.accent}`, color: c.accent, textDecoration: 'none', background: '#fff', transition: 'all 0.2s' }}
+                       onMouseEnter={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = c.accent; el.style.color = '#fff'; }}
+                       onMouseLeave={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = '#fff'; el.style.color = c.accent; }}>
+                      {lnk.label}
+                    </a>
+                  ))}
+                </div>
+              )}
               <div style={{ display: 'flex', gap: 12, marginTop: 'auto', paddingTop: 20 }}>
                 <div style={{ flex: 1, borderRadius: 6, overflow: 'hidden', border: `1px solid #e5e7eb`, background: '#fff', display: 'flex', flexDirection: 'column' }}>
                   <div style={{ background: '#f8f9fb', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
