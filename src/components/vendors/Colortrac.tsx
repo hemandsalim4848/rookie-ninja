@@ -789,14 +789,14 @@ function IvoForm({ accentGold, accentGreen }: { accentGold: string; accentGreen:
       <input name="name" type="text" placeholder="Full Name" required style={{ width: '100%', padding: '12px 14px', borderRadius: 6, border: 'none', background: 'rgba(255,255,255,0.12)', color: '#fff', fontSize: 14, outline: 'none' }} />
       <input name="email" type="email" placeholder="Business Email" required style={{ width: '100%', padding: '12px 14px', borderRadius: 6, border: 'none', background: 'rgba(255,255,255,0.12)', color: '#fff', fontSize: 14, outline: 'none' }} />
       <select name="category" required style={{ width: '100%', padding: '12px 14px', borderRadius: 6, border: 'none', background: 'rgba(255,255,255,0.12)', color: '#e5e7eb', fontSize: 14, outline: 'none' }}>
-        <option value="">Select Product Category</option>
-        <option>SmartLF SCi 42</option>
-        <option>SmartLF SCi 36</option>
-        <option>SmartLF SCi 25</option>
-        <option>SmartLF SGi Series</option>
-        <option>SmartLF ivo 6000</option>
-        <option>SmartLF Scan!</option>
-        <option>Professional MFP Solution</option>
+        <option value="" style={{ background: '#fff', color: '#000' }}>Select Product Category</option>
+        <option style={{ background: '#fff', color: '#000' }}>SmartLF SCi 42</option>
+        <option style={{ background: '#fff', color: '#000' }}>SmartLF SCi 36</option>
+        <option style={{ background: '#fff', color: '#000' }}>SmartLF SCi 25</option>
+        <option style={{ background: '#fff', color: '#000' }}>SmartLF SGi Series</option>
+        <option style={{ background: '#fff', color: '#000' }}>SmartLF ivo 6000</option>
+        <option style={{ background: '#fff', color: '#000' }}>SmartLF Scan!</option>
+        <option style={{ background: '#fff', color: '#000' }}>Professional MFP Solution</option>
       </select>
       <button type="submit" disabled={status === 'sending'} style={{ marginTop: 10, padding: 13, background: accentGold, color: accentGreen, fontWeight: 700, border: 'none', borderRadius: 6, cursor: 'pointer', letterSpacing: 1, transition: 'all 0.3s ease', fontSize: 14 }}>
         {status === 'sending' ? 'SENDING…' : 'SEND INQUIRY'}

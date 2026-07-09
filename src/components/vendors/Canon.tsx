@@ -649,7 +649,7 @@ export default function CanonPage() {
                          style={{ width: '100%', padding: '12px 14px', borderRadius: 6, border: 'none', background: 'rgba(255,255,255,0.12)', color: '#fff', fontSize: 14, outline: 'none' }} />
                   <select name="category" required
                           style={{ width: '100%', padding: '12px 14px', borderRadius: 6, border: 'none', background: 'rgba(255,255,255,0.12)', color: '#e5e7eb', fontSize: 14, outline: 'none' }}>
-                    <option value="">Select Product Category</option>
+                    <option value="" style={{ background: '#fff', color: '#000' }}>Select Product Category</option>
                     {['Desktop Scanners', 'Cheque Scanners', 'Workgroup & Departmental Scanners', 'Production Scanners'].map(opt => (
                       <option key={opt} style={{ background: '#fff', color: '#000' }}>{opt}</option>
                     ))}

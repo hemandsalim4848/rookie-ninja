@@ -49,12 +49,12 @@ function IrisForm() {
         value={form.email} onChange={handle} />
       <select style={{ ...inp, color: '#e5e7eb' }} name="licence" required
         value={form.licence} onChange={handle}>
-        <option value="">Select Licence Type</option>
-        <option>PDF Essential — 1 PC</option>
-        <option>PDF Essential — 3 PC</option>
-        <option>PDF Elite — 1 PC</option>
-        <option>PDF Elite — 3 PC</option>
-        <option>PDF Elite — Volume (10+ users)</option>
+        <option value="" style={{ background: '#fff', color: '#000' }}>Select Licence Type</option>
+        <option style={{ background: '#fff', color: '#000' }}>PDF Essential — 1 PC</option>
+        <option style={{ background: '#fff', color: '#000' }}>PDF Essential — 3 PC</option>
+        <option style={{ background: '#fff', color: '#000' }}>PDF Elite — 1 PC</option>
+        <option style={{ background: '#fff', color: '#000' }}>PDF Elite — 3 PC</option>
+        <option style={{ background: '#fff', color: '#000' }}>PDF Elite — Volume (10+ users)</option>
       </select>
       <button type="submit" disabled={status === 'sending'} style={{
         marginTop: 10, padding: 13, background: ACCENT, color: '#fff',
