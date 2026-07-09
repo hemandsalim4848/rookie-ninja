@@ -35,7 +35,7 @@ const heroSlides = [
     heading: 'SmartLF',
     accentWord: 'SGi Series.',
     desc: 'CCD technology without the cost — full high-definition scanning for thick media, maps, artwork, and any type of document in 36" and 44" widths.',
-    cta: { label: 'View Scanners', href: '#smartlf-sci', solid: true },
+    cta: { label: 'View Scanners', href: '#smartlf-sgi', solid: true },
     bg: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1782246609/SmartLF-SCi_angled_800x600px-3-556x417-1_efyovn.webp',
   },
   {
@@ -43,7 +43,7 @@ const heroSlides = [
     heading: 'SmartLF',
     accentWord: 'Scan!',
     desc: "The world's first truly portable wide format scanner — no PC, software, or peripherals needed. Scan on site, wherever the project takes you.",
-    cta: { label: 'View Scanners', href: '#smartlf-sci', solid: true },
+    cta: { label: 'View Scanners', href: '#smartlf-scan', solid: true },
     bg: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1782246610/SmartLF-SCi_front_tablet_800x600px-3-556x417-1_gaq6vv.webp',
   },
 ];
@@ -60,6 +60,7 @@ const sciCards = [
   {
     tag: '42" Wide Format',
     title: 'SmartLF SCi 42',
+    slug: 'smartlf-sci-42',
     desc: 'Delivers high quality and speed for everyday scanning tasks.',
     image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1782246611/SmartLF-SCi_42_front_no-stand_w-FADGI_800x600px-556x417-1_rkf9zk.webp',
     features: [
@@ -75,6 +76,7 @@ const sciCards = [
   {
     tag: '36" Wide Format',
     title: 'SmartLF SCi 36',
+    slug: 'smartlf-sci-36',
     desc: 'Get the job done fast, with no stopping or waiting.',
     image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1782246611/SmartLF-SCi_front_800x600px-3-556x417-1_lqbjfn.webp',
     features: [
@@ -90,6 +92,7 @@ const sciCards = [
   {
     tag: '25" Compact',
     title: 'SmartLF SCi 25',
+    slug: 'smartlf-sci-25',
     desc: 'High speed and quality for up to 25 inches.',
     image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1782246610/SmartLF-SCi_angled_no-stand_800x600px-556x417-1_siucmm.webp',
     features: [
@@ -110,8 +113,9 @@ const ivoTabs = [
     label: 'Overview',
     heading: 'SmartLF ivo 6000',
     intro: 'Contact-free large format scanning for artwork, PCBs, textiles, framed pieces, and any delicate or thick media — no physical contact with the original required.',
-    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1782246610/SmartLF-SCi_42_front_no-stand_w-FADGI_800x600px-556x417-2_f3gafa.webp',
+    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1783615710/SmartLF-ivo-6000_Contact-free-large-format-art-scanner_Sideview_Artwork_Stock_Teal-image-1_xxo23g.webp',
     cardTitle: 'Contact-Free Scanning',
+    slug: 'smartlf-ivo-6000',
     points: [
       'Scan sizes up to 42 × 60 × 5.1"',
       'Up to 1200 dpi high optical resolution',
@@ -183,6 +187,7 @@ const scanItems = [
     ],
     image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1782246609/SmartLF-SCi_angled_no-stand_800x600px-556x417-2_hjmgzn.webp',
     cap: 'SmartLF Scan! 24"',
+    slug: 'smartlf-scan',
   },
   {
     num: '02',
@@ -200,6 +205,7 @@ const scanItems = [
     ],
     image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1782246609/SmartLF-SCi_front_800x600px-3-556x417-2_manzaq.webp',
     cap: 'SmartLF Scan! 36"',
+    slug: 'smartlf-scan',
   },
 ];
 
@@ -207,18 +213,21 @@ const otherCards = [
   {
     tag: '42" MFP Solution',
     title: 'SCi 42 Professional MFP Solution',
+    slug: 'smartlf-sci-42-professional-mfp-solution',
     desc: 'Ultra-compact 42" wide format copier for E-size / A0 drawings, combined with SmartWorks TOUCH MFP scan and copy software. Ideal for: Artwork, Blueprints, CAD Drawings, Live Projects, Technical, Site Plans, Posters.',
     image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1782246610/SmartLF-SCi_42_front_no-stand_w-FADGI_800x600px-556x417-2_f3gafa.webp',
   },
   {
     tag: '36" MFP Solution',
     title: 'SCi 36 Professional MFP Solution',
+    slug: 'smartlf-sci-36-professional-mfp-solution',
     desc: 'Flexible wide format document copier for E-size / A0 drawings in a compact footprint, powered by SmartWorks TOUCH MFP. Ideal for: Artwork, Blueprints, CAD Drawings, Live Projects, Technical, Site Plans, Posters.',
     image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1782246609/SmartLF-SCi_front_800x600px-3-556x417-2_manzaq.webp',
   },
   {
     tag: '25" MFP Solution',
     title: 'SCi 25 Professional MFP Solution',
+    slug: 'smartlf-sci-25-professional-mfp-solution',
     desc: 'Ultra-compact 25" wide format copier for D-size / A1 drawings, powered by SmartWorks TOUCH MFP. Ideal for: Artwork, Blueprints, CAD Drawings, Live Projects, Technical, Site Plans, Posters.',
     image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1782246609/SmartLF-SCi_angled_no-stand_800x600px-556x417-2_hjmgzn.webp',
   },
@@ -388,7 +397,9 @@ export default function ColortracPage() {
                   {s.desc}
                 </p>
                 {s.cta && (
-                  <a href={s.cta.href} style={{
+                  <a href={s.cta.href}
+                     onClick={e => { e.preventDefault(); document.querySelector(s.cta!.href)?.scrollIntoView({ behavior: 'smooth' }); }}
+                     style={{
                     display: 'inline-block', padding: isMobile ? '10px 20px' : '13px 28px',
                     background: s.cta.solid ? '#fff' : 'transparent',
                     color: s.cta.solid ? '#0d0d0d' : '#fff',
@@ -514,6 +525,14 @@ export default function ColortracPage() {
                       </li>
                     ))}
                   </ul>
+                  <div style={{ marginTop: 20 }}>
+                    <a href={`/colortrac/${card.slug}`}
+                       style={{ display: 'inline-block', fontSize: 13, fontWeight: 600, padding: '7px 18px', border: `1.5px solid ${c.accent}`, color: c.accent, borderRadius: 4, textDecoration: 'none', transition: 'background 0.2s, color 0.2s' }}
+                       onMouseEnter={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = c.accent; el.style.color = '#fff'; }}
+                       onMouseLeave={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = 'transparent'; el.style.color = c.accent; }}>
+                      View Product
+                    </a>
+                  </div>
                 </div>
               </div>
             ))}
@@ -546,6 +565,14 @@ export default function ColortracPage() {
                   </li>
                 ))}
               </ul>
+              <div style={{ marginTop: 24 }}>
+                <a href="/colortrac/smartlf-sgi"
+                   style={{ display: 'inline-block', fontSize: 13, fontWeight: 600, padding: '7px 18px', border: `1.5px solid ${c.accent}`, color: c.accent, borderRadius: 4, textDecoration: 'none', transition: 'background 0.2s, color 0.2s' }}
+                   onMouseEnter={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = c.accent; el.style.color = '#fff'; }}
+                   onMouseLeave={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = 'transparent'; el.style.color = c.accent; }}>
+                  View Product
+                </a>
+              </div>
             </div>
             <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
               <img
@@ -623,6 +650,16 @@ export default function ColortracPage() {
                       <span key={j}>• {pt}<br /></span>
                     ))}
                   </p>
+                  {'slug' in tab && (
+                    <div style={{ marginTop: 16 }}>
+                      <a href={`/colortrac/${tab.slug}`}
+                         style={{ display: 'inline-block', fontSize: 13, fontWeight: 600, padding: '7px 18px', border: `1.5px solid ${c.accent}`, color: c.accent, borderRadius: 4, textDecoration: 'none', transition: 'background 0.2s, color 0.2s' }}
+                         onMouseEnter={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = c.accent; el.style.color = '#fff'; }}
+                         onMouseLeave={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = 'transparent'; el.style.color = c.accent; }}>
+                        View Product
+                      </a>
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
@@ -673,9 +710,9 @@ export default function ColortracPage() {
                   <div style={{ display: 'flex', gap: 12, marginTop: 'auto', paddingTop: 20 }}>
                     <div style={{ flex: 1, borderRadius: 6, overflow: 'hidden', border: '1px solid #e5e7eb', background: '#fff' }}>
                       <img src={item.image} alt={item.cap} style={{ width: '100%', height: 180, objectFit: 'contain', display: 'block', padding: 10 }} />
-                      <div style={{ fontSize: 11, fontWeight: 700, textAlign: 'center', background: c.accent, color: c.gold, padding: '6px 0', letterSpacing: 0.5, textTransform: 'uppercase' }}>
-                        {item.cap}
-                      </div>
+                      <a href={`/colortrac/${item.slug}`} style={{ display: 'block', fontSize: 11, fontWeight: 700, textAlign: 'center', background: c.accent, color: c.gold, padding: '6px 0', letterSpacing: 0.5, textTransform: 'uppercase', textDecoration: 'none' }}>
+                        View Product
+                      </a>
                     </div>
                   </div>
                 </div>
@@ -705,7 +742,13 @@ export default function ColortracPage() {
                 <img src={card.image} alt={card.title} style={{ width: '100%', height: 140, objectFit: 'contain', marginBottom: 18 }} />
                 <p style={{ fontSize: 11, fontWeight: 700, color: c.accent, textTransform: 'uppercase', letterSpacing: 1.2, marginBottom: 8 }}>{card.tag}</p>
                 <h3 style={{ fontSize: 16, fontWeight: 700, color: c.text, marginBottom: 8 }}>{card.title}</h3>
-                <p style={{ fontSize: 13, color: c.dim, lineHeight: 1.6 }}>{card.desc}</p>
+                <p style={{ fontSize: 13, color: c.dim, lineHeight: 1.6, marginBottom: 16 }}>{card.desc}</p>
+                <a href={`/colortrac/${card.slug}`}
+                   style={{ display: 'inline-block', fontSize: 13, fontWeight: 600, padding: '7px 18px', border: `1.5px solid ${c.accent}`, color: c.accent, borderRadius: 4, textDecoration: 'none', transition: 'background 0.2s, color 0.2s' }}
+                   onMouseEnter={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = c.accent; el.style.color = '#fff'; }}
+                   onMouseLeave={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = 'transparent'; el.style.color = c.accent; }}>
+                  View Product
+                </a>
               </div>
             ))}
           </div>
