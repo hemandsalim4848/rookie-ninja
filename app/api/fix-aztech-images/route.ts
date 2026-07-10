@@ -49,19 +49,36 @@ const imageUpdates: { slug: string; images: string[] }[] = [
   },
   {
     slug: 'aztech-powerflow-3-way-3m-universal-extension',
-    images: ['https://res.cloudinary.com/df52xzi3y/image/upload/v1783682063/aztech-aztech-powerflow-3-way-3m-universal-extension-0-Product-images_Powerflow-3.jpg'],
+    images: [
+      'https://res.cloudinary.com/df52xzi3y/image/upload/v1783682067/aztech-aztech-powerflow-3-way-3m-universal-extension-0-Product-images_Extenstion.jpg',
+      'https://res.cloudinary.com/df52xzi3y/image/upload/v1783682068/aztech-aztech-powerflow-3-way-3m-universal-extension-1-Product-images_Extenstion.jpg',
+      'https://res.cloudinary.com/df52xzi3y/image/upload/v1783682069/aztech-aztech-powerflow-3-way-3m-universal-extension-2-Product-images_Extenstion.jpg',
+      'https://res.cloudinary.com/df52xzi3y/image/upload/v1783682072/aztech-aztech-powerflow-3-way-3m-universal-extension-3-Product-images_Extenstion.jpg',
+    ],
   },
   {
     slug: 'aztech-powerflow-5-way-3m-universal-extension',
-    images: ['https://res.cloudinary.com/df52xzi3y/image/upload/v1783682067/aztech-aztech-powerflow-5-way-3m-universal-extension-0-Product-images_Powerflow-5.jpg'],
+    images: [
+      'https://res.cloudinary.com/df52xzi3y/image/upload/v1783682074/aztech-aztech-powerflow-5-way-3m-universal-extension-0-Product-images_Extenstion.jpg',
+      'https://res.cloudinary.com/df52xzi3y/image/upload/v1783682076/aztech-aztech-powerflow-5-way-3m-universal-extension-1-Product-images_Extenstion.jpg',
+      'https://res.cloudinary.com/df52xzi3y/image/upload/v1783682079/aztech-aztech-powerflow-5-way-3m-universal-extension-2-Product-images_Extenstion.jpg',
+    ],
   },
   {
     slug: 'aztech-powerflow-4-way-5m-universal-extension',
-    images: ['https://res.cloudinary.com/df52xzi3y/image/upload/v1783682072/aztech-aztech-powerflow-4-way-5m-universal-extension-0-Product-images_Powerflow-4.jpg'],
+    images: [
+      'https://res.cloudinary.com/df52xzi3y/image/upload/v1783682081/aztech-aztech-powerflow-4-way-5m-universal-extension-0-Product-images_Extenstion.jpg',
+      'https://res.cloudinary.com/df52xzi3y/image/upload/v1783682082/aztech-aztech-powerflow-4-way-5m-universal-extension-1-Product-images_Extenstion.jpg',
+      'https://res.cloudinary.com/df52xzi3y/image/upload/v1783682084/aztech-aztech-powerflow-4-way-5m-universal-extension-2-Product-images_Extenstion.jpg',
+    ],
   },
   {
     slug: 'aztech-powerflow-5-way-5m-universal-extension',
-    images: ['https://res.cloudinary.com/df52xzi3y/image/upload/v1783682078/aztech-aztech-powerflow-5-way-5m-universal-extension-0-Product-images_Powerflow-5.jpg'],
+    images: [
+      'https://res.cloudinary.com/df52xzi3y/image/upload/v1783682087/aztech-aztech-powerflow-5-way-5m-universal-extension-0-Product-images_Extenstion.jpg',
+      'https://res.cloudinary.com/df52xzi3y/image/upload/v1783682088/aztech-aztech-powerflow-5-way-5m-universal-extension-1-Product-images_Extenstion.jpg',
+      'https://res.cloudinary.com/df52xzi3y/image/upload/v1783682088/aztech-aztech-powerflow-5-way-5m-universal-extension-2-Product-images_Extenstion.jpg',
+    ],
   },
   {
     slug: 'aztech-wireless-gaming-headset-with-led',
