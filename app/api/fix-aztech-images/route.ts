@@ -106,19 +106,33 @@ const imageUpdates: { slug: string; images: string[] }[] = [
   },
   {
     slug: 'aztech-360mm-black-liquid-cooler',
-    images: ['https://res.cloudinary.com/df52xzi3y/image/upload/v1783682137/aztech-aztech-360mm-black-liquid-cooler-0-360black2.webp'],
+    images: [
+      'https://res.cloudinary.com/df52xzi3y/image/upload/v1783682137/aztech-aztech-360mm-black-liquid-cooler-0-360black2.webp',
+      'https://res.cloudinary.com/df52xzi3y/image/upload/v1783682138/aztech-aztech-360mm-black-liquid-cooler-1-360black1-scaled.webp',
+      'https://res.cloudinary.com/df52xzi3y/image/upload/v1783682140/aztech-aztech-360mm-black-liquid-cooler-2-360black-3.webp',
+    ],
   },
   {
     slug: 'aztech-360mm-white-liquid-cooler',
-    images: ['https://res.cloudinary.com/df52xzi3y/image/upload/v1783682141/aztech-aztech-360mm-white-liquid-cooler-0-360white2.webp'],
+    images: [
+      'https://res.cloudinary.com/df52xzi3y/image/upload/v1783682143/aztech-aztech-360mm-white-liquid-cooler-0-360white-2.webp',
+    ],
   },
   {
     slug: 'aztech-240mm-black-liquid-cooler',
-    images: ['https://res.cloudinary.com/df52xzi3y/image/upload/v1783682145/aztech-aztech-240mm-black-liquid-cooler-0-240black2.webp'],
+    images: [
+      'https://res.cloudinary.com/df52xzi3y/image/upload/v1783682151/aztech-aztech-240mm-black-liquid-cooler-0-240black-3.webp',
+      'https://res.cloudinary.com/df52xzi3y/image/upload/v1783682154/aztech-aztech-240mm-black-liquid-cooler-1-240-black1--scaled.webp',
+      'https://res.cloudinary.com/df52xzi3y/image/upload/v1783682155/aztech-aztech-240mm-black-liquid-cooler-2-240black-2.webp',
+    ],
   },
   {
     slug: 'aztech-240mm-white-liquid-cooler',
-    images: ['https://res.cloudinary.com/df52xzi3y/image/upload/v1783682149/aztech-aztech-240mm-white-liquid-cooler-0-240white2.webp'],
+    images: [
+      'https://res.cloudinary.com/df52xzi3y/image/upload/v1783682144/aztech-aztech-240mm-white-liquid-cooler-0-240white-3.webp',
+      'https://res.cloudinary.com/df52xzi3y/image/upload/v1783682146/aztech-aztech-240mm-white-liquid-cooler-1-240white-2.webp',
+      'https://res.cloudinary.com/df52xzi3y/image/upload/v1783682148/aztech-aztech-240mm-white-liquid-cooler-2-240white1-scaled.webp',
+    ],
   },
   // Soundbars
   {
