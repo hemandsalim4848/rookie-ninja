@@ -23,20 +23,20 @@ const heroSlides = [
   {
     id: 'display',
     badge: 'Official Distributor',
-    lines: ['Smarter Displays.', 'Brighter Spaces.'],
+    lines: ['Smarter.', 'Brighter Spaces.'],
     accentLine: 1,
     desc: 'From ultra-large interactive flat panels to digital signage and audio — Aztech transforms how teams collaborate, learn, and communicate.',
     cta: { label: 'Explore Display & Audio', href: '#display-audio', solid: true },
-    bg: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1783680061/aztech-aztech-ideaflow-bright-75-4k-interactive-display-0-AZTECH-Smart-Interacti.jpg',
+    bg: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1783687223/Banner-13_fldjp6.webp',
   },
   {
     id: 'gaming',
     badge: 'Gaming & Power',
-    lines: ['Play Harder.', 'Win Smarter.'],
+    lines: ['Play Harder.', 'Win.'],
     accentLine: 1,
     desc: 'Pro-grade gaming peripherals and high-efficiency power supplies — built for peak performance and absolute reliability.',
     cta: { label: 'Explore Gaming', href: '#gaming', solid: false },
-    bg: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1783682089/aztech-aztech-wireless-gaming-headset-with-led-0-Product-images_Headphone-01.jpg',
+    bg: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1783687222/ifp-1_f7hbi0.webp',
   },
 ];
 
@@ -546,7 +546,7 @@ export default function AztechPage() {
                 <h1 className="az-hero-heading"
                     style={{ fontSize: 'clamp(40px, 6vw, 78px)', color: '#fff', lineHeight: 0.95, marginBottom: 18, fontWeight: 700, letterSpacing: 1 }}>
                   {s.lines.map((line, li) => (
-                    <span key={li} style={{ display: 'block', color: li === s.accentLine ? az.accent : '#fff' }}>{line}</span>
+                    <span key={li} style={{ display: 'block', color: li === s.accentLine ? 'rgba(255,255,255,0.6)' : '#fff' }}>{line}</span>
                   ))}
                 </h1>
                 <p className="az-hero-desc"
@@ -1038,6 +1038,7 @@ export default function AztechPage() {
       ══════════════════════════════════════════ */}
       <style>{`
         @keyframes azPulse { 0%,100%{ opacity:1; transform:scale(1); } 50%{ opacity:.5; transform:scale(.8); } }
+        body.az-subnav-active .ka-navbar-hide { transform: translateY(-120%) !important; pointer-events: none !important; }
         .az-reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.65s cubic-bezier(0.22,1,0.36,1), transform 0.65s cubic-bezier(0.22,1,0.36,1); }
         .az-reveal.az-visible { opacity: 1; transform: translateY(0); }
         .az-reveal-d1 { transition-delay: 0.12s; }

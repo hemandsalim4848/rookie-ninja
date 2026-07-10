@@ -1,3 +1,5 @@
+import Navbar from '@/src/components/common/Navbar';
+import Footer from '@/src/components/common/Footer';
 import AztechPage from '@/src/components/vendors/Aztech';
 
 export const metadata = {
@@ -6,5 +8,11 @@ export const metadata = {
 };
 
 export default function AztechVendor() {
-  return <AztechPage />;
+  return (
+    <>
+      <Navbar />
+      <AztechPage />
+      <Footer />
+    </>
+  );
 }
