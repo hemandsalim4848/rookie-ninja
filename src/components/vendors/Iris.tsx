@@ -76,20 +76,20 @@ const slides = [
   {
     bg: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1782334329/RIPDF25-combine_merge-630x450-min_zn74de.webp',
     badge: 'IRIS PDF Software',
-    line1: 'Readiris PDF',
-    line2: 'Essential.',
-    sub: 'A complete set of OCR, scanning, document composition, and PDF management features — all in one platform. Perpetual licence for Windows & macOS.',
-    btnLabel: 'View product',
-    btnHref: '/iris/readiris-pdf-essential',
+    line1: 'PDF Work,',
+    line2: 'Simplified.',
+    sub: 'OCR in 138 languages, direct PDF editing, form filling, redaction, merging, and cloud sharing — all in one perpetual-licence platform for Windows & macOS.',
+    btnLabel: 'Explore Features',
+    btnHref: '#pdf-features',
   },
   {
     bg: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1782334328/RIPDF25-edit_PDF-630x450-min_xdabbm.webp',
-    badge: 'Advanced Edition',
-    line1: 'Readiris PDF',
-    line2: 'Elite.',
-    sub: 'Everything in Essential — plus batch conversion, PDF/A archiving, advanced automation, cloud sharing, and double e-signature for power users and businesses.',
-    btnLabel: 'Explore product',
-    btnHref: '/iris/readiris-pdf-elite',
+    badge: 'Two Editions Available',
+    line1: 'Essential',
+    line2: 'or Elite.',
+    sub: 'Start with Essential for everyday PDF work, or step up to Elite for batch automation, PDF/A archiving, cloud sync, and volume licensing across your team.',
+    btnLabel: 'Choose Your Edition',
+    btnHref: '#pdf-editions',
   },
 ];
 
@@ -139,6 +139,7 @@ const editions = [
   {
     label: 'Entry Edition',
     title: 'Readiris PDF Essential',
+    slug: 'readiris-pdf-essential',
     img: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1782334328/RIPDF25-convert_to_PDF-630x450-min_xvnave.webp',
     intro: 'A complete PDF suite for everyday professionals.',
     bullets: [
@@ -154,6 +155,7 @@ const editions = [
   {
     label: 'Advanced Edition',
     title: 'Readiris PDF Elite',
+    slug: 'readiris-pdf-elite',
     img: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1782334328/RIPDF25-whats_new-600x407-min_jhmsqj.webp',
     intro: 'All Essential features, plus advanced automation for power users and businesses.',
     bullets: [
@@ -345,7 +347,9 @@ export default function IrisPage() {
                   {s.line1}<br /><span style={{ color: ACCENT }}>{s.line2}</span>
                 </h1>
                 <p style={{ fontSize: isMobile ? 13 : 15, color: 'rgba(255,255,255,0.72)', lineHeight: 1.65, marginBottom: isMobile ? 20 : 32, fontWeight: 300, maxWidth: 420 }}>{s.sub}</p>
-                <a href={s.btnHref} style={{ display: 'inline-block', padding: isMobile ? '10px 20px' : '13px 28px', background: ACCENT, color: '#fff', border: `2px solid ${ACCENT}`, fontSize: isMobile ? 12 : 13, fontWeight: 600, letterSpacing: 1, textTransform: 'uppercase', textDecoration: 'none', marginBottom: isMobile ? 35 : 0 }}>
+                <a href={s.btnHref}
+                   onClick={e => { e.preventDefault(); document.querySelector(s.btnHref)?.scrollIntoView({ behavior: 'smooth' }); }}
+                   style={{ display: 'inline-block', padding: isMobile ? '10px 20px' : '13px 28px', background: ACCENT, color: '#fff', border: `2px solid ${ACCENT}`, fontSize: isMobile ? 12 : 13, fontWeight: 600, letterSpacing: 1, textTransform: 'uppercase', textDecoration: 'none', marginBottom: isMobile ? 35 : 0 }}>
                   {s.btnLabel}
                 </a>
               </div>
@@ -440,10 +444,21 @@ export default function IrisPage() {
                 >
                   <h4 style={{ color: ACCENT_TEXT, fontSize: 13, textTransform: 'uppercase', marginBottom: 8, letterSpacing: 0.5, fontWeight: 600 }}>{ed.label}</h4>
                   <h3 style={{ fontSize: 22, fontWeight: 600, color: '#0f1320', marginBottom: 14 }}>{ed.title}</h3>
-                  <p style={{ fontSize: 14, color: '#475569', lineHeight: 1.9 }}>
-                    {ed.intro}<br /><br />
-                    {ed.bullets.map((b, j) => <span key={j}>• {b}<br /></span>)}
-                  </p>
+                  <p style={{ fontSize: 14, color: '#475569', lineHeight: 1.9 }}>{ed.intro}</p>
+                  {ledActive === i && (
+                    <>
+                      <p style={{ fontSize: 14, color: '#475569', lineHeight: 1.9, marginTop: 12 }}>
+                        {ed.bullets.map((b, j) => <span key={j}>• {b}<br /></span>)}
+                      </p>
+                      <a href={`/iris/${ed.slug}`}
+                         onClick={e => e.stopPropagation()}
+                         style={{ display: 'inline-block', marginTop: 16, padding: '7px 18px', border: `1.5px solid ${ACCENT_TEXT}`, borderRadius: 4, fontSize: 12, fontWeight: 600, color: ACCENT_TEXT, textDecoration: 'none', letterSpacing: 0.5, textTransform: 'uppercase' }}
+                         onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.background = ACCENT_TEXT; (e.currentTarget as HTMLAnchorElement).style.color = '#fff'; }}
+                         onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.background = 'transparent'; (e.currentTarget as HTMLAnchorElement).style.color = ACCENT_TEXT; }}>
+                        View Product
+                      </a>
+                    </>
+                  )}
                 </div>
               ))}
             </div>
