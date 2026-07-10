@@ -34,7 +34,7 @@ const products = [
       'https://aztechmea.com/wp-content/uploads/2025/12/5-scaled-1.png',
     ],
     description: 'The Aztech Ideaflow Bright 55" is a 4K UHD interactive flat panel display powered by Android 14, featuring a built-in 48MP AI camera with auto-framing and speaker tracking, DLED backlight, and 8GB RAM with 128GB storage.',
-    shortDescription: '4K UHD DLED | Android 14 | 8GB+128GB | 48MP AI Camera | WiFi | BT 5.0 | 400 nits',
+    shortDescription: "8 Core (A55x8, 1.2GHz)\nHigh-Quality DLED Display\n4K UHD Resolution (3840 x 2160 pixels)\nBuilt-in 48MP AI Camera & Microphone\nSeamless Screen Mirroring\nFluent Writing Experience\nScan To Transfer\nAndroid 14 Operating System\nBYOM (Bring Your Own Meeting)",
     specs: [
       { key: 'Screen Size',          value: '55 inches' },
       { key: 'Backlight',            value: 'DLED' },
@@ -65,7 +65,7 @@ const products = [
       'https://aztechmea.com/wp-content/uploads/2025/12/5-scaled-1.png',
     ],
     description: 'The Aztech Ideaflow Bright 65" is a 4K UHD interactive flat panel display powered by Android 14, featuring a built-in 48MP AI camera with auto-framing and speaker tracking, DLED backlight, and 8GB RAM with 128GB storage.',
-    shortDescription: '4K UHD DLED | Android 14 | 8GB+128GB | 48MP AI Camera | WiFi | BT 5.0 | 400 nits',
+    shortDescription: "8 Core (A55x8, 1.2GHz)\nHigh-Quality DLED Display\n4K UHD Resolution (3840 x 2160 pixels)\nBuilt-in 48MP AI Camera & Microphone\nSeamless Screen Mirroring\nFluent Writing Experience\nScan To Transfer\nAndroid 14 Operating System\nBYOM (Bring Your Own Meeting)",
     specs: [
       { key: 'Screen Size',          value: '65 inches' },
       { key: 'Backlight',            value: 'DLED' },
@@ -96,7 +96,7 @@ const products = [
       'https://aztechmea.com/wp-content/uploads/2025/12/5-scaled-1.png',
     ],
     description: 'The Aztech Ideaflow Bright 75" is a 4K UHD interactive flat panel display powered by Android 14, featuring a built-in 48MP AI camera with auto-framing and speaker tracking, DLED backlight, and 8GB RAM with 128GB storage.',
-    shortDescription: '4K UHD DLED | Android 14 | 8GB+128GB | 48MP AI Camera | WiFi | BT 5.0 | 400 nits',
+    shortDescription: "8 Core (A55x8, 1.2GHz)\nHigh-Quality DLED Display\n4K UHD Resolution (3840 x 2160 pixels)\nBuilt-in 48MP AI Camera & Microphone\nSeamless Screen Mirroring\nFluent Writing Experience\nScan To Transfer\nAndroid 14 Operating System\nBYOM (Bring Your Own Meeting)",
     specs: [
       { key: 'Screen Size',          value: '75 inches' },
       { key: 'Backlight',            value: 'DLED' },
@@ -127,7 +127,7 @@ const products = [
       'https://aztechmea.com/wp-content/uploads/2025/12/5-scaled-1.png',
     ],
     description: 'The Aztech Ideaflow Bright 86" is a 4K UHD interactive flat panel display powered by Android 14, featuring a built-in 48MP AI camera with auto-framing and speaker tracking, DLED backlight, and 8GB RAM with 128GB storage.',
-    shortDescription: '4K UHD DLED | Android 14 | 8GB+128GB | 48MP AI Camera | WiFi | BT 5.0 | 400 nits',
+    shortDescription: "8 Core (A55x8, 1.2GHz)\nHigh-Quality DLED Display\n4K UHD Resolution (3840 x 2160 pixels)\nBuilt-in 48MP AI Camera & Microphone\nSeamless Screen Mirroring\nFluent Writing Experience\nScan To Transfer\nAndroid 14 Operating System\nBYOM (Bring Your Own Meeting)",
     specs: [
       { key: 'Screen Size',          value: '86 inches' },
       { key: 'Backlight',            value: 'DLED' },
@@ -160,7 +160,7 @@ const products = [
       'https://aztechmea.com/wp-content/uploads/2025/12/5-scaled-1.png',
     ],
     description: 'The Aztech Ideaflow 98" is a large-format 4K UHD interactive flat panel display powered by Android 14, featuring a built-in 48MP AI camera, DLED backlight, 8GB RAM, and 128GB storage — designed for immersive collaboration in large classrooms and conference rooms.',
-    shortDescription: '4K UHD DLED | Android 14 | 8GB+128GB | 48MP AI Camera | BT 5.2 | 400 nits | 98"',
+    shortDescription: "8 Core (A55x8, 1.2GHz)\nHigh-Quality DLED Display\n4K UHD Resolution (3840 x 2160 pixels)\nBuilt-in 48MP AI Camera & Microphone\nSeamless Screen Mirroring\nFluent Writing Experience\nScan To Transfer\nAndroid 14 Operating System\nBYOD (Bring Your Own Device)",
     specs: [
       { key: 'Screen Size',          value: '98 inches' },
       { key: 'Backlight',            value: 'DLED' },
@@ -193,7 +193,7 @@ const products = [
       'https://aztechmea.com/wp-content/uploads/2025/12/5-scaled-1.png',
     ],
     description: 'The Aztech Ideaflow Elite 110" is a flagship large-format interactive display featuring a BOE IPS panel, RK3588 octa-core processor, Android 15, 16GB RAM, 256GB storage, 50MP AI camera with 100.6° FOV, 8-mic array, Wi-Fi 6, and 40-point IR touch — built for large boardrooms and auditoriums.',
-    shortDescription: '110" IPS 4K | Android 15 | 16GB+256GB | 50MP AI Camera | WiFi 6 | BT 5.0 | 400 nits | RK3588',
+    shortDescription: "Fluent Writing Experience\nBuilt-in 50MP AI Camera & Microphone\nBYOM (Bring Your Own Meeting)\nInfinite Detail — 4K UHD IPS Panel\nSeamless Screen Mirroring\nScan To Transfer\nAndroid 15 | 16GB RAM | 256GB Storage",
     specs: [
       { key: 'Screen Size',          value: '110 inches' },
       { key: 'Panel Type',           value: 'IPS (BOE)' },
