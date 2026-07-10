@@ -143,49 +143,80 @@ const visibleProducts = filteredProducts.slice((currentPage - 1) * PAGE_SIZE, cu
         </div>
       </div>
 
-      {/* Category Filter */}
-      {categories.length > 1 && (
-        <div className="border-b border-gray-100 bg-white sticky top-0 z-10">
-          <div className="max-w-7xl mx-auto px-4 py-3 flex items-center gap-2 overflow-x-auto scrollbar-hide">
-            <button
-              onClick={() => selectCategory('')}
-              className={`shrink-0 px-4 py-1.5 rounded-full text-xs font-semibold border transition-colors ${
-                activeCategory === ''
-                  ? 'bg-[#0A1628] text-white border-[#0A1628]'
-                  : 'bg-white text-[#0A1628]/60 border-gray-200 hover:border-[#15A7DC] hover:text-[#15A7DC]'
-              }`}
-            >
-              All
-            </button>
-            {categories.map(cat => (
-              <button
-                key={cat}
-                onClick={() => selectCategory(cat)}
-                className={`shrink-0 px-4 py-1.5 rounded-full text-xs font-semibold border transition-colors whitespace-nowrap ${
-                  activeCategory === cat
-                    ? 'bg-[#15A7DC] text-white border-[#15A7DC]'
-                    : 'bg-white text-[#0A1628]/60 border-gray-200 hover:border-[#15A7DC] hover:text-[#15A7DC]'
-                }`}
-              >
-                {cat}
-              </button>
-            ))}
-          </div>
-        </div>
-      )}
+      {/* Main content: sidebar + grid */}
+      <div ref={gridRef} className="max-w-7xl mx-auto px-4 py-12 flex gap-8 items-start">
 
-      {/* Products Grid */}
-      <div ref={gridRef} className="max-w-7xl mx-auto px-4 py-12">
-        <div className="flex items-center justify-between mb-8">
-          <div>
-            <h2 className="text-lg font-semibold text-[#0A1628]">
-              {activeCategory || 'All Products'}
-            </h2>
-            <p className="text-sm text-gray-400 mt-0.5">
-              Page {currentPage} of {totalPages} · {filteredProducts.length} product{filteredProducts.length !== 1 ? 's' : ''}
-            </p>
+        {/* Sidebar */}
+        {categories.length > 1 && (
+          <aside className="hidden md:block w-52 shrink-0 sticky top-6">
+            <p className="text-[10px] font-bold tracking-widest uppercase text-[#0A1628]/30 mb-3 px-1">Categories</p>
+            <ul className="space-y-0.5">
+              <li>
+                <button
+                  onClick={() => selectCategory('')}
+                  className={`w-full flex items-center justify-between px-3 py-2 rounded-lg text-sm font-medium transition-colors text-left ${
+                    activeCategory === ''
+                      ? 'bg-[#0A1628] text-white'
+                      : 'text-[#0A1628]/60 hover:bg-gray-50 hover:text-[#0A1628]'
+                  }`}
+                >
+                  <span>All</span>
+                  <span className={`text-xs font-semibold tabular-nums ${activeCategory === '' ? 'text-white/60' : 'text-[#0A1628]/30'}`}>
+                    {products.length}
+                  </span>
+                </button>
+              </li>
+              {categories.map(cat => {
+                const count = products.filter((p: any) => p.category === cat).length
+                return (
+                  <li key={cat}>
+                    <button
+                      onClick={() => selectCategory(cat)}
+                      className={`w-full flex items-center justify-between px-3 py-2 rounded-lg text-sm font-medium transition-colors text-left ${
+                        activeCategory === cat
+                          ? 'bg-[#15A7DC]/10 text-[#15A7DC]'
+                          : 'text-[#0A1628]/60 hover:bg-gray-50 hover:text-[#0A1628]'
+                      }`}
+                    >
+                      <span>{cat}</span>
+                      <span className={`text-xs font-semibold tabular-nums ${activeCategory === cat ? 'text-[#15A7DC]/70' : 'text-[#0A1628]/30'}`}>
+                        {count}
+                      </span>
+                    </button>
+                  </li>
+                )
+              })}
+            </ul>
+          </aside>
+        )}
+
+        {/* Products area */}
+        <div className="flex-1 min-w-0">
+          <div className="flex items-center justify-between mb-8">
+            <div>
+              <h2 className="text-lg font-semibold text-[#0A1628]">
+                {activeCategory || 'All Products'}
+              </h2>
+              <p className="text-sm text-gray-400 mt-0.5">
+                Page {currentPage} of {totalPages} · {filteredProducts.length} product{filteredProducts.length !== 1 ? 's' : ''}
+              </p>
+            </div>
+            {/* Mobile category dropdown */}
+            {categories.length > 1 && (
+              <select
+                value={activeCategory}
+                onChange={e => selectCategory(e.target.value)}
+                className="md:hidden text-xs border border-gray-200 rounded-lg px-3 py-2 text-[#0A1628] bg-white"
+              >
+                <option value="">All ({products.length})</option>
+                {categories.map(cat => (
+                  <option key={cat} value={cat}>
+                    {cat} ({products.filter((p: any) => p.category === cat).length})
+                  </option>
+                ))}
+              </select>
+            )}
           </div>
-        </div>
 
         {filteredProducts.length === 0 ? (
           <div className="flex flex-col items-center justify-center py-24 text-center">
@@ -196,7 +227,7 @@ const visibleProducts = filteredProducts.slice((currentPage - 1) * PAGE_SIZE, cu
           </div>
         ) : (
           <>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
               {visibleProducts.map((product: any) => (
                 <Link
                   key={product._id}
@@ -295,7 +326,8 @@ const visibleProducts = filteredProducts.slice((currentPage - 1) * PAGE_SIZE, cu
 )}
           </>
         )}
-      </div>
+        </div>{/* end products area */}
+      </div>{/* end sidebar+grid flex */}
     </main>
   )
 }
