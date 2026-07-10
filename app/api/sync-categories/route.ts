@@ -12,6 +12,7 @@ const categoriesToEnsure = [
   'Cables & Chargers',
   'Cases',
   'Gaming Peripherals',
+  'Liquid Coolers',
   'Power Extensions',
 ];
 
