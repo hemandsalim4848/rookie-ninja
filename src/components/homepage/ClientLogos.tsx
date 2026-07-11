@@ -19,8 +19,10 @@ const clients = [
   { name: "Dahua",   logo: "/logos/dahua-logo.png" },
   { name: "Fujitsu",    logo: "/logos/fujitsu-logo.svg" },
   { name: "Aerocool",   logo: "/logos/aerocool-logo.svg" },
-  { name: "Rowe",    logo: "/logos/rowe-logo.png" },
-  
+  // { name: "Rowe",    logo: "/logos/rowe-logo.png" },
+  { name: "Ezofis",   logo: "/logos/ezofis-logo.png" },
+  { name: "Ricoh",    logo: "/logos/ricoh-logo.svg" },
+  { name: "Readiris", logo: "/logos/iris-logo.svg" },
 ];
 
 export default function ClientLogos() {

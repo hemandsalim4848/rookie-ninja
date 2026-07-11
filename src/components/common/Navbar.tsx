@@ -310,7 +310,8 @@ const closeQuote = () => {
             </button>
 
             {/* Phone */}
-            <button
+            <a
+              href="tel:+97142965256"
               title="Call us"
               className={`w-8 h-8 rounded-lg border flex items-center
                           justify-center cursor-pointer transition-all duration-200
@@ -318,10 +319,11 @@ const closeQuote = () => {
                             ? 'border-navy/15 text-navy/50 hover:bg-navy/[0.06] hover:text-navy hover:border-navy/25'
                             : 'text-white hover:text-white/70 hover:bg-white/[0.1] hover:text-white hover:border-white/25'}`}>
               <PhoneIcon />
-            </button>
+            </a>
 
             {/* Email */}
-            <button
+            <a
+              href="mailto:sales@rookie-ninja.com"
               title="Email us"
               className={`w-8 h-8 rounded-lg border flex items-center
                           justify-center cursor-pointer transition-all duration-200
@@ -329,7 +331,7 @@ const closeQuote = () => {
                             ? 'border-navy/15 text-navy/50 hover:bg-navy/[0.06] hover:text-navy hover:border-navy/25'
                             : 'text-white hover:text-white/70 hover:bg-white/[0.1] hover:text-white hover:border-white/25'}`}>
               <EmailIcon />
-            </button>
+            </a>
 
             {/* CTA */}
             <button
@@ -470,14 +472,14 @@ const closeQuote = () => {
   Request a Quote
 </button>
           <div className="flex gap-2.5">
-            <a href="#"
+            <a href="tel:+97142965256"
                className="flex-1 flex items-center justify-center gap-2 py-2.5
                           rounded-xl border border-gray-200 text-navy/60
                           font-body text-[13px] no-underline transition-all
                           hover:bg-gray-50 hover:text-navy">
               <PhoneIconDark /> Call Us
             </a>
-            <a href="#"
+            <a href="mailto:sales@rookie-ninja.com"
                className="flex-1 flex items-center justify-center gap-2 py-2.5
                           rounded-xl border border-gray-200 text-navy/60
                           font-body text-[13px] no-underline transition-all

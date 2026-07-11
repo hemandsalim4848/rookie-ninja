@@ -5,40 +5,23 @@ import { useEffect, useRef, useState, useCallback } from 'react';
 const slides = [
   {
     id: 1,
-    label: 'Value Added Distribution',
-    heading: 'Empowering the',
-    highlight: 'Middle East & Africa',
+    label: 'Middle East & Africa',
+    heading: 'Value Added',
+    highlight: 'Distribution',
     sub: 'Cutting-edge technology solutions and world-class distribution partnerships across MEA.',
     image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=1800&q=80',
     cta: { label: 'Contact Us', href: '/contact' },
-    ctaGhost: { label: 'View Portfolio', href: '/portfolio' },
+    ctaGhost: { label: 'Explore Products', href: '/catalogue' },
   },
   {
     id: 2,
-    label: 'Technology Distribution',
-    heading: 'Connecting Brands to',
-    highlight: 'Channel Partners',
+    label: 'Adept . Agile . Awesome',
+    heading: 'Trusted By',
+    highlight: 'Leading Brands',
     sub: 'We represent the best-known IT brands — delivering sales, pre-sales and after-sales support across 42+ countries.',
     image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1800&q=80',
     cta: { label: 'Our Vendors', href: '/our-vendors' },
-    ctaGhost: { label: 'Learn More', href: '/about' },
   },
-  {
-    id: 3,
-    label: 'Adept · Agile · Awesome',
-    heading: 'A Partner Built for',
-    highlight: 'Your Growth',
-    sub: 'From print and scan to cybersecurity and gaming — we distribute across every major IT category with speed and precision.',
-    image: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=1800&q=80',
-    cta: { label: 'Our Solutions', href: '/portfolio' },
-    ctaGhost: { label: 'Why Rookie Ninja', href: '/about' },
-  },
-];
-
-const stats = [
-  { target: 15, label: 'Years Active'    },
-  { target: 40, label: 'Vendor Partners' },
-  { target: 12, label: 'Countries'       },
 ];
 
 export default function Hero() {
@@ -196,15 +179,17 @@ export default function Hero() {
               {slide.cta.label}
               <ArrowIcon />
             </a>
-            <a href={slide.ctaGhost.href}
-               className="inline-flex items-center justify-center gap-2
-                          font-body text-sm text-white/70
-                          border border-white/[0.15] px-6 py-3.5 rounded-xl
-                          no-underline transition-all duration-200
-                          hover:text-white hover:border-white/[0.3]
-                          hover:bg-white/[0.07]">
-              {slide.ctaGhost.label}
-            </a>
+            {slide.ctaGhost && (
+              <a href={slide.ctaGhost.href}
+                 className="inline-flex items-center justify-center gap-2
+                            font-body text-sm text-white/70
+                            border border-white/[0.15] px-6 py-3.5 rounded-xl
+                            no-underline transition-all duration-200
+                            hover:text-white hover:border-white/[0.3]
+                            hover:bg-white/[0.07]">
+                {slide.ctaGhost.label}
+              </a>
+            )}
           </div>
 
         </div>

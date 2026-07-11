@@ -167,18 +167,15 @@ export default function AboutSection() {
           {/* Body */}
           <p className="font-body text-gray-500 leading-[1.75] mb-8"
              style={{ fontSize: '15px' }}>
-            We are a next-generation Value Added Distributor (VAD), driving
-            innovation for global vendors and channel ecosystems. Our focus is on
-            delivering cutting-edge tech solutions that empower businesses to
-            thrive in a dynamic world.
+            Rookie Ninja is a Value-Added Distributor serving the Middle East and Africa, with a portfolio spanning computing, information management, scan, print, components, gaming, networking, audio-visual, and IT accessories. We connect channel partners, VARs, and system integrators with some of the best-known IT brands, backed by reliable sales, pre-sales, and after-sales support.
           </p>
 
           {/* Stats row */}
           <div className="flex items-center gap-8 flex-wrap">
             {[
-              { value: '20+', label: 'Years Experience' },
-              { value: '50+', label: 'Global Vendors'   },
-              { value: '15+', label: 'Countries Served' },
+              { value: '8+', label: 'Years Experience' },
+              { value: '20+', label: 'Global Vendors'   },
+              { value: '42+', label: 'Countries Served' },
             ].map(({ value, label }) => (
               <div key={label} className="flex flex-col">
                 <span className="font-display font-bold text-navy"
@@ -192,21 +189,6 @@ export default function AboutSection() {
               </div>
             ))}
           </div>
-
-          {/* CTA */}
-          <a href="/about"
-             className="mt-8 inline-flex items-center gap-2 font-body font-medium
-                        text-accent border border-accent/40 px-5 py-2.5 rounded-xl
-                        transition-all duration-200 no-underline
-                        hover:bg-accent hover:text-white hover:border-accent
-                        hover:-translate-y-px"
-             style={{ fontSize: '13px' }}>
-            Learn More
-            <svg width="12" height="12" viewBox="0 0 16 16" fill="none">
-              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor"
-                    strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
-          </a>
         </div>
 
       </div>
