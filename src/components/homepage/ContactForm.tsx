@@ -29,11 +29,11 @@ const ContactSection = () => {
 
           {/* Company */}
           <div className="flex flex-col gap-2">
-            <label className="text-sm font-semibold text-navy ml-1">Company</label>
+            <label className="text-sm font-semibold text-navy ml-1">Company *</label>
             <input 
               type="text" 
               placeholder="Your Company"
-              className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-accent focus:ring-1 focus:ring-accent outline-none transition-all placeholder:text-gray-300"
+              className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-accent focus:ring-1 focus:ring-accent outline-none transition-all placeholder:text-gray-300" required
             />
           </div>
 
@@ -50,11 +50,11 @@ const ContactSection = () => {
 
           {/* Phone */}
           <div className="flex flex-col gap-2">
-            <label className="text-sm font-semibold text-navy ml-1">Phone Number</label>
+            <label className="text-sm font-semibold text-navy ml-1">Phone Number *</label>
             <input 
               type="tel" 
               placeholder="+971 50 123 4567"
-              className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-accent focus:ring-1 focus:ring-accent outline-none transition-all placeholder:text-gray-300"
+              className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-accent focus:ring-1 focus:ring-accent outline-none transition-all placeholder:text-gray-300" required
             />
           </div>
 

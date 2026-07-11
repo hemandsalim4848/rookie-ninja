@@ -111,7 +111,7 @@ export default function Footer() {
 
               {/* Contact details */}
               <div className="flex flex-col gap-3">
-                <a href="tel:+97144000000"
+                <a href="tel:+97142965256"
                    className="flex items-center gap-2.5 no-underline
                               text-white/50 hover:text-accent
                               transition-colors duration-200 group w-fit">
@@ -125,10 +125,10 @@ export default function Footer() {
                             strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
                   </span>
-                  <span className="font-body text-[13px]">+971 4 400 0000</span>
+                  <span className="font-body text-[13px]">+971 4 296 5256</span>
                 </a>
 
-                <a href="mailto:info@rookieninja.com"
+                <a href="mailto:sales@rookie-ninja.com"
                    className="flex items-center gap-2.5 no-underline
                               text-white/50 hover:text-accent
                               transition-colors duration-200 group w-fit">
@@ -143,7 +143,7 @@ export default function Footer() {
                             strokeWidth="1.3" strokeLinecap="round" fill="none"/>
                     </svg>
                   </span>
-                  <span className="font-body text-[13px]">info@rookieninja.com</span>
+                  <span className="font-body text-[13px]">sales@rookie-ninja.com</span>
                 </a>
               </div>
 

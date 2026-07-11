@@ -6,10 +6,8 @@ import TrialSection from "@/src/components/homepage/TrialSection"
 import SolutionsSection from "@/src/components/homepage/SolutionsOffer";
 import StatementSection from "@/src/components/homepage/StatementSection";
 import VideoTrial from "@/src/components/homepage/VideoTrial"
-import PartnerVendorSection from "@/src/components/homepage/PartnerVendorSection";
 import MediaEventsSection from "@/src/components/homepage/MediaEvents";
 import ContactForm from "@/src/components/homepage/ContactForm";
-import StatementSectionII from "@/src/components/homepage/StatementSectionII";
 
 export default function Home() {
   return (
@@ -21,9 +19,7 @@ export default function Home() {
 <SolutionsSection/>
 <StatementSection/>
 <VideoTrial/>
-<PartnerVendorSection/>
 {/* <MediaEventsSection/> */}
-      <StatementSectionII/>
       <ContactForm/>
       <Footer/>
       

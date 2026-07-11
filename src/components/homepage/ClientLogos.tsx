@@ -46,7 +46,7 @@ export default function ClientLogos() {
     <span className="block w-8 h-px bg-accent shrink-0" />
     <span className="font-body text-[11px] font-medium
                      tracking-[0.22em] uppercase text-accent">
-      Trusted by leading brands
+      Brands we represent
     </span>
     <span className="block w-8 h-px bg-accent shrink-0" />
   </div>

@@ -1,6 +1,4 @@
-import Navbar from '@/src/components/common/Navbar';
-import Footer from '@/src/components/common/Footer';
-import ComponentsPage from '@/src/components/solutions/Components';
+import { notFound } from 'next/navigation';
 
 export const metadata = {
   title: 'Components | Rookie Ninja',
@@ -8,11 +6,5 @@ export const metadata = {
 };
 
 export default function Components() {
-  return (
-    <>
-      <Navbar />
-      <ComponentsPage/>
-      <Footer />
-    </>
-  );
+  notFound();
 }

@@ -229,7 +229,6 @@ const closeQuote = () => {
                         <LightDropItem icon={<ScanIcon />}        label="Scan"                 href="/scan-solutions"        />
                         <LightDropItem icon={<ElectronicsIcon />} label="Consumer Electronics" href="/consumer-electronics" />
                         <LightDropItem icon={<GamingIcon />}      label="Gaming"               href="/gaming"      />
-                        <LightDropItem icon={<ComponentsIcon />}  label="Components"           href="/components"  />
                         <LightDropItem icon={<SoftwareIcon />}    label="Software"             href="/software"    />
                         <LightDropItem icon={<AVIcon />}          label="Audio Visual"         href="/audio-visual"          />
                         <LightDropItem icon={<AccessoriesIcon />} label="IT Accessories"       href="/it-accessories" />
@@ -416,7 +415,6 @@ const closeQuote = () => {
           <MobSubLink href="/scan-solutions"        icon={<ScanIconDark />}        label="Scan"                 />
           <MobSubLink href="/consumer-electronics" icon={<ElectronicsIconDark />} label="Consumer Electronics" />
           <MobSubLink href="/gaming"      icon={<GamingIconDark />}      label="Gaming"               />
-          <MobSubLink href="/components"  icon={<ComponentsIconDark />}  label="Components"           />
           <MobSubLink href="/software"    icon={<SoftwareIconDark />}    label="Software"             />
           <MobSubLink href="/audio-visual"          icon={<AVIconDark />}          label="Audio Visual"         />
           <MobSubLink href="/it-accessories" icon={<AccessoriesIconDark />} label="IT Accessories"       />
