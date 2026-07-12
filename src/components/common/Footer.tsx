@@ -32,7 +32,7 @@ const footerLinks = {
 const socials = [
   {
     label: 'LinkedIn',
-    href: '#',
+    href: 'https://www.linkedin.com/company/rookieninjagt',
     icon: (
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
            stroke="currentColor" strokeWidth="1.8"
@@ -45,7 +45,7 @@ const socials = [
   },
   {
     label: 'Facebook',
-    href: '#',
+    href: 'https://www.facebook.com/rookieninjagt/',
     icon: (
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
            stroke="currentColor" strokeWidth="1.8"
@@ -56,7 +56,7 @@ const socials = [
   },
   {
     label: 'Instagram',
-    href: '#',
+    href: 'https://www.instagram.com/rookieninjagt/',
     icon: (
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
            stroke="currentColor" strokeWidth="1.8"
@@ -69,7 +69,7 @@ const socials = [
   },
   {
     label: 'YouTube',
-    href: '#',
+    href: 'https://www.youtube.com/channel/UCe35-aiD4yXjXyIfP9HUZuw',
     icon: (
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
            stroke="currentColor" strokeWidth="1.8"
@@ -151,6 +151,7 @@ export default function Footer() {
               <div className="flex items-center gap-2">
                 {socials.map((s) => (
                   <a key={s.label} href={s.href} title={s.label}
+                     target="_blank" rel="noopener noreferrer"
                      className="w-8 h-8 rounded-lg bg-white/[0.06]
                                 text-white/40 flex items-center justify-center
                                 transition-all duration-200
