@@ -4,9 +4,7 @@ import { Brand } from '@/src/lib/models/Brands'
 
 export async function GET() {
   try {
-    console.log('MONGODB_URI:', process.env.MONGODB_URI)
     await connectDB()
-    console.log('DB CONNECTED')
     const brands = await Brand.find().sort({ name: 1 })
     return NextResponse.json(brands)
   } catch (err: any) {
