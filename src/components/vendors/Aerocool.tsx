@@ -22,7 +22,7 @@ const heroSlides = [
     accentLine: 1,
     desc: 'Aerocool gaming cases combine striking ARGB aesthetics with smart airflow engineering — built for builders who demand both performance and style.',
     cta: { label: 'Explore Cases', href: '/aerocool', solid: true },
-    bg: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1781989335/rookie-ninja/products/Designer-V2-Product-Gallery-4.webp',
+    bg: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1781989335/rookie-ninja/products/Designer-V2-Product-Gallery-4.webp',
   },
   {
     id: 'psu',
@@ -31,7 +31,7 @@ const heroSlides = [
     accentLine: 0,
     desc: 'From 80PLUS Bronze to Platinum — Aerocool PSUs deliver reliable, efficient power with low-noise operation for every build tier.',
     cta: { label: 'View PSUs', href: '/aerocool', solid: false },
-    bg: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1781989408/rookie-ninja/products/Mirage-Gold-850W-Fully-Modular-Gallery-Image-5-removebg-preview.webp',
+    bg: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1781989408/rookie-ninja/products/Mirage-Gold-850W-Fully-Modular-Gallery-Image-5-removebg-preview.webp',
   },
 ];
 
@@ -43,7 +43,7 @@ const caseCards = [
     tag: 'ARGB Mid Tower',
     title: 'Designer-G V2',
     desc: 'A striking ARGB mid-tower with 4 pre-installed ARGB fans, full tempered glass panel, and support for ATX, Micro and Mini ATX builds.',
-    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1781989335/rookie-ninja/products/Designer-V2-Product-Gallery-4.webp',
+    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1781989335/rookie-ninja/products/Designer-V2-Product-Gallery-4.webp',
     href: '/aerocool/aerocool-case-designer-g-bk-v2-argb-4-atx-micro-mini-atx',
     features: ['4× ARGB fans pre-installed', 'ATX / Micro / Mini ATX support', 'Full tempered glass side panel', 'Cable management routing', 'Supports 240mm radiator'],
   },
@@ -51,7 +51,7 @@ const caseCards = [
     tag: 'Flow Series',
     title: 'B508A / B509A Flow-G',
     desc: 'The Flow-G series delivers maximum airflow with a mesh front panel, ARGB fans, and an open interior — available in Black and White.',
-    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1781989260/rookie-ninja/products/B508A-bk-Infographics-1_1-removebg-preview.webp',
+    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1781989260/rookie-ninja/products/B508A-bk-Infographics-1_1-removebg-preview.webp',
     href: '/aerocool/aerocool-b508a-flow-g-bk-v1',
     features: ['Mesh front panel for max airflow', 'ARGB fan hub included', 'Available in Black & White', 'Tempered glass side panel', 'ATX / Micro / Mini ATX support'],
   },
@@ -59,7 +59,7 @@ const caseCards = [
     tag: 'Compact Tower',
     title: 'Dryft-G BK v2',
     desc: 'A compact and versatile tower with support for ATX, Micro ATX, and Mini ITX builds — designed for smaller setups without sacrificing cooling.',
-    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1781989346/rookie-ninja/products/Drift-BK-V2Product-Gallery-4.jpg',
+    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1781989346/rookie-ninja/products/Drift-BK-V2Product-Gallery-4.jpg',
     href: '/aerocool/aerocool-case-dryft-g-bk-v2-atx-micro-mini-itx',
     features: ['Supports ATX / Micro / Mini ITX', 'Compact sleek profile', 'Tempered glass panel', 'Cable management tray', 'Top and side ventilation'],
   },
@@ -67,7 +67,7 @@ const caseCards = [
     tag: 'Mid Tower',
     title: 'P500C-G',
     desc: 'A clean mid-tower with a panoramic tempered glass panel and efficient cable management — available in Black and White to match any build.',
-    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1781989355/rookie-ninja/products/P500C-bk-product-gallery-1.webp',
+    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1781989355/rookie-ninja/products/P500C-bk-product-gallery-1.webp',
     href: '/aerocool/aerocool-case-p500c-g-bk-v1',
     features: ['Full tempered glass side panel', 'Available in Black & White', 'Cable management routing', 'Supports up to 360mm radiator', 'Tool-less drive installation'],
   },
@@ -82,13 +82,13 @@ const psuTabData = {
     desc: 'Fully modular design means only the cables you need — cleaner builds, better airflow, and easier upgrades.',
     products: [
       {
-        image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1781989376/rookie-ninja/products/Integrator-Gold-750W-Gallery-Images-05.webp',
+        image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1781989376/rookie-ninja/products/Integrator-Gold-750W-Gallery-Images-05.webp',
         title: 'Integrator Gold 750W',
         intro: 'Aerocool branded 80PLUS Gold certified fully modular PSU for mid-to-high-end builds.',
         bullets: ['80PLUS Gold certified', 'Fully modular cables', '750W continuous power', 'Active PFC', 'Low-noise fan'],
       },
       {
-        image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1781989408/rookie-ninja/products/Mirage-Gold-850W-Fully-Modular-Gallery-Image-5-removebg-preview.webp',
+        image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1781989408/rookie-ninja/products/Mirage-Gold-850W-Fully-Modular-Gallery-Image-5-removebg-preview.webp',
         title: 'Mirage Gold 850W',
         intro: 'Aerocool Mirage Gold — 850W fully modular PSU with premium Gold efficiency and clean power delivery.',
         bullets: ['80PLUS Gold certified', 'Fully modular flat cables', '850W continuous output', 'Overvoltage & short-circuit protection', 'Semi-passive fan mode'],
@@ -100,7 +100,7 @@ const psuTabData = {
     desc: 'Reliable, no-fuss power delivery with wide-voltage compatibility — built for everyday gaming builds in the MEA market.',
     products: [
       {
-        image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1781989389/rookie-ninja/products/Lux-550W-Photo-Gallery-1042x589-01.webp',
+        image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1781989389/rookie-ninja/products/Lux-550W-Photo-Gallery-1042x589-01.webp',
         title: 'LUX 750W 230V APFC',
         intro: 'Aerocool LUX — an APFC-equipped 750W PSU with wide-voltage compatibility for the MEA market.',
         bullets: ['Active PFC (APFC)', '750W continuous power', '230V input optimised', 'Universal protections suite', 'Quiet 120mm sleeve bearing fan'],

@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
+import { cld } from '@/src/lib/cloudinaryUrl';
 
 const d = {
   accent: '#E31837',
@@ -174,7 +175,7 @@ export default function DahuaPage() {
   function getImg(series: typeof CONFERENCE_SERIES[0] | typeof EDUCATION_SERIES[0]): string {
     const sizeIdx = activeSize[series.id] ?? 0;
     const slug    = series.sizes[sizeIdx]?.slug || '';
-    return imgs[slug]?.[0] || '';
+    return cld(imgs[slug]?.[0]) || '';
   }
 
   /* ── Hero animation ── */

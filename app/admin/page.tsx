@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { connectDB } from '@/src/lib/mongodb'
 import { Brand } from '@/src/lib/models/Brands'
 import { Product } from '@/src/lib/models/Products'
+import { cld } from '@/src/lib/cloudinaryUrl'
 
 
 export default async function AdminDashboard() {
@@ -54,7 +55,7 @@ export default async function AdminDashboard() {
             {recentProducts.map((p: any) => (
               <div key={p._id} className="flex items-center gap-3">
                 {p.images?.[0] ? (
-                  <img src={p.images[0]} alt="" className="w-9 h-9 rounded-lg object-cover border border-gray-100 shrink-0" />
+                  <img src={cld(p.images[0])} alt="" className="w-9 h-9 rounded-lg object-cover border border-gray-100 shrink-0" />
                 ) : (
                   <div className="w-9 h-9 rounded-lg bg-gray-50 border border-gray-100 flex items-center justify-center text-sm shrink-0">📦</div>
                 )}

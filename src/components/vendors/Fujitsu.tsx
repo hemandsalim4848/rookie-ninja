@@ -22,7 +22,7 @@ const heroSlides = [
     accentLine: 1,
     desc: 'The Fujitsu DL4850+ delivers high-speed 24-pin SIDM printing for wide-carriage industrial and business forms — built for continuous, high-volume environments.',
     cta: { label: 'View DL4850+', href: '#printers', solid: true, productIdx: 0 },
-    bg: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1783429060/dl4850-img_01_en-1200x800_ulvffs.webp',
+    bg: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1783429060/dl4850-img_01_en-1200x800_ulvffs.webp',
   },
   {
     id: 'dl3100',
@@ -31,7 +31,7 @@ const heroSlides = [
     accentLine: 0,
     desc: 'The Fujitsu DL3100 offers dependable 9-pin dot matrix printing for receipts, invoices and multi-part forms — compact, efficient, and easy to deploy.',
     cta: { label: 'View DL3100', href: '#printers', solid: false, productIdx: 1 },
-    bg: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1783429060/dl3100-img01-1200x800_f2ilzg.webp',
+    bg: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1783429060/dl3100-img01-1200x800_f2ilzg.webp',
   },
 ];
 
@@ -42,7 +42,7 @@ const printers = [
     title:    'DL4850+',
     subtitle: 'Fujitsu SIDM Printer',
     intro:    'High-speed 24-pin wide-carriage SIDM printer designed for demanding business environments — handles multi-part forms, invoices, and industrial continuous paper with precision.',
-    image:    'https://res.cloudinary.com/df52xzi3y/image/upload/v1783429060/dl4850-img_01_en-1200x800_ulvffs.webp',
+    image:    'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1783429060/dl4850-img_01_en-1200x800_ulvffs.webp',
     bullets: [
       '24-pin SIDM print head',
       'Up to 600 cps (draft) / 200 cps (LQ)',
@@ -71,7 +71,7 @@ const printers = [
     title:    'DL3100',
     subtitle: 'Fujitsu Dot Matrix Printer',
     intro:    'Compact 9-pin dot matrix printer for everyday business printing — reliable multi-part form handling, low running costs, and straightforward deployment for any office.',
-    image:    'https://res.cloudinary.com/df52xzi3y/image/upload/v1783429060/dl3100-img01-1200x800_f2ilzg.webp',
+    image:    'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1783429060/dl3100-img01-1200x800_f2ilzg.webp',
     bullets: [
       '9-pin dot matrix print head',
       'Up to 450 cps (draft) / 80 cps (NLQ)',

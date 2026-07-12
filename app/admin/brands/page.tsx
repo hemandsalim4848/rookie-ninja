@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
+import { cld } from '@/src/lib/cloudinaryUrl'
 
 const PAGE_SIZE = 10
 
@@ -127,7 +128,7 @@ export default function AdminBrandsPage() {
                 <td className="px-6 py-4">
                   <div className="flex items-center gap-3">
                     {brand.logo ? (
-                      <img src={brand.logo} alt="" className="h-6 w-12 object-contain" />
+                      <img src={cld(brand.logo)} alt="" className="h-6 w-12 object-contain" />
                     ) : (
                       <div className="h-6 w-6 rounded bg-[#15A7DC]/10 flex items-center justify-center text-[10px] font-bold text-[#15A7DC]">
                         {brand.name?.[0]}

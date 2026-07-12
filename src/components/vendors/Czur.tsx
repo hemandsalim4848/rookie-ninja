@@ -17,7 +17,7 @@ const heroSlides = [
     accentLine: 1,
     desc: 'CZUR intelligent overhead scanners capture books, documents, and IDs in seconds — with auto-flattening, OCR, and zero binding damage.',
     cta: { label: 'Explore Scanners', href: '#book-scanners', solid: true },
-    bg: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1781893191/rookie-ninja/products/et.webp',
+    bg: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1781893191/rookie-ninja/products/et.webp',
   },
   {
     id: 'conference',
@@ -44,7 +44,7 @@ const bookScanners = [
       'OCR in 180+ languages',
       'PDF, Word, Excel export',
     ],
-    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1781893186/rookie-ninja/products/lg_1000p_481c29e8-feb5-4e60-ae72-62cebe1d7d29.webp',
+    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1781893186/rookie-ninja/products/lg_1000p_481c29e8-feb5-4e60-ae72-62cebe1d7d29.webp',
     slug: 'czur-aura-pro-portable-book-scanner',
   },
   {
@@ -59,7 +59,7 @@ const bookScanners = [
       'Laser-assisted curve flattening',
       'OCR in 180+ languages',
     ],
-    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1783074480/rookie-ninja/products/jh4qvcedqqzyt2sbjgjz.webp',
+    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1783074480/rookie-ninja/products/jh4qvcedqqzyt2sbjgjz.webp',
     slug: 'czur-aura-x-pro-portable-book-scanner',
   },
 ];
@@ -71,14 +71,14 @@ const etTabs = {
     desc: 'Flagship overhead scanners built for offices, institutions, and content creators who need high-speed capture, intelligent correction, and real-time HDMI presentation in a single device.',
     products: [
       {
-        image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1781893191/rookie-ninja/products/et.webp',
+        image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1781893191/rookie-ninja/products/et.webp',
         title: 'CZUR ET Max',
         intro: 'Two pages in 1.5s, ABBYY OCR, HDMI out — built for high-volume office and institutional scanning.',
         bullets: ['16–38MP | Two pages in 1.5s', 'A3 support | Anti-reflection LED', 'OCR by ABBYY — 180+ languages', 'HDMI + Zoom compatible', 'Barcode & QR recognition'],
         slug: 'czur-et-max',
       },
       {
-        image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1781893206/rookie-ninja/products/CZUR-ET-ULTRA.webp',
+        image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1781893206/rookie-ninja/products/CZUR-ET-ULTRA.webp',
         title: 'CZUR ET Ultra',
         intro: 'Smart overhead scanning with auto page-turn detection, finger removal, and live visual presenter capability.',
         bullets: ['Dual-page capture in 1.5s | A3', 'Smart tilt + auto-crop', 'Finger removal + page completion', 'HDMI output | Zoom compatible', 'Batch PDF + auto-scan mode'],
@@ -91,14 +91,14 @@ const etTabs = {
     desc: 'Ultra-high-resolution professional scanners with 3-laser alignment, dual LED side lighting, and hands-free operation — for the most demanding document digitisation workflows.',
     products: [
       {
-        image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1781893215/rookie-ninja/products/et-24-pro.webp',
+        image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1781893215/rookie-ninja/products/et-24-pro.webp',
         title: 'CZUR ET24 Pro',
         intro: '24MP with 3-laser alignment and dual LED lighting — the professional benchmark for A3 scanning.',
         bullets: ['24MP CMOS | 5696×4272', '~1.5s per page | A3 support', '3-laser alignment | Dual LED + side lights', 'Hand button + foot pedal', 'PDF, Word, Excel export'],
         slug: 'czur-et24-pro',
       },
       {
-        image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1781893230/rookie-ninja/products/et-25-pro-bg.webp',
+        image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1781893230/rookie-ninja/products/et-25-pro-bg.webp',
         title: 'CZUR ET25 Pro',
         intro: '25MP ultra-clear — the highest resolution in the ET series, with fixed-focus optics and Linux support.',
         bullets: ['25MP CMOS | 5824×4368', 'Fixed-focus optics | Dual LED + side lights', '3-laser alignment | ~1.5s scan', 'HDMI full HD output', 'Windows, macOS & Linux'],
@@ -111,14 +111,14 @@ const etTabs = {
     desc: 'Reliable smart scanning for offices, libraries, schools, and personal archives — with professional-grade image processing and full HD HDMI presentation.',
     products: [
       {
-        image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1781893209/rookie-ninja/products/lg_1000p_ddc092c5-f57b-4efb-90f8-8ffcd996dd99.webp',
+        image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1781893209/rookie-ninja/products/lg_1000p_ddc092c5-f57b-4efb-90f8-8ffcd996dd99.webp',
         title: 'CZUR ET16 Plus',
         intro: '16MP smart book scanner with ABBYY OCR and HDMI output — ideal for offices and classroom presentations.',
         bullets: ['16MP CMOS | A3 support up to 480×360mm', '~1.5s scan speed', 'OCR by ABBYY — 180+ languages', 'Auto curve flattening + finger removal', 'Full HD HDMI visual presenter'],
         slug: 'czur-et16-plus-smart-book-scanner',
       },
       {
-        image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1781893209/rookie-ninja/products/lg_1000p_ddc092c5-f57b-4efb-90f8-8ffcd996dd99.webp',
+        image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1781893209/rookie-ninja/products/lg_1000p_ddc092c5-f57b-4efb-90f8-8ffcd996dd99.webp',
         title: 'CZUR ET18 Pro',
         intro: '18MP with auto page-turn detection — scans a full book hands-free with intelligent correction at every step.',
         bullets: ['18MP CMOS | A3 support', 'Auto page-turn detection', 'Auto curve flattening, tilt correction', 'OCR in 180+ languages', 'Full HD HDMI visual presenter'],
@@ -144,7 +144,7 @@ const compactScanners = [
       'OCR 180+ languages | PDF, Word, Excel export',
       'Foot pedal control | Windows & macOS',
     ],
-    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1781893280/rookie-ninja/products/lg_1000p_abbf0dcb-f25a-41e0-9293-87ab66b74ecc.webp',
+    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1781893280/rookie-ninja/products/lg_1000p_abbf0dcb-f25a-41e0-9293-87ab66b74ecc.webp',
     slug: 'czur-shine-ultra-portable-scanner',
   },
   {
@@ -161,7 +161,7 @@ const compactScanners = [
       'OCR 180+ languages | PDF, Word, Excel export',
       'Foldable aluminium arm — portable design',
     ],
-    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1781893286/rookie-ninja/products/61ds0n1Y7ZL__AC_SX466_.webp',
+    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1781893286/rookie-ninja/products/61ds0n1Y7ZL__AC_SX466_.webp',
     slug: 'czur-shine-ultra-pro-24mp-document-scanner',
   },
   {
@@ -178,7 +178,7 @@ const compactScanners = [
       'Auto-crop, tilt correction, background purification',
       'Visual presenter + video recording',
     ],
-    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1781893268/rookie-ninja/products/lg_1000p_22f82602-4ebf-4425-afb3-3470afe03cfe.webp',
+    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1781893268/rookie-ninja/products/lg_1000p_22f82602-4ebf-4425-afb3-3470afe03cfe.webp',
     slug: 'czur-lens-1200-pro',
   },
   {
@@ -195,7 +195,7 @@ const compactScanners = [
       'OCR 180+ languages | PDF, Word, Excel, TIFF',
       '2.4-inch LCD display | Foot pedal + hand button',
     ],
-    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1781893276/rookie-ninja/products/lg_1000p_48ec2413-e4e2-48a8-879f-ae472aabad60.webp',
+    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1781893276/rookie-ninja/products/lg_1000p_48ec2413-e4e2-48a8-879f-ae472aabad60.webp',
     slug: 'czur-m3000-pro-v3-pro-book-scanner',
   },
 ];
@@ -237,7 +237,7 @@ const mfTabs = [
           'Built-in microphone',
           'Adjustable LED lighting',
         ],
-        image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1781893235/rookie-ninja/products/d4318ff39996531f594cf0978cb3c9e0_1024x1024.webp',
+        image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1781893235/rookie-ninja/products/d4318ff39996531f594cf0978cb3c9e0_1024x1024.webp',
         slug: 'czur-fancy-s-pro',
       },
       {
@@ -251,7 +251,7 @@ const mfTabs = [
           'Built-in microphone',
           'USB plug-and-play | Windows & macOS',
         ],
-        image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1781893257/rookie-ninja/products/41LRQRCqCyL__SL1500_.webp',
+        image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1781893257/rookie-ninja/products/41LRQRCqCyL__SL1500_.webp',
         slug: 'czur-halo-x-pro',
       },
     ],

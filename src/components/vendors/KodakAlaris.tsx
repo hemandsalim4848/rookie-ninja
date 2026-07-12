@@ -27,7 +27,7 @@ const heroSlides = [
     accentLine: 1,
     desc: 'Eliminate manual document processing with Kodak Alaris intelligent capture and automation software — built for every department, every workflow.',
     cta: { label: 'Explore Software', href: '#software-solutions', solid: true },
-    bg: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1782152344/i4x50-Photo-Using-the-Scanner-Closeup.png-1_nvl59w.webp',
+    bg: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1782152344/i4x50-Photo-Using-the-Scanner-Closeup.png-1_nvl59w.webp',
   },
   {
     id: 'scanners',
@@ -36,7 +36,7 @@ const heroSlides = [
     accentLine: 1,
     desc: 'From compact office scanners to ultra-fast production workhorses — Kodak Alaris delivers reliable, high-accuracy scanning for every environment.',
     cta: { label: 'View Scanners', href: '#office-scanners', solid: false },
-    bg: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1782152343/Scanner-Lifestyle.jpg_m2cwhg.webp',
+    bg: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1782152343/Scanner-Lifestyle.jpg_m2cwhg.webp',
   },
 ];
 
@@ -53,7 +53,7 @@ const officeScanners = [
       'Modular passport and legal flatbed available',
     ],
     intro: 'Fast, reliable desktop scanning for front-office and customer-facing workflows.',
-    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1782152343/alaris_e1035_scanner-sq.jpg_rhpnuw.webp',
+    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1782152343/alaris_e1035_scanner-sq.jpg_rhpnuw.webp',
     links: [
       { label: 'E1030', href: '/kodak-alaris/kodak-e1030-document-scanner' },
       { label: 'E1040', href: '/kodak-alaris/kodak-e1040-document-scanner' },
@@ -71,7 +71,7 @@ const officeScanners = [
       'Surepath™ intelligent document feed technology',
     ],
     intro: 'Professional sheet-fed solutions with robust feeding and embedded image processing.',
-    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1782152343/S2000_bss1gy.webp',
+    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1782152343/S2000_bss1gy.webp',
     links: [
       { label: 'S2050', href: '/kodak-alaris/kodak-s2050-scanner' },
       { label: 'S2070', href: '/kodak-alaris/kodak-s2070-scanner' },
@@ -85,7 +85,7 @@ const networkData = {
     heading: 'Shared Network Scanners',
     desc: 'Productive shared network scanning for up to 20 jobs per department — with zero IT complexity. Wi-Fi and Ethernet ready out of the box, featuring embedded image processing and Dual Light Illumination.',
     products: [{
-      image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1782152342/alaris-passport-flatbed-accessory.jpg_iply8c.webp',
+      image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1782152342/alaris-passport-flatbed-accessory.jpg_iply8c.webp',
       title: 'S2000w Series',
       bullets: [
         'S2060w — 60ppm | 80 Sheet ADF',
@@ -105,7 +105,7 @@ const networkData = {
     heading: 'Standalone Scanners',
     desc: 'PC-free scanning kiosks that are powerful, secure, and ready to deploy straight out of the box — no connected PC, no complex IT setup required.',
     products: [{
-      image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1782152344/kodak-alaris-scanstation-730ex-scanner_ezu73d.webp',
+      image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1782152344/kodak-alaris-scanstation-730ex-scanner_ezu73d.webp',
       title: 'Scan Station 730EX Plus',
       bullets: [
         '70ppm | 75 Sheet ADF',
@@ -137,7 +137,7 @@ const productionScanners = [
       'Surepath™ intelligent document feed technology',
       'USB and wired Ethernet',
     ],
-    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1782152342/S3140_Max_Scanner.png_z3oyry.webp?h=7e49063a&itok=2zMnsBE8',
+    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1782152342/S3140_Max_Scanner.png_z3oyry.webp?h=7e49063a&itok=2zMnsBE8',
     imageLabel: 'S3000 Series',
     links: [
       { label: 'S3060', href: '/kodak-alaris/kodak-s3060-scanner' },
@@ -159,7 +159,7 @@ const productionScanners = [
       'Surepath™ intelligent document feed technology',
       'Unlimited duty cycle',
     ],
-    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1782152342/i5650_Scanner.png_x5s8cs.webp?h=7e49063a&itok=5jJvezef',
+    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1782152342/i5650_Scanner.png_x5s8cs.webp?h=7e49063a&itok=5jJvezef',
     imageLabel: 'i4000 / i5000 Series',
     links: [
       { label: 'i4650', href: '/kodak-alaris/kodak-i4650-scanner' },
@@ -184,7 +184,7 @@ const productionScanners = [
       { label: 'S5180', href: '/kodak-alaris/kodak-s5180-scanner' },
       { label: 'S5210', href: '/kodak-alaris/kodak-s5210-scanner' },
     ],
-    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1782152342/03_S5160_HERO_LF_closed.png_t4eh6p.webp?h=60f9f39d&itok=TJpEOnkT',
+    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1782152342/03_S5160_HERO_LF_closed.png_t4eh6p.webp?h=60f9f39d&itok=TJpEOnkT',
     imageLabel: 'S5000 Series',
   },
 ];
@@ -905,7 +905,7 @@ export default function KodakAlarisPage() {
                 <p style={{ fontSize: 13, color: '#6b7280', lineHeight: 1.75, margin: 0 }}>Each flatbed accessory is designed to seamlessly pair with your existing scanner — expanding what&apos;s possible without adding complexity.</p>
                 <div style={{ borderRadius: 8, overflow: 'hidden', border: '1px solid #e5e7eb', marginTop: 4 }}>
                   {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src="https://res.cloudinary.com/df52xzi3y/image/upload/v1782152342/Flatbed-accessories_nr62qn.webp"
+                  <img src="https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1782152342/Flatbed-accessories_nr62qn.webp"
                        alt="Flatbed Accessories"
                        style={{ width: '100%', height: 200, objectFit: 'cover', display: 'block' }} />
                 </div>

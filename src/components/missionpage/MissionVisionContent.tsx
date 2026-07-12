@@ -7,7 +7,7 @@ const missionPoints = [
   {
     title: 'Staying Ahead of the Curve',
     body: 'In the fast-paced world of IT, staying ahead is crucial. We anticipate industry trends and proactively adapt to the changing technological landscape — embracing emerging technologies, identifying market shifts, and navigating new opportunities with agility and precision.',
-    image: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=800&q=80',
+    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1783857793/photo-1519389950473-47ba0277781c_jnqvro.jpg',
     icon: (
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
            stroke="currentColor" strokeWidth="1.6"
@@ -20,7 +20,7 @@ const missionPoints = [
   {
     title: 'Driving Customer Satisfaction',
     body: 'Customer satisfaction is at the heart of everything we do. Our dedicated team goes the extra mile to ensure every interaction, every delivery, and every solution exceeds expectations. We listen, we respond, and we continuously improve.',
-    image: 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&q=80',
+    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1783857793/photo-1600880292203-757bb62b4baf_cmbjv2.jpg',
     icon: (
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
            stroke="currentColor" strokeWidth="1.6"
@@ -34,7 +34,7 @@ const missionPoints = [
   {
     title: 'Delivering Exceptional Value',
     body: 'We believe true success is achieved when we create win-win scenarios for all parties. Through comprehensive distribution services, tailored solutions, and competitive pricing, we maximize the value our partners derive from our collaboration.',
-    image: 'https://images.unsplash.com/photo-1521791136064-7986c2920216?w=800&q=80',
+    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1783857793/photo-1521791136064-7986c2920216_ylsv1g.jpg',
     icon: (
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
            stroke="currentColor" strokeWidth="1.6"
@@ -46,7 +46,7 @@ const missionPoints = [
   {
     title: 'Cultivating a Culture of Excellence',
     body: 'We foster a culture of hard work, continuous improvement, and relentless pursuit of excellence. Through ongoing training, personal development, and a supportive environment, our passionate professionals push boundaries and achieve greatness.',
-    image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&q=80',
+    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1783857792/photo-1522202176988-66273c2fd55f_z45ye6.jpg',
     icon: (
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
            stroke="currentColor" strokeWidth="1.6"
@@ -58,7 +58,7 @@ const missionPoints = [
   {
     title: 'Empowering Success Through Collaboration',
     body: 'We believe in the power of collaboration to drive success. By establishing strong partnerships with suppliers, resellers, and end-users, we foster a supportive ecosystem that thrives on mutual growth through open communication and shared goals.',
-    image: 'https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?w=800&q=80',
+    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1783857792/photo-1582213782179-e0d53f98f2ca_ibz3ip.jpg',
     icon: (
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
            stroke="currentColor" strokeWidth="1.6"
@@ -72,7 +72,7 @@ const missionPoints = [
   {
     title: 'Providing Unparalleled Reliability',
     body: 'Reliability is the cornerstone of our mission. We consistently deliver on our promises, meet deadlines, and exceed expectations — with attention to detail, prompt response times, and a steadfast commitment to dependable service at every step.',
-    image: 'https://images.unsplash.com/photo-1521791136064-7986c2920216?w=800&q=80',
+    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1783857793/photo-1521791136064-7986c2920216_ylsv1g.jpg',
     icon: (
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
            stroke="currentColor" strokeWidth="1.6"

@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
+import { cld } from '@/src/lib/cloudinaryUrl';
 
 const d = {
   accent: '#C41E3A',
@@ -272,7 +273,7 @@ export default function DeliPage() {
         {heroSlides.map((s, i) => (
           <div key={s.id} className="ka-slide"
                style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', opacity: i === heroIdx ? 1 : 0, transition: 'opacity 0.9s cubic-bezier(0.77,0,0.175,1)', zIndex: i === heroIdx ? 2 : 1 }}>
-            <div style={{ position: 'absolute', inset: 0, backgroundImage: heroBgs[i] ? `url('${heroBgs[i]}')` : undefined, backgroundSize: 'cover', backgroundPosition: 'center', transform: i === heroIdx ? 'scale(1)' : 'scale(1.06)', transition: 'transform 6s ease', filter: 'brightness(0.35)' }} />
+            <div style={{ position: 'absolute', inset: 0, backgroundImage: heroBgs[i] ? `url('${cld(heroBgs[i])}')` : undefined, backgroundSize: 'cover', backgroundPosition: 'center', transform: i === heroIdx ? 'scale(1)' : 'scale(1.06)', transition: 'transform 6s ease', filter: 'brightness(0.35)' }} />
             <div className="ka-vignette" style={{ position: 'absolute', inset: 0, background: 'linear-gradient(90deg, rgba(0,0,0,0.75) 38%, transparent 80%)' }} />
             <div className="ka-hero-container" style={{ position: 'relative', zIndex: 3, width: '100%', maxWidth: 1140, margin: '0 auto', padding: '0 20px' }}>
               <div className="ka-hero-content" style={{ maxWidth: 560, opacity: i === heroIdx ? 1 : 0, transform: i === heroIdx ? 'translateY(0)' : 'translateY(24px)', transition: 'opacity 0.7s ease 0.4s, transform 0.7s ease 0.4s' }}>
@@ -343,7 +344,7 @@ export default function DeliPage() {
                 {activeImages[activeThumb] ? (
                   /* eslint-disable-next-line @next/next/no-img-element */
                   <img
-                    src={activeImages[activeThumb]}
+                    src={cld(activeImages[activeThumb])}
                     alt={activePrinter.title}
                     style={{ width: '100%', height: '100%', objectFit: 'contain', opacity: imgFade ? 0 : 1, transition: 'opacity 0.28s ease' }}
                   />
@@ -357,7 +358,7 @@ export default function DeliPage() {
                 <div style={{ display: 'flex', gap: 8, marginTop: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
                   {activeImages.slice(0, 5).map((img, idx) => (
                     /* eslint-disable-next-line @next/next/no-img-element */
-                    <img key={idx} src={img} alt="" onClick={() => switchThumb(idx)}
+                    <img key={idx} src={cld(img)} alt="" onClick={() => switchThumb(idx)}
                          style={{ width: 52, height: 52, objectFit: 'contain', borderRadius: 8, background: '#fff', border: `2px solid ${idx === activeThumb ? d.accent : '#e5e7eb'}`, padding: 4, cursor: 'pointer', transition: 'border-color 0.2s' }}
                          onMouseEnter={e => { (e.currentTarget as HTMLImageElement).style.borderColor = d.accent; }}
                          onMouseLeave={e => { (e.currentTarget as HTMLImageElement).style.borderColor = idx === activeThumb ? d.accent : '#e5e7eb'; }} />

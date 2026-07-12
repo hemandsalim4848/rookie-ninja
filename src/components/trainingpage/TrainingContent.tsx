@@ -17,7 +17,7 @@ const programs = [
       'Customer psychology & buying behaviour',
       'Negotiation & closing skills',
     ],
-    image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80',
+    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1783857792/photo-1552664730-d307ca884978_ecgfia.jpg',
     icon: (
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
            stroke="currentColor" strokeWidth="1.6"
@@ -39,7 +39,7 @@ const programs = [
       'Competitive landscape analysis',
       'Trusted advisor certification',
     ],
-    image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80',
+    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1783857311/photo-1518770660439-4636190af475_t7ldup.jpg',
     icon: (
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
            stroke="currentColor" strokeWidth="1.6"
@@ -62,7 +62,7 @@ const programs = [
       'Performance coaching sessions',
       'Personal development planning',
     ],
-    image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&q=80',
+    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1783857792/photo-1522202176988-66273c2fd55f_z45ye6.jpg',
     icon: (
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
            stroke="currentColor" strokeWidth="1.6"
@@ -86,7 +86,7 @@ const programs = [
       'Co-selling & co-marketing skills',
       'Partner certification pathways',
     ],
-    image: 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&q=80',
+    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1783857793/photo-1600880292203-757bb62b4baf_cmbjv2.jpg',
     icon: (
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
            stroke="currentColor" strokeWidth="1.6"
@@ -109,7 +109,7 @@ const programs = [
       'Real-world use case walkthroughs',
       'Interactive Q&A and networking',
     ],
-    image: 'https://images.unsplash.com/photo-1558008258-3256797b43f3?w=800&q=80',
+    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1783857788/photo-1558008258-3256797b43f3_cyuzf0.jpg',
     icon: (
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
            stroke="currentColor" strokeWidth="1.6"

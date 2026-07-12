@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
+import { cld } from '@/src/lib/cloudinaryUrl';
 
 const ms = {
   accent: '#e4001b',
@@ -237,7 +238,7 @@ export default function MSIPage() {
         {heroSlides.map((s, i) => (
           <div key={s.id} className="ka-slide"
                style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', opacity: i === heroIdx ? 1 : 0, transition: 'opacity 0.9s cubic-bezier(0.77,0,0.175,1)', zIndex: i === heroIdx ? 2 : 1 }}>
-            <div style={{ position: 'absolute', inset: 0, backgroundImage: heroBgs[i] ? `url('${heroBgs[i]}')` : undefined, backgroundSize: 'cover', backgroundPosition: 'center', transform: i === heroIdx ? 'scale(1)' : 'scale(1.06)', transition: 'transform 6s ease', filter: 'brightness(0.38)' }} />
+            <div style={{ position: 'absolute', inset: 0, backgroundImage: heroBgs[i] ? `url('${cld(heroBgs[i])}')` : undefined, backgroundSize: 'cover', backgroundPosition: 'center', transform: i === heroIdx ? 'scale(1)' : 'scale(1.06)', transition: 'transform 6s ease', filter: 'brightness(0.38)' }} />
             <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(90deg, rgba(0,0,0,0.72) 38%, transparent 80%)' }} />
             <div className="ka-hero-container" style={{ position: 'relative', zIndex: 3, width: '100%', maxWidth: 1220, margin: '0 auto', padding: '0 20px' }}>
               <div className="ka-hero-content"
@@ -306,7 +307,7 @@ export default function MSIPage() {
                      onMouseLeave={e => { const el = e.currentTarget as HTMLDivElement; el.style.transform = 'translateY(0)'; el.style.boxShadow = '0 2px 16px rgba(0,0,0,0.06)'; }}>
                   <div style={{ width: '100%', height: 180, background: '#f8fafc', display: 'flex', alignItems: 'center', justifyContent: 'center', borderBottom: '1px solid #f1f5f9' }}>
                     {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src={gpu.images?.[0]} alt={gpu.name} style={{ width: '100%', height: '100%', objectFit: 'contain', padding: 14 }} />
+                    <img src={cld(gpu.images?.[0])} alt={gpu.name} style={{ width: '100%', height: '100%', objectFit: 'contain', padding: 14 }} />
                   </div>
                   <div style={{ padding: '18px 18px 22px', display: 'flex', flexDirection: 'column', flex: 1 }}>
                     <p style={{ fontSize: 10, fontWeight: 700, color: ms.accent, textTransform: 'uppercase', letterSpacing: 1.2, marginBottom: 6 }}>GeForce</p>
@@ -419,7 +420,7 @@ export default function MSIPage() {
                      onMouseEnter={e => { const el = e.currentTarget as HTMLDivElement; el.style.transform = 'translateY(-3px)'; el.style.boxShadow = '0 8px 24px rgba(0,0,0,0.1)'; }}
                      onMouseLeave={e => { const el = e.currentTarget as HTMLDivElement; el.style.transform = 'translateY(0)'; el.style.boxShadow = 'none'; }}>
                   {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={mb.images?.[0]} alt={mb.name} style={{ width: '100%', height: 200, objectFit: 'contain', marginBottom: 16, borderRadius: 6 }} />
+                  <img src={cld(mb.images?.[0])} alt={mb.name} style={{ width: '100%', height: 200, objectFit: 'contain', marginBottom: 16, borderRadius: 6 }} />
                   <h4 style={{ fontSize: 13, fontWeight: 700, color: ms.text, margin: '0 0 8px', lineHeight: 1.3 }}>{mb.name}</h4>
                   <p style={{ fontSize: 11, color: ms.dim, marginBottom: 14, lineHeight: 1.5, flex: 1 }}>{mb.shortDescription?.split('\n')[0] || ''}</p>
                   <a href={`/msi/${mb.slug}`}

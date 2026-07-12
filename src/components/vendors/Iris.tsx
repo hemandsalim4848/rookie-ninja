@@ -74,7 +74,7 @@ function IrisForm() {
 // ── data ──────────────────────────────────────────────────────────────────────
 const slides = [
   {
-    bg: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1782334329/RIPDF25-combine_merge-630x450-min_zn74de.webp',
+    bg: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1782334329/RIPDF25-combine_merge-630x450-min_zn74de.webp',
     badge: 'IRIS PDF Software',
     line1: 'PDF Work,',
     line2: 'Simplified.',
@@ -83,7 +83,7 @@ const slides = [
     btnHref: '#pdf-features',
   },
   {
-    bg: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1782334328/RIPDF25-edit_PDF-630x450-min_xdabbm.webp',
+    bg: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1782334328/RIPDF25-edit_PDF-630x450-min_xdabbm.webp',
     badge: 'Two Editions Available',
     line1: 'Essential',
     line2: 'or Elite.',
@@ -95,7 +95,7 @@ const slides = [
 
 const featureCards = [
   {
-    img: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1782334328/RIPDF25-convert_to_PDF-630x450-min_xvnave.webp',
+    img: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1782334328/RIPDF25-convert_to_PDF-630x450-min_xvnave.webp',
     tag: 'Convert & Extract',
     title: 'PDF Format Converter & Text Extraction',
     desc: 'Transform documents into 40+ output formats with AI-powered OCR in 138 languages — preserving formatting, fonts, and layout.',
@@ -108,7 +108,7 @@ const featureCards = [
     ],
   },
   {
-    img: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1782334328/RIPDF25-edit_PDF-630x450-min_xdabbm.webp',
+    img: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1782334328/RIPDF25-edit_PDF-630x450-min_xdabbm.webp',
     tag: 'Edit & Annotate',
     title: 'Edit, Annotate & Stamp PDF',
     desc: 'Add, delete, or edit text directly in existing PDFs. Apply stamps, markup overlays, comments, and review notes without altering the source document.',
@@ -121,7 +121,7 @@ const featureCards = [
     ],
   },
   {
-    img: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1782334329/RIPDF25-combine_merge-630x450-min_zn74de.webp',
+    img: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1782334329/RIPDF25-combine_merge-630x450-min_zn74de.webp',
     tag: 'Organise & Secure',
     title: 'Merge, Split, Redact & Share',
     desc: 'Combine multiple documents into one PDF, split large files into focused sub-files, scrub sensitive data, and share securely to the cloud.',
@@ -140,7 +140,7 @@ const editions = [
     label: 'Entry Edition',
     title: 'Readiris PDF Essential',
     slug: 'readiris-pdf-essential',
-    img: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1782334328/RIPDF25-convert_to_PDF-630x450-min_xvnave.webp',
+    img: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1782334328/RIPDF25-convert_to_PDF-630x450-min_xvnave.webp',
     intro: 'A complete PDF suite for everyday professionals.',
     bullets: [
       'Scan & OCR in 138 languages',
@@ -156,7 +156,7 @@ const editions = [
     label: 'Advanced Edition',
     title: 'Readiris PDF Elite',
     slug: 'readiris-pdf-elite',
-    img: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1782334328/RIPDF25-whats_new-600x407-min_jhmsqj.webp',
+    img: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1782334328/RIPDF25-whats_new-600x407-min_jhmsqj.webp',
     intro: 'All Essential features, plus advanced automation for power users and businesses.',
     bullets: [
       'Batch document conversion',

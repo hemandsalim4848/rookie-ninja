@@ -27,7 +27,7 @@ const heroSlides = [
     accentLine: 1,
     desc: 'From ultra-large interactive flat panels to digital signage and audio — Aztech transforms how teams collaborate, learn, and communicate.',
     cta: { label: 'Explore Display & Audio', href: '#display-audio', solid: true },
-    bg: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1783687223/Banner-13_fldjp6.webp',
+    bg: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1783687223/Banner-13_fldjp6.webp',
   },
   {
     id: 'gaming',
@@ -36,7 +36,7 @@ const heroSlides = [
     accentLine: 1,
     desc: 'Pro-grade gaming peripherals and high-efficiency power supplies — built for peak performance and absolute reliability.',
     cta: { label: 'Explore Gaming', href: '#gaming', solid: false },
-    bg: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1783687222/ifp-1_f7hbi0.webp',
+    bg: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1783687222/ifp-1_f7hbi0.webp',
   },
 ];
 
@@ -46,7 +46,7 @@ const ifpCards = [
     tag: 'Interactive Flat Panel',
     title: 'Ideaflow Bright Series',
     desc: 'Ultra-bright 4K interactive displays for classrooms and collaborative workspaces — responsive multi-touch with crystal-clear visuals across four sizes.',
-    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1783680061/aztech-aztech-ideaflow-bright-75-4k-interactive-display-0-AZTECH-Smart-Interacti.jpg',
+    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1783680061/aztech-aztech-ideaflow-bright-75-4k-interactive-display-0-AZTECH-Smart-Interacti.jpg',
     features: ['Available in 55", 65", 75" and 86"', '4K Ultra-HD Resolution', 'Multi-touch Interactive Surface', 'Built-in Android OS', 'Wireless Screen Sharing'],
     links: [
       { label: '55"', href: '/aztech/aztech-ideaflow-bright-55-4k-interactive-display' },
@@ -59,7 +59,7 @@ const ifpCards = [
     tag: 'Ultra-Large Format',
     title: 'Ideaflow 98" & Elite 110"',
     desc: 'Commanding large-format 4K interactive displays for boardrooms, lecture halls, and high-impact environments — from 98" up to a massive 110".',
-    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1783680076/aztech-aztech-ideaflow-elite-110-4k-interactive-display-0-Ideaflow.png',
+    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1783680076/aztech-aztech-ideaflow-elite-110-4k-interactive-display-0-Ideaflow.png',
     features: ['Available in 98" and 110"', '4K Ultra-HD Resolution', 'Advanced Multi-touch Technology', 'Built-in Android OS', 'Professional AV Connectivity'],
     links: [
       { label: 'Ideaflow 98"', href: '/aztech/aztech-ideaflow-98-4k-interactive-display' },
@@ -82,7 +82,7 @@ const soundbars = [
       'Compact, Wall-Mountable Design',
       'Ideal for Displays up to 75"',
     ],
-    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1783680083/aztech-aztech-201-soundbar-with-wired-subwoofer-0-Product-images_Soundbar-2-1-01.jpg',
+    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1783680083/aztech-aztech-201-soundbar-with-wired-subwoofer-0-Product-images_Soundbar-2-1-01.jpg',
     links: [{ label: 'AZTECH 201 Soundbar', href: '/aztech/aztech-201-soundbar-with-wired-subwoofer' }],
   },
   {
@@ -97,7 +97,7 @@ const soundbars = [
       'Multiple Connectivity Options',
       'Ideal for Large Conference Rooms',
     ],
-    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1783680092/aztech-aztech-501-soundbar-with-wired-subwoofer-0-Product-images_Soundbar-5-1-01.jpg',
+    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1783680092/aztech-aztech-501-soundbar-with-wired-subwoofer-0-Product-images_Soundbar-5-1-01.jpg',
     links: [{ label: 'AZTECH 501 Soundbar', href: '/aztech/aztech-501-soundbar-with-wired-subwoofer' }],
   },
 ];
@@ -109,14 +109,14 @@ const cablesData = {
     desc: 'High-performance USB-C to USB-C cables built for speed — supporting up to 240W fast charging and data transfer with durable braided construction.',
     products: [
       {
-        image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1783682017/aztech-aztech-hypercable-usb-c-60w-1m-black-0-Product-images_Cable-01-76.jpg',
+        image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1783682017/aztech-aztech-hypercable-usb-c-60w-1m-black-0-Product-images_Cable-01-76.jpg',
         title: 'HyperCable USB-C 60W',
         intro: 'Fast 60W USB-C charging cable with braided design — compact 1m length.',
         bullets: ['60W Fast Charging', 'USB-C to USB-C', 'Durable Braided Design', '1 Meter Length'],
         links: [{ label: 'HyperCable 60W 1m', href: '/aztech/aztech-hypercable-usb-c-60w-1m-black' }],
       },
       {
-        image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1783682039/aztech-aztech-hypercable-usb-c-240w-1m-black-0-WhatsApp-Image-2024-12-17-at-12-4.jpg',
+        image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1783682039/aztech-aztech-hypercable-usb-c-240w-1m-black-0-WhatsApp-Image-2024-12-17-at-12-4.jpg',
         title: 'HyperCable USB-C 240W',
         intro: 'Ultra-fast 240W USB-C cable — available in 1m Black and 2m Titanium.',
         bullets: ['240W Ultra-Fast Charging', 'USB-C to USB-C', 'Braided for Durability', '1m Black / 2m Titanium'],
@@ -132,14 +132,14 @@ const cablesData = {
     desc: 'GaN technology delivers more power in a smaller footprint — multi-port chargers up to 70W for fast, efficient home and office charging.',
     products: [
       {
-        image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1783682027/aztech-aztech-gan-ii-hypercharger-dual-ports-45w-0-Product-images_Gan2-01.jpg',
+        image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1783682027/aztech-aztech-gan-ii-hypercharger-dual-ports-45w-0-Product-images_Gan2-01.jpg',
         title: 'GaN II HyperCharger 45W',
         intro: 'Dual-port 45W GaN charger with Quick Charge 3.0 — compact and travel-ready.',
         bullets: ['45W Power Output', 'USB-C + USB-A Dual Ports', 'GaN Technology', 'Quick Charge 3.0'],
         links: [{ label: 'GaN II 45W', href: '/aztech/aztech-gan-ii-hypercharger-dual-ports-45w' }],
       },
       {
-        image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1783682020/aztech-aztech-gan-hypercharger-3-ports-70w-0-Product-images_Gan3-01.jpg',
+        image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1783682020/aztech-aztech-gan-hypercharger-3-ports-70w-0-Product-images_Gan3-01.jpg',
         title: 'GaN HyperCharger 70W',
         intro: 'Powerful 70W triple-port GaN charger — charge three devices simultaneously.',
         bullets: ['70W Power Output', '2× USB-C + 1× USB-A', 'GaN Technology', 'Light Indicator'],
@@ -152,14 +152,14 @@ const cablesData = {
     desc: 'High-power GaN car chargers delivering up to 95W — keep all your devices charged on the move without slowing down.',
     products: [
       {
-        image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1783682038/aztech-aztech-gan-car-hypercharger-dual-ports-95w-0-Product-images_Car-Charger-0.jpg',
+        image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1783682038/aztech-aztech-gan-car-hypercharger-dual-ports-95w-0-Product-images_Car-Charger-0.jpg',
         title: 'Car HyperCharger 95W Dual',
         intro: 'Dual-port 95W GaN car charger — one USB-C + one USB-A.',
         bullets: ['95W Power Output', 'USB-C + USB-A', 'GaN Technology', 'Light Indicator'],
         links: [{ label: 'Car 95W Dual', href: '/aztech/aztech-gan-car-hypercharger-dual-ports-95w' }],
       },
       {
-        image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1783682032/aztech-aztech-gan-car-hypercharger-3-ports-95w-0-Product-images_Car-Charger2-02-.jpg',
+        image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1783682032/aztech-aztech-gan-car-hypercharger-3-ports-95w-0-Product-images_Car-Charger2-02-.jpg',
         title: 'Car HyperCharger 95W 3-Port',
         intro: 'Triple-port 95W GaN car charger — two USB-C and one USB-A for maximum versatility.',
         bullets: ['95W Power Output', '2× USB-C + 1× USB-A', 'GaN Technology', 'Light Indicator'],
@@ -185,7 +185,7 @@ const psuSeries = [
       'Low Noise Fan Operation',
       'Full Protection Suite (OVP / UVP / OCP / SCP)',
     ],
-    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1781989087/rookie-ninja/products/ALPHA-1000W-FM-01-1.jpg',
+    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1781989087/rookie-ninja/products/ALPHA-1000W-FM-01-1.jpg',
     imageLabel: 'ALPHA Series',
     links: [
       { label: '650W', href: '/aztech/alpha-650w-80plus-gold-fully-modular-power-supply-unit' },
@@ -209,7 +209,7 @@ const psuSeries = [
       'Universal AC Input',
       'Full Protection Suite',
     ],
-    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1781989136/rookie-ninja/products/NOVA-80PLUS-WHITE-01.jpg',
+    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1781989136/rookie-ninja/products/NOVA-80PLUS-WHITE-01.jpg',
     imageLabel: 'NOVA Series',
     links: [
       { label: 'NOVA 650W NM', href: '/aztech/nova-650w-white-non-modular-power-supply-unit-psu' },
@@ -231,7 +231,7 @@ const psuSeries = [
       'Flat Cables for Optimal Airflow',
       'Full Protection Suite',
     ],
-    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1781989188/rookie-ninja/products/Artboard-11-1.jpg',
+    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1781989188/rookie-ninja/products/Artboard-11-1.jpg',
     imageLabel: 'OMEGA Series',
     links: [
       { label: '1050W', href: '/aztech/omega-1050w-80plus-platinum-fully-modular-power-supply-unit-psu' },
@@ -253,7 +253,7 @@ const psuSeries = [
       'DC-to-DC Converter Design',
       'Full Protection Suite',
     ],
-    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1781989195/rookie-ninja/products/PRIME-80PLUS-FM-01.jpg',
+    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1781989195/rookie-ninja/products/PRIME-80PLUS-FM-01.jpg',
     imageLabel: 'PRIME Series',
     links: [
       { label: 'PRIME 650W FM', href: '/aztech/prime-650w-80plus-bronze-fully-modular-power-supply-unit' },

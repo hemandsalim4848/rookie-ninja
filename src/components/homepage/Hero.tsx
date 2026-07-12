@@ -9,7 +9,7 @@ const slides = [
     heading: 'Value Added',
     highlight: 'Distribution',
     sub: 'Cutting-edge technology solutions and world-class distribution partnerships across MEA.',
-    image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=1800&q=80',
+    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1783857311/photo-1518770660439-4636190af475_t7ldup.jpg',
     cta: { label: 'Contact Us', href: '/contact' },
     ctaGhost: { label: 'Explore Products', href: '/catalogue' },
   },
@@ -19,7 +19,7 @@ const slides = [
     heading: 'Trusted By',
     highlight: 'Leading Brands',
     sub: 'We represent the best-known IT brands — delivering sales, pre-sales and after-sales support across 42+ countries.',
-    image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1800&q=80',
+    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1783857309/photo-1451187580459-43490279c0fa_nzlxlz.jpg',
     cta: { label: 'Our Vendors', href: '/our-vendors' },
   },
 ];

@@ -28,7 +28,7 @@ const heroSlides = [
     accentWord: 'SCi Series.',
     desc: 'From the compact SCi 25 to the wide-format SCi 42 — SingleSensor™ technology delivering fast, high-quality scanning for CAD, maps, and technical documents.',
     cta: { label: 'View Scanners', href: '#smartlf-sci', solid: true },
-    bg: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1782246611/SmartLF-SCi_42_front_no-stand_w-FADGI_800x600px-556x417-1_rkf9zk.webp',
+    bg: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1782246611/SmartLF-SCi_42_front_no-stand_w-FADGI_800x600px-556x417-1_rkf9zk.webp',
   },
   {
     badge: 'CCD Wide Format',
@@ -36,7 +36,7 @@ const heroSlides = [
     accentWord: 'SGi Series.',
     desc: 'CCD technology without the cost — full high-definition scanning for thick media, maps, artwork, and any type of document in 36" and 44" widths.',
     cta: { label: 'View Scanners', href: '#smartlf-sgi', solid: true },
-    bg: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1782246609/SmartLF-SCi_angled_800x600px-3-556x417-1_efyovn.webp',
+    bg: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1782246609/SmartLF-SCi_angled_800x600px-3-556x417-1_efyovn.webp',
   },
   {
     badge: 'Portable Wide Format',
@@ -44,7 +44,7 @@ const heroSlides = [
     accentWord: 'Scan!',
     desc: "The world's first truly portable wide format scanner — no PC, software, or peripherals needed. Scan on site, wherever the project takes you.",
     cta: { label: 'View Scanners', href: '#smartlf-scan', solid: true },
-    bg: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1782246610/SmartLF-SCi_front_tablet_800x600px-3-556x417-1_gaq6vv.webp',
+    bg: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1782246610/SmartLF-SCi_front_tablet_800x600px-3-556x417-1_gaq6vv.webp',
   },
 ];
 
@@ -62,7 +62,7 @@ const sciCards = [
     title: 'SmartLF SCi 42',
     slug: 'smartlf-sci-42',
     desc: 'Delivers high quality and speed for everyday scanning tasks.',
-    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1782246611/SmartLF-SCi_42_front_no-stand_w-FADGI_800x600px-556x417-1_rkf9zk.webp',
+    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1782246611/SmartLF-SCi_42_front_no-stand_w-FADGI_800x600px-556x417-1_rkf9zk.webp',
     features: [
       'Perfect for engineering, construction, line drawings, maps and plans',
       'Vibrant color and excellent size accuracy',
@@ -78,7 +78,7 @@ const sciCards = [
     title: 'SmartLF SCi 36',
     slug: 'smartlf-sci-36',
     desc: 'Get the job done fast, with no stopping or waiting.',
-    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1782246611/SmartLF-SCi_front_800x600px-3-556x417-1_lqbjfn.webp',
+    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1782246611/SmartLF-SCi_front_800x600px-3-556x417-1_lqbjfn.webp',
     features: [
       'Perfect for engineering, construction, line drawings, maps and plans',
       'Vibrant color and excellent size accuracy',
@@ -94,7 +94,7 @@ const sciCards = [
     title: 'SmartLF SCi 25',
     slug: 'smartlf-sci-25',
     desc: 'High speed and quality for up to 25 inches.',
-    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1782246610/SmartLF-SCi_angled_no-stand_800x600px-556x417-1_siucmm.webp',
+    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1782246610/SmartLF-SCi_angled_no-stand_800x600px-556x417-1_siucmm.webp',
     features: [
       'Perfect for engineering, construction, line drawings, maps and plans',
       'Vibrant color and excellent size accuracy',
@@ -113,7 +113,7 @@ const ivoTabs = [
     label: 'Overview',
     heading: 'SmartLF ivo 6000',
     intro: 'Contact-free large format scanning for artwork, PCBs, textiles, framed pieces, and any delicate or thick media — no physical contact with the original required.',
-    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1783615710/SmartLF-ivo-6000_Contact-free-large-format-art-scanner_Sideview_Artwork_Stock_Teal-image-1_xxo23g.webp',
+    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1783615710/SmartLF-ivo-6000_Contact-free-large-format-art-scanner_Sideview_Artwork_Stock_Teal-image-1_xxo23g.webp',
     cardTitle: 'Contact-Free Scanning',
     slug: 'smartlf-ivo-6000',
     points: [
@@ -129,7 +129,7 @@ const ivoTabs = [
     label: 'Colour Accuracy',
     heading: 'Colour Accuracy',
     intro: 'ICC Color Management powered by X-Rite® combined with closed loop calibration ensures your scanned output is accurately matched to your printer.',
-    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1782246609/FADGI-3-star_800x600px-556x417-1_kqkklm.webp',
+    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1782246609/FADGI-3-star_800x600px-556x417-1_kqkklm.webp',
     cardTitle: 'ICC & X-Rite® Colour',
     points: [
       'ICC Color Management powered by X-Rite®',
@@ -144,7 +144,7 @@ const ivoTabs = [
     label: '3D Lighting',
     heading: '3D Surface Effect',
     intro: 'Four configurable angles of lighting produce a versatile 3D surface effect — revealing texture, relief, and detail invisible under standard flat illumination.',
-    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1782246609/SmartLF-SCi_angled_800x600px-3-556x417-1_efyovn.webp',
+    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1782246609/SmartLF-SCi_angled_800x600px-3-556x417-1_efyovn.webp',
     cardTitle: 'Versatile 3D Lighting',
     points: [
       'Four options for different angles of lighting',
@@ -159,7 +159,7 @@ const ivoTabs = [
     label: 'Compliance',
     heading: 'Standards & Compliance',
     intro: 'The SmartLF ivo 6000 meets the highest digitization standards — FADGI 4-star, ISO 19264-1, and Energy Star 3.0 — for archival and professional use.',
-    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1782246609/Energy-Star_800x600px-556x417-1_tkuu63.webp',
+    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1782246609/Energy-Star_800x600px-556x417-1_tkuu63.webp',
     cardTitle: 'FADGI 4-Star & ISO Certified',
     points: [
       'Complies with FADGI (4 stars) — highest rating',
@@ -185,7 +185,7 @@ const scanItems = [
       'Intended for technical drawings in live projects',
       'Energy Star® compliant',
     ],
-    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1782246609/SmartLF-SCi_angled_no-stand_800x600px-556x417-2_hjmgzn.webp',
+    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1782246609/SmartLF-SCi_angled_no-stand_800x600px-556x417-2_hjmgzn.webp',
     cap: 'SmartLF Scan! 24"',
     slug: 'smartlf-scan',
   },
@@ -203,7 +203,7 @@ const scanItems = [
       'Intended for technical drawings in live projects',
       'Energy Star® compliant',
     ],
-    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1782246609/SmartLF-SCi_front_800x600px-3-556x417-2_manzaq.webp',
+    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1782246609/SmartLF-SCi_front_800x600px-3-556x417-2_manzaq.webp',
     cap: 'SmartLF Scan! 36"',
     slug: 'smartlf-scan',
   },
@@ -215,21 +215,21 @@ const otherCards = [
     title: 'SCi 42 Professional MFP Solution',
     slug: 'smartlf-sci-42-professional-mfp-solution',
     desc: 'Ultra-compact 42" wide format copier for E-size / A0 drawings, combined with SmartWorks TOUCH MFP scan and copy software. Ideal for: Artwork, Blueprints, CAD Drawings, Live Projects, Technical, Site Plans, Posters.',
-    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1782246610/SmartLF-SCi_42_front_no-stand_w-FADGI_800x600px-556x417-2_f3gafa.webp',
+    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1782246610/SmartLF-SCi_42_front_no-stand_w-FADGI_800x600px-556x417-2_f3gafa.webp',
   },
   {
     tag: '36" MFP Solution',
     title: 'SCi 36 Professional MFP Solution',
     slug: 'smartlf-sci-36-professional-mfp-solution',
     desc: 'Flexible wide format document copier for E-size / A0 drawings in a compact footprint, powered by SmartWorks TOUCH MFP. Ideal for: Artwork, Blueprints, CAD Drawings, Live Projects, Technical, Site Plans, Posters.',
-    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1782246609/SmartLF-SCi_front_800x600px-3-556x417-2_manzaq.webp',
+    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1782246609/SmartLF-SCi_front_800x600px-3-556x417-2_manzaq.webp',
   },
   {
     tag: '25" MFP Solution',
     title: 'SCi 25 Professional MFP Solution',
     slug: 'smartlf-sci-25-professional-mfp-solution',
     desc: 'Ultra-compact 25" wide format copier for D-size / A1 drawings, powered by SmartWorks TOUCH MFP. Ideal for: Artwork, Blueprints, CAD Drawings, Live Projects, Technical, Site Plans, Posters.',
-    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1782246609/SmartLF-SCi_angled_no-stand_800x600px-556x417-2_hjmgzn.webp',
+    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1782246609/SmartLF-SCi_angled_no-stand_800x600px-556x417-2_hjmgzn.webp',
   },
 ];
 
@@ -576,7 +576,7 @@ export default function ColortracPage() {
             </div>
             <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
               <img
-                src="https://res.cloudinary.com/df52xzi3y/image/upload/v1782246610/SmartLF-SCi_front_tablet_800x600px-3-556x417-1_gaq6vv.webp"
+                src="https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1782246610/SmartLF-SCi_front_tablet_800x600px-3-556x417-1_gaq6vv.webp"
                 alt="SmartLF SGi Series"
                 style={{ width: '100%', maxWidth: 420, height: isMobile ? 200 : isTablet ? 240 : 320, objectFit: 'contain', borderRadius: 16 }}
               />

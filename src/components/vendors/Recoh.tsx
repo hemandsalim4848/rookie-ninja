@@ -27,7 +27,7 @@ const heroSlides = [
     accentLine: 1,
     desc: 'The Ricoh ScanSnap series turns paper chaos into searchable, organised digital files at the touch of a button — built for home offices and small teams.',
     cta: { label: 'View ScanSnap Series', href: '#scansnap-series', solid: true },
-    bg: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1783696920/PSAI_Hero_1000x800_vpfd5j.webp',
+    bg: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1783696920/PSAI_Hero_1000x800_vpfd5j.webp',
   },
   {
     id: 'fiseries',
@@ -36,7 +36,7 @@ const heroSlides = [
     accentLine: 1,
     desc: 'From compact desktop workhorses to ultra-fast production scanners — the Ricoh fi Series delivers industry-leading reliability for every workflow.',
     cta: { label: 'View fi Series', href: '#fi-7000-series', solid: false },
-    bg: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1783696012/recoh-hero-fi8170-desk.png',
+    bg: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1783696012/recoh-hero-fi8170-desk.png',
   },
 ];
 
@@ -53,7 +53,7 @@ const scanSnapScanners = [
       'Direct scan-to-cloud, no PC required',
     ],
     intro: 'The flagship ScanSnap — fastest in the series, with a touch screen and direct cloud scanning.',
-    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1783695907/recoh-ix2500.png',
+    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1783695907/recoh-ix2500.png',
     links: [
       { label: 'Official Product Page', href: 'https://www.pfu-us.ricoh.com/scanners/scansnap/ix2500' },
     ],
@@ -70,7 +70,7 @@ const scanSnapScanners = [
       'Searchable PDF, JPEG & Office file export',
     ],
     intro: 'ScanSnap’s simplest experience yet — scan, save and share at the push of a button.',
-    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1783695908/recoh-ix2400.jpg',
+    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1783695908/recoh-ix2400.jpg',
     links: [
       { label: 'Official Product Page', href: 'https://www.pfu-us.ricoh.com/scanners/scansnap/ix2400' },
     ],
@@ -83,7 +83,7 @@ const fi7000Data = {
     desc: 'Compact, connected scanners built for the front office — Wi-Fi, Ethernet and cloud-ready out of the box, with or without a connected PC.',
     products: [
       {
-        image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1783695909/recoh-fi7300nx.jpg',
+        image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1783695909/recoh-fi7300nx.jpg',
         title: 'fi-7300NX',
         intro: 'Flexible network scanner — simplifies scanning and reduces IT costs with Wi-Fi and Ethernet connectivity.',
         bullets: [
@@ -95,7 +95,7 @@ const fi7000Data = {
         links: [{ label: 'Official Product Page', href: 'https://www.pfu-us.ricoh.com/scanners/fi/fi-7300nx' }],
       },
       {
-        image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1783695912/recoh-fi7300nx-edge.jpg',
+        image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1783695912/recoh-fi7300nx-edge.jpg',
         title: 'fi-7300NX EdgeXperience Bundle',
         intro: 'Centralised document management from remote locations — a network scanner bundled with a secure hosted cloud environment.',
         bullets: [
@@ -113,7 +113,7 @@ const fi7000Data = {
     desc: 'High-volume, 300-page hopper scanners engineered for mid-office throughput — fast, double-sided scanning of wide and normal-sized documents.',
     products: [
       {
-        image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1783695910/recoh-fi7600.jpg',
+        image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1783695910/recoh-fi7600.jpg',
         title: 'fi-7600',
         intro: 'A large 300-page hopper and advanced engineering handle wide and normal-size documents at high speed.',
         bullets: [
@@ -125,7 +125,7 @@ const fi7000Data = {
         links: [{ label: 'Official Product Page', href: 'https://www.pfu-us.ricoh.com/scanners/fi/fi-7600' }],
       },
       {
-        image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1783695911/recoh-fi7700.jpg',
+        image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1783695911/recoh-fi7700.jpg',
         title: 'fi-7700',
         intro: 'A fast, double-letter size flatbed joins the 300-page hopper to capture large, delicate and bound documents.',
         bullets: [
@@ -154,7 +154,7 @@ const fi8000Scanners = [
       'Supports USB 3.2 and Ethernet-wired network connections',
       'Federal Government Compliant: TAA Available and EPEAT Gold rated',
     ],
-    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1783695913/recoh-fi8170.jpg',
+    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1783695913/recoh-fi8170.jpg',
     imageLabel: 'fi-8170',
     links: [{ label: 'Official Product Page', href: 'https://www.pfu-us.ricoh.com/scanners/fi/fi-8170' }],
   },
@@ -171,7 +171,7 @@ const fi8000Scanners = [
       'DirectScan — scan to destinations without server software',
       'Federal Government Compliant: TAA and EPEAT Silver rated',
     ],
-    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1783695914/recoh-fi8040.jpg',
+    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1783695914/recoh-fi8040.jpg',
     imageLabel: 'fi-8040',
     links: [{ label: 'Official Product Page', href: 'https://www.pfu-us.ricoh.com/scanners/fi/fi-8040' }],
   },
@@ -188,7 +188,7 @@ const fi8000Scanners = [
       'Stapled Documents Detection prevents feeding stapled paper',
       'Federal Government Compliant: TAA and EPEAT Gold rated',
     ],
-    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1783695915/recoh-fi8950.jpg',
+    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1783695915/recoh-fi8950.jpg',
     imageLabel: 'fi-8950',
     links: [{ label: 'Official Product Page', href: 'https://www.pfu-us.ricoh.com/scanners/fi/fi-8950' }],
   },
@@ -205,7 +205,7 @@ const fi8000Scanners = [
       'Stapled Documents Detection prevents feeding stapled paper',
       'Federal Government Compliant: TAA and EPEAT Gold rated',
     ],
-    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1783695915/recoh-fi8930.jpg',
+    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1783695915/recoh-fi8930.jpg',
     imageLabel: 'fi-8930',
     links: [{ label: 'Official Product Page', href: 'https://www.pfu-us.ricoh.com/scanners/fi/fi-8930' }],
   },
@@ -222,7 +222,7 @@ const fi8000Scanners = [
       'Supports USB 3.2 and LAN network connections',
       'Federal Government Compliant: TAA and EPEAT Gold rated',
     ],
-    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1783695916/recoh-fi8820.jpg',
+    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1783695916/recoh-fi8820.jpg',
     imageLabel: 'fi-8820',
     links: [{ label: 'Official Product Page', href: 'https://www.pfu-us.ricoh.com/scanners/fi/fi-8820' }],
   },
@@ -239,7 +239,7 @@ const fi8000Scanners = [
       'Supports both USB 3.2 and Ethernet wired network connections',
       'Federal Government Compliant: TAA and EPEAT Silver rated',
     ],
-    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1783695917/recoh-fi8190.jpg',
+    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1783695917/recoh-fi8190.jpg',
     imageLabel: 'fi-8190',
     links: [{ label: 'Official Product Page', href: 'https://www.pfu-us.ricoh.com/scanners/fi/fi-8190' }],
   },

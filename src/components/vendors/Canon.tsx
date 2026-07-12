@@ -27,7 +27,7 @@ const heroSlides = [
     accentLine: 1,
     desc: 'From the compact DR-C225II to the high-speed DR-M160II — Canon desktop scanners deliver precision and reliability for every workspace.',
     cta: { label: 'View Scanners', href: '#desktop-scanners', solid: true },
-    bg: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1782244677/desktop-scanners_yiwicw.webp',
+    bg: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1782244677/desktop-scanners_yiwicw.webp',
   },
   {
     badge: 'Cheque Scanners',
@@ -35,7 +35,7 @@ const heroSlides = [
     accentLine: 1,
     desc: 'The Canon CR-190ii UV and CR-120 Series deliver high-speed, accurate cheque processing with UV counterfeit detection for banking environments.',
     cta: { label: 'View Scanners', href: '#cheque-scanners', solid: true },
-    bg: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1782244677/cheque-scanners_qc70ms.webp',
+    bg: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1782244677/cheque-scanners_qc70ms.webp',
   },
   {
     badge: 'Workgroup & Departmental',
@@ -43,7 +43,7 @@ const heroSlides = [
     accentLine: 1,
     desc: 'Canon DR-S130/S150, ScanFront 400, and S350NW — network-ready scanners built for shared office environments and high daily throughput.',
     cta: { label: 'View Scanners', href: '#workgroup-departmental-scanners', solid: true },
-    bg: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1782244677/document-scanners_nzfa4o.webp',
+    bg: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1782244677/document-scanners_nzfa4o.webp',
   },
   {
     badge: 'Production Scanners',
@@ -51,7 +51,7 @@ const heroSlides = [
     accentLine: 1,
     desc: 'The Canon DR-6030C and DR-G2090/G2110/G2140 handle the highest-volume scanning demands with unmatched speed and durability.',
     cta: { label: 'View Scanners', href: '#production-scanners', solid: true },
-    bg: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1782244676/production-scanners_j2btop.webp',
+    bg: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1782244676/production-scanners_j2btop.webp',
   },
 ];
 
@@ -60,7 +60,7 @@ const desktopCards = [
     tag: 'Compact Series',
     title: 'DR-C225II / DR-C340 / DR-C350 / DR-M260',
     desc: 'Space-saving upright feed design for busy front-office environments.',
-    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1782244762/dr-c230-frt_4572bbab70f44e599de7e19f33f5f51e_u2sr3z.webp',
+    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1782244762/dr-c230-frt_4572bbab70f44e599de7e19f33f5f51e_u2sr3z.webp',
     features: [
       'DR-C225II — 25ppm | 30 Sheet ADF',
       'DR-C340 — 40ppm | 100 Sheet ADF',
@@ -78,7 +78,7 @@ const desktopCards = [
     tag: 'High Speed Desktop',
     title: 'DR-M160II',
     desc: 'High-speed desktop scanner for document-intensive office environments.',
-    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1782244762/dr-m160ii_hero_fa13faf76e7049e1bc09702a6d5d4a45_rboeam.avif',
+    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1782244762/dr-m160ii_hero_fa13faf76e7049e1bc09702a6d5d4a45_rboeam.avif',
     features: [
       '60ppm / 120ipm duplex scanning',
       '60 Sheet ADF capacity',
@@ -94,7 +94,7 @@ const desktopCards = [
     tag: 'Flatbed Desktop',
     title: 'DRM 140II',
     desc: 'Flatbed scanner ideal for bound books, fragile documents, and mixed media.',
-    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1782244762/dr-m140ii-paper-tray-out-fsr_hero_52226af5cb054c51ac844d696a7e7485_qsy04l.avif',
+    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1782244762/dr-m140ii-paper-tray-out-fsr_hero_52226af5cb054c51ac844d696a7e7485_qsy04l.avif',
     features: [
       '40ppm ADF | A4 flatbed glass',
       '50 Sheet ADF capacity',
@@ -114,7 +114,7 @@ const chequeItems = [
     title: 'CR-190ii UV',
     desc: "Canon's fastest cheque scanner with UV counterfeit detection for high-volume banking.",
     bullets: ['190 cheques/min', 'UV counterfeit detection', 'MICR (E13B & CMC7) reading', 'Endorsement printing', 'Double-feed detection'],
-    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1782244839/cr-190i190iuv-b1_tevpee.webp',
+    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1782244839/cr-190i190iuv-b1_tevpee.webp',
     links: [{ label: 'CR-190i II UV', href: '/canon/canon-cr-190i-ii-uv-cheque-scanner' }],
   },
   {
@@ -122,7 +122,7 @@ const chequeItems = [
     title: 'CR-120 Series',
     desc: 'Compact, reliable cheque scanner for branch-level and mid-volume environments.',
     bullets: ['120 cheques/min', 'Compact and space-saving design', 'MICR reading (E13B)', 'Endorsement printing', 'Ultrasonic double-feed detection'],
-    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1782244839/CR-120-Gallery-3-removebg-preview_gxui0l.webp',
+    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1782244839/CR-120-Gallery-3-removebg-preview_gxui0l.webp',
     links: [{ label: 'CR-120 / CR-120UV', href: '/canon/canon-cr-120-cr-120uv-cheque-scanner' }],
   },
 ];
@@ -136,13 +136,13 @@ const workgroupTabs = [
     products: [
       {
         title: 'DR-S130',
-        image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1782244927/dr-s130-fra-800x800_c85d1d7c618f49328014c3bc908beb20_vymrq4.avif',
+        image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1782244927/dr-s130-fra-800x800_c85d1d7c618f49328014c3bc908beb20_vymrq4.avif',
         bullets: ['30ppm | 50 Sheet ADF', 'USB 3.1 connectivity', 'Ultrasonic double-feed detection', 'Compatible with CaptureOnTouch Pro'],
         links: [{ label: 'DR-S130', href: '/canon/canon-imageformula-dr-s130-document-scanner' }],
       },
       {
         title: 'DR-S150',
-        image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1782244927/dr-s150-bk-fra-800x800_710d1bd4971c4f7c9f19845009c5f8bb_ktg2lh.avif',
+        image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1782244927/dr-s150-bk-fra-800x800_710d1bd4971c4f7c9f19845009c5f8bb_ktg2lh.avif',
         bullets: ['50ppm | 50 Sheet ADF', 'USB 3.1 connectivity', 'Ultrasonic double-feed detection', 'Slim, space-saving design'],
         links: [{ label: 'DR-S150', href: '/canon/canon-dr-s150' }],
       },
@@ -156,13 +156,13 @@ const workgroupTabs = [
     products: [
       {
         title: 'ScanFront 400',
-        image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1782244926/imageformula-scanfront-400-open-frt_810x475_xvcnco.webp',
+        image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1782244926/imageformula-scanfront-400-open-frt_810x475_xvcnco.webp',
         bullets: ['45ppm | 60 Sheet ADF', '10.1" colour touchscreen', 'Wired & Wi-Fi connectivity', 'Scan-to-email, FTP, cloud & USB', 'No PC required'],
         links: [{ label: 'ScanFront 400', href: '/canon/canon-scanfront-400-document-scanner' }],
       },
       {
         title: 'S350NW',
-        image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1782244926/s350nw_uwq1yh.webp',
+        image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1782244926/s350nw_uwq1yh.webp',
         bullets: ['35ppm | 50 Sheet ADF', 'Wi-Fi and wired LAN', 'Scan-to-cloud and scan-to-folder', 'Lightweight, portable design'],
         links: [{ label: 'DR-S350NW', href: '/canon/canon-imageformula-dr-s350nw' }],
       },
@@ -185,7 +185,7 @@ const productionItems = [
       'USB 2.0 and SCSI connectivity',
       'Compatible with ISIS and TWAIN drivers',
     ],
-    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1782244999/dr-6030c-frt-closed_e097546322ac4f139e9e8aece3feeff3_pxlqq3.avif',
+    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1782244999/dr-6030c-frt-closed_e097546322ac4f139e9e8aece3feeff3_pxlqq3.avif',
     cap: '',
     links: [{ label: 'DR-6030C', href: '/canon/canon-imageformula-dr-6030c-document-scanner' }],
   },
@@ -203,7 +203,7 @@ const productionItems = [
       'USB 3.0 and Gigabit Ethernet connectivity',
       'Compatible with ISIS, TWAIN, and WIA drivers',
     ],
-    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1782244999/dr-g2090-fra-02_a2c23412e2e7436b93cca63f1587dc7c_zyqan0.webp',
+    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1782244999/dr-g2090-fra-02_a2c23412e2e7436b93cca63f1587dc7c_zyqan0.webp',
     cap: 'DR-G2090 / DR-G2110 / DR-G2140',
     links: [
       { label: 'DR-G2090', href: '/canon/canon-imageformula-dr-g2090-document-scanner' },

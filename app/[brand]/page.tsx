@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import { useEffect, useState, useRef, Suspense } from 'react'
 import { useParams, useSearchParams, useRouter } from 'next/navigation'
+import { cld } from '@/src/lib/cloudinaryUrl'
 
 const PAGE_SIZE = 16
 
@@ -118,7 +119,7 @@ const visibleProducts = filteredProducts.slice((currentPage - 1) * PAGE_SIZE, cu
           {brand?.logo && (
             <div className="flex justify-center mb-6">
               <div className="bg-white/10 rounded-2xl px-8 py-5">
-                <img src={brand.logo} alt={brand.name} className="h-10 object-contain" />
+                <img src={cld(brand.logo)} alt={brand.name} className="h-10 object-contain" />
               </div>
             </div>
           )}
@@ -246,7 +247,7 @@ const visibleProducts = filteredProducts.slice((currentPage - 1) * PAGE_SIZE, cu
                   {product.images?.[0] ? (
                     <div className="h-48 bg-white flex items-center justify-center p-2">
                       <img
-                        src={product.images[0]}
+                        src={cld(product.images[0])}
                         alt={product.name}
                         className="h-full w-full object-contain group-hover:scale-105 transition-transform duration-300"
                       />

@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
+import { cld } from '@/src/lib/cloudinaryUrl'
 
 export default function ProductsBrowsePage() {
   const [brands, setBrands] = useState<any[]>([])
@@ -44,7 +45,7 @@ export default function ProductsBrowsePage() {
           >
             <div className="flex items-center justify-between mb-4">
               {brand.logo ? (
-                <img src={brand.logo} alt={brand.name} className="h-8 object-contain" />
+                <img src={cld(brand.logo)} alt={brand.name} className="h-8 object-contain" />
               ) : (
                 <div className="w-10 h-10 rounded-xl bg-[#0A1628]/5 flex items-center justify-center text-[#0A1628] font-bold text-sm">
                   {brand.name[0]}

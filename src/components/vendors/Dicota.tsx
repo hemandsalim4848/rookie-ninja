@@ -21,7 +21,7 @@ const heroSlides = [
     accentLine: 1,
     desc: 'DICOTA laptop bags, backpacks and sleeves are engineered for professionals who demand protection, sustainability, and style in every commute.',
     cta: { label: 'Explore Collection', href: '#sleeves', solid: true },
-    bg: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1783101174/HybridWorking_main_teaser_1_hoxzhm.webp',
+    bg: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1783101174/HybridWorking_main_teaser_1_hoxzhm.webp',
   },
   {
     id: 'eco',
@@ -30,7 +30,7 @@ const heroSlides = [
     accentLine: 0,
     desc: 'DICOTA Eco series products are crafted from recycled PET materials — reducing environmental impact without compromising performance.',
     cta: { label: 'View Eco Range', href: '#shoulder-bags', solid: false },
-    bg: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1783101174/Commuter_Reflex_3_1_sgqas2.webp',
+    bg: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1783101174/Commuter_Reflex_3_1_sgqas2.webp',
   },
 ];
 
@@ -50,7 +50,7 @@ const sleeveSeries = [
       'Front accessory pocket for cables and chargers',
       'Carry handle for easy grab-and-go',
     ],
-    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1780052665/rookie-ninja/products/lg_1000p_c710afb1-e3a6-4ac7-86b5-6cd14ad02216.webp',
+    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1780052665/rookie-ninja/products/lg_1000p_c710afb1-e3a6-4ac7-86b5-6cd14ad02216.webp',
     slug: 'laptop-sleeve-plus-pro-13-133',
   },
   {
@@ -65,7 +65,7 @@ const sleeveSeries = [
       'Secure zip closure',
       'Easy to slip into a larger bag',
     ],
-    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1780052631/rookie-ninja/products/lg_1000p_67c1f801-e743-4a22-8d92-8e3a6b172736.webp',
+    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1780052631/rookie-ninja/products/lg_1000p_67c1f801-e743-4a22-8d92-8e3a6b172736.webp',
     slug: 'laptop-sleeve-smart-13-133',
   },
   {
@@ -80,7 +80,7 @@ const sleeveSeries = [
       'Slim enough to fit inside a trolley or backpack',
       'Durable outer material',
     ],
-    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1780052649/rookie-ninja/products/lg_1000p_f13163ec-073d-4f20-b9b1-bbe94f83c885.webp',
+    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1780052649/rookie-ninja/products/lg_1000p_f13163ec-073d-4f20-b9b1-bbe94f83c885.webp',
     slug: 'laptop-sleeve-urban-16-anthracite',
   },
 ];
@@ -94,14 +94,14 @@ const shoulderTabs = {
     desc: 'Versatile multi-compartment shoulder bags designed for professionals who carry a laptop, tablet, documents, and daily essentials — all sustainably made.',
     products: [
       {
-        image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1780052983/rookie-ninja/products/lg_1000p_fdb7120d-dad4-45a9-88ec-4543dc099656.webp',
+        image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1780052983/rookie-ninja/products/lg_1000p_fdb7120d-dad4-45a9-88ec-4543dc099656.webp',
         title: 'Eco Multi PRO 13–15.6"',
         intro: 'A professional multi-compartment messenger bag built from recycled materials for 13"–15.6" laptops.',
         bullets: ['Fits 13"–15.6" laptops', 'Made from recycled PET', 'Multiple padded compartments', 'Detachable shoulder strap', 'Trolley strap for stacking'],
         slug: 'dicota-eco-multi-pro-13-156',
       },
       {
-        image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1780052556/rookie-ninja/products/lg_1000p_3e390e6d-f4e4-4f77-ba44-86ad6426d177.webp',
+        image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1780052556/rookie-ninja/products/lg_1000p_3e390e6d-f4e4-4f77-ba44-86ad6426d177.webp',
         title: 'Eco Multi BASE 14–15.6"',
         intro: 'An entry-level eco messenger bag with clean lines and a spacious main compartment for everyday use.',
         bullets: ['Fits 14"–15.6" laptops', 'Made from recycled PET', 'Padded laptop compartment', 'Front organisation panel', 'Trolley strap'],
@@ -114,14 +114,14 @@ const shoulderTabs = {
     desc: 'Top-loading shoulder bags built for frequent travellers — with quick-access organisation, padded protection, and an eco-conscious construction.',
     products: [
       {
-        image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1780052598/rookie-ninja/products/lg_1000p_dbd20773-3332-41e1-86d7-61fcd56a55dd.webp',
+        image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1780052598/rookie-ninja/products/lg_1000p_dbd20773-3332-41e1-86d7-61fcd56a55dd.webp',
         title: 'Eco Top Traveller BASE 13–14.1"',
         intro: 'A compact top-loading shoulder bag for 13"–14.1" laptops — perfect for daily commuters.',
         bullets: ['Fits 13"–14.1" laptops', 'Top-loading quick access', 'Padded laptop sleeve inside', 'Front zip pocket for accessories', 'Trolley strap'],
         slug: 'laptop-bag-eco-top-traveller-base-13-141',
       },
       {
-        image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1780053008/rookie-ninja/products/lg_1000p_07bb4f0c-f608-44b5-b99a-07134a10ace9.webp',
+        image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1780053008/rookie-ninja/products/lg_1000p_07bb4f0c-f608-44b5-b99a-07134a10ace9.webp',
         title: 'Eco Top Traveller PRO 12–14.1"',
         intro: 'A PRO-grade top traveller with extra padding and storage for professionals who need more than the basics.',
         bullets: ['Fits 12"–14.1" laptops', 'Reinforced padded laptop section', 'Dedicated tablet pocket', 'Multiple organisation pockets', 'Made from recycled PET'],
@@ -149,7 +149,7 @@ const backpackItems = [
       'Ergonomic padded shoulder straps',
       'Trolley strap for travel convenience',
     ],
-    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1780053015/rookie-ninja/products/lg_1000p_094276ed-853c-4083-a40c-3f510b64a09a.webp',
+    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1780053015/rookie-ninja/products/lg_1000p_094276ed-853c-4083-a40c-3f510b64a09a.webp',
     slug: 'dicota-backpack-eco-14-156',
   },
   {
@@ -166,7 +166,7 @@ const backpackItems = [
       'Padded back panel and shoulder straps',
       'USB charging port compatible',
     ],
-    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1780052682/rookie-ninja/products/lg_1000p_dfc61a48-894b-4175-8551-ec935c3a6e37.webp',
+    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1780052682/rookie-ninja/products/lg_1000p_dfc61a48-894b-4175-8551-ec935c3a6e37.webp',
     slug: 'dicota-backpack-move-13-156-black',
   },
   {
@@ -183,7 +183,7 @@ const backpackItems = [
       'Front zip pocket for essentials',
       'Lightweight and packable design',
     ],
-    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1780052699/rookie-ninja/products/lg_1000p_d45186ef-ea7e-437e-b44e-3a7e5ff1f4a8.webp',
+    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1780052699/rookie-ninja/products/lg_1000p_d45186ef-ea7e-437e-b44e-3a7e5ff1f4a8.webp',
     slug: 'dicota-backpack-go-13-156-black',
   },
   {
@@ -200,7 +200,7 @@ const backpackItems = [
       'Ergonomic ventilated back panel',
       'Multiple pockets for full organisation',
     ],
-    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1780052910/rookie-ninja/products/lg_1000p_12e3619c-ac8f-492a-8b7d-d78dcfd8606b.webp',
+    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1780052910/rookie-ninja/products/lg_1000p_12e3619c-ac8f-492a-8b7d-d78dcfd8606b.webp',
     slug: 'dicota-eco-backpack-scale-13-156',
   },
 ];
@@ -225,7 +225,7 @@ const extraTabs = [
           'Padded laptop compartment with fleece lining',
           'Front quick-access organisation panel',
         ],
-        image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1780052931/rookie-ninja/products/lg_1000p_7769c650-e757-4d29-95e4-edbd29289a23.webp',
+        image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1780052931/rookie-ninja/products/lg_1000p_7769c650-e757-4d29-95e4-edbd29289a23.webp',
         slug: 'dicota-cabin-roller-pro-14-156',
       },
       {
@@ -240,7 +240,7 @@ const extraTabs = [
           'Multiple accessory pockets',
           'Smooth rolling wheels for easy navigation',
         ],
-        image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1780052924/rookie-ninja/products/lg_1000p_22d5516f-5211-411c-b9f7-9d49beb7d6ff.webp',
+        image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1780052924/rookie-ninja/products/lg_1000p_22d5516f-5211-411c-b9f7-9d49beb7d6ff.webp',
         slug: 'dicota-backpack-roller-pro-15-173',
       },
     ],
@@ -261,7 +261,7 @@ const extraTabs = [
           'Compact and lightweight',
           'Compatible with all DICOTA bags',
         ],
-        image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1780052733/rookie-ninja/products/lg_1000p_bd90f351-7563-4a02-aa98-432bee04563f.webp',
+        image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1780052733/rookie-ninja/products/lg_1000p_bd90f351-7563-4a02-aa98-432bee04563f.webp',
         slug: 'dicota-accessory-pouch-eco-move-large',
       },
     ],
@@ -282,7 +282,7 @@ const extraTabs = [
           'USB plug-and-play — no drivers needed',
           'Compatible with Zoom, Teams, Meet and more',
         ],
-        image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1780052803/rookie-ninja/products/lg_1000p_1f1d5652-e674-4ccb-8be6-eadd15838ec7.webp',
+        image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1780052803/rookie-ninja/products/lg_1000p_1f1d5652-e674-4ccb-8be6-eadd15838ec7.webp',
         slug: 'dicota-webcam-pro-plus-full-hd',
       },
     ],

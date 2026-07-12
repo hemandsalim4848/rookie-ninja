@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
+import { cld } from '@/src/lib/cloudinaryUrl';
 
 export default function Navbar() {
   const router = useRouter();
@@ -539,7 +540,7 @@ const closeQuote = () => {
                   {p.images?.[0] ? (
                     <div className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center shrink-0 overflow-hidden">
                       {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img src={p.images[0]} alt={p.name} className="w-full h-full object-contain p-1" />
+                      <img src={cld(p.images[0])} alt={p.name} className="w-full h-full object-contain p-1" />
                     </div>
                   ) : (
                     <div className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center shrink-0 text-lg">📦</div>

@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import { useEffect, useState, useRef } from 'react'
+import { cld } from '@/src/lib/cloudinaryUrl'
 
 const categories = [
   { label: 'All Products', icon: '🗂️', value: '' },
@@ -160,7 +161,7 @@ export default function CataloguePage() {
               {brand.logo ? (
   <div className="h-12 w-full flex items-center justify-center">
     <img
-      src={brand.logo}
+      src={cld(brand.logo)}
       alt={brand.name}
       className="max-h-12 max-w-[80px] object-contain group-hover:scale-105 transition-transform duration-200"
     />

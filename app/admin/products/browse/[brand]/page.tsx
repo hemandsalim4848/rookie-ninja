@@ -6,6 +6,7 @@ import Link from 'next/link'
 import Toast, { ToastType } from '@/src/components/admin/Toast'
 import ImageUploader from '@/src/components/admin/ImageUploader'
 import PdfUploader, { PdfUploaderHandle } from '@/src/components/admin/PdfUploader'
+import { cld } from '@/src/lib/cloudinaryUrl'
 
 const PAGE_SIZE = 15
 
@@ -270,7 +271,7 @@ export default function BrandProductsPage() {
                 <td className="px-6 py-4">
                   <div className="flex items-center gap-3">
                     {p.images?.[0] ? (
-                      <img src={p.images[0]} alt="" className="h-9 w-9 rounded-lg object-cover border border-gray-100" />
+                      <img src={cld(p.images[0])} alt="" className="h-9 w-9 rounded-lg object-cover border border-gray-100" />
                     ) : (
                       <div className="h-9 w-9 rounded-lg bg-gray-100 flex items-center justify-center text-gray-400 text-xs">📦</div>
                     )}
