@@ -26,7 +26,7 @@ const heroSlides = [
     accentLine: 0,
     desc: 'The CZUR StarryHub combines a 4K camera, 2400 ANSI projector, and 360° audio in a single device — no cables, no clutter.',
     cta: { label: 'View Conference Solutions', href: '#multi-function', solid: false },
-    bg: 'https://products.rookie-ninja.com/wp-content/uploads/2026/01/DH-Czur-StarryHub-Product-Image-16-scaled-1-600x600-1.webp',
+    bg: 'https://res.cloudinary.com/df52xzi3y/image/fetch/f_auto,q_auto/https://products.rookie-ninja.com/wp-content/uploads/2026/01/DH-Czur-StarryHub-Product-Image-16-scaled-1-600x600-1.webp',
   },
 ];
 
@@ -59,7 +59,7 @@ const bookScanners = [
       'Laser-assisted curve flattening',
       'OCR in 180+ languages',
     ],
-    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1783074480/rookie-ninja/products/jh4qvcedqqzyt2sbjgjz.webp',
+    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1783858766/61o1rm24iML_i9m3dd.jpg',
     slug: 'czur-aura-x-pro-portable-book-scanner',
   },
 ];
@@ -217,7 +217,7 @@ const mfTabs = [
           '6-mic 360° audio pickup array',
           'Wireless screen sharing | Android StarryOS',
         ],
-        image: 'https://products.rookie-ninja.com/wp-content/uploads/2026/01/czur-starryhub-q1-pro-600x698-1.webp',
+        image: 'https://res.cloudinary.com/df52xzi3y/image/fetch/f_auto,q_auto/https://products.rookie-ninja.com/wp-content/uploads/2026/01/czur-starryhub-q1-pro-600x698-1.webp',
         slug: 'czur-starryhub-q1s-pro',
       },
     ],
