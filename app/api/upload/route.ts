@@ -16,6 +16,14 @@ export async function POST(req: Request) {
     const file = formData.get('file') as File
     if (!file) return NextResponse.json({ error: 'No file provided' }, { status: 400 })
 
+    if (!file.type.startsWith('image/')) {
+      return NextResponse.json({ error: 'Only image files allowed' }, { status: 400 })
+    }
+
+    if (file.size > 10 * 1024 * 1024) {
+      return NextResponse.json({ error: 'File too large (max 10MB)' }, { status: 400 })
+    }
+
     const bytes = await file.arrayBuffer()
     const buffer = Buffer.from(bytes)
 
@@ -28,7 +36,8 @@ export async function POST(req: Request) {
 
     return NextResponse.json({ url: result.secure_url, publicId: result.public_id })
   } catch (err: any) {
-    return NextResponse.json({ error: err.message }, { status: 500 })
+    console.error('UPLOAD ERROR:', err.message)
+    return NextResponse.json({ error: 'Failed to upload image' }, { status: 500 })
   }
 }
 
@@ -41,6 +50,7 @@ export async function DELETE(req: Request) {
     await cloudinary.uploader.destroy(publicId, { invalidate: true })
     return NextResponse.json({ success: true })
   } catch (err: any) {
-    return NextResponse.json({ error: err.message }, { status: 500 })
+    console.error('DELETE UPLOAD ERROR:', err.message)
+    return NextResponse.json({ error: 'Failed to delete image' }, { status: 500 })
   }
 }

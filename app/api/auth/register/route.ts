@@ -20,6 +20,7 @@ export async function POST(req: Request) {
     const user = await User.create({ name, email, password: hashed, role })
     return NextResponse.json({ success: true, user: { name: user.name, email: user.email, role: user.role } })
   } catch (err: any) {
-    return NextResponse.json({ error: err.message }, { status: 500 })
+    console.error('REGISTER ERROR:', err.message)
+    return NextResponse.json({ error: 'Failed to register user' }, { status: 500 })
   }
 }

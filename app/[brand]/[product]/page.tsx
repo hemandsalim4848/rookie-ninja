@@ -4,6 +4,7 @@ import { useParams } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import ProductDescription from '@/src/components/catalogue/ProductDescription'
+import { cld } from '@/src/lib/cloudinaryUrl'
 
 export default function ProductPage() {
   const params = useParams()
@@ -14,7 +15,7 @@ export default function ProductPage() {
   const [activeTab, setActiveTab] = useState<'description' | 'specifications' | 'downloads'>('description')
   const [showEnquiry, setShowEnquiry] = useState(false)
 
-  const [form, setForm] = useState({ name: '', email: '', phone: '', message: '' })
+  const [form, setForm] = useState({ name: '', email: '', phone: '', message: '', website: '' })
   const [sending, setSending] = useState(false)
   const [sent, setSent] = useState(false)
   const [error, setError] = useState('')
@@ -53,7 +54,7 @@ export default function ProductPage() {
       })
       if (!res.ok) throw new Error('Failed')
       setSent(true)
-      setForm({ name: '', email: '', phone: '', message: '' })
+      setForm({ name: '', email: '', phone: '', message: '', website: '' })
     } catch {
       setError('Something went wrong. Please try again.')
     } finally {
@@ -65,7 +66,7 @@ export default function ProductPage() {
     setShowEnquiry(false)
     setSent(false)
     setError('')
-    setForm({ name: '', email: '', phone: '', message: '' })
+    setForm({ name: '', email: '', phone: '', message: '', website: '' })
   }
 
   if (loading) return (
@@ -128,7 +129,7 @@ export default function ProductPage() {
               <>
                 <div className="rounded-2xl overflow-hidden aspect-square bg-white border border-gray-100 flex items-center justify-center">
                   <img
-                    src={product.images[activeImage]}
+                    src={cld(product.images[activeImage])}
                     alt={product.name}
                     className="w-full h-full object-contain p-6"
                   />
@@ -145,7 +146,7 @@ export default function ProductPage() {
                             : 'border-gray-200 hover:border-gray-300'
                         }`}
                       >
-                        <img src={img} alt="" className="w-full h-full object-cover" />
+                        <img src={cld(img)} alt="" className="w-full h-full object-cover" />
                       </button>
                     ))}
                   </div>
@@ -164,7 +165,7 @@ export default function ProductPage() {
             {/* Brand row */}
             <div className="flex items-center gap-2 mb-4">
               {brand?.logo ? (
-                <img src={brand.logo} alt={brand.name} className="h-5 object-contain opacity-70" />
+                <img src={cld(brand.logo)} alt={brand.name} className="h-5 object-contain opacity-70" />
               ) : (
                 <span className="text-xs text-gray-400 font-medium">{brand?.name}</span>
               )}
@@ -380,6 +381,16 @@ export default function ProductPage() {
                 <p className="text-gray-400 text-xs mb-6 truncate">{product.name}</p>
 
                 <form onSubmit={handleEnquiry} className="space-y-3">
+                  <input
+                    type="text"
+                    name="website"
+                    value={form.website}
+                    onChange={e => setForm({ ...form, website: e.target.value })}
+                    tabIndex={-1}
+                    autoComplete="off"
+                    aria-hidden="true"
+                    className="absolute -left-[9999px] w-px h-px opacity-0"
+                  />
                   <input
                     type="text"
                     placeholder="Your Name *"
