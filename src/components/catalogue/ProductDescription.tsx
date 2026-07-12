@@ -49,30 +49,6 @@ function parseStructured(text: string): {
   return { stats, lead, sections }
 }
 
-// ── Icon map: pick a Tabler icon from heading keywords ────────────────────────
-function sectionIcon(heading: string): string {
-  const h = heading.toLowerCase()
-  if (/effici|scanning|scan|capture/.test(h)) return 'ti-scan'
-  if (/image|quality|accuracy|ocr/.test(h)) return 'ti-eye'
-  if (/workflow|integrat|connect|systems|existing/.test(h)) return 'ti-arrows-right-left'
-  if (/scalab|grow|expand/.test(h)) return 'ti-trending-up'
-  if (/productiv|cost|reduc/.test(h)) return 'ti-chart-bar'
-  if (/automat|journey|document/.test(h)) return 'ti-robot'
-  if (/recogni|technolog|ai|intelligence/.test(h)) return 'ti-cpu'
-  if (/config|low.code|setup/.test(h)) return 'ti-settings'
-  if (/regulat|industri|complian/.test(h)) return 'ti-building'
-  if (/speed|fast|throughput|ppm/.test(h)) return 'ti-bolt'
-  if (/secur|protect|encrypt/.test(h)) return 'ti-shield-check'
-  if (/network|share|wireless|wifi/.test(h)) return 'ti-wifi'
-  if (/flatbed|exception|versatil/.test(h)) return 'ti-layout-board'
-  if (/smart|touch|distribut|route/.test(h)) return 'ti-hand-click'
-  if (/paper|feed|handl/.test(h)) return 'ti-stack'
-  if (/softwar|application|platform/.test(h)) return 'ti-code'
-  if (/certif|award|gold|sustainab/.test(h)) return 'ti-certificate'
-  if (/manag|admin|remote/.test(h)) return 'ti-server'
-  return 'ti-file-description'
-}
-
 // ── Legacy parsers (fallback for plain-text descriptions) ─────────────────────
 function parseFeatures(text: string): string[] {
   const lines = text.split('\n')
@@ -188,9 +164,7 @@ export default function ProductDescription({ description, shortDescription, imag
                 key={i}
                 className="border border-gray-100 rounded-2xl p-6 mb-3 flex gap-5 items-start bg-gray-50/60"
               >
-                <div className="w-12 h-12 rounded-xl bg-[#15A7DC]/10 flex items-center justify-center shrink-0">
-                  <i className={`ti ${sectionIcon(sec.heading)} text-[22px] text-[#15A7DC]`} aria-hidden="true" />
-                </div>
+                <div className="w-12 h-12 rounded-xl bg-[#15A7DC]/10 flex items-center justify-center shrink-0" />
                 <div>
                   <p className="text-[10px] font-semibold tracking-[0.1em] uppercase text-[#15A7DC] mb-2">{tag} — {sec.heading}</p>
                   <p className="text-[13px] text-[#0A1628]/60 leading-relaxed">{sec.body}</p>
@@ -212,9 +186,7 @@ export default function ProductDescription({ description, shortDescription, imag
             </div>
           ) : (
             <div className="bg-gray-50 rounded-xl flex flex-col items-center justify-center gap-3 p-8" style={{ minHeight: 180 }}>
-              <div className="w-14 h-14 rounded-2xl bg-[#15A7DC]/10 flex items-center justify-center">
-                <i className={`ti ${sectionIcon(sec.heading)} text-[26px] text-[#15A7DC]`} aria-hidden="true" />
-              </div>
+              <div className="w-14 h-14 rounded-2xl bg-[#15A7DC]/10 flex items-center justify-center" />
               <p className="text-[11px] text-[#0A1628]/30 text-center leading-snug max-w-[120px]">{sec.heading}</p>
             </div>
           )

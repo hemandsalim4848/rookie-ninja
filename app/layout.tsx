@@ -21,9 +21,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={poppins.variable}>
-      <head>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
-      </head>
       <body className="antialiased">
         <NextAuthProvider>{children}</NextAuthProvider>
       </body>
