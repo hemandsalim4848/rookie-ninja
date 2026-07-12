@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server'
 import { connectDB } from '@/src/lib/mongodb'
 import { Category } from '@/src/lib/models/Category'
 import { Product } from '@/src/lib/models/Products'
+import { requireAdmin } from '@/src/lib/requireAdmin'
 
 export async function GET() {
   await connectDB()
@@ -21,6 +22,8 @@ export async function GET() {
 }
 
 export async function POST(req: Request) {
+  const session = await requireAdmin()
+  if (!session) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
   await connectDB()
   const { name } = await req.json()
   if (!name?.trim()) return NextResponse.json({ error: 'Name required' }, { status: 400 })

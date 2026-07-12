@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server'
 import { connectDB } from '@/src/lib/mongodb'
 import { Brand } from '@/src/lib/models/Brands'
+import { requireAdmin } from '@/src/lib/requireAdmin'
 
 export async function GET() {
   try {
@@ -15,6 +16,8 @@ export async function GET() {
 
 export async function POST(req: Request) {
   try {
+    const session = await requireAdmin()
+    if (!session) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
     await connectDB()
     const body = await req.json()
     const brand = await Brand.create(body)

@@ -2,8 +2,11 @@ import { NextResponse } from 'next/server'
 import { connectDB } from '@/src/lib/mongodb'
 import { Category } from '@/src/lib/models/Category'
 import { Product } from '@/src/lib/models/Products'
+import { requireAdmin } from '@/src/lib/requireAdmin'
 
 export async function PATCH(req: Request, { params }: { params: Promise<{ id: string }> }) {
+  const session = await requireAdmin()
+  if (!session) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
   await connectDB()
   const { id } = await params
   const { name } = await req.json()
@@ -26,6 +29,8 @@ export async function PATCH(req: Request, { params }: { params: Promise<{ id: st
 }
 
 export async function DELETE(_req: Request, { params }: { params: Promise<{ id: string }> }) {
+  const session = await requireAdmin()
+  if (!session) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
   await connectDB()
   const { id } = await params
 

@@ -1,7 +1,10 @@
 import { NextResponse } from 'next/server'
 import { put, del } from '@vercel/blob'
+import { requireAdmin } from '@/src/lib/requireAdmin'
 
 export async function POST(req: Request) {
+  const session = await requireAdmin()
+  if (!session) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
   const formData = await req.formData()
   const file = formData.get('file') as File
   if (!file) return NextResponse.json({ error: 'No file' }, { status: 400 })
@@ -23,6 +26,8 @@ export async function POST(req: Request) {
 }
 
 export async function DELETE(req: Request) {
+  const session = await requireAdmin()
+  if (!session) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
   const { url } = await req.json()
   if (!url) return NextResponse.json({ error: 'No url' }, { status: 400 })
   await del(url)

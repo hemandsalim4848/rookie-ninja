@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server'
 import { v2 as cloudinary } from 'cloudinary'
+import { requireAdmin } from '@/src/lib/requireAdmin'
 
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
@@ -9,6 +10,8 @@ cloudinary.config({
 
 export async function POST(req: Request) {
   try {
+    const session = await requireAdmin()
+    if (!session) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
     const formData = await req.formData()
     const file = formData.get('file') as File
     if (!file) return NextResponse.json({ error: 'No file provided' }, { status: 400 })
@@ -31,6 +34,8 @@ export async function POST(req: Request) {
 
 export async function DELETE(req: Request) {
   try {
+    const session = await requireAdmin()
+    if (!session) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
     const { publicId } = await req.json()
     if (!publicId) return NextResponse.json({ error: 'No publicId provided' }, { status: 400 })
     await cloudinary.uploader.destroy(publicId, { invalidate: true })
