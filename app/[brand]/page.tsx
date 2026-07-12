@@ -18,6 +18,10 @@ function BrandPageInner() {
   const gridRef = useRef<HTMLDivElement>(null)
   const [activeCategory, setActiveCategory] = useState(searchParams.get('category') || '')
 
+  useEffect(() => {
+    setActiveCategory(searchParams.get('category') || '')
+  }, [searchParams])
+
   const currentPage = Math.max(1, parseInt(searchParams.get('page') || '1', 10))
 
   function goToPage(page: number) {
@@ -56,6 +60,11 @@ function BrandPageInner() {
   function selectCategory(cat: string) {
     setActiveCategory(cat)
     const params = new URLSearchParams(searchParams.toString())
+    if (cat) {
+      params.set('category', cat)
+    } else {
+      params.delete('category')
+    }
     params.set('page', '1')
     router.push(`?${params.toString()}`, { scroll: false })
   }

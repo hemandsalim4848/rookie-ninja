@@ -44,13 +44,13 @@ const socials = [
     ),
   },
   {
-    label: 'Twitter / X',
+    label: 'Facebook',
     href: '#',
     icon: (
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
            stroke="currentColor" strokeWidth="1.8"
            strokeLinecap="round" strokeLinejoin="round">
-        <path d="M4 4l16 16M4 20L20 4"/>
+        <path d="M15 8h2V4h-2a5 5 0 00-5 5v2H8v4h2v7h4v-7h2.5l.5-4H14V9a1 1 0 011-1z"/>
       </svg>
     ),
   },
