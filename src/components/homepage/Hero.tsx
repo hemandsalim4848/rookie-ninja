@@ -9,7 +9,7 @@ const slides = [
     heading: 'Value Added',
     highlight: 'Distribution',
     sub: 'Cutting-edge technology solutions and world-class distribution partnerships across MEA.',
-    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1783857311/photo-1518770660439-4636190af475_t7ldup.jpg',
+    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1783861208/colleagues-working-at-a-bright-modern-office-2026-01-08-23-42-19-utc_afqy7p.webp',
     cta: { label: 'Contact Us', href: '/contact' },
     ctaGhost: { label: 'Explore Products', href: '/catalogue' },
   },
