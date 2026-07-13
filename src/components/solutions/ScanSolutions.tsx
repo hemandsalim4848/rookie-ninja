@@ -10,7 +10,6 @@ const brandPartners = [
   { name: 'Czur',          logo: '/logos/czur-logo.webp'          },
   { name: 'Colortrac',     logo: '/logos/colortrac-logo.png'     },
   { name: 'Canon',         logo: '/logos/canon-logo.png'         },
-  { name: 'Rowe',          logo: '/logos/rowe-logo.png'          },
   { name: 'Kodak Alaris',  logo: '/logos/kodak-alaris-logo.png'  },
   { name: 'Contex',        logo: '/logos/contex-logo.png'        },
 ];
@@ -29,9 +28,9 @@ const scannerTabs = [
       </svg>
     ),
     images: [
-      'https://placehold.co/520x380/EFF6FF/15A7DC?text=Desktop+Scanner+1&font=poppins',
-      'https://placehold.co/520x380/EFF6FF/15A7DC?text=Desktop+Scanner+2&font=poppins',
-      'https://placehold.co/520x380/EFF6FF/15A7DC?text=Desktop+Scanner+3&font=poppins',
+      'https://res.cloudinary.com/df52xzi3y/image/upload/v1781892968/rookie-ninja/products/lg_1000p_d2f068c0-e443-4225-8fcf-cb7d63744b95.webp',
+      'https://res.cloudinary.com/df52xzi3y/image/upload/v1781893298/rookie-ninja/products/lg_1000p_b086848e-076d-4dfd-8ba9-cd71408722a3.webp',
+      'https://res.cloudinary.com/df52xzi3y/image/upload/v1781893098/rookie-ninja/products/lg_1000p_d86d1d31-b0f0-46f5-93e7-9b46230c1c3b.webp',
     ],
     heading: 'Efficient Scanning for Workgroups',
     body: 'Ideal for the busy medium-sized organization or single-department application, workgroup and network scanners from Kodak Alaris are perfect for ad hoc scanning and customer-facing transactions.',
@@ -50,9 +49,9 @@ const scannerTabs = [
       </svg>
     ),
     images: [
-      'https://placehold.co/520x380/EFF6FF/15A7DC?text=Departmental+Scanner+1&font=poppins',
-      'https://placehold.co/520x380/EFF6FF/15A7DC?text=Departmental+Scanner+2&font=poppins',
-      'https://placehold.co/520x380/EFF6FF/15A7DC?text=Departmental+Scanner+3&font=poppins',
+      'https://res.cloudinary.com/df52xzi3y/image/upload/v1781893034/rookie-ninja/products/lg_1000p_726c0564-ff4f-42c4-9895-bc926674df7a.webp',
+      'https://res.cloudinary.com/df52xzi3y/image/upload/v1781893319/rookie-ninja/products/lg_1000p_30141f32-51aa-4507-8c13-1b4ddfd292d0.webp',
+      'https://res.cloudinary.com/df52xzi3y/image/upload/v1781893159/rookie-ninja/products/dr-s350nw_gallery_05_38f0cfe4594b4f6ea298d8c8e1850084.avif',
     ],
     heading: 'Built for Back Office Automation',
     body: 'Departmental scanners are designed to be shared by multiple users in departments that need to capture large batches of documents. Perfect for back office applications, these scanners are built with sophistication to automate your capture process.',
@@ -69,9 +68,9 @@ const scannerTabs = [
       </svg>
     ),
     images: [
-      'https://placehold.co/520x380/EFF6FF/15A7DC?text=Production+Scanner+1&font=poppins',
-      'https://placehold.co/520x380/EFF6FF/15A7DC?text=Production+Scanner+2&font=poppins',
-      'https://placehold.co/520x380/EFF6FF/15A7DC?text=Production+Scanner+3&font=poppins',
+      'https://res.cloudinary.com/df52xzi3y/image/upload/v1781892982/rookie-ninja/products/lg_1000p_252735cf-af8b-4104-9688-d8a69b75358b.webp',
+      'https://res.cloudinary.com/df52xzi3y/image/upload/v1781893075/rookie-ninja/products/lg_1000p_39d362c4-30ee-4d23-94bb-d9c7d14cffb2.webp',
+      'https://res.cloudinary.com/df52xzi3y/image/upload/v1781892977/rookie-ninja/products/lg_1000p_9ecfcac2-0357-4300-9ccb-6215cc7ecf17.webp',
     ],
     heading: 'High-Volume Centralized Capture',
     body: 'Highly reliable production scanners from Kodak Alaris are ready to tackle the most demanding high-volume, centralized, data capture environments. Intelligent features provide confidence in accurate document conversions.',
@@ -89,8 +88,9 @@ const scannerTabs = [
       </svg>
     ),
     images: [
-      'https://placehold.co/520x380/EFF6FF/15A7DC?text=Large+Format+Scanner+1&font=poppins',
-      'https://placehold.co/520x380/EFF6FF/15A7DC?text=Large+Format+Scanner+2&font=poppins',
+      'https://res.cloudinary.com/df52xzi3y/image/upload/v1781893382/rookie-ninja/products/SmartLF-SCi_front_tablet_800x600px-3-556x417-1.png',
+      'https://res.cloudinary.com/df52xzi3y/image/upload/v1781893392/rookie-ninja/products/SmartLF-SGi_angled_800x600px-2-556x417-1.png',
+      'https://res.cloudinary.com/df52xzi3y/image/upload/v1783591957/1200x800_SD-One-X_44-1024x683_f1wi27.webp',
     ],
     heading: 'Scan A0 & Beyond with Full Fidelity',
     body: 'Large format scanners are used to scan large-sized documents, usually A0 or bigger. A large format graphics scanner needs to be able to capture artwork, photographs, satellite images, and other full-color originals with highlights and shadow details.',
@@ -108,8 +108,9 @@ const scannerTabs = [
       </svg>
     ),
     images: [
-      'https://placehold.co/520x380/EFF6FF/15A7DC?text=Book+Scanner+1&font=poppins',
-      'https://placehold.co/520x380/EFF6FF/15A7DC?text=Book+Scanner+2&font=poppins',
+      'https://res.cloudinary.com/df52xzi3y/image/upload/v1781893206/rookie-ninja/products/CZUR-ET-ULTRA.webp',
+      'https://res.cloudinary.com/df52xzi3y/image/upload/v1781893191/rookie-ninja/products/et.webp',
+      'https://res.cloudinary.com/df52xzi3y/image/upload/v1781893276/rookie-ninja/products/lg_1000p_48ec2413-e4e2-48a8-879f-ae472aabad60.webp',
     ],
     heading: 'Digitize Bound Books with Ease',
     body: 'Scanning bound books is a difficult task if you are using a traditional scanner, that is where a dedicated book scanner comes in. Book scanners can help anyone needing to scan their books into an electronic document with high efficiency. Some book scanners can even scan 3D objects into 2D images.',
@@ -125,13 +126,13 @@ function ImageSlider({ images }: { images: string[] }) {
   const next = () => setCurrent(i => (i + 1) % images.length);
 
   return (
-    <div className="relative w-full rounded-2xl overflow-hidden bg-[#EFF6FF]"
+    <div className="relative w-full rounded-2xl overflow-hidden bg-white border border-gray-100"
          style={{ aspectRatio: '520/380' }}>
       <img
         key={current}
         src={images[current]}
         alt={`Product image ${current + 1}`}
-        className="w-full h-full object-cover transition-opacity duration-300"
+        className="w-full h-full object-contain p-10 transition-opacity duration-300"
       />
 
       {images.length > 1 && (
@@ -283,7 +284,7 @@ export default function ScanSolutionsPage() {
           <Animate type="fade-up" delay={100}>
             <div className="flex justify-center mt-8">
               <a
-                href="/products"
+                href="/products?category=Document+Scanners&page=1"
                 className="inline-flex items-center gap-2 font-body font-medium
                            text-white bg-accent px-6 py-3 rounded-xl
                            transition-all duration-200 no-underline
@@ -420,23 +421,6 @@ export default function ScanSolutionsPage() {
                     </div>
                   ))}
                 </div>
-
-                <a
-                  href="/products"
-                  className="inline-flex items-center gap-2 font-body font-medium
-                             text-accent border border-accent/40 px-5 py-2.5 rounded-xl
-                             transition-all duration-200 no-underline self-start
-                             hover:bg-accent hover:text-white hover:border-accent
-                             hover:-translate-y-px"
-                  style={{ fontSize: '13px' }}
-                >
-                  View Products
-                  <svg width="12" height="12" viewBox="0 0 16 16" fill="none">
-                    <path d="M3 8h10M9 4l4 4-4 4"
-                          stroke="currentColor" strokeWidth="1.5"
-                          strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                </a>
               </div>
             </Animate>
           </div>

@@ -6,23 +6,27 @@ import SectionHeader from '../SectionHeader';
 /* ── Featured Products ── */
 const featuredProducts = [
   {
-    id: 'monitor',
-    image: 'https://placehold.co/400x300/EFF6FF/15A7DC?text=LED+Monitor&font=poppins',
-    title: 'Aztech 22″ LED Monitor',
+    id: 'extension',
+    slug: 'aztech-powerflow-5-way-5m-universal-extension',
+    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1783682087/aztech-aztech-powerflow-5-way-5m-universal-extension-0-Product-images_Extenstion.jpg',
+    title: 'PowerFlow 5 Way 5m Universal Extension',
   },
   {
     id: 'charger',
-    image: 'https://placehold.co/400x300/EFF6FF/15A7DC?text=GaN+Charger&font=poppins',
+    slug: 'aztech-gan-car-hypercharger-3-ports-95w',
+    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1783682032/aztech-aztech-gan-car-hypercharger-3-ports-95w-0-Product-images_Car-Charger2-02-.jpg',
     title: 'GaN Car HyperCharger 3 Ports 95W',
   },
   {
     id: 'headset',
-    image: 'https://placehold.co/400x300/EFF6FF/15A7DC?text=Gaming+Headset&font=poppins',
+    slug: 'aztech-wireless-gaming-headset-with-led',
+    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1783682089/aztech-aztech-wireless-gaming-headset-with-led-0-Product-images_Headphone-01.jpg',
     title: 'Wireless Gaming Headset with LED',
   },
   {
     id: 'earbuds',
-    image: 'https://placehold.co/400x300/EFF6FF/15A7DC?text=Wireless+Earbuds&font=poppins',
+    slug: 'aztech-wireless-earbuds-led-display-charging-case',
+    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1783682058/aztech-aztech-wireless-earbuds-led-display-charging-case-0-Product-images_TWS-01.jpg',
     title: 'Wireless Earbuds with LED Digital Display Charging Case',
   },
 ];
@@ -30,16 +34,18 @@ const featuredProducts = [
 /* ── Showcase Products (alternating layout) ── */
 const showcaseProducts = [
   {
-    id: 'tv',
-    image: 'https://placehold.co/560x400/EFF6FF/15A7DC?text=AZTECH+75%22+TV&font=poppins',
-    title: 'AZTECH 75 inch 4K Ultra HD Smart TV',
+    id: 'ideaflow',
+    slug: 'aztech-ideaflow-98-4k-interactive-display',
+    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1783680066/aztech-aztech-ideaflow-98-4k-interactive-display-0-Ideaflow.png',
+    title: 'Aztech Ideaflow 98" 4K Interactive Display',
     description:
-      'Elevate your viewing experience with the AZTECH 75-inch Smart TV, featuring an ultra-slim borderless design and a suite of smart features that bring your entertainment to life. Powered by Android 11, this TV offers a sleek and modern look with an expansive display, providing a crystal-clear picture that immerses you in every scene. Enjoy seamless streaming, smooth performance, and ultimate convenience all in one stunning package.',
+      'The Aztech Ideaflow 98" is a large-format 4K UHD interactive flat panel display powered by Android 14, featuring a built-in 48MP AI camera, DLED backlight, 8GB RAM, and 128GB storage — designed for immersive collaboration in large classrooms and conference rooms. With an 8-core processor, seamless screen mirroring, a fluent writing experience, and full BYOD support, it brings the same effortless, expansive-screen experience you\'d expect from a premium smart display.',
     imageLeft: false,
   },
   {
     id: 'soundbar',
-    image: 'https://placehold.co/560x400/EFF6FF/15A7DC?text=AZTECH+Soundbar&font=poppins',
+    slug: 'aztech-201-soundbar-with-wired-subwoofer',
+    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1783680083/aztech-aztech-201-soundbar-with-wired-subwoofer-0-Product-images_Soundbar-2-1-01.jpg',
     title: 'AZTECH 201 Soundbar with Wired Subwoofer',
     description:
       'The AZTECH 201 Soundbar with Wired Subwoofer delivers an exceptional audio experience with powerful 120W output and 2.1 channel sound. Designed to enhance your movies, music, and news listening, it features deep bass and three adjustable EQ modes for tailored sound. With Bluetooth 5.3, you can easily connect your devices wirelessly, while the HDMI (ARC) support ensures seamless integration with your TV.',
@@ -47,7 +53,8 @@ const showcaseProducts = [
   },
   {
     id: 'keyboard',
-    image: 'https://placehold.co/560x400/EFF6FF/15A7DC?text=Gaming+Keyboard+RGB&font=poppins',
+    slug: 'aztech-mechanical-gaming-keyboard-rgb',
+    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1783682126/aztech-aztech-mechanical-gaming-keyboard-rgb-0-rcb-keyboard-view.jpg',
     title: 'Mechanical Gaming Keyboard RGB',
     description:
       'Upgrade your game with the AZTECH Mechanical Gaming Keyboard RGB. Featuring a sleek, customizable RGB design, this keyboard brings your gaming experience to life with vibrant colors and dynamic lighting effects. Its mechanical key switches provide rapid responsiveness for those fast-paced gaming moments, while anti-ghosting technology ensures you never miss a command.',
@@ -179,12 +186,12 @@ export default function ConsumerElectronicsPage() {
                   }}
                 >
                   {/* Image */}
-                  <div className="relative overflow-hidden bg-[#EFF6FF]"
+                  <div className="relative overflow-hidden bg-white"
                        style={{ aspectRatio: '4/3' }}>
                     <img
                       src={product.image}
                       alt={product.title}
-                      className="w-full h-full object-cover transition-transform
+                      className="w-full h-full object-contain p-6 transition-transform
                                  duration-500 group-hover:scale-[1.04]"
                     />
                     <div className="absolute top-0 left-0 right-0 h-[3px] bg-accent
@@ -199,7 +206,7 @@ export default function ConsumerElectronicsPage() {
                       {product.title}
                     </p>
                     <a
-                      href="/products"
+                      href={`/aztech/${product.slug}`}
                       className="inline-flex items-center gap-1.5 font-body
                                  font-medium text-accent mt-3 no-underline
                                  transition-all duration-200 hover:gap-2.5"
@@ -259,12 +266,12 @@ export default function ConsumerElectronicsPage() {
                 type={product.imageLeft ? 'fade-right' : 'fade-left'}
                 className={product.imageLeft ? 'lg:order-1' : 'lg:order-2'}
               >
-                <div className="relative w-full rounded-2xl overflow-hidden bg-[#EFF6FF]"
+                <div className="relative w-full rounded-2xl overflow-hidden bg-white border border-gray-100"
                      style={{ aspectRatio: '560/400' }}>
                   <img
                     src={product.image}
                     alt={product.title}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-contain p-10"
                   />
                   <div className="absolute inset-0 pointer-events-none rounded-2xl"
                        style={{ boxShadow: 'inset 0 0 40px rgba(21,167,220,0.06)' }} />
@@ -298,7 +305,7 @@ export default function ConsumerElectronicsPage() {
                   </p>
 
                   <a
-                    href="/products"
+                    href={`/aztech/${product.slug}`}
                     className="inline-flex items-center gap-2 font-body font-medium
                                text-accent border border-accent/40 px-5 py-2.5
                                rounded-xl transition-all duration-200 no-underline
