@@ -123,7 +123,7 @@ export default function AboutSection() {
   }, []);
 
   return (
-    <section className="relative w-full  overflow-hidden py-20 px-6">
+    <section className="relative w-full  overflow-hidden py-10 md:py-20 px-6">
 
       {/* subtle bg accent */}
       <div className="absolute left-0 top-1/2 -translate-y-1/2
@@ -131,7 +131,7 @@ export default function AboutSection() {
            style={{ background: 'radial-gradient(circle, rgba(21,167,220,0.12) 0%, transparent 70%)' }} />
 
       <div className="relative z-10 max-w-6xl mx-auto flex flex-col
-                      lg:flex-row items-center gap-12 lg:gap-20">
+                      lg:flex-row items-center gap-6 lg:gap-20">
 
         {/* ── Globe ── */}
         <div className="shrink-0 flex items-center justify-center

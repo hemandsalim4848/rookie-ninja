@@ -29,7 +29,7 @@ export default function ClientLogos() {
   const marqueeItems = [...clients, ...clients];
 
   return (
-    <section className="relative py-16 overflow-hidden bg-white border-t border-gray-100">
+    <section className="relative py-10 md:py-16 overflow-hidden bg-white border-t border-gray-100">
 
       {/* Fade edges */}
       <div className="absolute left-0 top-0 bottom-0 w-[calc((100%-72rem)/2+3rem)] z-10 pointer-events-none min-w-16"

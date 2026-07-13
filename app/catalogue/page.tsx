@@ -70,7 +70,7 @@ export default function CataloguePage() {
     <main className="min-h-screen bg-white">
 
       {/* Hero */}
-      <div className="bg-[#0A1628] px-4 py-40 text-center relative">
+      <div className="bg-[#0A1628] px-4 pt-28 pb-20 md:pt-20 sm:py-28 lg:py-40 text-center relative">
         <div className="absolute inset-0 pointer-events-none overflow-hidden"
           style={{ background: 'radial-gradient(ellipse at 50% 0%, rgba(21,167,220,0.15) 0%, transparent 65%)' }} />
         <div className="relative z-10 max-w-2xl mx-auto">
@@ -106,11 +106,11 @@ export default function CataloguePage() {
                   <Link
                     key={p._id}
                     href={`/${p.brandSlug}/${p.slug}`}
-                    className="flex items-center justify-between px-4 py-3 text-sm text-white/70 hover:bg-[#15A7DC]/10 hover:text-white border-b border-white/5 last:border-0 transition-colors"
+                    className="flex items-center justify-between gap-3 px-4 py-3 text-sm text-white/70 hover:bg-[#15A7DC]/10 hover:text-white border-b border-white/5 last:border-0 transition-colors"
                     onClick={() => setShowDropdown(false)}
                   >
-                    <span>{p.name}</span>
-                    <span className="text-[11px] text-[#15A7DC] bg-[#15A7DC]/10 px-2 py-0.5 rounded-md capitalize">
+                    <span className="truncate min-w-0">{p.name}</span>
+                    <span className="shrink-0 text-[11px] text-[#15A7DC] bg-[#15A7DC]/10 px-2 py-0.5 rounded-md capitalize">
                       {p.brandSlug}
                     </span>
                   </Link>
@@ -122,16 +122,16 @@ export default function CataloguePage() {
       </div>
 
       {/* Stats bar */}
-      <div className="bg-[#0F2040] border-b border-white/6 px-4 py-3 flex items-center justify-center gap-8">
+      <div className="bg-[#0F2040] border-b border-white/6 px-4 py-3 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 sm:gap-x-8">
         {[['20+', 'Brands'], ['500+', 'Products'], ['UAE', 'Distribution'], ['MEA', 'Coverage']].map(([val, label]) => (
-          <div key={label} className="text-sm text-white/40">
+          <div key={label} className="text-[13px] sm:text-sm text-white/40 whitespace-nowrap">
             <strong className="text-[#15A7DC] font-semibold mr-1">{val}</strong>{label}
           </div>
         ))}
       </div>
 
       {/* Categories */}
-      <div className="max-w-7xl mx-auto px-4 py-24">
+      <div className="max-w-7xl mx-auto px-4 py-14 md:py-24">
         
 
         {/* Brands grid */}

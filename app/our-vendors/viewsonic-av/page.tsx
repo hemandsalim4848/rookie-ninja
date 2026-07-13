@@ -1,6 +1,4 @@
-import Navbar from '@/src/components/common/Navbar';
-import Footer from '@/src/components/common/Footer';
-import ViewSonicPage from '@/src/components/vendors/Viewsonic';
+import ViewSonicAVPage from '@/src/components/vendors/ViewSonicAV';
 
 export const metadata = {
   title: 'ViewSonic | Rookie Ninja',
@@ -8,11 +6,5 @@ export const metadata = {
 };
 
 export default function ViewsonicVendor() {
-  return (
-    <>
-      <Navbar />
-      <ViewSonicPage/>
-      <Footer />
-    </>
-  );
+  return <ViewSonicAVPage />;
 }

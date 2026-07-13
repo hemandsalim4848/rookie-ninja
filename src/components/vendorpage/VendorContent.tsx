@@ -81,6 +81,7 @@ const vendors = [
     description: 'Network connectivity and device sharing solutions.',
     category: 'Networking',
     website: 'https://www.silexeurope.com',
+    disabled: true,
 },
 {
     name: 'Ezofis',
@@ -88,6 +89,7 @@ const vendors = [
     description: 'Cloud document management and automation platform.',
     category: 'Software',
     website: 'https://www.ezofis.com',
+    disabled: true,
 },
 {
     name: 'Aztech',
@@ -304,16 +306,28 @@ export default function VendorContent() {
 
 /* ── Flip Card ── */
 function FlipCard({
-  name, logo, description, category, website,
+  name, logo, description, category, website, disabled,
 }: {
   name: string;
   logo: string;
   description: string;
   category: string;
   website: string;
+  disabled?: boolean;
 }) {
+  const isExternal = website.startsWith('http');
+  const Wrapper = disabled ? 'div' : 'a';
+
   return (
-    <div className="group h-[140px]" style={{ perspective: '1000px' }}>
+    <Wrapper
+      {...(!disabled && {
+        href: website,
+        target: isExternal ? '_blank' : undefined,
+        rel: isExternal ? 'noopener noreferrer' : undefined,
+      })}
+      className={`group h-[140px] block no-underline ${disabled ? 'cursor-default' : ''}`}
+      style={{ perspective: '1000px' }}
+    >
       <div className="relative w-full h-full transition-transform duration-500
                       [transform-style:preserve-3d]
                       group-hover:[transform:rotateY(180deg)]">
@@ -323,7 +337,7 @@ function FlipCard({
                         flex flex-col items-center justify-center p-4 gap-2
                         shadow-[0_2px_12px_rgba(0,0,0,0.04)]
                         [backface-visibility:hidden]
-                        hover:border-accent/20">
+                        group-hover:border-accent/20">
           <img
             src={logo}
             alt={name}
@@ -333,10 +347,6 @@ function FlipCard({
               (e.target as HTMLImageElement).style.display = 'none';
             }}
           />
-          {/* <span className="font-body text-[11px] text-gray-400 text-center
-                           leading-tight">
-            {name}
-          </span> */}
         </div>
 
         {/* Back */}
@@ -361,19 +371,18 @@ function FlipCard({
           </p>
 
           {/* Learn more */}
-          <a href={website} rel="noopener noreferrer"
-             className="font-body text-[10px] font-medium text-accent
-                        flex items-center gap-1 no-underline
-                        hover:text-white transition-colors duration-200">
+          <span className="font-body text-[10px] font-medium text-accent
+                           flex items-center gap-1
+                           group-hover:text-white transition-colors duration-200">
             Learn More
             <svg width="8" height="8" viewBox="0 0 12 12" fill="none">
               <path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor"
                     strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
-          </a>
+          </span>
 
         </div>
       </div>
-    </div>
+    </Wrapper>
   );
 }
