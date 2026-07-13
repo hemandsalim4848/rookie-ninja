@@ -8,51 +8,29 @@ const partnerTabs = [
   {
     id: 'portfolio',
     label: 'Unparalleled Product Portfolio',
-    image: 'https://placehold.co/560x400/EFF6FF/15A7DC?text=Product+Portfolio&font=poppins',
+    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1783857793/photo-1519389950473-47ba0277781c_jnqvro.jpg',
     body: 'Gain access to an extensive and diverse range of cutting-edge IT products and solutions. We curate a portfolio that encompasses the latest technologies and industry-leading brands, ensuring you have access to the right tools to meet your business needs.',
     stat: { value: '50+', label: 'Global Vendors' },
   },
   {
     id: 'trusted',
-    label: 'Trusted & Reliable Partnerships',
-    image: 'https://placehold.co/560x400/EFF6FF/15A7DC?text=Trusted+Partnerships&font=poppins',
-    body: 'Partner with a company that is renowned for its reliability and trustworthiness. At Rookie Ninja, we foster long-term relationships with our customers, delivering on our promises and consistently exceeding expectations. You can rely on us to provide exceptional service and support every step of the way.',
+    label: 'Trusted, Collaborative Partnerships',
+    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1783857792/photo-1582213782179-e0d53f98f2ca_ibz3ip.jpg',
+    body: 'We build long-term relationships, not one-off transactions. From your first conversation with us to years down the line, you\'ll have a dedicated team that\'s responsive, reliable, and genuinely invested in your success — working alongside you as a true extension of your business.',
     stat: { value: '20+', label: 'Years of Trust' },
   },
   {
     id: 'custom',
-    label: 'Customized Solutions',
-    image: 'https://placehold.co/560x400/EFF6FF/15A7DC?text=Custom+Solutions&font=poppins',
-    body: 'We understand that every business is unique, with distinct requirements and goals. That\'s why we offer customized solutions tailored to your specific needs. Our team of experts works closely with you to understand your challenges and objectives, providing personalized recommendations that drive business growth.',
+    label: 'Customized Solutions, Backed by Expertise',
+    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1783857793/photo-1521791136064-7986c2920216_ylsv1g.jpg',
+    body: 'No two partners are the same, so we don\'t offer one-size-fits-all solutions. Our team brings deep market expertise to tailor the right product mix, pricing, and logistics for your business — backed by a streamlined supply chain that keeps things moving efficiently, wherever you\'re located.',
     stat: { value: '100%', label: 'Tailored Approach' },
   },
   {
     id: 'support',
-    label: 'Exceptional Customer Support',
-    image: 'https://placehold.co/560x400/EFF6FF/15A7DC?text=Customer+Support&font=poppins',
-    body: 'Experience industry-leading customer support that goes above and beyond. Our dedicated support team is committed to resolving your queries, providing technical assistance, and ensuring a seamless experience. We are always available to address your concerns and provide timely solutions.',
-    stat: { value: '24/7', label: 'Support Available' },
-  },
-  {
-    id: 'supply',
-    label: 'Streamlined Supply Chain',
-    image: 'https://placehold.co/560x400/EFF6FF/15A7DC?text=Supply+Chain&font=poppins',
-    body: 'Benefit from our efficient supply chain management, ensuring timely delivery of products to your doorstep. We prioritize operational excellence, reducing lead times and minimizing disruptions, so you can focus on driving your business forward.',
-    stat: { value: '15+', label: 'Countries Served' },
-  },
-  {
-    id: 'guidance',
-    label: 'Expert Guidance & Insight',
-    image: 'https://placehold.co/560x400/EFF6FF/15A7DC?text=Expert+Guidance&font=poppins',
-    body: 'Leverage our expertise and market knowledge to stay ahead of the curve. We keep a pulse on industry trends, emerging technologies, and customer demands. With our insights and guidance, you can make informed decisions and seize new opportunities.',
-    stat: { value: '∞', label: 'Market Insights' },
-  },
-  {
-    id: 'collaboration',
-    label: 'Collaborative Partnership',
-    image: 'https://placehold.co/560x400/EFF6FF/15A7DC?text=Collaboration&font=poppins',
-    body: 'Experience a partnership built on collaboration, trust, and shared success. We believe in working hand-in-hand with our customers, understanding your goals, and aligning our strategies to help you achieve them. Your success is our success.',
-    stat: { value: '500+', label: 'Active Partners' },
+    label: 'Training & Enablement',
+    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1783857788/photo-1558008258-3256797b43f3_cyuzf0.jpg',
+    body: 'We also conduct regular training sessions for our partners, covering both sales and product knowledge. These sessions are designed to help your team get comfortable with the technologies we distribute, from hands-on product demos to real-world use cases. We run them in a mix of formats — in-person workshops and online webinars — so your team can learn in whatever way works best for them. Whether you\'re a reseller, distributor, or technology consultant, our goal is to help your team sell with more confidence and stay ahead of the competition.',
   },
 ];
 
@@ -97,7 +75,7 @@ const partnerBenefits = [
 ];
 
 /* ── Geographies ── */
-const geos = ['Middle East', 'Africa', 'CIS'];
+const geos = ['Middle East', 'Africa', 'CIS', 'India'];
 
 /* ── Main Page ── */
 export default function PartnersPage() {
@@ -333,16 +311,18 @@ export default function PartnersPage() {
                       {tab.label}
                     </h3>
                     {/* Stat badge */}
-                    <div className="shrink-0 flex flex-col items-end">
-                      <span className="font-display font-bold text-accent"
-                            style={{ fontSize: '24px', lineHeight: 1 }}>
-                        {tab.stat.value}
-                      </span>
-                      <span className="font-body text-gray-400"
-                            style={{ fontSize: '11px' }}>
-                        {tab.stat.label}
-                      </span>
-                    </div>
+                    {tab.stat && (
+                      <div className="shrink-0 flex flex-col items-end">
+                        <span className="font-display font-bold text-accent"
+                              style={{ fontSize: '24px', lineHeight: 1 }}>
+                          {tab.stat.value}
+                        </span>
+                        <span className="font-body text-gray-400"
+                              style={{ fontSize: '11px' }}>
+                          {tab.stat.label}
+                        </span>
+                      </div>
+                    )}
                   </div>
 
                   <div className="w-8 h-[2px] bg-accent rounded-full mb-4" />

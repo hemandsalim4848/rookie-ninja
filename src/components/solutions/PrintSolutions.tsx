@@ -108,14 +108,14 @@ function ImageSlider({ images }: { images: string[] }) {
   const next = () => setCurrent(i => (i + 1) % images.length);
 
   return (
-    <div className="relative w-full rounded-2xl overflow-hidden bg-[#EFF6FF]"
+    <div className="relative w-full rounded-2xl overflow-hidden bg-white border border-gray-100"
          style={{ aspectRatio: '520/380' }}>
       {/* Image */}
       <img
         key={current}
         src={images[current]}
         alt={`Product image ${current + 1}`}
-        className="w-full h-full object-cover transition-opacity duration-300"
+        className="w-full h-full object-contain p-10 transition-opacity duration-300"
       />
 
       {/* Arrows */}
@@ -270,7 +270,7 @@ export default function PrintSolutionsPage() {
           <Animate type="fade-up" delay={100}>
             <div className="flex justify-center mt-8">
               <a
-                href="/products"
+                href="/products?category=Printers&page=1"
                 className="inline-flex items-center gap-2 font-body font-medium
                            text-white bg-accent px-6 py-3 rounded-xl
                            transition-all duration-200 no-underline
@@ -411,24 +411,6 @@ export default function PrintSolutionsPage() {
                     </div>
                   ))}
                 </div>
-
-                {/* CTA */}
-                <a
-                  href="/products"
-                  className="inline-flex items-center gap-2 font-body font-medium
-                             text-accent border border-accent/40 px-5 py-2.5 rounded-xl
-                             transition-all duration-200 no-underline self-start
-                             hover:bg-accent hover:text-white hover:border-accent
-                             hover:-translate-y-px"
-                  style={{ fontSize: '13px' }}
-                >
-                  View Products
-                  <svg width="12" height="12" viewBox="0 0 16 16" fill="none">
-                    <path d="M3 8h10M9 4l4 4-4 4"
-                          stroke="currentColor" strokeWidth="1.5"
-                          strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                </a>
               </div>
             </Animate>
           </div>

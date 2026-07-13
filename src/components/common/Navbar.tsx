@@ -236,8 +236,6 @@ const closeQuote = () => {
                     </div>
 
                     <LightDropItem icon={<SearchIcon />}    label="Product Finder" href="/catalogue" />
-                    
-                    <LightDropItem icon={<TrainingIcon />}  label="Training"       href="/portfolio/training"       />
                   </div>
                 </div>
               </div>
@@ -402,8 +400,6 @@ const closeQuote = () => {
             Portfolio
           </p>
           <MobSubLink href="/catalogue" icon={<SearchIconDark />}    label="Product Finder" />
-        
-          <MobSubLink href="/portfolio/training"       icon={<TrainingIconDark />}  label="Training"       />
 
           <div className="h-px bg-gray-100 my-2 mx-4" />
 
@@ -880,14 +876,6 @@ function OfferingsIcon() {
     <path d="M2 4h12M2 8h8M2 12h5"/>
   </svg>;
 }
-function TrainingIcon() {
-  return <svg width="13" height="13" viewBox="0 0 16 16" fill="none"
-              stroke="var(--color-accent)" strokeWidth="1.4"
-              strokeLinecap="round" strokeLinejoin="round">
-    <path d="M2 2h6a4 4 0 014 4v8a3 3 0 00-3-3H2z"/>
-    <path d="M14 2h-2a4 4 0 00-4 4v8a3 3 0 013-3h3z"/>
-  </svg>;
-}
 function PrintIcon() {
   return <svg width="13" height="13" viewBox="0 0 16 16" fill="none"
               stroke="var(--color-accent)" strokeWidth="1.4"
@@ -1017,7 +1005,6 @@ function JoinIconDark()    { return <JoinIcon />;    }
 
 function SearchIconDark()      { return <SearchIcon />;      }
 function OfferingsIconDark()   { return <OfferingsIcon />;   }
-function TrainingIconDark()    { return <TrainingIcon />;    }
 function PrintIconDark()       { return <PrintIcon />;       }
 function ScanIconDark()        { return <ScanIcon />;        }
 function ElectronicsIconDark() { return <ElectronicsIcon />; }

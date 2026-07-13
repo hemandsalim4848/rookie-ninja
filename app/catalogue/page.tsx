@@ -149,6 +149,12 @@ export default function CataloguePage() {
           <p className="font-body text-[16px] font-light text-gray-500 leading-[1.7] mt-4 max-w-2xl mx-auto">
             Select a brand to explore its full product lineup — from scanners and displays to accessories and components.
           </p>
+          <Link
+            href="/products"
+            className="inline-flex items-center gap-2 mt-6 text-sm font-semibold text-[#15A7DC] hover:text-[#0F8FBD] transition-colors"
+          >
+            Or browse all products across every brand →
+          </Link>
         </div>
 
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
