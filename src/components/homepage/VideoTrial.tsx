@@ -3,7 +3,31 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 
-export default function FixedVideoExpand() {
+// Client asked to pause the scroll-driven expand/pin effect for now.
+// Flip this back to true to restore it — the implementation below is untouched.
+const SCROLL_ZOOM_ENABLED = false;
+
+/* ── Static fallback: plain video, scrolls normally, no pin/zoom ── */
+function StillVideo() {
+  return (
+    <section className="relative w-full py-20 px-6 bg-white">
+      <div className="relative w-full max-w-5xl mx-auto aspect-video
+                      rounded-[32px] overflow-hidden shadow-2xl">
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="h-full w-full object-cover"
+        >
+          <source src="/videos/videoo.mp4" type="video/mp4" />
+        </video>
+      </div>
+    </section>
+  );
+}
+
+function FixedVideoExpand() {
   const containerRef = useRef<HTMLDivElement>(null);
 
   const { scrollYProgress } = useScroll({
@@ -76,4 +100,8 @@ export default function FixedVideoExpand() {
       </motion.div>
     </section>
   );
+}
+
+export default function HomeVideoSection() {
+  return SCROLL_ZOOM_ENABLED ? <FixedVideoExpand /> : <StillVideo />;
 }
