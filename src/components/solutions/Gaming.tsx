@@ -26,9 +26,9 @@ const gamingTabs = [
       </svg>
     ),
     images: [
-      'https://placehold.co/520x380/EFF6FF/15A7DC?text=Gaming+Monitor+1&font=poppins',
-      'https://placehold.co/520x380/EFF6FF/15A7DC?text=Gaming+Monitor+2&font=poppins',
-      'https://placehold.co/520x380/EFF6FF/15A7DC?text=Gaming+Monitor+3&font=poppins',
+      'https://res.cloudinary.com/df52xzi3y/image/upload/v1781981917/rookie-ninja/products/lg_1000p_d4e29727-9815-4082-9095-cee44fc0d09e.webp',
+      'https://res.cloudinary.com/df52xzi3y/image/upload/v1781981844/rookie-ninja/products/lg_1000p_ead60cc2-e0b2-4608-97d7-61ff20436849.webp',
+      'https://res.cloudinary.com/df52xzi3y/image/upload/v1781981908/rookie-ninja/products/lg_1000p_1a710fc0-0a99-44ee-9f9c-fd22f59366ad.webp',
     ],
     heading: 'Immersive Visuals, Zero Compromise',
     body: 'Gaming monitors offer immersive visuals with high refresh rates and fast response times, enhancing gameplay. They minimize input lag for faster, more responsive gameplay and prioritize eye comfort during extended gaming sessions. With adaptive sync and customizable settings, gamers can personalize their visual experience to their liking.',
@@ -46,9 +46,9 @@ const gamingTabs = [
       </svg>
     ),
     images: [
-      'https://placehold.co/520x380/EFF6FF/15A7DC?text=Gaming+Peripherals+1&font=poppins',
-      'https://placehold.co/520x380/EFF6FF/15A7DC?text=Gaming+Peripherals+2&font=poppins',
-      'https://placehold.co/520x380/EFF6FF/15A7DC?text=Gaming+Peripherals+3&font=poppins',
+      'https://res.cloudinary.com/df52xzi3y/image/upload/v1783682089/aztech-aztech-wireless-gaming-headset-with-led-0-Product-images_Headphone-01.jpg',
+      'https://res.cloudinary.com/df52xzi3y/image/upload/v1783682126/aztech-aztech-mechanical-gaming-keyboard-rgb-0-rcb-keyboard-view.jpg',
+      'https://res.cloudinary.com/df52xzi3y/image/upload/v1783682109/aztech-aztech-gaming-mouse-infrared-micro-switch-laser-0-mouse-top-view.jpg',
     ],
     heading: 'Precision, Control & Comfort',
     body: 'Gaming peripherals are the core components for elevating gamers\' experiences. Rookie Ninja offers premium gaming peripherals such as monitors, keyboards, mice, mousepads, headsets, CPU cases, and more to maximize control, precision, and responsiveness, and optimize performance. Designed for durability and comfort during long gaming sessions, ensuring a comfortable and immersive gaming experience. Level up your gameplay with Rookie Ninja.',
@@ -67,8 +67,9 @@ const gamingTabs = [
       </svg>
     ),
     images: [
-      'https://placehold.co/520x380/EFF6FF/15A7DC?text=CPU+Cabinet+1&font=poppins',
-      'https://placehold.co/520x380/EFF6FF/15A7DC?text=CPU+Cabinet+2&font=poppins',
+      'https://res.cloudinary.com/df52xzi3y/image/upload/v1781989260/rookie-ninja/products/B508A-bk-Infographics-1_1-removebg-preview.webp',
+      'https://res.cloudinary.com/df52xzi3y/image/upload/v1781989307/rookie-ninja/products/Beam-Product-Photo-Gallery-1042x589-FRGB-04.png',
+      'https://res.cloudinary.com/df52xzi3y/image/upload/v1781989335/rookie-ninja/products/Designer-V2-Product-Gallery-4.webp',
     ],
     heading: 'Build Your Perfect Setup',
     body: 'CPU cabinets protect and organise your components, ensure proper airflow and cooling, and allow for easy expansion. Whether you\'re a gamer, a professional, or a casual user, a reliable CPU cabinet is essential for optimal performance and longevity. Upgrade your setup with the perfect CPU cabinet from Rookie Ninja.',
@@ -86,8 +87,9 @@ const gamingTabs = [
       </svg>
     ),
     images: [
-      'https://placehold.co/520x380/EFF6FF/15A7DC?text=Cooler+1&font=poppins',
-      'https://placehold.co/520x380/EFF6FF/15A7DC?text=Cooler+2&font=poppins',
+      'https://res.cloudinary.com/df52xzi3y/image/upload/v1781989220/rookie-ninja/products/Cylon4F-Product-Photo-Gallery-1042x589-07.webp',
+      'https://res.cloudinary.com/df52xzi3y/image/fetch/f_auto,q_auto/https://aerocool.io/wp-content/uploads/2025/10/abyssL240R-digi_product-gallery_bk_1.png',
+      'https://res.cloudinary.com/df52xzi3y/image/upload/v1783682137/aztech-aztech-360mm-black-liquid-cooler-0-360black2.webp',
     ],
     heading: 'Stay Cool Under Pressure',
     body: 'Rookie Ninja offers a wide range of cooling solutions designed for different system requirements, including air coolers and liquid cooling options for gaming PCs, workstations, and everyday systems. These coolers are built with efficient heat dissipation technology, durable components, and optimized airflow to maintain consistent temperatures even during intensive workloads.',
@@ -104,8 +106,9 @@ const gamingTabs = [
       </svg>
     ),
     images: [
-      'https://placehold.co/520x380/EFF6FF/15A7DC?text=PSU+1&font=poppins',
-      'https://placehold.co/520x380/EFF6FF/15A7DC?text=PSU+2&font=poppins',
+      'https://res.cloudinary.com/df52xzi3y/image/upload/v1781989376/rookie-ninja/products/Integrator-Gold-750W-Gallery-Images-05.webp',
+      'https://res.cloudinary.com/df52xzi3y/image/upload/v1781989389/rookie-ninja/products/Lux-550W-Photo-Gallery-1042x589-01.webp',
+      'https://res.cloudinary.com/df52xzi3y/image/upload/v1781989408/rookie-ninja/products/Mirage-Gold-850W-Fully-Modular-Gallery-Image-5-removebg-preview.webp',
     ],
     heading: 'Reliable Power for Every Build',
     body: 'Rookie Ninja offers a wide range of power supply solutions designed for various computing needs, from everyday home and office systems to gaming setups and professional workstations. Our PSUs are built with efficient power delivery, reliable components, and advanced protection features to ensure safe and stable system performance.',
@@ -120,13 +123,13 @@ function ImageSlider({ images }: { images: string[] }) {
   const next = () => setCurrent(i => (i + 1) % images.length);
 
   return (
-    <div className="relative w-full rounded-2xl overflow-hidden bg-[#EFF6FF]"
+    <div className="relative w-full rounded-2xl overflow-hidden bg-white border border-gray-100"
          style={{ aspectRatio: '520/380' }}>
       <img
         key={current}
         src={images[current]}
         alt={`Product image ${current + 1}`}
-        className="w-full h-full object-cover transition-opacity duration-300"
+        className="w-full h-full object-contain p-10 transition-opacity duration-300"
       />
 
       {images.length > 1 && (
@@ -199,7 +202,7 @@ export default function GamingPage() {
           {[
             { label: 'Gaming Categories', value: '5+'  },
             { label: 'Brand Partners',    value: '4+'  },
-            { label: 'Products Available',value: '100+'},
+            { label: 'Products Available',value: '50+'},
           ].map(({ label, value }) => (
             <div key={label}
                  className="flex items-center gap-4 px-5 py-4 rounded-xl
@@ -398,22 +401,6 @@ export default function GamingPage() {
                     </div>
                   ))}
                 </div>
-
-                <a
-                  href="/products"
-                  className="inline-flex items-center gap-2 font-body font-medium
-                             text-accent border border-accent/40 px-5 py-2.5 rounded-xl
-                             transition-all duration-200 no-underline self-start
-                             hover:bg-accent hover:text-white hover:border-accent
-                             hover:-translate-y-px"
-                  style={{ fontSize: '13px' }}
-                >
-                  View Products
-                  <svg width="12" height="12" viewBox="0 0 16 16" fill="none">
-                    <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5"
-                          strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                </a>
               </div>
             </Animate>
           </div>

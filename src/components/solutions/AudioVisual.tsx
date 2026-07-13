@@ -28,9 +28,9 @@ const avTabs = [
       </svg>
     ),
     images: [
-      'https://placehold.co/520x380/EFF6FF/15A7DC?text=Projector+1&font=poppins',
-      'https://placehold.co/520x380/EFF6FF/15A7DC?text=Projector+2&font=poppins',
-      'https://placehold.co/520x380/EFF6FF/15A7DC?text=Projector+3&font=poppins',
+      'https://res.cloudinary.com/df52xzi3y/image/upload/v1782317568/rookie-ninja/products/lg_1000p_f97f37c5-12e8-49aa-b212-c109b755f2de.webp',
+      'https://res.cloudinary.com/df52xzi3y/image/upload/v1782317600/rookie-ninja/products/lg_1000p_cbb6a5e7-a1be-4ac3-8ab9-25ede86a5956.webp',
+      'https://res.cloudinary.com/df52xzi3y/image/upload/v1782317619/rookie-ninja/products/lg_1000p_b00ee596-e159-41b7-82dc-00a165d15309.webp',
     ],
     heading: 'Modern Projection for Every Space',
     body: 'Just as other types of meeting rooms and collaboration technology, projectors continue to evolve, improve, and simplify our everyday life. From the evolution of overhead projectors and slide presentations, today\'s modern projectors offer 4K images, wireless connectivity, interactive capabilities, and can even provide clear images in brightly lit rooms.',
@@ -48,9 +48,9 @@ const avTabs = [
       </svg>
     ),
     images: [
-      'https://placehold.co/520x380/EFF6FF/15A7DC?text=Monitor+1&font=poppins',
-      'https://placehold.co/520x380/EFF6FF/15A7DC?text=Monitor+2&font=poppins',
-      'https://placehold.co/520x380/EFF6FF/15A7DC?text=Monitor+3&font=poppins',
+      'https://res.cloudinary.com/df52xzi3y/image/upload/v1781981561/rookie-ninja/products/lg_1000p_1052131f-7781-4704-af52-28a6d38e7339.webp',
+      'https://res.cloudinary.com/df52xzi3y/image/upload/v1781981716/rookie-ninja/products/lg_1000p_d131ad5b-e43f-4115-a8c9-ca6c07b7c70b.webp',
+      'https://res.cloudinary.com/df52xzi3y/image/upload/v1781981773/rookie-ninja/products/lg_1000p_79a60fcc-62c7-4972-8263-12b5e98a9e16.webp',
     ],
     heading: 'Immersive Viewing for Every Need',
     body: 'As monitors are the heart and soul of computers, enabling viewers to interact, aids in carrying out day-to-day operations and making informed decisions. Rookie Ninja offers an array of viewing solutions from mainstream and business monitors to gaming and professionals providing users with smooth, immersive experiences, that suits your need. Choosing the right monitor type is crucial for optimal performance and visual satisfaction in specific sectors.',
@@ -69,8 +69,9 @@ const avTabs = [
       </svg>
     ),
     images: [
-      'https://placehold.co/520x380/EFF6FF/15A7DC?text=Commercial+Display+1&font=poppins',
-      'https://placehold.co/520x380/EFF6FF/15A7DC?text=Commercial+Display+2&font=poppins',
+      'https://res.cloudinary.com/df52xzi3y/image/upload/v1781981049/rookie-ninja/products/lg_1000p_5934ffd0-9b12-463a-87fa-f46d2a8128b4.webp',
+      'https://res.cloudinary.com/df52xzi3y/image/upload/v1781988814/rookie-ninja/products/lg_1000p_538c3040-dd51-40a0-aa43-e97aaa169112.webp',
+      'https://res.cloudinary.com/df52xzi3y/image/upload/v1781988810/rookie-ninja/products/Digital-signage-05.jpg',
     ],
     heading: 'Professional Displays for Demanding Environments',
     body: 'Create engaging and meaningful client interactions with Rookie Ninja\'s commercial display solutions. Designed for demanding environments, delivering high durability and performance for professional applications like digital signage, control rooms, study spaces, and retail. Unlike consumer televisions, commercial displays provide higher brightness, robust design, and multi-source viewing orientation.',
@@ -89,9 +90,10 @@ const avTabs = [
       </svg>
     ),
     images: [
-      'https://placehold.co/520x380/EFF6FF/15A7DC?text=Interactive+Display+1&font=poppins',
-      'https://placehold.co/520x380/EFF6FF/15A7DC?text=Interactive+Display+2&font=poppins',
-      'https://placehold.co/520x380/EFF6FF/15A7DC?text=Interactive+Display+3&font=poppins',
+      'https://res.cloudinary.com/df52xzi3y/image/upload/v1781981357/rookie-ninja/products/lg_1000p_78eca281-76ee-413a-8662-34801346d1d7.webp',
+      'https://res.cloudinary.com/df52xzi3y/image/upload/v1783680061/aztech-aztech-ideaflow-bright-75-4k-interactive-display-0-AZTECH-Smart-Interacti.jpg',
+      'https://res.cloudinary.com/df52xzi3y/image/upload/v1781885509/rookie-ninja/products/unv-75-scaled.webp',
+      'https://res.cloudinary.com/df52xzi3y/image/upload/v1782316603/rookie-ninja/products/LPH75-MC420-C-S2-4.webp',
     ],
     heading: 'Collaborate Like Never Before',
     body: 'Whether you need to create dynamically engaging lessons or promote a collaborative meeting environment, an interactive flat panel is the perfect solution. Interactive displays deliver the ultimate collaboration solutions; whether your conference room needs an interactive display, video conferencing, or both, interactive displays let you connect and collaborate like never before.',
@@ -109,8 +111,9 @@ const avTabs = [
       </svg>
     ),
     images: [
-      'https://placehold.co/520x380/EFF6FF/15A7DC?text=Video+Conf+1&font=poppins',
-      'https://placehold.co/520x380/EFF6FF/15A7DC?text=Video+Conf+2&font=poppins',
+      'https://res.cloudinary.com/df52xzi3y/image/upload/v1782317650/rookie-ninja/products/lg_1000p_0d0639d9-0429-4a70-a4a9-f08bcb1ed4aa.webp',
+      'https://res.cloudinary.com/df52xzi3y/image/upload/v1782317628/rookie-ninja/products/lg_1000p_4f68aab8-d7d2-44fe-8439-381e819ef6d7.webp',
+      'https://res.cloudinary.com/df52xzi3y/image/upload/v1782317665/rookie-ninja/products/lg_1000p_9a2b748c-f75c-42b1-bcc4-35e2f22256c0.webp',
     ],
     heading: 'Remote Collaboration, Redefined',
     body: 'Video conferencing solutions are crucial in today\'s era for remote collaboration, to enhance productivity, save cost, and improve communication quality. At Rookie Ninja, we stand out as a reliable and technologically advanced provider of video conferencing solutions, and premium video conferencing accessories, that offer customization, integration capabilities, and expert support guidance to ensure your needs are met.',
@@ -125,13 +128,13 @@ function ImageSlider({ images }: { images: string[] }) {
   const next = () => setCurrent(i => (i + 1) % images.length);
 
   return (
-    <div className="relative w-full rounded-2xl overflow-hidden bg-[#EFF6FF]"
+    <div className="relative w-full rounded-2xl overflow-hidden bg-white border border-gray-100"
          style={{ aspectRatio: '520/380' }}>
       <img
         key={current}
         src={images[current]}
         alt={`Product image ${current + 1}`}
-        className="w-full h-full object-cover transition-opacity duration-300"
+        className="w-full h-full object-contain p-10 transition-opacity duration-300"
       />
       {images.length > 1 && (
         <>
@@ -400,22 +403,6 @@ export default function AudioVisualPage() {
                     </div>
                   ))}
                 </div>
-
-                <a
-                  href="/products"
-                  className="inline-flex items-center gap-2 font-body font-medium
-                             text-accent border border-accent/40 px-5 py-2.5 rounded-xl
-                             transition-all duration-200 no-underline self-start
-                             hover:bg-accent hover:text-white hover:border-accent
-                             hover:-translate-y-px"
-                  style={{ fontSize: '13px' }}
-                >
-                  View Products
-                  <svg width="12" height="12" viewBox="0 0 16 16" fill="none">
-                    <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5"
-                          strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                </a>
               </div>
             </Animate>
           </div>

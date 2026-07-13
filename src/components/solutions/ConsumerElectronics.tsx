@@ -85,9 +85,8 @@ export default function ConsumerElectronicsPage() {
         <div className="absolute right-[8%] top-1/2 -translate-y-1/2 z-[1]
                         hidden lg:flex flex-col gap-4">
           {[
-            { label: 'Product Categories', value: '10+' },
-            { label: 'Brand Partners',     value: '15+' },
-            { label: 'Products Available', value: '200+' },
+            
+            { label: 'Products Available', value: '50+' },
           ].map(({ label, value }) => (
             <div key={label}
                  className="flex items-center gap-4 px-5 py-4 rounded-xl

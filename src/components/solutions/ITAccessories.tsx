@@ -6,7 +6,6 @@ import SectionHeader from '../SectionHeader';
 
 /* ── Brand partner logos ── */
 const brandPartners = [
-  { name: 'Belkin', logo: '/logos/belkin_logo.svg' },
   { name: 'Aztech', logo: '/logos/aztech-logo.png' },
 ];
 
@@ -24,9 +23,9 @@ const accessoryTabs = [
       </svg>
     ),
     images: [
-      'https://placehold.co/520x380/EFF6FF/15A7DC?text=Audio+Accessories+1&font=poppins',
-      'https://placehold.co/520x380/EFF6FF/15A7DC?text=Audio+Accessories+2&font=poppins',
-      'https://placehold.co/520x380/EFF6FF/15A7DC?text=Audio+Accessories+3&font=poppins',
+      'https://res.cloudinary.com/df52xzi3y/image/upload/v1783682053/aztech-aztech-waterproof-portable-speaker-0-Product-images_Speaker-01.jpg',
+      'https://res.cloudinary.com/df52xzi3y/image/upload/v1783680092/aztech-aztech-501-soundbar-with-wired-subwoofer-0-Product-images_Soundbar-5-1-01.jpg',
+      'https://res.cloudinary.com/df52xzi3y/image/upload/v1783682058/aztech-aztech-wireless-earbuds-led-display-charging-case-0-Product-images_TWS-01.jpg',
     ],
     heading: 'Superior Sound for Every Moment',
     body: 'Experience music like never before with Rookie Ninja\'s audio accessories. From earbuds and speakers to headsets and audio adapters, we offer superior sound quality, performance, connectivity, and convenience for all your audio needs. Elevate your audio entertainment, gaming, and communication experiences with us.',
@@ -44,9 +43,9 @@ const accessoryTabs = [
       </svg>
     ),
     images: [
-      'https://placehold.co/520x380/EFF6FF/15A7DC?text=Mobile+Accessories+1&font=poppins',
-      'https://placehold.co/520x380/EFF6FF/15A7DC?text=Mobile+Accessories+2&font=poppins',
-      'https://placehold.co/520x380/EFF6FF/15A7DC?text=Mobile+Accessories+3&font=poppins',
+      'https://res.cloudinary.com/df52xzi3y/image/upload/v1783682043/aztech-aztech-supersonic-wired-earphone-type-c-1m-0-Product-images_Earphone-Wire.jpg',
+      'https://res.cloudinary.com/df52xzi3y/image/upload/v1783682032/aztech-aztech-gan-car-hypercharger-3-ports-95w-0-Product-images_Car-Charger2-02-.jpg',
+      'https://res.cloudinary.com/df52xzi3y/image/upload/v1783682027/aztech-aztech-gan-ii-hypercharger-dual-ports-45w-0-Product-images_Gan2-01.jpg',
     ],
     heading: 'Enhance Your Mobile Lifestyle',
     body: 'As mobile phones are the gateway to new opportunities, the necessity of mobile accessories is always on the rise. At Rookie Ninja, we provide solutions with premium functionality, convenience, personalization, and improved productivity. Our mobile accessories include smartwatches, neckbands, earphones and headphones, and more.',
@@ -63,8 +62,9 @@ const accessoryTabs = [
       </svg>
     ),
     images: [
-      'https://placehold.co/520x380/EFF6FF/15A7DC?text=Cable+Solutions+1&font=poppins',
-      'https://placehold.co/520x380/EFF6FF/15A7DC?text=Cable+Solutions+2&font=poppins',
+      'https://res.cloudinary.com/df52xzi3y/image/upload/v1783682039/aztech-aztech-hypercable-usb-c-240w-1m-black-0-WhatsApp-Image-2024-12-17-at-12-4.jpg',
+      'https://res.cloudinary.com/df52xzi3y/image/upload/v1783682040/aztech-aztech-hypercable-usb-c-240w-2m-titanium-0-WhatsApp-Image-2024-12-17-at-1.jpg',
+      'https://res.cloudinary.com/df52xzi3y/image/upload/v1783682017/aztech-aztech-hypercable-usb-c-60w-1m-black-0-Product-images_Cable-01-76.jpg',
     ],
     heading: 'Fast, Reliable & Durable Connectivity',
     body: 'Cabling solutions play a vital role in providing seamless connectivity and immediate data flow in order to carry out our day-to-day operations. Rookie Ninja cable solutions offer fast, reliable, durable, and exceptional power and connection. Whether video cables, charging, or audio cables, Rookie Ninja provides the right solutions to meet your needs.',
@@ -81,33 +81,12 @@ const accessoryTabs = [
       </svg>
     ),
     images: [
-      'https://placehold.co/520x380/EFF6FF/15A7DC?text=Adapters+1&font=poppins',
-      'https://placehold.co/520x380/EFF6FF/15A7DC?text=Adapters+2&font=poppins',
+      'https://res.cloudinary.com/df52xzi3y/image/upload/v1783682020/aztech-aztech-gan-hypercharger-3-ports-70w-0-Product-images_Gan3-01.jpg',
+      'https://res.cloudinary.com/df52xzi3y/image/upload/v1783682038/aztech-aztech-gan-car-hypercharger-dual-ports-95w-0-Product-images_Car-Charger-0.jpg',
     ],
     heading: 'Bridge the Gap Between Devices',
     body: 'Adapters are essential for connectivity and compatibility between devices, bridging the gap between seamless communication, data transfer, and success. Rookie Ninja provides flexible solutions to connect otherwise incompatible devices, maximizing technology investments. Whether IT adapters or gaming or business or home, we offer ideal solutions to meet your specific needs.',
     highlights: ['Universal device compatibility', 'Seamless data transfer', 'IT, gaming & home use'],
-  },
-  {
-    id: 'smarttv',
-    label: 'Smart TV',
-    icon: (
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
-           stroke="currentColor" strokeWidth="1.6"
-           strokeLinecap="round" strokeLinejoin="round">
-        <rect x="2" y="4" width="20" height="14" rx="2"/>
-        <path d="M8 20h8M12 18v2"/>
-        <path d="M6 9l3 3-3 3M12 15h4"/>
-      </svg>
-    ),
-    images: [
-      'https://placehold.co/520x380/EFF6FF/15A7DC?text=Smart+TV+1&font=poppins',
-      'https://placehold.co/520x380/EFF6FF/15A7DC?text=Smart+TV+2&font=poppins',
-      'https://placehold.co/520x380/EFF6FF/15A7DC?text=Smart+TV+3&font=poppins',
-    ],
-    heading: 'Flawless Entertainment for Modern Homes',
-    body: 'As smart TVs have become a necessity for modern homes, giving a flawless entertainment experience. Here at Rookie Ninja, we provide top-tier Smart TVs and accessories, providing personalized recommendations, competitive prices, and exceptional customer service. Let us help you embrace the world of smart entertainment.',
-    highlights: ['Top-tier Smart TV range', 'Personalized recommendations', 'Competitive pricing'],
   },
   {
     id: 'surge',
@@ -120,8 +99,9 @@ const accessoryTabs = [
       </svg>
     ),
     images: [
-      'https://placehold.co/520x380/EFF6FF/15A7DC?text=Surge+Protector+1&font=poppins',
-      'https://placehold.co/520x380/EFF6FF/15A7DC?text=Surge+Protector+2&font=poppins',
+      'https://res.cloudinary.com/df52xzi3y/image/upload/v1783682067/aztech-aztech-powerflow-3-way-3m-universal-extension-0-Product-images_Extenstion.jpg',
+      'https://res.cloudinary.com/df52xzi3y/image/upload/v1783682081/aztech-aztech-powerflow-4-way-5m-universal-extension-0-Product-images_Extenstion.jpg',
+      'https://res.cloudinary.com/df52xzi3y/image/upload/v1783682074/aztech-aztech-powerflow-5-way-3m-universal-extension-0-Product-images_Extenstion.jpg',
     ],
     heading: 'Protect What Matters Most',
     body: 'Rookie Ninja offers reliable surge protectors and power strips to protect your electronic devices in today\'s power-sensitive world. With multiple outlets for convenient connectivity and a focus on safety and security standards, we prioritize safeguarding your equipment. Trust us to provide the reliable products you need to ensure the safety of your electronic devices.',
@@ -136,13 +116,13 @@ function ImageSlider({ images }: { images: string[] }) {
   const next = () => setCurrent(i => (i + 1) % images.length);
 
   return (
-    <div className="relative w-full rounded-2xl overflow-hidden bg-[#EFF6FF]"
+    <div className="relative w-full rounded-2xl overflow-hidden bg-white border border-gray-100"
          style={{ aspectRatio: '520/380' }}>
       <img
         key={current}
         src={images[current]}
         alt={`Product image ${current + 1}`}
-        className="w-full h-full object-cover transition-opacity duration-300"
+        className="w-full h-full object-contain p-10 transition-opacity duration-300"
       />
       {images.length > 1 && (
         <>
@@ -211,8 +191,8 @@ export default function ITAccessoriesPage() {
         <div className="absolute right-[8%] top-1/2 -translate-y-1/2 z-[1]
                         hidden lg:flex flex-col gap-4">
           {[
-            { label: 'Accessory Categories', value: '6+'  },
-            { label: 'Brand Partners',       value: '2+'  },
+            { label: 'Accessory Categories', value: '5+'  },
+            { label: 'Brand Partners',       value: '1+'  },
             { label: 'Products Available',   value: '120+'},
           ].map(({ label, value }) => (
             <div key={label}
@@ -411,22 +391,6 @@ export default function ITAccessoriesPage() {
                     </div>
                   ))}
                 </div>
-
-                <a
-                  href="/products"
-                  className="inline-flex items-center gap-2 font-body font-medium
-                             text-accent border border-accent/40 px-5 py-2.5 rounded-xl
-                             transition-all duration-200 no-underline self-start
-                             hover:bg-accent hover:text-white hover:border-accent
-                             hover:-translate-y-px"
-                  style={{ fontSize: '13px' }}
-                >
-                  View Products
-                  <svg width="12" height="12" viewBox="0 0 16 16" fill="none">
-                    <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5"
-                          strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                </a>
               </div>
             </Animate>
           </div>

@@ -201,7 +201,7 @@ export default function PrintSolutionsPage() {
                         hidden lg:flex flex-col gap-4">
           {[
             { label: 'Product Categories', value: '4+' },
-            { label: 'Brand Partners',     value: '8+' },
+            { label: 'Brand Partners',     value: '3+' },
             { label: 'Models Available',   value: '50+' },
           ].map(({ label, value }) => (
             <div key={label}

@@ -1,15 +1,141 @@
 'use client';
 
+import { useState } from 'react';
 import Animate from '../Animate';
 import SectionHeader from '../SectionHeader';
 
 /* ── Brand partner logos ── */
 const brandPartners = [
-  { name: 'Ezofis', logo: '/logos/ezofis-logo.png' },
+  { name: 'Ezofis',       logo: '/logos/ezofis-logo.png' },
+  { name: 'Kodak Alaris',  logo: '/logos/Kodak-alaris-logo.png' },
+  { name: 'IRIS',          logo: '/logos/iris-logo.svg' },
 ];
+
+/* ── Software tab data ── */
+const softwareTabs = [
+  {
+    id: 'ezofis',
+    label: 'Ezofis Software',
+    icon: (
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+           stroke="currentColor" strokeWidth="1.6"
+           strokeLinecap="round" strokeLinejoin="round">
+        <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/>
+        <polyline points="14 2 14 8 20 8"/>
+        <line x1="16" y1="13" x2="8" y2="13"/>
+        <line x1="16" y1="17" x2="8" y2="17"/>
+      </svg>
+    ),
+    images: [
+      'https://res.cloudinary.com/df52xzi3y/image/upload/v1783974121/Takes-away-the-complexity_p83rd7.webp',
+    ],
+    heading: 'Document Management Solution',
+    body: 'We provide end-to-end document management software solutions that simplify the capture, search, approval, security, and legal preservation of documents. The flexible nature of our solution helps to adapt to each organization\'s exact needs, rather than forcing end users to change the way they work.',
+    highlights: ['Capture, search & approval workflows', 'Enterprise-grade security', 'Legal & compliance preservation'],
+  },
+  {
+    id: 'kodak',
+    label: 'Kodak Software',
+    icon: (
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+           stroke="currentColor" strokeWidth="1.6"
+           strokeLinecap="round" strokeLinejoin="round">
+        <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/>
+      </svg>
+    ),
+    images: [
+      'https://res.cloudinary.com/df52xzi3y/image/upload/v1781980249/rookie-ninja/products/KODAK-Capture-Pro_png.webp',
+      'https://res.cloudinary.com/df52xzi3y/image/upload/v1781980248/rookie-ninja/products/KODAK-Info-Input-Solution-1_png.webp',
+    ],
+    heading: 'Enterprise Document Capture & Processing',
+    body: 'Kodak\'s software suite spans everything from high-volume document capture to AI-powered intelligent document processing. KODAK Capture Pro Software converts paper documents into high-quality digital information with advanced OCR, barcode recognition, and automated indexing, while KODAK Info Input Solution extends this further with AI-powered data extraction and low-code workflow automation — giving your organization a complete toolkit for capturing and processing information at scale.',
+    highlights: ['Advanced OCR & barcode recognition', 'AI-powered data extraction', 'Low-code workflow automation'],
+  },
+  {
+    id: 'readiris',
+    label: 'Readiris Software',
+    icon: (
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+           stroke="currentColor" strokeWidth="1.6"
+           strokeLinecap="round" strokeLinejoin="round">
+        <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/>
+        <polyline points="14 2 14 8 20 8"/>
+        <path d="M9 15h6M9 12h6"/>
+      </svg>
+    ),
+    images: [
+      'https://res.cloudinary.com/df52xzi3y/image/upload/v1781980255/rookie-ninja/products/RIPDF25-new-eshop-660x660-04-en-min.webp',
+      'https://res.cloudinary.com/df52xzi3y/image/upload/v1781980252/rookie-ninja/products/RIPDF25-new-eshop-660x660-01-en-min.webp',
+    ],
+    heading: 'Powerful PDF Creation, Editing & OCR',
+    body: 'Readiris PDF software makes it effortless to create, edit, and manage PDF documents with industry-leading OCR support for 137 languages. Readiris PDF Essential covers the core essentials — converting, merging, splitting, and organizing PDFs — while Readiris PDF Elite adds advanced capabilities like redaction, e-signatures, and PDF forms for teams handling larger document volumes.',
+    highlights: ['OCR support for 137 languages', 'Merge, split & compress PDFs', 'E-signatures & secure redaction'],
+  },
+];
+
+/* ── Image Slider ── */
+function ImageSlider({ images }: { images: string[] }) {
+  const [current, setCurrent] = useState(0);
+  const prev = () => setCurrent(i => (i - 1 + images.length) % images.length);
+  const next = () => setCurrent(i => (i + 1) % images.length);
+
+  return (
+    <div className="relative w-full rounded-2xl overflow-hidden bg-white border border-gray-100"
+         style={{ aspectRatio: '520/380' }}>
+      <img
+        key={current}
+        src={images[current]}
+        alt={`Product image ${current + 1}`}
+        className="w-full h-full object-contain p-10 transition-opacity duration-300"
+      />
+
+      {images.length > 1 && (
+        <>
+          <button onClick={prev} aria-label="Previous image"
+            className="absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full
+                       bg-white/90 border border-gray-200 flex items-center justify-center
+                       text-navy hover:bg-white hover:border-accent/40
+                       transition-all duration-200 shadow-sm">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M15 18l-6-6 6-6"/>
+            </svg>
+          </button>
+          <button onClick={next} aria-label="Next image"
+            className="absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full
+                       bg-white/90 border border-gray-200 flex items-center justify-center
+                       text-navy hover:bg-white hover:border-accent/40
+                       transition-all duration-200 shadow-sm">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M9 18l6-6-6-6"/>
+            </svg>
+          </button>
+        </>
+      )}
+
+      {images.length > 1 && (
+        <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex items-center gap-1.5">
+          {images.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setCurrent(i)}
+              aria-label={`Go to image ${i + 1}`}
+              className={`rounded-full transition-all duration-200
+                          ${i === current ? 'w-5 h-1.5 bg-accent' : 'w-1.5 h-1.5 bg-gray-200 hover:bg-gray-300'}`}
+            />
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
 
 /* ── Main Page ── */
 export default function SoftwareSolutionsPage() {
+  const [activeTab, setActiveTab] = useState(0);
+  const tab = softwareTabs[activeTab];
+
   return (
     <main className="bg-white">
 
@@ -31,9 +157,9 @@ export default function SoftwareSolutionsPage() {
         <div className="absolute right-[8%] top-1/2 -translate-y-1/2 z-[1]
                         hidden lg:flex flex-col gap-4">
           {[
-            { label: 'Software Solutions',  value: '10+' },
-            { label: 'Brand Partners',      value: '5+'  },
-            { label: 'Businesses Supported',value: '200+'},
+            { label: 'Software Solutions',  value: '4+' },
+            { label: 'Brand Partners',      value: '3+'  },
+            { label: 'Businesses Supported',value: '50+'},
           ].map(({ label, value }) => (
             <div key={label}
                  className="flex items-center gap-4 px-5 py-4 rounded-xl
@@ -176,148 +302,127 @@ export default function SoftwareSolutionsPage() {
       </section>
 
       {/* ══════════════════════════════════════════
-          DOCUMENT MANAGEMENT SOLUTION
+          SOFTWARE CATEGORY TABS
       ══════════════════════════════════════════ */}
       <section className="py-24 px-6 border-t border-gray-100 bg-white">
         <div className="max-w-6xl mx-auto">
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+          {/* Tab buttons */}
+          <Animate type="fade-up">
+            <div className="flex flex-wrap gap-2 mb-12 border-b border-gray-100 pb-6">
+              {softwareTabs.map((t, i) => (
+                <button
+                  key={t.id}
+                  onClick={() => setActiveTab(i)}
+                  className={`inline-flex items-center gap-2 font-body font-medium
+                              px-5 py-2.5 rounded-xl border transition-all duration-200
+                              ${activeTab === i
+                                ? 'bg-accent text-white border-accent shadow-[0_4px_16px_rgba(21,167,220,0.3)]'
+                                : 'bg-white text-gray-500 border-gray-200 hover:border-accent/40 hover:text-accent'}`}
+                  style={{ fontSize: '13px' }}
+                >
+                  <span className={activeTab === i ? 'text-white' : 'text-accent'}>
+                    {t.icon}
+                  </span>
+                  {t.label}
+                </button>
+              ))}
+            </div>
+          </Animate>
 
-            {/* Left — content */}
+          {/* Tab content */}
+          <div key={activeTab}
+               className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+
+            {/* Left — image slider */}
             <Animate type="fade-right">
+              <ImageSlider images={tab.images} />
+            </Animate>
+
+            {/* Right — content */}
+            <Animate type="fade-left" delay={100}>
               <div className="flex flex-col">
 
-                <p className="font-body font-semibold text-accent uppercase
-                              tracking-wide mb-3"
+                <p className="font-body font-semibold text-accent tracking-wide mb-3 uppercase"
                    style={{ fontSize: '12px', letterSpacing: '0.1em' }}>
-                  Document Management
+                  {tab.label}
                 </p>
 
                 <h2 className="font-display font-bold text-navy leading-[1.15]
-                               tracking-[-0.02em] mb-4"
-                    style={{ fontSize: 'clamp(24px, 3vw, 38px)' }}>
-                  Document Management Solution
+                               tracking-[-0.02em] mb-5"
+                    style={{ fontSize: 'clamp(24px, 3vw, 36px)' }}>
+                  {tab.heading}
                 </h2>
-
-                <div className="w-10 h-[2px] bg-accent rounded-full mb-6" />
 
                 <p className="font-body text-gray-500 leading-[1.8] mb-8"
                    style={{ fontSize: '15px' }}>
-                  We provide end-to-end document management software solutions that simplify
-                  the capture, search, approval, security, and legal preservation of documents.
-                  The flexible nature of our solution helps to adapt to each organization's
-                  exact needs, rather than forcing end users to change the way they work.
+                  {tab.body}
                 </p>
 
-                {/* Feature pills */}
-                <div className="flex flex-wrap gap-2 mb-8">
-                  {['Capture', 'Search', 'Approval', 'Security', 'Legal Preservation'].map((f) => (
-                    <span
-                      key={f}
-                      className="font-body font-medium text-accent rounded-full"
-                      style={{
-                        fontSize: '12px',
-                        padding: '5px 14px',
-                        background: 'rgba(21,167,220,0.08)',
-                        border: '0.5px solid rgba(21,167,220,0.25)',
-                      }}
-                    >
-                      {f}
-                    </span>
+                <div className="flex flex-col gap-3 mb-8">
+                  {tab.highlights.map((h) => (
+                    <div key={h} className="flex items-center gap-3">
+                      <span className="w-5 h-5 rounded-full bg-accent/10 text-accent
+                                       flex items-center justify-center shrink-0">
+                        <svg width="10" height="10" viewBox="0 0 16 16" fill="none">
+                          <path d="M3 8l4 4 6-6" stroke="currentColor" strokeWidth="1.8"
+                                strokeLinecap="round" strokeLinejoin="round"/>
+                        </svg>
+                      </span>
+                      <span className="font-body text-gray-600" style={{ fontSize: '14px' }}>
+                        {h}
+                      </span>
+                    </div>
                   ))}
                 </div>
-
-                <a
-                  href="/contact"
-                  className="inline-flex items-center gap-2 font-body font-medium
-                             text-white bg-accent px-6 py-3 rounded-xl
-                             transition-all duration-200 no-underline self-start
-                             hover:opacity-85 hover:-translate-y-px
-                             shadow-[0_4px_20px_rgba(21,167,220,0.3)]"
-                  style={{ fontSize: '14px' }}
-                >
-                  Get in Touch
-                  <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
-                    <path d="M3 8h10M9 4l4 4-4 4"
-                          stroke="currentColor" strokeWidth="1.5"
-                          strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                </a>
               </div>
             </Animate>
-
-            {/* Right — visual card */}
-            <Animate type="fade-left" delay={100}>
-              <div className="relative rounded-2xl overflow-hidden"
-                   style={{
-                     background: 'linear-gradient(135deg, #0A1628 0%, #0F2040 100%)',
-                     padding: '40px',
-                     minHeight: '380px',
-                   }}>
-
-                {/* Dot grid overlay */}
-                <div className="absolute inset-0 opacity-30" style={{
-                  backgroundImage: 'radial-gradient(rgba(255,255,255,0.08) 1px, transparent 1px)',
-                  backgroundSize: '24px 24px',
-                }} />
-
-                {/* Accent glow */}
-                <div className="absolute top-0 right-0 w-48 h-48 rounded-full pointer-events-none"
-                     style={{
-                       background: 'radial-gradient(circle, rgba(21,167,220,0.15) 0%, transparent 70%)',
-                     }} />
-
-                <div className="relative z-10 flex flex-col h-full justify-between">
-
-                  {/* Icon */}
-                  <div className="w-12 h-12 rounded-xl bg-accent/20 text-accent
-                                  flex items-center justify-center mb-6">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                         stroke="currentColor" strokeWidth="1.6"
-                         strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/>
-                      <polyline points="14 2 14 8 20 8"/>
-                      <line x1="16" y1="13" x2="8" y2="13"/>
-                      <line x1="16" y1="17" x2="8" y2="17"/>
-                      <polyline points="10 9 9 9 8 9"/>
-                    </svg>
-                  </div>
-
-                  {/* Feature list */}
-                  <div className="flex flex-col gap-4 flex-1">
-                    {[
-                      { icon: '📄', label: 'Intelligent Document Capture'   },
-                      { icon: '🔍', label: 'Advanced Search & Retrieval'     },
-                      { icon: '✅', label: 'Approval Workflow Automation'    },
-                      { icon: '🔒', label: 'Enterprise-Grade Security'       },
-                      { icon: '⚖️', label: 'Legal & Compliance Preservation' },
-                    ].map(({ icon, label }) => (
-                      <div key={label} className="flex items-center gap-3">
-                        <span className="w-8 h-8 rounded-lg bg-white/[0.06] border border-white/10
-                                         flex items-center justify-center shrink-0 text-sm">
-                          {icon}
-                        </span>
-                        <span className="font-body text-white/70"
-                              style={{ fontSize: '13px' }}>
-                          {label}
-                        </span>
-                      </div>
-                    ))}
-                  </div>
-
-                  {/* Bottom label */}
-                  <div className="mt-8 pt-5"
-                       style={{ borderTop: '0.5px solid rgba(255,255,255,0.08)' }}>
-                    <p className="font-body text-white/40 uppercase tracking-[0.1em]"
-                       style={{ fontSize: '10px' }}>
-                      Powered by Ezofis
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </Animate>
-
           </div>
+
+          {/* Tab navigation */}
+          <div className="flex items-center justify-between mt-12 pt-8 border-t border-gray-100">
+            <button
+              onClick={() => setActiveTab(i => Math.max(0, i - 1))}
+              disabled={activeTab === 0}
+              className="inline-flex items-center gap-2 font-body text-gray-400
+                         disabled:opacity-30 hover:text-accent transition-colors duration-200"
+              style={{ fontSize: '13px' }}
+            >
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                   stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M15 18l-6-6 6-6"/>
+              </svg>
+              Previous
+            </button>
+
+            <div className="flex items-center gap-1.5">
+              {softwareTabs.map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => setActiveTab(i)}
+                  className={`rounded-full transition-all duration-200
+                              ${i === activeTab
+                                ? 'w-5 h-1.5 bg-accent'
+                                : 'w-1.5 h-1.5 bg-gray-200 hover:bg-gray-300'}`}
+                />
+              ))}
+            </div>
+
+            <button
+              onClick={() => setActiveTab(i => Math.min(softwareTabs.length - 1, i + 1))}
+              disabled={activeTab === softwareTabs.length - 1}
+              className="inline-flex items-center gap-2 font-body text-gray-400
+                         disabled:opacity-30 hover:text-accent transition-colors duration-200"
+              style={{ fontSize: '13px' }}
+            >
+              Next
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                   stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M9 18l6-6-6-6"/>
+              </svg>
+            </button>
+          </div>
+
         </div>
       </section>
 

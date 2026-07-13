@@ -214,8 +214,8 @@ export default function ScanSolutionsPage() {
         <div className="absolute right-[8%] top-1/2 -translate-y-1/2 z-[1]
                         hidden lg:flex flex-col gap-4">
           {[
-            { label: 'Scanner Categories', value: '5+'  },
-            { label: 'Brand Partners',     value: '7+'  },
+            { label: 'Scanner Categories', value: '4+'  },
+            { label: 'Brand Partners',     value: '5+'  },
             { label: 'Models Available',   value: '40+' },
           ].map(({ label, value }) => (
             <div key={label}
