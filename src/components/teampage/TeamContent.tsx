@@ -256,7 +256,7 @@ function TeamCard({
           <img
             src={image}
             alt={name}
-            className="w-full h-full object-cover grayscale
+            className="w-full h-full object-cover grayscale scale-[1.15]
                        group-hover:grayscale-0 transition-all duration-500"
             onError={() => setImgFailed(true)}
           />
