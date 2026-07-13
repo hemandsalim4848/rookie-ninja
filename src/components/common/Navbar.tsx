@@ -194,11 +194,10 @@ const closeQuote = () => {
 
                     {/* Our Solutions with flyout */}
                     <div className="relative group/solutions">
-                      <a href="/portfolio/solutions"
-                         className="flex items-center justify-between gap-2 px-3 py-2
-                                    text-[13px] text-gray-600 no-underline transition-all
+                      <div className="flex items-center justify-between gap-2 px-3 py-2
+                                    text-[13px] text-gray-600 transition-all
                                     duration-150 hover:bg-accent/[0.07] hover:text-accent
-                                    mx-1 rounded-lg group">
+                                    mx-1 rounded-lg group cursor-default">
                         <div className="flex items-center gap-2.5">
                           <span className="w-7 h-7 rounded-[7px] bg-accent/10
                                            flex items-center justify-center shrink-0
@@ -213,7 +212,7 @@ const closeQuote = () => {
                           <path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor"
                                 strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/>
                         </svg>
-                      </a>
+                      </div>
 <div className="absolute top-0 left-full w-3 h-full" />
                       {/* Right flyout */}
                       <div className="absolute left-full top-0 ml-1 z-[2001]
@@ -226,7 +225,7 @@ const closeQuote = () => {
                                       group-hover/solutions:translate-x-0
                                       transition-all duration-200">
                         
-                        <LightDropItem icon={<PrintIcon />}       label="Print Solutions"      href="/print-solutions"       />
+                        <LightDropItem icon={<PrintIcon />}       label="Print"      href="/print-solutions"       />
                         <LightDropItem icon={<ScanIcon />}        label="Scan"                 href="/scan-solutions"        />
                         <LightDropItem icon={<ElectronicsIcon />} label="Consumer Electronics" href="/consumer-electronics" />
                         <LightDropItem icon={<GamingIcon />}      label="Gaming"               href="/gaming"      />
@@ -412,7 +411,7 @@ const closeQuote = () => {
                         tracking-[0.16em] px-4 pt-1 pb-1">
             Our Solutions
           </p>
-          <MobSubLink href="/print-solutions"       icon={<PrintIconDark />}       label="Print Solutions"      />
+          <MobSubLink href="/print-solutions"       icon={<PrintIconDark />}       label="Print"      />
           <MobSubLink href="/scan-solutions"        icon={<ScanIconDark />}        label="Scan"                 />
           <MobSubLink href="/consumer-electronics" icon={<ElectronicsIconDark />} label="Consumer Electronics" />
           <MobSubLink href="/gaming"      icon={<GamingIconDark />}      label="Gaming"               />
@@ -421,7 +420,7 @@ const closeQuote = () => {
           <MobSubLink href="/it-accessories" icon={<AccessoriesIconDark />} label="IT Accessories"       />
         </MobItem>
 
-        <a href="#" className="font-body text-[15px] text-navy/70 px-4 py-3
+        <a href="/our-vendors" className="font-body text-[15px] text-navy/70 px-4 py-3
                                rounded-xl flex items-center transition-all
                                duration-150 hover:bg-navy/[0.05] hover:text-navy
                                no-underline">
