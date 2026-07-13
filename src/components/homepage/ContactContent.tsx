@@ -69,20 +69,6 @@ const offices = [
       </svg>
     ),
   },
-  {
-    type: 'Warehouse',
-    address: 'Jebel Ali Freezone, Dubai, United Arab Emirates',
-    icon: (
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
-           stroke="currentColor" strokeWidth="1.6"
-           strokeLinecap="round" strokeLinejoin="round">
-        <rect x="1" y="3" width="15" height="13" rx="1"/>
-        <path d="M16 8h4l3 4v4h-7V8z"/>
-        <circle cx="5.5" cy="18.5" r="2.5"/>
-        <circle cx="18.5" cy="18.5" r="2.5"/>
-      </svg>
-    ),
-  },
 ];
 
 export default function ContactContent() {
@@ -299,6 +285,15 @@ export default function ContactContent() {
             <Animate type="fade-left" delay={100}>
               <div className="flex flex-col gap-5">
 
+                {/* Company image */}
+                <div className="relative rounded-2xl overflow-hidden aspect-[16/10]">
+                  <img
+                    src="https://res.cloudinary.com/df52xzi3y/image/upload/v1783976407/Gemini_Generated_Image_rbdhj1rbdhj1rbdh_vm2mlp.webp"
+                    alt="Rookie Ninja"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+
                 {/* Office cards */}
                 {offices.map((o) => (
                   <div key={o.type}
@@ -372,11 +367,11 @@ export default function ContactContent() {
                                    tracking-[0.12em] font-medium mb-1">
                       Email
                     </p>
-                    <a href="mailto:info@rookieninja.com"
+                    <a href="mailto:sales@rookie-ninja.com"
                        className="font-body text-[13.5px] text-navy font-medium
                                   no-underline hover:text-accent
                                   transition-colors duration-200">
-                      info@rookieninja.com
+                      sales@rookie-ninja.com
                     </a>
                   </div>
                 </div>

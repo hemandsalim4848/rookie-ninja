@@ -114,6 +114,27 @@ const gamingTabs = [
     body: 'Rookie Ninja offers a wide range of power supply solutions designed for various computing needs, from everyday home and office systems to gaming setups and professional workstations. Our PSUs are built with efficient power delivery, reliable components, and advanced protection features to ensure safe and stable system performance.',
     highlights: ['Efficient power delivery', 'Advanced protection features', 'Stable system performance'],
   },
+  {
+    id: 'gpu',
+    label: 'Graphics Cards',
+    icon: (
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+           stroke="currentColor" strokeWidth="1.6"
+           strokeLinecap="round" strokeLinejoin="round">
+        <rect x="2" y="6" width="20" height="12" rx="2"/>
+        <circle cx="7" cy="12" r="2"/>
+        <path d="M13 9h6M13 12h6M13 15h4"/>
+      </svg>
+    ),
+    images: [
+      'https://res.cloudinary.com/df52xzi3y/image/fetch/f_auto,q_auto/https://products.rookie-ninja.com/wp-content/uploads/2025/10/GeForce-RTX%E2%84%A2-5070-12G-GAMING-TRIO.webp',
+      'https://res.cloudinary.com/df52xzi3y/image/fetch/f_auto,q_auto/https://products.rookie-ninja.com/wp-content/uploads/2025/10/GeForce-RTX%E2%84%A2-5080-16G-GAMING-TRIO.webp',
+      'https://res.cloudinary.com/df52xzi3y/image/fetch/f_auto,q_auto/https://products.rookie-ninja.com/wp-content/uploads/2025/09/GeForce-RTX%E2%84%A2-5090-32G-GAMING-TRIO-1.png',
+    ],
+    heading: 'Powered by NVIDIA Blackwell',
+    body: 'Rookie Ninja distributes the latest MSI GeForce RTX 50 Series graphics cards, built on the NVIDIA Blackwell architecture. With DLSS 4 and Multi Frame Generation, GDDR7 memory, and MSI\'s TRI FROZR 4 triple-fan cooling, these cards deliver the performance headroom serious gamers and creators need — from the 12GB RTX 5070 up to the flagship 32GB RTX 5090.',
+    highlights: ['NVIDIA Blackwell architecture', 'DLSS 4 with Multi Frame Generation', 'TRI FROZR 4 cooling'],
+  },
 ];
 
 /* ── Image Slider ── */
@@ -200,7 +221,7 @@ export default function GamingPage() {
         <div className="absolute right-[8%] top-1/2 -translate-y-1/2 z-[1]
                         hidden lg:flex flex-col gap-4">
           {[
-            { label: 'Gaming Categories', value: '5+'  },
+            { label: 'Gaming Categories', value: '6+'  },
             { label: 'Brand Partners',    value: '4+'  },
             { label: 'Products Available',value: '50+'},
           ].map(({ label, value }) => (
