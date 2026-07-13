@@ -119,9 +119,9 @@ export default function PartnersPage() {
         <div className="absolute right-[8%] top-1/2 -translate-y-1/2 z-[1]
                         hidden lg:flex flex-col gap-4">
           {[
-            { label: 'Active Partners', value: '500+' },
+            { label: 'Active Partners', value: '50+' },
             { label: 'Countries Served', value: '15+' },
-            { label: 'Years of Experience', value: '20+' },
+            { label: 'Years of Experience', value: '8+' },
           ].map(({ label, value }) => (
             <div key={label}
                  className="flex items-center gap-4 px-5 py-4 rounded-xl
