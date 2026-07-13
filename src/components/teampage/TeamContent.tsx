@@ -1,5 +1,6 @@
 'use client';
 
+import { useState } from 'react';
 import Animate from '../Animate';
 import SectionHeader from '../SectionHeader';
 
@@ -7,91 +8,47 @@ const management = [
   {
     name: 'Swathy Sunilkumar',
     role: 'Head of Vendor Relations & Brand Development',
-    image: '/team/swathy.jpg',
+    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1783926744/swathy-02_jdjdfj.png',
     bio: 'Driving strategic vendor partnerships and brand growth across the MEA region with a passion for building lasting relationships.',
     initials: 'SS',
     color: '#15A7DC',
+    linkedin: 'https://www.linkedin.com/in/swathy-sunilkumar-32948139/',
   },
   {
     name: 'Steffy Jacob',
     role: 'Product Manager',
-    image: '/team/steffy.jpg',
+    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1783926744/steffy_aymvbh.png',
     bio: 'Leading product strategy and portfolio development to ensure we always bring the most relevant technology to our partners.',
     initials: 'SJ',
     color: '#0F8FBD',
+    linkedin: 'https://www.linkedin.com/in/steffy-jacob-a16897157',
   },
   {
     name: 'Felix Simon',
     role: 'Senior Account Manager — Export Sales',
-    image: '/team/felix.jpg',
+    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1783926744/felix-simon_c6semk.png',
     bio: 'Managing key export accounts with precision and a deep understanding of cross-border technology distribution.',
     initials: 'FS',
     color: '#0A7AA8',
+    linkedin: 'https://www.linkedin.com/in/felix-simon-312b3717',
   },
   {
     name: 'Garros Rolland',
     role: 'Retail Sales & Export',
-    image: '/team/garros.jpg',
+    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1783926744/garros_nmrrmh.png',
     bio: 'Bridging retail and export channels to maximise reach and deliver consistent value to our growing partner network.',
     initials: 'GR',
     color: '#15A7DC',
+    linkedin: 'https://www.linkedin.com/in/garros-rolland-26b304b9',
   },
   {
     name: 'Catherine Robit',
     role: 'Senior Account Manager — Channel Sales',
-    image: '/team/catherine.jpg',
+    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1783926744/cath-01_cmtxoc.png',
     bio: 'Building and nurturing channel partnerships with a customer-first approach and an eye for long-term growth.',
     initials: 'CR',
     color: '#0F8FBD',
-  },
-];
-
-const values = [
-  {
-    title: 'Innovation First',
-    body: 'We constantly challenge the status quo, bringing fresh ideas and creative solutions to every partnership.',
-    icon: (
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
-           stroke="currentColor" strokeWidth="1.6"
-           strokeLinecap="round" strokeLinejoin="round">
-        <path d="M9 18h6M10 22h4M12 2a7 7 0 017 7c0 2.5-1.5 4.5-3 6l-1 3H9l-1-3C6.5 13.5 5 11.5 5 9a7 7 0 017-7z"/>
-      </svg>
-    ),
-  },
-  {
-    title: 'People Driven',
-    body: 'Our team is our greatest asset. We invest in people, foster growth, and celebrate every win together.',
-    icon: (
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
-           stroke="currentColor" strokeWidth="1.6"
-           strokeLinecap="round" strokeLinejoin="round">
-        <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
-        <circle cx="9" cy="7" r="4"/>
-        <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/>
-      </svg>
-    ),
-  },
-  {
-    title: 'Relentless Reliability',
-    body: 'We show up, we deliver, and we exceed expectations — every time, without compromise.',
-    icon: (
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
-           stroke="currentColor" strokeWidth="1.6"
-           strokeLinecap="round" strokeLinejoin="round">
-        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-      </svg>
-    ),
-  },
-  {
-    title: 'Collaborative Spirit',
-    body: 'Together we achieve more. Collaboration is embedded in how we think, work, and grow.',
-    icon: (
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
-           stroke="currentColor" strokeWidth="1.6"
-           strokeLinecap="round" strokeLinejoin="round">
-        <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/>
-      </svg>
-    ),
+    linkedin: 'https://www.linkedin.com/in/catherine-robit-8a8765111',
   },
 ];
 
@@ -100,14 +57,12 @@ export default function TeamContent() {
     <main className="bg-white">
 
       {/* ── HERO BANNER ── */}
-      <section className="relative min-h-[65vh] flex items-center overflow-hidden">
+      <section className="relative min-h-[65vh] flex items-center overflow-hidden bg-white">
         <div className="absolute inset-0 z-0" style={{
-          background: `
-            radial-gradient(ellipse 55% 55% at 80% 50%, rgba(21,167,220,0.1) 0%, transparent 70%),
-            linear-gradient(150deg, #0A1628 0%, #0F2040 60%, #0A1628 100%)`
+          background: 'radial-gradient(ellipse 55% 55% at 80% 50%, rgba(21,167,220,0.06) 0%, transparent 70%)'
         }} />
         <div className="absolute inset-0 z-[1]" style={{
-          backgroundImage: 'radial-gradient(rgba(255,255,255,0.04) 1px, transparent 1px)',
+          backgroundImage: 'radial-gradient(rgba(10,22,40,0.05) 1px, transparent 1px)',
           backgroundSize: '36px 36px',
         }} />
 
@@ -115,7 +70,7 @@ export default function TeamContent() {
         <div className="absolute right-[5%] top-1/2 -translate-y-1/2 z-[1]
                         hidden lg:block">
           <div className="relative w-[380px] h-[380px]">
-            <div className="absolute inset-0 rounded-full border border-white/[0.05]" />
+            <div className="absolute inset-0 rounded-full border border-navy/[0.06]" />
             <div className="absolute inset-[40px] rounded-full border border-accent/10" />
             <div className="absolute inset-[80px] rounded-full border border-accent/15" />
             <div className="absolute inset-[120px] rounded-full bg-accent/[0.06]
@@ -146,14 +101,14 @@ export default function TeamContent() {
             </div>
           </Animate>
           <Animate type="fade-up" delay={100}>
-            <h1 className="font-display font-bold text-white
+            <h1 className="font-display font-bold text-navy
                            text-[clamp(36px,5vw,62px)]
                            leading-[1.1] tracking-[-0.02em] mb-6 max-w-xl">
               We Are <span className="text-accent">Rookie Ninja</span>
             </h1>
           </Animate>
           <Animate type="fade-up" delay={200}>
-            <p className="font-body text-[16px] font-light text-white/60
+            <p className="font-body text-[16px] font-light text-gray-500
                           leading-[1.8] max-w-lg mb-10">
               Since day one, our people have been the main driver of growth.
               Without them, it would have been impossible to guarantee the
@@ -161,14 +116,14 @@ export default function TeamContent() {
             </p>
           </Animate>
           <Animate type="fade-up" delay={300}>
-            
+
              <a href="/company-profile.pdf"
               download
               className="inline-flex items-center gap-2.5 font-body text-[13px]
-                         font-medium text-white border border-white/20
-                         bg-white/[0.07] px-5 py-3 rounded-xl no-underline
+                         font-medium text-navy border border-gray-200
+                         bg-gray-50 px-5 py-3 rounded-xl no-underline
                          transition-all duration-200
-                         hover:bg-white/[0.12] hover:border-white/30 group"
+                         hover:bg-gray-100 hover:border-gray-300 group"
             >
               <svg width="15" height="15" viewBox="0 0 16 16" fill="none"
                    className="transition-transform duration-200
@@ -184,68 +139,50 @@ export default function TeamContent() {
       </section>
 
       {/* ── FOUNDER MESSAGE ── */}
-      <section className="py-20 px-6 border-t border-gray-100 bg-white">
+      <section className="py-20 px-6 bg-[#15A7DC]">
         <div className="max-w-6xl mx-auto">
           <Animate type="fade-up">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 
-              {/* Left — quote */}
+              {/* Left — CEO image */}
+              <div className="group relative mx-auto w-full max-w-[380px]
+                              aspect-[5/6]">
+                <div className="absolute inset-0 rounded-full bg-accent/25
+                                blur-3xl scale-90 opacity-0
+                                group-hover:opacity-100 group-hover:scale-100
+                                transition-all duration-500" />
+                <img src="https://res.cloudinary.com/df52xzi3y/image/upload/v1783926744/shashank-f-3_vqsby0.png"
+                     alt="Shashank, Founder of Rookie Ninja"
+                     className="relative w-full h-full object-contain grayscale
+                                group-hover:grayscale-0 group-hover:scale-105
+                                transition-all duration-500" />
+              </div>
+
+              {/* Right — quote */}
               <div className="relative">
                 <div className="absolute -left-2 -top-2 text-[120px] leading-none
-                                font-display font-bold text-accent/10 select-none
+                                font-display font-bold text-white/15 select-none
                                 pointer-events-none">
                   "
                 </div>
                 <div className="relative">
                   <p className="font-body text-[11px] font-medium tracking-[0.2em]
-                                uppercase text-accent mb-4">
+                                uppercase text-white/80 mb-4">
                     Message from our Founder
                   </p>
                   <blockquote className="font-display text-[clamp(22px,2.5vw,32px)]
-                                         font-bold text-navy leading-[1.35]
+                                         font-bold text-white leading-[1.35]
                                          tracking-[-0.01em] mb-6">
                     The first step toward success is taken when you refuse to be
                     a captive of your{' '}
-                    <span className="text-accent">own mind's restrictions.</span>
+                    <span className="text-navy">own mind's restrictions.</span>
                   </blockquote>
                   <div className="flex items-center gap-4">
-                    <div className="w-10 h-px bg-accent" />
-                    <span className="font-body text-[13px] text-gray-400 font-medium">
+                    <div className="w-10 h-px bg-white" />
+                    <span className="font-body text-[13px] text-white/70 font-medium">
                       Founder, Rookie Ninja
                     </span>
                   </div>
-                </div>
-              </div>
-
-              {/* Right — about team text */}
-              <div className="bg-gray-50 rounded-2xl p-8 border border-gray-100">
-                <p className="font-body text-[14px] text-gray-500 leading-[1.85]
-                              font-light mb-5">
-                  Welcome to the management team at Rookie Ninja — where
-                  extraordinary leadership converges with a vibrant work culture.
-                  Led by our visionary ninja masters, we are on a relentless mission
-                  to create the best place to work in IT distribution.
-                </p>
-                <p className="font-body text-[14px] text-gray-500 leading-[1.85]
-                              font-light">
-                  With strategic prowess and unwavering dedication, our management
-                  team pioneers an environment where innovation thrives,
-                  collaboration soars, and every team member flourishes.
-                </p>
-                <div className="mt-6 flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-lg bg-accent/10 text-accent
-                                  flex items-center justify-center">
-                    <svg width="14" height="14" viewBox="0 0 16 16" fill="none"
-                         stroke="currentColor" strokeWidth="1.5"
-                         strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"
-                            transform="scale(0.8) translate(2,1)"/>
-                    </svg>
-                  </div>
-                  <span className="font-body text-[12px] text-accent font-medium
-                                   uppercase tracking-[0.1em]">
-                    Unleashing Our Ninja Power
-                  </span>
                 </div>
               </div>
 
@@ -255,9 +192,13 @@ export default function TeamContent() {
       </section>
 
       {/* ── MANAGEMENT TEAM ── */}
-      <section className="py-24 px-6 border-t border-gray-100"
-               style={{ background: 'linear-gradient(180deg, #f8fbff 0%, #ffffff 100%)' }}>
-        <div className="max-w-6xl mx-auto">
+      <section className="relative py-24 px-6 border-t border-gray-100 overflow-hidden">
+        <div className="absolute inset-0 z-0" style={{
+          backgroundImage: 'url(https://res.cloudinary.com/df52xzi3y/image/upload/v1783929135/4935872-scaled-1_cqwf33.webp)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }} />
+        <div className="relative z-10 max-w-6xl mx-auto">
           <Animate type="fade-up">
             <SectionHeader
               label="Management Team"
@@ -278,98 +219,13 @@ export default function TeamContent() {
         </div>
       </section>
 
-      {/* ── CULTURE / VALUES ── */}
-      <section className="py-24 px-6 border-t border-gray-100 bg-white">
-        <div className="max-w-6xl mx-auto">
-          <Animate type="fade-up">
-            <SectionHeader
-              label="Our Culture"
-              heading="What Drives Us"
-              subheading="We never settle for less. Our values define how we work, how we treat each other, and how we serve our partners."
-              align="center"
-            />
-          </Animate>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mt-14">
-            {values.map((v, i) => (
-              <Animate key={v.title} type="fade-up" delay={i * 80}>
-                <ValueCard {...v} />
-              </Animate>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── JOIN US CTA ── */}
-      <section className="py-20 px-6 border-t border-gray-100 bg-white">
-        <div className="max-w-6xl mx-auto">
-          <Animate type="fade-up">
-            <div className="rounded-2xl overflow-hidden relative"
-                 style={{
-                   background: 'linear-gradient(135deg, #0A1628 0%, #0F2040 100%)'
-                 }}>
-              <div className="absolute right-0 top-0 w-[400px] h-[400px]
-                              rounded-full pointer-events-none"
-                   style={{
-                     background: 'radial-gradient(circle, rgba(21,167,220,0.12) 0%, transparent 60%)',
-                     transform: 'translate(30%,-30%)'
-                   }} />
-              <div className="relative z-10 flex flex-col lg:flex-row
-                              items-center justify-between gap-8 p-12">
-                <div>
-                  <p className="font-body text-[11px] font-medium tracking-[0.18em]
-                                uppercase text-accent mb-3">
-                    Join Our Team
-                  </p>
-                  <h2 className="font-display text-[clamp(22px,3vw,34px)] font-bold
-                                 text-white leading-[1.2] max-w-lg">
-                    Want to be part of something extraordinary?
-                  </h2>
-                  <p className="font-body text-[14px] text-white/50 font-light
-                                leading-[1.7] mt-3 max-w-md">
-                    We're always looking for passionate, skilled people who want
-                    to push boundaries and redefine IT distribution.
-                  </p>
-                </div>
-                <div className="flex flex-col sm:flex-row gap-3 shrink-0">
-                  <a href="/careers"
-                     className="inline-flex items-center justify-center gap-2
-                                font-body text-[14px] font-medium text-white
-                                bg-accent px-8 py-4 rounded-xl no-underline
-                                transition-all duration-200
-                                hover:opacity-85 hover:-translate-y-px
-                                shadow-[0_4px_20px_rgba(21,167,220,0.35)]
-                                whitespace-nowrap">
-                    View Careers
-                    <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
-                      <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor"
-                            strokeWidth="1.5" strokeLinecap="round"
-                            strokeLinejoin="round"/>
-                    </svg>
-                  </a>
-                  <a href="/contact"
-                     className="inline-flex items-center justify-center gap-2
-                                font-body text-[14px] text-white/60
-                                border border-white/15 px-8 py-4 rounded-xl
-                                no-underline transition-all duration-200
-                                hover:text-white hover:border-white/30
-                                whitespace-nowrap">
-                    Contact Us
-                  </a>
-                </div>
-              </div>
-            </div>
-          </Animate>
-        </div>
-      </section>
-
     </main>
   );
 }
 
 /* ── Team Card ── */
 function TeamCard({
-  name, role, image, bio, initials, color,
+  name, role, image, bio, initials, color, linkedin,
 }: {
   name: string;
   role: string;
@@ -377,9 +233,12 @@ function TeamCard({
   bio: string;
   initials: string;
   color: string;
+  linkedin: string;
 }) {
+  const [imgFailed, setImgFailed] = useState(false);
+
   return (
-    <div className="group relative bg-white rounded-2xl overflow-hidden
+    <div className="group relative bg-white/50 rounded-2xl overflow-hidden
                     border border-gray-100 transition-all duration-300
                     hover:shadow-[0_8px_40px_rgba(21,167,220,0.12)]
                     hover:-translate-y-1 hover:border-accent/20">
@@ -391,32 +250,31 @@ function TeamCard({
                       transition-transform duration-300 origin-left" />
 
       {/* Image / Avatar area */}
-      <div className="relative h-[200px] overflow-hidden bg-gray-100">
-        <img
-          src={image}
-          alt={name}
-          className="w-full h-full object-cover object-top
-                     transition-transform duration-500 group-hover:scale-105"
-          onError={(e) => {
-            (e.target as HTMLImageElement).style.display = 'none';
-          }}
-        />
-        {/* Fallback avatar shown when image fails */}
-        <div className="absolute inset-0 flex items-center justify-center"
-             style={{ background: `linear-gradient(135deg, #0A1628, #0F2040)` }}>
-          <div className="w-20 h-20 rounded-2xl flex items-center justify-center
-                          text-[28px] font-display font-bold text-white"
-               style={{ background: color }}>
-            {initials}
+      <div className="relative w-[180px] h-[180px] sm:w-[220px] sm:h-[220px]
+                      lg:w-[260px] lg:h-[260px] mx-auto mt-8 overflow-hidden rounded-full">
+        {!imgFailed ? (
+          <img
+            src={image}
+            alt={name}
+            className="w-full h-full object-cover grayscale
+                       group-hover:grayscale-0 transition-all duration-500"
+            onError={() => setImgFailed(true)}
+          />
+        ) : (
+          /* Fallback avatar shown when image fails */
+          <div className="absolute inset-0 flex items-center justify-center"
+               style={{ background: `linear-gradient(135deg, #0A1628, #0F2040)` }}>
+            <div className="w-20 h-20 rounded-2xl flex items-center justify-center
+                            text-[28px] font-display font-bold text-white"
+                 style={{ background: color }}>
+              {initials}
+            </div>
           </div>
-        </div>
-        <div className="absolute inset-0 bg-gradient-to-t from-navy/60
-                        to-transparent opacity-0 group-hover:opacity-100
-                        transition-opacity duration-300" />
+        )}
       </div>
 
       {/* Content */}
-      <div className="p-6">
+      <div className="p-6 text-center flex flex-col items-center">
         <h3 className="font-display text-[17px] font-bold text-navy mb-1
                        tracking-[-0.01em] transition-colors duration-300
                        group-hover:text-accent">
@@ -428,53 +286,18 @@ function TeamCard({
         </p>
         <div className="w-6 h-px bg-gray-200 mb-4 transition-all duration-300
                         group-hover:w-10 group-hover:bg-accent/40" />
-        <p className="font-body text-[13px] text-gray-400 leading-[1.7] font-light">
-          {bio}
-        </p>
-      </div>
-    </div>
-  );
-}
-
-/* ── Value Card ── */
-function ValueCard({
-  title, body, icon,
-}: {
-  title: string;
-  body: string;
-  icon: React.ReactNode;
-}) {
-  return (
-    <div className="group relative bg-white rounded-2xl p-8
-                    border border-gray-100 overflow-hidden
-                    shadow-[0_2px_16px_rgba(0,0,0,0.04)]
-                    transition-all duration-300
-                    hover:-translate-y-1 hover:border-accent/20
-                    hover:shadow-[0_12px_40px_rgba(21,167,220,0.1)]
-                    flex gap-5 items-start">
-
-      <div className="absolute inset-x-0 bottom-0 h-0 bg-accent/[0.03]
-                      transition-all duration-300 group-hover:h-full
-                      rounded-2xl pointer-events-none" />
-
-      <div className="relative w-11 h-11 rounded-xl shrink-0
-                      bg-gray-50 border border-gray-100
-                      flex items-center justify-center text-gray-400
-                      transition-all duration-300 group-hover:scale-110
-                      group-hover:bg-accent/10 group-hover:border-accent/20
-                      group-hover:text-accent">
-        {icon}
-      </div>
-
-      <div className="relative">
-        <h3 className="font-display text-[16px] font-bold text-navy mb-2
-                       tracking-[-0.01em] transition-colors duration-300
-                       group-hover:text-accent">
-          {title}
-        </h3>
-        <p className="font-body text-[13px] text-gray-400 leading-[1.7] font-light">
-          {body}
-        </p>
+        <a href={linkedin}
+           target="_blank"
+           rel="noopener noreferrer"
+           aria-label={`${name} on LinkedIn`}
+           className="inline-flex items-center justify-center w-9 h-9
+                      rounded-lg bg-accent/10 text-accent
+                      transition-all duration-300
+                      hover:bg-accent hover:text-white">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 11.01-4.13 2.07 2.07 0 01-.01 4.13zM7.12 20.45H3.56V9h3.56v11.45z"/>
+          </svg>
+        </a>
       </div>
     </div>
   );

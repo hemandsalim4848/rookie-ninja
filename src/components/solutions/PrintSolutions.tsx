@@ -27,9 +27,9 @@ const printerTabs = [
       </svg>
     ),
     images: [
-      'https://placehold.co/520x380/EFF6FF/15A7DC?text=Laser+Printer+1&font=poppins',
-      'https://placehold.co/520x380/EFF6FF/15A7DC?text=Laser+Printer+2&font=poppins',
-      'https://placehold.co/520x380/EFF6FF/15A7DC?text=Laser+Printer+3&font=poppins',
+      'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1782247889/MFC-L8730CDW_front_No_Reflection-removebg-preview_izv91j.webp',
+      'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1782247888/MFC-L2885DW_F-removebg-preview_f9t3df.webp',
+      'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1782300334/rookie-ninja/products/p1820w-for-sale.webp',
     ],
     heading: 'Speed, Precision & Professional Quality',
     body: 'Offering exceptional speed, efficiency, and versatility. Laser printers utilize precision and sharpness to produce professional-looking documents. Whether high-quality color or black-and-white prints, laser printers deliver high-volume printing without compromising on quality, making them the ideal choice for home and office use.',
@@ -46,9 +46,7 @@ const printerTabs = [
       </svg>
     ),
     images: [
-      'https://placehold.co/520x380/EFF6FF/15A7DC?text=Inkjet+Printer+1&font=poppins',
-      'https://placehold.co/520x380/EFF6FF/15A7DC?text=Inkjet+Printer+2&font=poppins',
-      'https://placehold.co/520x380/EFF6FF/15A7DC?text=Inkjet+Printer+3&font=poppins',
+      'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1782247888/MFC_J3940DW_F-removebg-preview_tybl78.webp',
     ],
     heading: 'Vibrant Color & Versatile Output',
     body: 'Inkjet printers offer versatility and vibrant color sharpness, making them ideal for delivering visually appealing prints. They provide high-efficiency output with low energy usage, fit for workstations, offices, and home use. With minimal moving parts, they eliminate common printer issues like frequent maintenance and breakdowns.',
@@ -73,8 +71,8 @@ const printerTabs = [
       </svg>
     ),
     images: [
-      'https://placehold.co/520x380/EFF6FF/15A7DC?text=Dot+Matrix+1&font=poppins',
-      'https://placehold.co/520x380/EFF6FF/15A7DC?text=Dot+Matrix+2&font=poppins',
+      'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1783429060/dl4850-img_01_en-1200x800_ulvffs.webp',
+      'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1783429060/dl3100-img01-1200x800_f2ilzg.webp',
     ],
     heading: 'Reliable Impact Printing Technology',
     body: 'A Dot Matrix Printer is an impact printing device that produces text and graphics by striking a series of tiny pins against an ink-soaked ribbon, which transfers ink onto the paper. The print head contains multiple pins arranged in a vertical column, and these pins move rapidly to create characters and images as patterns of small dots. Because the printing is formed from many dots arranged in a matrix, the technology is known as "dot matrix."',
@@ -93,13 +91,12 @@ const printerTabs = [
       </svg>
     ),
     images: [
-      'https://placehold.co/520x380/EFF6FF/15A7DC?text=MFP+1&font=poppins',
-      'https://placehold.co/520x380/EFF6FF/15A7DC?text=MFP+2&font=poppins',
-      'https://placehold.co/520x380/EFF6FF/15A7DC?text=MFP+3&font=poppins',
+      'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1782300308/rookie-ninja/products/m1820w-wholesale-bulks.webp',
+      'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1782300320/rookie-ninja/products/m3100adnw-wholesale.webp',
     ],
-    heading: 'Print, Copy, Scan & Fax — All in One',
-    body: 'Multi-function printers allow you to print, copy, scan, or fax from one device. And with a range of built-in functions, multi-function printers help improve productivity and efficiency while being cost-effective. As their all-in-one design helps in better space optimization.',
-    highlights: ['4-in-1 functionality', 'Space saving design', 'Cost effective'],
+    heading: 'Print, Copy & Scan — All in One',
+    body: 'Multi-function printers allow you to print, copy, and scan from one device. And with a range of built-in functions, multi-function printers help improve productivity and efficiency while being cost-effective. As their all-in-one design helps in better space optimization.',
+    highlights: ['3-in-1 functionality', 'Space saving design', 'Cost effective'],
   },
 ];
 
