@@ -99,7 +99,7 @@ const heroSlides = [
   {
     id: 'ifp',
     badge: '01 — Interactive Displays',
-    lines: ['Where ideas', 'come alive on screen.'],
+    lines: ['Built for', 'everyone.'],
     accentLine: 1,
     desc: 'From kindergarten classrooms to executive boardrooms — ViewSonic\'s EDLA-certified ViewBoard® interactive flat panels bring 4K touch, myViewBoard whiteboarding, and centralized device management to every space.',
     tags: ['Education — IFP34 · IFP35 · IFP52', 'Corporate — IFP41 · IFP51 · IFP62'],
@@ -109,7 +109,7 @@ const heroSlides = [
   {
     id: 'monitors',
     badge: '02 — Monitors',
-    lines: ['Five families.', 'One vision.'],
+    lines: ['Pick your', 'pixel.'],
     accentLine: 1,
     desc: 'From everyday office screens to color-critical creator panels and 360Hz Mini-LED gaming weapons — there\'s a ViewSonic monitor for every desk.',
     tags: ['VA — Home & Office', 'VX / XG — Gaming', 'VP — ColorPro', 'VG — Business', 'TD — Touch'],
@@ -119,7 +119,7 @@ const heroSlides = [
   {
     id: 'projectors',
     badge: '03 — Laser Projectors',
-    lines: ['Light up', 'any room.'],
+    lines: ['Beams of', 'brilliance.'],
     accentLine: 1,
     desc: 'From 5,500-lumen 4K installation lasers to RGB-laser cinema flagships and Designed-for-Xbox gaming projectors — premium imagery for every venue.',
     tags: ['LS901-4K — 5,500 ANSI', 'LX700-4K RGB — BT.2020 100%', 'LS741HD — 5,000 lm'],
@@ -737,7 +737,15 @@ export default function ViewSonicAVPage() {
   const DURATION                          = 5500;
 
   const [isSticky, setIsSticky]           = useState(false);
-  const [openTiles, setOpenTiles]         = useState<Record<string, boolean>>({});
+  const [openTiles, setOpenTiles]         = useState<Record<string, boolean>>({
+    [`ifp-edu-${ifpEducation[0].id}`]: true,
+    [`ifp-corp-${ifpCorporate[0].id}`]: true,
+    [`mon-${monitorSeries[0].id}`]: true,
+    [`proj-${projectorCategories[0].id}`]: true,
+    [`led-${ledTiles[0].id}`]: true,
+    [`vc-${vcTiles[0].id}`]: true,
+    [`sig-${signageTiles[0].id}`]: true,
+  });
   const [formState, setFormState]         = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
 
   const toggleTile = (id: string) => setOpenTiles(prev => ({ ...prev, [id]: !prev[id] }));
