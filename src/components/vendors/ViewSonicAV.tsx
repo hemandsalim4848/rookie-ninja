@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
+import { cld } from '@/src/lib/cloudinaryUrl';
 
 /* ─────────────────────────────────────────────
    THEME
@@ -91,6 +92,50 @@ function PlaceholderVisual({ label, sub, height = 200 }: { label: string; sub?: 
     </div>
   );
 }
+
+function ProductImage({ src, alt, label, sub, height = 200 }: { src?: string; alt: string; label: string; sub?: string; height?: number }) {
+  if (!src) return <PlaceholderVisual label={label} sub={sub} height={height} />;
+  return (
+    <div className="vs-product-img" style={{
+      height, borderRadius: 12, border: `1px solid ${vs.line}`, background: '#ffffff',
+      display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden', padding: 18,
+    }}>
+      <img src={cld(src)} alt={alt} style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }} />
+    </div>
+  );
+}
+
+/* ─────────────────────────────────────────────
+   PRODUCT IMAGES (Cloudinary, sourced from
+   official ViewSonic product photography)
+───────────────────────────────────────────── */
+const VS_IMAGES: Record<string, string> = {
+  ifp34: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1784196015/rookie-ninja/vendors/viewsonic/ifp34.png',
+  ifp35: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1784196016/rookie-ninja/vendors/viewsonic/ifp35.jpg',
+  ifp52: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1784196017/rookie-ninja/vendors/viewsonic/ifp52.png',
+  ifp41: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1784196018/rookie-ninja/vendors/viewsonic/ifp41.jpg',
+  ifp51: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1784196019/rookie-ninja/vendors/viewsonic/ifp51.jpg',
+  ifp62: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1784196020/rookie-ninja/vendors/viewsonic/ifp62.jpg',
+  va: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1784196023/rookie-ninja/vendors/viewsonic/mon-va.png',
+  'vx-xg': 'https://res.cloudinary.com/df52xzi3y/image/upload/v1784196024/rookie-ninja/vendors/viewsonic/mon-xg.jpg',
+  vg: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1784196025/rookie-ninja/vendors/viewsonic/mon-vg.jpg',
+  vp: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1784196026/rookie-ninja/vendors/viewsonic/mon-vp.jpg',
+  td: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1784196027/rookie-ninja/vendors/viewsonic/mon-td.jpg',
+  laser: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1784196028/rookie-ninja/vendors/viewsonic/proj-laser.jpg',
+  cinema: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1784196029/rookie-ninja/vendors/viewsonic/proj-cinema.jpg',
+  business: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1784196029/rookie-ninja/vendors/viewsonic/proj-business.jpg',
+  portable: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1784196030/rookie-ninja/vendors/viewsonic/proj-portable.jpg',
+  foldable: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1784196031/rookie-ninja/vendors/viewsonic/led-foldable.jpg',
+  preconfigured: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1784196033/rookie-ninja/vendors/viewsonic/led-preconfigured.png',
+  customizable: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1784196034/rookie-ninja/vendors/viewsonic/led-customizable.jpg',
+  TRS10: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1784196035/rookie-ninja/vendors/viewsonic/vc-mtr.jpg',
+  UMB202: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1784196037/rookie-ninja/vendors/viewsonic/vc-bars.png',
+  'VB-CAM-201': 'https://res.cloudinary.com/df52xzi3y/image/upload/v1784196038/rookie-ninja/vendors/viewsonic/vc-cam201.png',
+  'VB-CAM-001': 'https://res.cloudinary.com/df52xzi3y/image/upload/v1784199475/vb-cam-001_right_hires_1_upaqjo.png',
+  TWC101: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1784199598/26-ACC-TWC101-Product_Photo_F02_1_pc_l_ufrbsc.webp',
+  cde: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1784196039/rookie-ninja/vendors/viewsonic/sig-cde.jpg',
+  ep: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1784196041/rookie-ninja/vendors/viewsonic/sig-ep.png',
+};
 
 /* ─────────────────────────────────────────────
    HERO SLIDES
@@ -544,7 +589,7 @@ const vcTiles = [
     models: [
       { sku: 'TRS10', title: 'Touch Console', desc: 'Dedicated 10" touch controller running the Microsoft Teams Rooms native experience — table-top or wall.' },
       { sku: 'UMB202', title: '4K Video Bar System', desc: 'All-in-one 4K camera, speaker, and mic array engineered for Microsoft Teams Rooms.' },
-      { sku: 'VB-CAM-PTZ-001', title: 'PTZ Conference Camera', desc: 'Pan-tilt-zoom camera for medium-to-large rooms — pairs with the MTR ecosystem.' },
+      { sku: 'VB-CAM-001', title: 'PTZ Conference Camera', desc: 'Pan-tilt-zoom camera for medium-to-large rooms — pairs with the MTR ecosystem.' },
     ],
   },
   {
@@ -553,14 +598,14 @@ const vcTiles = [
     models: [
       { sku: 'UMB202', title: '4K All-in-One Video Bar', desc: '4K camera, beamforming mic array, and stereo speakers in one sleek bar — designed to mount above any display.' },
       { sku: 'VB-CAM-201', title: 'All-in-One Video Camera', desc: '121° wide field of view, echo cancellation, and undistorted audio — pairs natively with the IFP62 ecosystem.' },
-      { sku: 'TWS101', title: 'Wireless Conference Bar', desc: 'Premium wireless 4K conference bar for medium-to-large meeting spaces.' },
+      { sku: 'TWC101', title: 'Wireless Conference Bar', desc: 'Premium wireless 4K conference bar for medium-to-large meeting spaces.' },
     ],
   },
   {
     id: 'ptz', chip: 'PTZ Camera', name: 'PTZ Conference Camera',
     desc: 'Pan, tilt, and zoom optics for large rooms, lecture halls, and broadcast-grade events.',
     models: [
-      { sku: 'VB-CAM-PTZ-001', title: 'Pan-Tilt-Zoom Camera', desc: 'High-zoom optics with auto-tracking for boardrooms, lecture halls, and live productions. Compatible with Microsoft Teams, Zoom, OBS, and most broadcast software.' },
+      { sku: 'VB-CAM-001', title: 'Pan-Tilt-Zoom Camera', desc: 'High-zoom optics with auto-tracking for boardrooms, lecture halls, and live productions. Compatible with Microsoft Teams, Zoom, OBS, and most broadcast software.' },
     ],
   },
 ];
@@ -1021,7 +1066,7 @@ export default function ViewSonicAVPage() {
                       </div>
                     )}>
                     <div style={{ padding: '2px 18px 20px' }}>
-                      <PlaceholderVisual label={p.badge} height={140} />
+                      <ProductImage src={VS_IMAGES[p.id]} alt={p.name} label={p.badge} height={320} />
                       <div style={{ marginTop: 16 }}>
                         <SpecGrid specs={p.specs} />
                         <FeatureList items={p.features} />
@@ -1093,7 +1138,7 @@ export default function ViewSonicAVPage() {
                       </div>
                     )}>
                     <div style={{ padding: '2px 18px 20px' }}>
-                      <PlaceholderVisual label={p.badge} height={140} />
+                      <ProductImage src={VS_IMAGES[p.id]} alt={p.name} label={p.badge} height={320} />
                       <div style={{ marginTop: 16 }}>
                         <SpecGrid specs={p.specs} />
                         <FeatureList items={p.features} />
@@ -1176,7 +1221,7 @@ export default function ViewSonicAVPage() {
                   </div>
                 )}>
                 <div className="vs-mtile-inner" style={{ padding: '4px 26px 30px', display: 'grid', gridTemplateColumns: '1fr 1.1fr', gap: 30 }}>
-                  <PlaceholderVisual label={`${m.series} Series Monitor`} height={280} />
+                  <ProductImage src={VS_IMAGES[m.id]} alt={`${m.series} Series Monitor`} label={`${m.series} Series Monitor`} height={280} />
                   <div>
                     <Highlight {...m.highlight} />
                     <SpecGrid specs={m.specs} />
@@ -1232,7 +1277,7 @@ export default function ViewSonicAVPage() {
                     </div>
                   )}>
                   <div className="vs-proj-inner" style={{ padding: '0 28px 28px', display: 'grid', gridTemplateColumns: '1.1fr 1fr', gap: 24 }}>
-                    <PlaceholderVisual label={p.name} height={220} />
+                    <ProductImage src={VS_IMAGES[p.id]} alt={p.name} label={p.name} height={320} />
                     <div>
                       <Highlight {...p.highlight} />
                       <SpecGrid specs={p.specs} />
@@ -1279,7 +1324,7 @@ export default function ViewSonicAVPage() {
                   </div>
                 )}>
                 <div className="vs-ltile-inner" style={{ padding: '4px 26px 30px', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 26 }}>
-                  <PlaceholderVisual label={l.title} height={220} />
+                  <ProductImage src={VS_IMAGES[l.id]} alt={l.title} label={l.title} height={320} />
                   <div>
                     <Highlight {...l.highlight} />
                     <SpecGrid specs={l.specs} />
@@ -1328,7 +1373,7 @@ export default function ViewSonicAVPage() {
                   <div className="vs-vc-inner" style={{ padding: '4px 26px 28px', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 18 }}>
                     {v.models.map(model => (
                       <div key={model.sku + model.title} style={{ border: `1px solid ${vs.line}`, borderRadius: 12, overflow: 'hidden', background: vs.alt }}>
-                        <PlaceholderVisual label={model.sku} height={130} />
+                        <ProductImage src={VS_IMAGES[model.sku]} alt={`ViewSonic ${model.sku} — ${model.title}`} label={model.sku} height={240} />
                         <div style={{ padding: 16 }}>
                           <div style={{ fontSize: 10, letterSpacing: '0.14em', color: vs.accent, marginBottom: 6 }}>{model.sku}</div>
                           <div style={{ fontSize: 14.5, fontWeight: 600, color: vs.text, marginBottom: 6, letterSpacing: '-0.01em' }}>{model.title}</div>
@@ -1378,7 +1423,7 @@ export default function ViewSonicAVPage() {
                     </div>
                   )}>
                   <div className="vs-sig-inner" style={{ padding: '0 28px 28px', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 24 }}>
-                    <PlaceholderVisual label={s.name} height={220} />
+                    <ProductImage src={VS_IMAGES[s.id]} alt={s.name} label={s.name} height={320} />
                     <div>
                       <Highlight {...s.highlight} />
                       <SpecGrid specs={s.specs} />
@@ -1476,6 +1521,7 @@ export default function ViewSonicAVPage() {
           .vs-mtile-inner, .vs-proj-inner, .vs-ltile-inner, .vs-sig-inner { grid-template-columns: 1fr !important; }
           .vs-mtile-head    { grid-template-columns: auto 1fr auto !important; }
           .vs-mtile-sizes   { display: none !important; }
+          .vs-product-img   { height: 260px !important; }
         }
 
         @media (max-width: 768px) {
@@ -1495,6 +1541,7 @@ export default function ViewSonicAVPage() {
           .vs-mtile-text   { grid-area: text; }
           .vs-mtile-dot    { grid-area: dot; justify-self: end; }
           .vs-mtile-tagline { display: none !important; }
+          .vs-product-img   { height: 220px !important; }
         }
 
         @media (max-width: 480px) {
@@ -1506,6 +1553,7 @@ export default function ViewSonicAVPage() {
           .vs-hero-btn { padding: 10px 20px !important; font-size: 12px !important; margin-bottom: 35px !important; }
           .vs-ltile-head { grid-template-columns: 48px 1fr auto !important; gap: 14px !important; padding: 18px !important; }
           .vs-ifp-card { padding: 20px !important; }
+          .vs-product-img { height: 180px !important; }
         }
 
         @media (max-width: 360px) {
