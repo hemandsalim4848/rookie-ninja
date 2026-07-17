@@ -9,7 +9,7 @@ export async function GET(req: Request) {
     const { searchParams } = new URL(req.url)
     const brandSlug = searchParams.get('brand')
     const query = brandSlug ? { brandSlug } : {}
-    const products = await Product.find(query).sort({ name: 1 })
+    const products = await Product.find(query).sort({ name: 1 }).lean()
     return NextResponse.json(products)
   } catch {
     return NextResponse.json({ error: 'Failed to fetch products' }, { status: 500 })

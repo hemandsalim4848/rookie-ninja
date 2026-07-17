@@ -6,7 +6,7 @@ import { requireAdmin } from '@/src/lib/requireAdmin'
 export async function GET() {
   try {
     await connectDB()
-    const brands = await Brand.find().sort({ name: 1 })
+    const brands = await Brand.find().sort({ name: 1 }).lean()
     return NextResponse.json(brands)
   } catch (err: any) {
     console.error('BRANDS ERROR:', err.message)
