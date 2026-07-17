@@ -82,6 +82,16 @@ const closeQuote = () => {
   setTimeout(() => setQuoteOpen(false), 300);
 };
 
+const openQuote = useCallback(() => {
+  setQuoteOpen(true);
+  setTimeout(() => setQuoteVisible(true), 10);
+}, []);
+
+useEffect(() => {
+  window.addEventListener('rn:open-quote', openQuote);
+  return () => window.removeEventListener('rn:open-quote', openQuote);
+}, [openQuote]);
+
   return (
     <>
       {/* ── FLOATING NAVBAR ── */}
@@ -332,7 +342,7 @@ const closeQuote = () => {
 
             {/* CTA */}
             <button
-  onClick={() => { setQuoteOpen(true); setTimeout(() => setQuoteVisible(true), 10); }}
+  onClick={openQuote}
   className={`font-body text-[13px] font-medium
               px-4 py-1.5 rounded-lg whitespace-nowrap
               transition-all duration-200 cursor-pointer
@@ -458,7 +468,7 @@ const closeQuote = () => {
 
         <div className="mt-4 flex flex-col gap-2.5">
           <button
-  onClick={() => { setQuoteOpen(true); setMobileOpen(false); setTimeout(() => setQuoteVisible(true), 10); }}
+  onClick={() => { setMobileOpen(false); openQuote(); }}
   className="font-body text-sm font-medium text-white bg-accent
              py-3 rounded-xl text-center block w-full
              shadow-[0_4px_20px_rgba(21,167,220,0.28)]

@@ -3,29 +3,27 @@
 import Animate from '../Animate';
 
 const footerLinks = {
+  Solutions: [
+    { label: 'Print',               href: '/print-solutions'      },
+    { label: 'Scan',                href: '/scan-solutions'       },
+    { label: 'Consumer Electronics', href: '/consumer-electronics' },
+    { label: 'Gaming',              href: '/gaming'               },
+    { label: 'Audio Visual',        href: '/audio-visual'         },
+    { label: 'IT Accessories',      href: '/it-accessories'       },
+  ],
   Company: [
-    { label: 'About Us',        href: '/about'        },
     { label: 'Mission & Vision', href: '/about/mission' },
     { label: 'Our Team',        href: '/about/team'    },
     { label: 'Careers',         href: '/careers'       },
   ],
-  Solutions: [
-    { label: 'Print',               href: '/portfolio' },
-    { label: 'Scan',                href: '/portfolio' },
-    { label: 'Consumer Electronics', href: '/portfolio' },
-    { label: 'Gaming',              href: '/portfolio' },
-    { label: 'Audio Visual',        href: '/portfolio' },
-    { label: 'IT Accessories',      href: '/portfolio' },
-  ],
-  Partners: [
-    { label: 'Vendors',   href: '/our-vendors'   },
-    { label: 'Partners',  href: '/partners'  },
-    { label: 'Portfolio', href: '/portfolio' },
-  ],
   Contact: [
     { label: 'Contact Us',    href: '/contact'        },
-    { label: 'Request a Quote', href: '/contact'      },
-    { label: 'Support',       href: '/contact'        },
+    { label: 'Request a Quote', href: '/contact', quote: true },
+    { label: 'Support',       href: '/support'        },
+  ],
+  Partners: [
+    { label: 'Vendors',   href: '/our-vendors'    },
+    { label: 'Partners',  href: '/partner-central' },
   ],
 };
 
@@ -175,15 +173,30 @@ export default function Footer() {
                 <ul className="flex flex-col gap-3 list-none">
                   {links.map((link) => (
                     <li key={link.label}>
-                      <a href={link.href}
-                         className="font-body text-[13px] text-white/45
+                      {'quote' in link && link.quote ? (
+                        <button
+                          type="button"
+                          onClick={() => window.dispatchEvent(new Event('rn:open-quote'))}
+                          className="font-body text-[13px] text-white/45
                                     no-underline transition-colors duration-200
                                     hover:text-accent flex items-center gap-1.5
-                                    group w-fit">
-                        <span className="w-0 h-px bg-accent transition-all
-                                         duration-200 group-hover:w-3" />
-                        {link.label}
-                      </a>
+                                    group w-fit bg-transparent border-none p-0
+                                    cursor-pointer text-left">
+                          <span className="w-0 h-px bg-accent transition-all
+                                           duration-200 group-hover:w-3" />
+                          {link.label}
+                        </button>
+                      ) : (
+                        <a href={link.href}
+                           className="font-body text-[13px] text-white/45
+                                      no-underline transition-colors duration-200
+                                      hover:text-accent flex items-center gap-1.5
+                                      group w-fit">
+                          <span className="w-0 h-px bg-accent transition-all
+                                           duration-200 group-hover:w-3" />
+                          {link.label}
+                        </a>
+                      )}
                     </li>
                   ))}
                 </ul>
