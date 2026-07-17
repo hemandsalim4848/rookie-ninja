@@ -48,6 +48,7 @@ export default function CataloguePage() {
   const [activeCategory, setActiveCategory] = useState('')
   const [allProducts, setAllProducts] = useState<any[]>([])
   const inputRef = useRef<HTMLInputElement>(null)
+  const searchWrapRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     fetch('/api/products')
@@ -65,6 +66,16 @@ export default function CataloguePage() {
     setResults(matched)
     setShowDropdown(true)
   }, [query, allProducts])
+
+  useEffect(() => {
+    function handleClickOutside(e: MouseEvent) {
+      if (searchWrapRef.current && !searchWrapRef.current.contains(e.target as Node)) {
+        setShowDropdown(false)
+      }
+    }
+    document.addEventListener('mousedown', handleClickOutside)
+    return () => document.removeEventListener('mousedown', handleClickOutside)
+  }, [])
 
   return (
     <main className="min-h-screen bg-white">
@@ -85,14 +96,13 @@ export default function CataloguePage() {
           </p>
 
           {/* Search */}
-          <div className="relative max-w-xl mx-auto" style={{ zIndex: 100 }}>
+          <div ref={searchWrapRef} className="relative max-w-xl mx-auto" style={{ zIndex: 100 }}>
             <span className="absolute left-4 top-1/2 -translate-y-1/2 text-white/30 text-lg">🔍</span>
             <input
               ref={inputRef}
               type="text"
               value={query}
               onChange={e => setQuery(e.target.value)}
-              onBlur={() => setTimeout(() => setShowDropdown(false), 150)}
               onFocus={() => results.length > 0 && setShowDropdown(true)}
               placeholder="Search products, brands, categories..."
               className="w-full h-12 bg-white/7 border border-white/12 rounded-xl pl-11 pr-4 text-white text-sm placeholder-white/30 focus:outline-none focus:border-[#15A7DC] transition-colors"
