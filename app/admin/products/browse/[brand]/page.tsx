@@ -419,6 +419,7 @@ export default function BrandProductsPage() {
                 <ImageUploader
                   images={editForm.images}
                   onChange={imgs => setEditForm({ ...editForm, images: imgs })}
+                  deferDelete
                 />
               </div>
 

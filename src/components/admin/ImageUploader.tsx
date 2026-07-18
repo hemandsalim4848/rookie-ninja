@@ -5,6 +5,14 @@ import { useRef, useState } from 'react'
 interface Props {
   images: string[]
   onChange: (images: string[]) => void
+  /**
+   * When true, removing a thumbnail only updates local state — it does not
+   * delete the asset from Cloudinary. Use this when editing an existing
+   * record, so Cancel can't leave the DB pointing at an image that was
+   * already deleted; the save-time diff on the server is what actually
+   * removes it from Cloudinary once the change is committed.
+   */
+  deferDelete?: boolean
 }
 
 function getPublicId(url: string) {
@@ -19,7 +27,7 @@ function getPublicId(url: string) {
   }
 }
 
-export default function ImageUploader({ images, onChange }: Props) {
+export default function ImageUploader({ images, onChange, deferDelete }: Props) {
   const inputRef = useRef<HTMLInputElement>(null)
   const [uploading, setUploading] = useState(false)
   const [dragOver, setDragOver] = useState(false)
@@ -97,15 +105,17 @@ export default function ImageUploader({ images, onChange }: Props) {
 
   /* ── Delete ── */
   async function removeImage(url: string, index: number) {
-    const publicId = getPublicId(url)
-    if (publicId) {
-      try {
-        await fetch('/api/upload', {
-          method: 'DELETE',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ publicId }),
-        })
-      } catch {}
+    if (!deferDelete) {
+      const publicId = getPublicId(url)
+      if (publicId) {
+        try {
+          await fetch('/api/upload', {
+            method: 'DELETE',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ publicId }),
+          })
+        } catch {}
+      }
     }
     onChange(images.filter((_, i) => i !== index))
   }
