@@ -223,12 +223,15 @@ export default function Footer() {
           </p>
 
           <div className="flex items-center gap-5">
-            {['Privacy Policy', 'Terms of Use', 'Cookie Policy'].map((item) => (
-              <a key={item} href="#"
+            {[
+              { label: 'Privacy Policy', href: '/privacy-policy' },
+              { label: 'Terms of Use', href: '/terms-of-use' },
+            ].map((item) => (
+              <a key={item.label} href={item.href}
                  className="font-body text-[12px] text-white/30
                             no-underline hover:text-white/60
                             transition-colors duration-200">
-                {item}
+                {item.label}
               </a>
             ))}
           </div>
