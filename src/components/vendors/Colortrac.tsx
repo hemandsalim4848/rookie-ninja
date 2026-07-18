@@ -28,7 +28,7 @@ const heroSlides = [
     accentWord: 'SCi Series.',
     desc: 'From the compact SCi 25 to the wide-format SCi 42 — SingleSensor™ technology delivering fast, high-quality scanning for CAD, maps, and technical documents.',
     cta: { label: 'View Scanners', href: '#smartlf-sci', solid: true },
-    bg: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1782246611/SmartLF-SCi_42_front_no-stand_w-FADGI_800x600px-556x417-1_rkf9zk.webp',
+    bg: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1784331075/Colortrac-1_lpgces.webp',
   },
   {
     badge: 'CCD Wide Format',
@@ -36,7 +36,7 @@ const heroSlides = [
     accentWord: 'SGi Series.',
     desc: 'CCD technology without the cost — full high-definition scanning for thick media, maps, artwork, and any type of document in 36" and 44" widths.',
     cta: { label: 'View Scanners', href: '#smartlf-sgi', solid: true },
-    bg: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1782246609/SmartLF-SCi_angled_800x600px-3-556x417-1_efyovn.webp',
+    bg: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1784331075/Colortrac-2_xcff0l.webp',
   },
   {
     badge: 'Portable Wide Format',
@@ -44,7 +44,7 @@ const heroSlides = [
     accentWord: 'Scan!',
     desc: "The world's first truly portable wide format scanner — no PC, software, or peripherals needed. Scan on site, wherever the project takes you.",
     cta: { label: 'View Scanners', href: '#smartlf-scan', solid: true },
-    bg: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1782246610/SmartLF-SCi_front_tablet_800x600px-3-556x417-1_gaq6vv.webp',
+    bg: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1784331075/Colortrac-3_caxudc.webp',
   },
 ];
 
