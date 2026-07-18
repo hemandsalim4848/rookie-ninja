@@ -132,6 +132,9 @@ const openings = [
   },
 ];
 
+// Toggle this on when a new recruitment round opens.
+const hasOpenPositions = false;
+
 const departments = ['All', 'Product', 'Sales', 'Finance', 'Operations'];
 
 const deptColors: Record<string, string> = {
@@ -170,9 +173,9 @@ export default function JoinUsContent() {
         <div className="absolute right-[5%] top-1/2 -translate-y-1/2
                         hidden lg:flex flex-col gap-4 z-[2]">
           {[
-            { value: `${openings.length}`, label: 'Open Positions'  },
-            { value: 'Dubai',              label: 'Based In'         },
-            { value: 'Full-Time',          label: 'Employment Type'  },
+            { value: '8+',     label: 'Years Experience' },
+            { value: 'Dubai',  label: 'Based In'          },
+            { value: '20+',    label: 'Global Vendors'    },
           ].map(({ value, label }) => (
             <div key={label}
                  className="px-6 py-4 rounded-xl border border-white/10
@@ -197,7 +200,7 @@ export default function JoinUsContent() {
                             py-1.5 pl-2 rounded-full border border-[rgba(21,167,220,0.25)]
                             bg-[rgba(21,167,220,0.12)]">
               <span className="w-1.5 h-1.5 rounded-full bg-accent animate-blink-dot" />
-              We're Hiring
+              Careers at Rookie Ninja
             </div>
           </Animate>
           <Animate type="fade-up" delay={100}>
@@ -222,7 +225,7 @@ export default function JoinUsContent() {
                           no-underline transition-all duration-200
                           hover:opacity-85 hover:-translate-y-px
                           shadow-[0_4px_16px_rgba(21,167,220,0.3)]">
-              View Open Roles
+              Career Updates
               <svg width="13" height="13" viewBox="0 0 16 16" fill="none">
                 <path d="M8 3v10M3 8l5 5 5-5" stroke="currentColor"
                       strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
@@ -289,63 +292,93 @@ export default function JoinUsContent() {
           <Animate type="fade-up">
             <SectionHeader
               label="Current Openings"
-              heading="Find Your Role"
-              subheading="Go through our openings below and get ready to unleash your innermost Ninja."
+              heading={hasOpenPositions ? 'Find Your Role' : 'No Open Positions at the Moment'}
+              subheading={
+                hasOpenPositions
+                  ? 'Go through our openings below and get ready to unleash your innermost Ninja.'
+                  : "We don't have any active vacancies right now, but our team is always growing. Check back here for updates, or leave your details below and we'll reach out as soon as a suitable role opens up."
+              }
               align="center"
             />
           </Animate>
 
-          {/* Filter tabs */}
-          <Animate type="fade-up" delay={100}>
-            <div className="flex items-center justify-center gap-2.5 mt-10 mb-10
-                            flex-wrap">
-              {departments.map((dept) => (
-                <button
-                  key={dept}
-                  onClick={() => setActiveFilter(dept)}
-                  className={`font-body text-[13px] font-medium px-5 py-2
-                              rounded-xl border transition-all duration-200
-                              ${activeFilter === dept
-                                ? 'bg-accent text-white border-accent shadow-[0_4px_16px_rgba(21,167,220,0.3)]'
-                                : 'bg-white text-gray-500 border-gray-200 hover:border-accent/40 hover:text-accent'}`}
-                >
-                  {dept}
-                  {dept !== 'All' && (
-                    <span className={`ml-2 text-[11px] px-1.5 py-0.5 rounded-md
-                                      ${activeFilter === dept
-                                        ? 'bg-white/20 text-white'
-                                        : 'bg-gray-100 text-gray-400'}`}>
-                      {openings.filter(o => o.department === dept).length}
-                    </span>
-                  )}
-                </button>
-              ))}
-            </div>
-          </Animate>
-
-          {/* Job cards */}
-          <div className="flex flex-col gap-4">
-            {filtered.map((job, i) => (
-              <Animate key={job.title} type="fade-up" delay={i * 60}>
-                <JobCard
-                  {...job}
-                  onApply={() => {
-                    setApplyJob(job.title);
-                    setApplyOpen(true);
-                    setSubmitted(false);
-                  }}
-                />
+          {hasOpenPositions ? (
+            <>
+              {/* Filter tabs */}
+              <Animate type="fade-up" delay={100}>
+                <div className="flex items-center justify-center gap-2.5 mt-10 mb-10
+                                flex-wrap">
+                  {departments.map((dept) => (
+                    <button
+                      key={dept}
+                      onClick={() => setActiveFilter(dept)}
+                      className={`font-body text-[13px] font-medium px-5 py-2
+                                  rounded-xl border transition-all duration-200
+                                  ${activeFilter === dept
+                                    ? 'bg-accent text-white border-accent shadow-[0_4px_16px_rgba(21,167,220,0.3)]'
+                                    : 'bg-white text-gray-500 border-gray-200 hover:border-accent/40 hover:text-accent'}`}
+                    >
+                      {dept}
+                      {dept !== 'All' && (
+                        <span className={`ml-2 text-[11px] px-1.5 py-0.5 rounded-md
+                                          ${activeFilter === dept
+                                            ? 'bg-white/20 text-white'
+                                            : 'bg-gray-100 text-gray-400'}`}>
+                          {openings.filter(o => o.department === dept).length}
+                        </span>
+                      )}
+                    </button>
+                  ))}
+                </div>
               </Animate>
-            ))}
-          </div>
 
-          {/* No results */}
-          {filtered.length === 0 && (
-            <div className="text-center py-16">
-              <p className="font-body text-[15px] text-gray-400">
-                No openings in this category right now.
-              </p>
-            </div>
+              {/* Job cards */}
+              <div className="flex flex-col gap-4">
+                {filtered.map((job, i) => (
+                  <Animate key={job.title} type="fade-up" delay={i * 60}>
+                    <JobCard
+                      {...job}
+                      onApply={() => {
+                        setApplyJob(job.title);
+                        setApplyOpen(true);
+                        setSubmitted(false);
+                      }}
+                    />
+                  </Animate>
+                ))}
+              </div>
+
+              {/* No results */}
+              {filtered.length === 0 && (
+                <div className="text-center py-16">
+                  <p className="font-body text-[15px] text-gray-400">
+                    No openings in this category right now.
+                  </p>
+                </div>
+              )}
+            </>
+          ) : (
+            <Animate type="fade-up" delay={100}>
+              <div className="mt-10 flex flex-col items-center text-center py-16 px-8
+                              rounded-2xl border border-gray-100 bg-white">
+                <div className="w-14 h-14 rounded-2xl bg-accent/10 text-accent
+                                flex items-center justify-center mb-5">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                       stroke="currentColor" strokeWidth="1.6"
+                       strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+                    <path d="M13.73 21a2 2 0 01-3.46 0"/>
+                  </svg>
+                </div>
+                <p className="font-body text-[15px] text-navy font-medium mb-2 max-w-md">
+                  There are no positions open for recruitment right now.
+                </p>
+                <p className="font-body text-[13.5px] text-gray-400 max-w-md leading-[1.7]">
+                  New opportunities are posted here as soon as they become available.
+                  Submit an open application below to be among the first we contact.
+                </p>
+              </div>
+            </Animate>
           )}
 
           {/* Open application */}
@@ -353,7 +386,9 @@ export default function JoinUsContent() {
             <div className="mt-10 p-8 rounded-2xl border border-dashed
                             border-accent/30 bg-accent/[0.02] text-center">
               <p className="font-body text-[13px] text-gray-400 mb-3">
-                Don't see a role that fits? We're always open to great talent.
+                {hasOpenPositions
+                  ? "Don't see a role that fits? We're always open to great talent."
+                  : "Want to be considered for future roles? Send us your details and we'll notify you when a matching position opens."}
               </p>
               <button
                 onClick={() => {
