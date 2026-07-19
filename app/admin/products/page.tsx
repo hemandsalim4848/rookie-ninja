@@ -16,6 +16,7 @@ export default function AddProductPage() {
   const [toast, setToast] = useState<{ message: string; type: ToastType } | null>(null)
   const [images, setImages] = useState<string[]>([])
   const [downloads, setDownloads] = useState<{ label: string; url: string }[]>([])
+  const [downloadCount, setDownloadCount] = useState(0)
   const [showAccessoriesBadge, setShowAccessoriesBadge] = useState(true)
   const pdfUploaderRef = useRef<PdfUploaderHandle>(null)
   const [form, setForm] = useState({
@@ -67,6 +68,7 @@ export default function AddProductPage() {
     setForm({ brand: '', brandSlug: '', name: '', slug: '', sku: '', shortDescription: '', description: '', category: '', specs: '' })
     setImages([])
     setDownloads([])
+    setDownloadCount(0)
     setShowAccessoriesBadge(true)
   }
 
@@ -134,10 +136,10 @@ export default function AddProductPage() {
 
           <div className="sm:col-span-2">
             <p className="text-xs font-medium text-gray-400 mb-2">Downloads <span className="text-gray-300">(PDF datasheets)</span></p>
-            <PdfUploader ref={pdfUploaderRef} downloads={downloads} onChange={setDownloads} productName={form.name} />
+            <PdfUploader ref={pdfUploaderRef} downloads={downloads} onChange={setDownloads} onCountChange={setDownloadCount} productName={form.name} />
           </div>
 
-          {downloads.length > 1 && (
+          {downloadCount > 1 && (
             <div className="sm:col-span-2 flex items-center gap-3">
               <input type="checkbox" id="showAccessoriesBadge" checked={showAccessoriesBadge}
                 onChange={e => setShowAccessoriesBadge(e.target.checked)}

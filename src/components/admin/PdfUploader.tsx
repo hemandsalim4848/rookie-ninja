@@ -1,6 +1,6 @@
 'use client'
 
-import { forwardRef, useImperativeHandle, useRef, useState } from 'react'
+import { forwardRef, useEffect, useImperativeHandle, useRef, useState } from 'react'
 
 interface Download {
   label: string
@@ -21,13 +21,16 @@ interface Props {
   downloads: Download[]
   onChange: (downloads: Download[]) => void
   productName?: string
+  /** Fires with the total row count (committed + still-uploading) so the
+   * parent can react before files are actually saved. */
+  onCountChange?: (count: number) => void
 }
 
 export interface PdfUploaderHandle {
   uploadPending: () => Promise<Download[]>
 }
 
-const PdfUploader = forwardRef<PdfUploaderHandle, Props>(({ downloads, onChange, productName }, ref) => {
+const PdfUploader = forwardRef<PdfUploaderHandle, Props>(({ downloads, onChange, productName, onCountChange }, ref) => {
   const inputRef = useRef<HTMLInputElement>(null)
   const [pending, setPending] = useState<Pending[]>([])
   const [error, setError] = useState('')
@@ -38,6 +41,11 @@ const PdfUploader = forwardRef<PdfUploaderHandle, Props>(({ downloads, onChange,
     ...downloads.map(d => ({ type: 'committed' as const, download: d })),
     ...pending.map(p => ({ type: 'pending' as const, pending: p })),
   ]
+
+  useEffect(() => {
+    onCountChange?.(rows.length)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [rows.length])
 
   useImperativeHandle(ref, () => ({
     async uploadPending() {

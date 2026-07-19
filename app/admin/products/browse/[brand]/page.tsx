@@ -32,6 +32,7 @@ export default function BrandProductsPage() {
   const [page, setPage] = useState(1)
   const [editProduct, setEditProduct] = useState<any>(null)
   const [editForm, setEditForm] = useState(emptyForm)
+  const [editDownloadCount, setEditDownloadCount] = useState(0)
   const [saving, setSaving] = useState(false)
   const [toast, setToast] = useState<{ message: string; type: ToastType } | null>(null)
   const pdfUploaderRef = useRef<PdfUploaderHandle>(null)
@@ -117,6 +118,7 @@ export default function BrandProductsPage() {
 
   function startEdit(p: any) {
     setEditProduct(p)
+    setEditDownloadCount(Array.isArray(p.downloads) ? p.downloads.length : 0)
     setEditForm({
       name: p.name || '',
       slug: p.slug || '',
@@ -441,11 +443,12 @@ export default function BrandProductsPage() {
                   ref={pdfUploaderRef}
                   downloads={editForm.downloads}
                   onChange={downloads => setEditForm({ ...editForm, downloads })}
+                  onCountChange={setEditDownloadCount}
                   productName={editForm.name}
                 />
               </div>
 
-              {editForm.downloads.length > 1 && (
+              {editDownloadCount > 1 && (
                 <div className="flex items-center gap-3">
                   <input type="checkbox" id="showAccessoriesBadge" checked={editForm.showAccessoriesBadge}
                     onChange={e => setEditForm({ ...editForm, showAccessoriesBadge: e.target.checked })}
