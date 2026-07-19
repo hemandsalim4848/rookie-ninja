@@ -16,6 +16,7 @@ const emptyForm = {
   shortDescription: '', description: '',
   images: [] as string[], specs: '', featured: false,
   downloads: [] as { label: string; url: string }[],
+  showAccessoriesBadge: true,
 }
 
 export default function BrandProductsPage() {
@@ -129,6 +130,9 @@ export default function BrandProductsPage() {
       specs: Array.isArray(p.specs) ? p.specs.map((s: any) => `${s.key}: ${s.value}`).join('\n') : '',
       featured: p.featured || false,
       downloads: Array.isArray(p.downloads) ? p.downloads : [],
+      // Missing on older records — treat as on, so nothing already
+      // showing the badge silently loses it.
+      showAccessoriesBadge: p.showAccessoriesBadge !== false,
     })
   }
 
@@ -440,6 +444,17 @@ export default function BrandProductsPage() {
                   productName={editForm.name}
                 />
               </div>
+
+              {editForm.downloads.length > 1 && (
+                <div className="flex items-center gap-3">
+                  <input type="checkbox" id="showAccessoriesBadge" checked={editForm.showAccessoriesBadge}
+                    onChange={e => setEditForm({ ...editForm, showAccessoriesBadge: e.target.checked })}
+                    className="w-4 h-4 accent-[#15A7DC]" />
+                  <label htmlFor="showAccessoriesBadge" className="text-sm text-[#0A1628]">
+                    Show &quot;Compatible with optional accessories&quot; badge
+                  </label>
+                </div>
+              )}
 
               <div className="flex items-center gap-3">
                 <input type="checkbox" id="featured" checked={editForm.featured}

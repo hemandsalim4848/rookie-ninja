@@ -14,6 +14,7 @@ shortDescription: { type: String, default: '' },
   category:    { type: String, default: '' },
   tags:        [{ type: String }],
   featured:    { type: Boolean, default: false },
+  showAccessoriesBadge: { type: Boolean, default: true },
 }, { timestamps: true })
 
 ProductSchema.index({ brandSlug: 1, slug: 1 }, { unique: true })

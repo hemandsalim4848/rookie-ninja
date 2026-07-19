@@ -16,6 +16,7 @@ export default function AddProductPage() {
   const [toast, setToast] = useState<{ message: string; type: ToastType } | null>(null)
   const [images, setImages] = useState<string[]>([])
   const [downloads, setDownloads] = useState<{ label: string; url: string }[]>([])
+  const [showAccessoriesBadge, setShowAccessoriesBadge] = useState(true)
   const pdfUploaderRef = useRef<PdfUploaderHandle>(null)
   const [form, setForm] = useState({
     brand: '', brandSlug: '', name: '', slug: '', sku: '',
@@ -37,6 +38,7 @@ export default function AddProductPage() {
         shortDescription: form.shortDescription.trim(),
         images,
         downloads: finalDownloads,
+        showAccessoriesBadge,
         specs: form.specs.split('\n').map(line => {
           const [key, ...rest] = line.split(':')
           return { key: key?.trim(), value: rest.join(':').trim() }
@@ -65,6 +67,7 @@ export default function AddProductPage() {
     setForm({ brand: '', brandSlug: '', name: '', slug: '', sku: '', shortDescription: '', description: '', category: '', specs: '' })
     setImages([])
     setDownloads([])
+    setShowAccessoriesBadge(true)
   }
 
   return (
@@ -133,6 +136,17 @@ export default function AddProductPage() {
             <p className="text-xs font-medium text-gray-400 mb-2">Downloads <span className="text-gray-300">(PDF datasheets)</span></p>
             <PdfUploader ref={pdfUploaderRef} downloads={downloads} onChange={setDownloads} productName={form.name} />
           </div>
+
+          {downloads.length > 1 && (
+            <div className="sm:col-span-2 flex items-center gap-3">
+              <input type="checkbox" id="showAccessoriesBadge" checked={showAccessoriesBadge}
+                onChange={e => setShowAccessoriesBadge(e.target.checked)}
+                className="w-4 h-4 accent-[#15A7DC]" />
+              <label htmlFor="showAccessoriesBadge" className="text-sm text-[#0A1628]">
+                Show &quot;Compatible with optional accessories&quot; badge
+              </label>
+            </div>
+          )}
 
           <div className="sm:col-span-2 flex gap-3 pt-2">
             <button type="submit" disabled={saving}
