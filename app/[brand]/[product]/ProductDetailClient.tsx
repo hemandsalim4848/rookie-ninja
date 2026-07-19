@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
+import { useSearchParams } from 'next/navigation'
 import ProductDescription from '@/src/components/catalogue/ProductDescription'
 import { cld } from '@/src/lib/cloudinaryUrl'
 
@@ -14,6 +15,10 @@ export default function ProductDetailClient({
   brand: any
   brandSlug: string
 }) {
+  const searchParams = useSearchParams()
+  const category = searchParams.get('category')
+  const brandHref = category ? `/${brandSlug}?category=${encodeURIComponent(category)}` : `/${brandSlug}`
+
   const [activeImage, setActiveImage] = useState(0)
   const [activeTab, setActiveTab] = useState<'description' | 'specifications' | 'downloads'>('description')
   const [showEnquiry, setShowEnquiry] = useState(false)
@@ -70,7 +75,7 @@ export default function ProductDetailClient({
             Brands
           </Link>
           <span className="text-gray-300">/</span>
-          <Link href={`/${brandSlug}`} className="text-gray-400 hover:text-[#15A7DC] transition-colors capitalize">
+          <Link href={brandHref} className="text-gray-400 hover:text-[#15A7DC] transition-colors capitalize">
             {brand?.name}
           </Link>
           <span className="text-gray-300">/</span>

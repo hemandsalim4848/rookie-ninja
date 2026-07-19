@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { useState, useRef } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { useSearchParams, useRouter } from 'next/navigation'
 import { cld } from '@/src/lib/cloudinaryUrl'
 
@@ -21,6 +21,10 @@ export default function BrandCatalogueClient({
 
   const gridRef = useRef<HTMLDivElement>(null)
   const [activeCategory, setActiveCategory] = useState(searchParams.get('category') || '')
+
+  useEffect(() => {
+    setActiveCategory(searchParams.get('category') || '')
+  }, [searchParams])
 
   const currentPage = Math.max(1, parseInt(searchParams.get('page') || '1', 10))
 
@@ -196,7 +200,7 @@ export default function BrandCatalogueClient({
               {visibleProducts.map((product: any) => (
                 <Link
                   key={product._id}
-                  href={`/${brandSlug}/${product.slug}`}
+                  href={activeCategory ? `/${brandSlug}/${product.slug}?category=${encodeURIComponent(activeCategory)}` : `/${brandSlug}/${product.slug}`}
                   className="bg-white border border-gray-100 rounded-2xl overflow-hidden hover:border-[#15A7DC]/50 hover:shadow-[0_4px_20px_rgba(21,167,220,0.1)] transition-all duration-200 group"
                 >
                   {product.images?.[0] ? (
