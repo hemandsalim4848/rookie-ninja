@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { useState, useRef, useEffect } from 'react'
+import { useRef } from 'react'
 import { useSearchParams, useRouter } from 'next/navigation'
 import { cld } from '@/src/lib/cloudinaryUrl'
 
@@ -20,11 +20,7 @@ export default function BrandCatalogueClient({
   const router = useRouter()
 
   const gridRef = useRef<HTMLDivElement>(null)
-  const [activeCategory, setActiveCategory] = useState(searchParams.get('category') || '')
-
-  useEffect(() => {
-    setActiveCategory(searchParams.get('category') || '')
-  }, [searchParams])
+  const activeCategory = searchParams.get('category') || ''
 
   const currentPage = Math.max(1, parseInt(searchParams.get('page') || '1', 10))
 
@@ -40,7 +36,6 @@ export default function BrandCatalogueClient({
   ).sort() as string[]
 
   function selectCategory(cat: string) {
-    setActiveCategory(cat)
     const params = new URLSearchParams(searchParams.toString())
     if (cat) {
       params.set('category', cat)

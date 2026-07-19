@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { useState, useRef } from 'react'
+import { useRef } from 'react'
 import { useSearchParams, useRouter } from 'next/navigation'
 import { cld } from '@/src/lib/cloudinaryUrl'
 
@@ -18,7 +18,7 @@ export default function ProductsPageClient({
   const router = useRouter()
 
   const gridRef = useRef<HTMLDivElement>(null)
-  const [activeCategory, setActiveCategory] = useState(searchParams.get('category') || '')
+  const activeCategory = searchParams.get('category') || ''
 
   const currentPage = Math.max(1, parseInt(searchParams.get('page') || '1', 10))
 
@@ -36,7 +36,6 @@ export default function ProductsPageClient({
   const brandCount = new Set(products.map((p: any) => p.brandSlug).filter(Boolean)).size
 
   function selectCategory(cat: string) {
-    setActiveCategory(cat)
     const params = new URLSearchParams(searchParams.toString())
     if (cat) {
       params.set('category', cat)
@@ -184,7 +183,7 @@ export default function ProductsPageClient({
               {visibleProducts.map((product: any) => (
                 <Link
                   key={product._id}
-                  href={`/${product.brandSlug}/${product.slug}`}
+                  href={activeCategory ? `/${product.brandSlug}/${product.slug}?category=${encodeURIComponent(activeCategory)}` : `/${product.brandSlug}/${product.slug}`}
                   className="bg-white border border-gray-100 rounded-2xl overflow-hidden hover:border-[#15A7DC]/50 hover:shadow-[0_4px_20px_rgba(21,167,220,0.1)] transition-all duration-200 group"
                 >
                   {product.images?.[0] ? (
