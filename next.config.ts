@@ -17,6 +17,25 @@ const csp = [
 ].join('; ')
 
 const nextConfig: NextConfig = {
+  async redirects() {
+    return [
+      {
+        source: '/brother/brother-ads-1200-portable-scanner',
+        destination: '/brother/brother-ads-1200-portable-document-scanner',
+        permanent: true,
+      },
+      {
+        source: '/brother/brother-ads-3600w-scanner',
+        destination: '/brother/brother-ads-3600w-desktop-document-scanner',
+        permanent: true,
+      },
+      {
+        source: '/brother/brother-ads-4300n-professional-desktop-document-scanner',
+        destination: '/brother/brother-ads-4300n-desktop-document-scanner',
+        permanent: true,
+      },
+    ]
+  },
   async headers() {
     return [
       {
