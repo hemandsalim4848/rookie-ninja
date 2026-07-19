@@ -17,12 +17,6 @@ const csp = [
 ].join('; ')
 
 const nextConfig: NextConfig = {
-  experimental: {
-    staleTimes: {
-      dynamic: 0,
-      static: 0,
-    },
-  },
   async redirects() {
     return [
       {

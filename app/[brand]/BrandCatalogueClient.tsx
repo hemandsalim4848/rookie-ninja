@@ -1,11 +1,19 @@
 'use client'
 
 import Link from 'next/link'
-import { useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useSearchParams, useRouter } from 'next/navigation'
 import { cld } from '@/src/lib/cloudinaryUrl'
 
 const PAGE_SIZE = 16
+
+function readParams() {
+  const params = new URLSearchParams(window.location.search)
+  return {
+    category: params.get('category') || '',
+    page: Math.max(1, parseInt(params.get('page') || '1', 10)),
+  }
+}
 
 export default function BrandCatalogueClient({
   brand,
@@ -20,11 +28,24 @@ export default function BrandCatalogueClient({
   const router = useRouter()
 
   const gridRef = useRef<HTMLDivElement>(null)
-  const activeCategory = searchParams.get('category') || ''
+  const [activeCategory, setActiveCategory] = useState(searchParams.get('category') || '')
+  const [currentPage, setCurrentPage] = useState(Math.max(1, parseInt(searchParams.get('page') || '1', 10)))
 
-  const currentPage = Math.max(1, parseInt(searchParams.get('page') || '1', 10))
+  // The browser's back/forward buttons can restore a URL whose search params
+  // Next's useSearchParams() hook doesn't reflect (router cache staleness).
+  // Listen to the native popstate event directly as a reliable fallback.
+  useEffect(() => {
+    function syncFromLocation() {
+      const { category, page } = readParams()
+      setActiveCategory(category)
+      setCurrentPage(page)
+    }
+    window.addEventListener('popstate', syncFromLocation)
+    return () => window.removeEventListener('popstate', syncFromLocation)
+  }, [])
 
   function goToPage(page: number) {
+    setCurrentPage(page)
     const params = new URLSearchParams(searchParams.toString())
     params.set('page', String(page))
     router.push(`?${params.toString()}`, { scroll: false })
@@ -36,6 +57,8 @@ export default function BrandCatalogueClient({
   ).sort() as string[]
 
   function selectCategory(cat: string) {
+    setActiveCategory(cat)
+    setCurrentPage(1)
     const params = new URLSearchParams(searchParams.toString())
     if (cat) {
       params.set('category', cat)

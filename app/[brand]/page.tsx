@@ -7,13 +7,10 @@ import BrandCatalogueClient from './BrandCatalogueClient'
 
 export default async function BrandPage({
   params,
-  searchParams,
 }: {
   params: Promise<{ brand: string }>
-  searchParams: Promise<{ category?: string }>
 }) {
   const { brand: brandSlug } = await params
-  const { category } = await searchParams
 
   await connectDB()
   const [brand, products] = await Promise.all([
@@ -42,7 +39,6 @@ export default async function BrandPage({
   return (
     <Suspense fallback={<div className="min-h-screen bg-white flex items-center justify-center text-[#0A1628]/40">Loading...</div>}>
       <BrandCatalogueClient
-        key={category || 'all'}
         brand={JSON.parse(JSON.stringify(brand))}
         brandSlug={brandSlug}
         products={JSON.parse(JSON.stringify(products))}
