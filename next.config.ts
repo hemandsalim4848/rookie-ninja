@@ -34,6 +34,26 @@ const nextConfig: NextConfig = {
         destination: '/brother/brother-ads-4300n-desktop-document-scanner',
         permanent: true,
       },
+      {
+        source: '/audiovisual',
+        destination: '/audio-visual',
+        permanent: true,
+      },
+      {
+        source: '/mobility',
+        destination: '/it-accessories',
+        permanent: true,
+      },
+      {
+        source: '/components',
+        destination: '/gaming',
+        permanent: true,
+      },
+      {
+        source: '/power-solutions',
+        destination: '/gaming',
+        permanent: true,
+      },
     ]
   },
   async headers() {

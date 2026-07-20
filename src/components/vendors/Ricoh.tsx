@@ -311,7 +311,7 @@ function RcNavInner({ accent }: { accent: string }) {
 /* ─────────────────────────────────────────────
    MAIN COMPONENT
 ───────────────────────────────────────────── */
-export default function RecohPage() {
+export default function RicohPage() {
 
   const [heroIdx, setHeroIdx]             = useState(0);
   const [progress, setProgress]           = useState(0);

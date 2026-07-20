@@ -40,7 +40,7 @@ const solutions = [
     title: 'Software',
     description: 'Licensed software solutions for business productivity.',
     image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1783793371/Software_pg3zoc.webp',
-    href: '/software',
+    href: '/software-solutions',
     icon: (<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>),
   },
   {

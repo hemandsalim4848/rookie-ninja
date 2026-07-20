@@ -124,7 +124,7 @@ const vendors = [
     logo: '/logos/ricoh-logo.svg',
     description: 'Printing, imaging and workplace technology solutions.',
     category: 'Printing Solutions',
-    website: '/our-vendors/recoh',
+    website: '/our-vendors/ricoh',
 },
 {
     name: 'Fujitsu',
