@@ -115,13 +115,6 @@ export default function ProductsPageClient({
           style={{ background: 'radial-gradient(ellipse at 50% 0%, rgba(21,167,220,0.15) 0%, transparent 65%)' }}
         />
         <div className="relative z-10 max-w-2xl mx-auto">
-          <Link
-            href="/catalogue"
-            className="inline-flex items-center gap-2 text-[11px] font-semibold tracking-widest uppercase text-[#15A7DC] border border-[#15A7DC]/30 px-3 py-1 rounded-full mb-6 hover:bg-[#15A7DC]/10 transition-colors"
-          >
-            ← Browse by Brand
-          </Link>
-
           <p className="text-white/30 text-xs tracking-widest uppercase mb-3">
             Authorised Distributor · UAE & MEA
           </p>

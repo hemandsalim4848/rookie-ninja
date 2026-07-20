@@ -16,6 +16,8 @@ const GONE_PATHS = new Set([
   '/avita',
   '/eset',
   '/optimidoc',
+  '/nexvoo-av',
+  '/vaio-laptops',
 ])
 
 export function middleware(request: NextRequest) {
@@ -41,5 +43,7 @@ export const config = {
     '/avita', '/avita/',
     '/eset', '/eset/',
     '/optimidoc', '/optimidoc/',
+    '/nexvoo-av', '/nexvoo-av/',
+    '/vaio-laptops', '/vaio-laptops/',
   ],
 }

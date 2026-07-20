@@ -199,6 +199,16 @@ const nextConfig: NextConfig = {
         destination: '/partner-central',
         permanent: true,
       },
+      {
+        source: '/printers',
+        destination: '/print-solutions',
+        permanent: true,
+      },
+      {
+        source: '/uniarch',
+        destination: '/our-vendors/unv',
+        permanent: true,
+      },
     ]
   },
   async headers() {
