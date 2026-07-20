@@ -450,7 +450,7 @@ export default function IrisPage() {
                       <p style={{ fontSize: 14, color: '#475569', lineHeight: 1.9, marginTop: 12 }}>
                         {ed.bullets.map((b, j) => <span key={j}>• {b}<br /></span>)}
                       </p>
-                      <a href={`/iris/${ed.slug}`}
+                      <a href={`/products/${ed.slug}`}
                          onClick={e => e.stopPropagation()}
                          style={{ display: 'inline-block', marginTop: 16, padding: '7px 18px', border: `1.5px solid ${ACCENT_TEXT}`, borderRadius: 4, fontSize: 12, fontWeight: 600, color: ACCENT_TEXT, textDecoration: 'none', letterSpacing: 0.5, textTransform: 'uppercase' }}
                          onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.background = ACCENT_TEXT; (e.currentTarget as HTMLAnchorElement).style.color = '#fff'; }}

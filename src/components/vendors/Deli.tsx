@@ -409,7 +409,7 @@ export default function DeliPage() {
                         ))}
                       </div>
 
-                      <a href={`/deli/${p.slug}`}
+                      <a href={`/products/${p.slug}`}
                          style={{ display: 'inline-flex', alignItems: 'center', gap: 6, fontSize: 13, fontWeight: 600, color: d.accent, textDecoration: 'none', letterSpacing: 0.3 }}
                          onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.opacity = '0.7'; }}
                          onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.opacity = '1'; }}>

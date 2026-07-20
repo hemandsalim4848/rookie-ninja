@@ -115,7 +115,7 @@ export default function CataloguePage() {
                 {results.map((p: any) => (
                   <Link
                     key={p._id}
-                    href={`/${p.brandSlug}/${p.slug}`}
+                    href={`/products/${p.slug}`}
                     className="flex items-center justify-between gap-3 px-4 py-3 text-sm text-white/70 hover:bg-[#15A7DC]/10 hover:text-white border-b border-white/5 last:border-0 transition-colors"
                     onClick={() => setShowDropdown(false)}
                   >
@@ -159,19 +159,13 @@ export default function CataloguePage() {
           <p className="font-body text-[16px] font-light text-gray-500 leading-[1.7] mt-4 max-w-2xl mx-auto">
             Select a brand to explore its full product lineup — from scanners and displays to accessories and components.
           </p>
-          <Link
-            href="/products"
-            className="inline-flex items-center gap-2 mt-6 text-sm font-semibold text-[#15A7DC] hover:text-[#0F8FBD] transition-colors"
-          >
-            Or browse all products across every brand →
-          </Link>
         </div>
 
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
           {brands.map(brand => (
             <Link
               key={brand.slug}
-              href={`/${brand.slug}`}
+              href={`/products?brand=${brand.slug}`}
               className="bg-white border border-gray-100 rounded-2xl p-5 flex flex-col items-center gap-3 hover:border-[#15A7DC]/50 hover:shadow-[0_4px_20px_rgba(21,167,220,0.1)] transition-all duration-200 group"
             >
               {brand.logo ? (

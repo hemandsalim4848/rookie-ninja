@@ -337,7 +337,7 @@ export default function DahuaPage() {
                     {/* Size chips */}
                     <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', marginTop: 20 }}>
                       {series.sizes.map((sz, si) => (
-                        <a key={sz.slug} href={`/dahua/${sz.slug}`}
+                        <a key={sz.slug} href={`/products/${sz.slug}`}
                            style={{ fontSize: 12, fontWeight: 600, padding: '5px 14px', borderRadius: 4, border: `1.5px solid ${d.accent}`, color: d.accent, textDecoration: 'none', background: '#fff', transition: 'all 0.2s' }}
                            onMouseEnter={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = d.accent; el.style.color = '#fff'; }}
                            onMouseLeave={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = '#fff'; el.style.color = d.accent; }}>
@@ -412,7 +412,7 @@ export default function DahuaPage() {
               </div>
               <div style={{ display: 'flex', gap: 8 }}>
                 {activeCseries.sizes.map((sz, si) => (
-                  <a key={sz.slug} href={`/dahua/${sz.slug}`}
+                  <a key={sz.slug} href={`/products/${sz.slug}`}
                      style={{ fontSize: 12, fontWeight: 600, padding: '6px 16px', borderRadius: 4, border: `1.5px solid ${d.accent}`, color: d.accent, textDecoration: 'none', background: '#fff', transition: 'all 0.2s' }}
                      onMouseEnter={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = d.accent; el.style.color = '#fff'; }}
                      onMouseLeave={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = '#fff'; el.style.color = d.accent; }}>
@@ -518,7 +518,7 @@ export default function DahuaPage() {
                   </div>
                   <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
                     {series.sizes.map(sz => (
-                      <a key={sz.slug} href={`/dahua/${sz.slug}`}
+                      <a key={sz.slug} href={`/products/${sz.slug}`}
                          style={{ fontSize: 12, fontWeight: 600, padding: '6px 16px', borderRadius: 4, border: `1.5px solid ${d.accent}`, color: d.accent, textDecoration: 'none', background: '#fff', transition: 'all 0.2s' }}
                          onMouseEnter={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = d.accent; el.style.color = '#fff'; }}
                          onMouseLeave={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = '#fff'; el.style.color = d.accent; }}>

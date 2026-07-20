@@ -11,6 +11,7 @@ function readParams() {
   const params = new URLSearchParams(window.location.search)
   return {
     category: params.get('category') || '',
+    brand: params.get('brand') || '',
     page: Math.max(1, parseInt(params.get('page') || '1', 10)),
   }
 }
@@ -27,6 +28,7 @@ export default function ProductsPageClient({
 
   const gridRef = useRef<HTMLDivElement>(null)
   const [activeCategory, setActiveCategory] = useState(searchParams.get('category') || '')
+  const [activeBrand, setActiveBrand] = useState(searchParams.get('brand') || '')
   const [currentPage, setCurrentPage] = useState(Math.max(1, parseInt(searchParams.get('page') || '1', 10)))
 
   // The browser's back/forward buttons can restore a URL whose search params
@@ -34,8 +36,9 @@ export default function ProductsPageClient({
   // Listen to the native popstate event directly as a reliable fallback.
   useEffect(() => {
     function syncFromLocation() {
-      const { category, page } = readParams()
+      const { category, brand, page } = readParams()
       setActiveCategory(category)
+      setActiveBrand(brand)
       setCurrentPage(page)
     }
     window.addEventListener('popstate', syncFromLocation)
@@ -50,11 +53,19 @@ export default function ProductsPageClient({
     gridRef.current?.scrollIntoView({ behavior: 'smooth' })
   }
 
+  const brandFilteredProducts = activeBrand
+    ? products.filter((p: any) => p.brandSlug === activeBrand)
+    : products
+
   const categories = Array.from(
-    new Set(products.map((p: any) => p.category).filter(Boolean))
+    new Set(brandFilteredProducts.map((p: any) => p.category).filter(Boolean))
   ).sort() as string[]
 
-  const brandCount = new Set(products.map((p: any) => p.brandSlug).filter(Boolean)).size
+  const brandSlugs = Array.from(
+    new Set(products.map((p: any) => p.brandSlug).filter(Boolean))
+  ).sort((a, b) => (brandNames[a] || a).localeCompare(brandNames[b] || b)) as string[]
+
+  const brandCount = brandSlugs.length
 
   function selectCategory(cat: string) {
     setActiveCategory(cat)
@@ -69,12 +80,30 @@ export default function ProductsPageClient({
     router.push(`?${params.toString()}`, { scroll: false })
   }
 
+  function selectBrand(brand: string) {
+    setActiveBrand(brand)
+    setActiveCategory('')
+    setCurrentPage(1)
+    const params = new URLSearchParams(searchParams.toString())
+    if (brand) {
+      params.set('brand', brand)
+    } else {
+      params.delete('brand')
+    }
+    params.delete('category')
+    params.set('page', '1')
+    router.push(`?${params.toString()}`, { scroll: false })
+  }
+
   const filteredProducts = activeCategory
-    ? products.filter((p: any) => p.category === activeCategory)
-    : products
+    ? brandFilteredProducts.filter((p: any) => p.category === activeCategory)
+    : brandFilteredProducts
 
   const totalPages = Math.ceil(filteredProducts.length / PAGE_SIZE)
   const visibleProducts = filteredProducts.slice((currentPage - 1) * PAGE_SIZE, currentPage * PAGE_SIZE)
+
+  const headingParts = [activeBrand ? (brandNames[activeBrand] || activeBrand) : null, activeCategory || null].filter(Boolean)
+  const heading = headingParts.length > 0 ? headingParts.join(' · ') : 'All Products'
 
   return (
     <main className="min-h-screen bg-white">
@@ -122,91 +151,159 @@ export default function ProductsPageClient({
       <div ref={gridRef} className="max-w-7xl mx-auto px-4 py-12 flex gap-8 items-start">
 
         {/* Sidebar */}
-        {categories.length > 1 && (
-          <aside className="hidden md:block w-52 shrink-0 sticky top-6">
-            <p className="text-[10px] font-bold tracking-widest uppercase text-[#0A1628]/30 mb-3 px-1">Categories</p>
-            <ul className="space-y-0.5">
-              <li>
-                <button
-                  onClick={() => selectCategory('')}
-                  className={`w-full flex items-center justify-between px-3 py-2 rounded-lg text-sm font-medium transition-colors text-left ${
-                    activeCategory === ''
-                      ? 'bg-[#0A1628] text-white'
-                      : 'text-[#0A1628]/60 hover:bg-gray-50 hover:text-[#0A1628]'
-                  }`}
-                >
-                  <span>All</span>
-                  <span className={`text-xs font-semibold tabular-nums ${activeCategory === '' ? 'text-white/60' : 'text-[#0A1628]/30'}`}>
-                    {products.length}
-                  </span>
-                </button>
-              </li>
-              {categories.map(cat => {
-                const count = products.filter((p: any) => p.category === cat).length
-                return (
-                  <li key={cat}>
-                    <button
-                      onClick={() => selectCategory(cat)}
-                      className={`w-full flex items-center justify-between px-3 py-2 rounded-lg text-sm font-medium transition-colors text-left ${
-                        activeCategory === cat
-                          ? 'bg-[#15A7DC]/10 text-[#15A7DC]'
-                          : 'text-[#0A1628]/60 hover:bg-gray-50 hover:text-[#0A1628]'
-                      }`}
-                    >
-                      <span>{cat}</span>
-                      <span className={`text-xs font-semibold tabular-nums ${activeCategory === cat ? 'text-[#15A7DC]/70' : 'text-[#0A1628]/30'}`}>
-                        {count}
-                      </span>
-                    </button>
-                  </li>
-                )
-              })}
-            </ul>
-          </aside>
-        )}
+        <aside className="hidden md:block w-52 shrink-0 sticky top-6 space-y-6">
+          {brandSlugs.length > 1 && (
+            <div>
+              <p className="text-[10px] font-bold tracking-widest uppercase text-[#0A1628]/30 mb-3 px-1">Brands</p>
+              <ul className="space-y-0.5">
+                <li>
+                  <button
+                    onClick={() => selectBrand('')}
+                    className={`w-full flex items-center justify-between px-3 py-2 rounded-lg text-sm font-medium transition-colors text-left ${
+                      activeBrand === ''
+                        ? 'bg-[#0A1628] text-white'
+                        : 'text-[#0A1628]/60 hover:bg-gray-50 hover:text-[#0A1628]'
+                    }`}
+                  >
+                    <span>All</span>
+                    <span className={`text-xs font-semibold tabular-nums ${activeBrand === '' ? 'text-white/60' : 'text-[#0A1628]/30'}`}>
+                      {products.length}
+                    </span>
+                  </button>
+                </li>
+                {brandSlugs.map(slug => {
+                  const count = products.filter((p: any) => p.brandSlug === slug).length
+                  return (
+                    <li key={slug}>
+                      <button
+                        onClick={() => selectBrand(slug)}
+                        className={`w-full flex items-center justify-between px-3 py-2 rounded-lg text-sm font-medium transition-colors text-left ${
+                          activeBrand === slug
+                            ? 'bg-[#15A7DC]/10 text-[#15A7DC]'
+                            : 'text-[#0A1628]/60 hover:bg-gray-50 hover:text-[#0A1628]'
+                        }`}
+                      >
+                        <span>{brandNames[slug] || slug}</span>
+                        <span className={`text-xs font-semibold tabular-nums ${activeBrand === slug ? 'text-[#15A7DC]/70' : 'text-[#0A1628]/30'}`}>
+                          {count}
+                        </span>
+                      </button>
+                    </li>
+                  )
+                })}
+              </ul>
+            </div>
+          )}
+
+          {categories.length > 1 && (
+            <div>
+              <p className="text-[10px] font-bold tracking-widest uppercase text-[#0A1628]/30 mb-3 px-1">Categories</p>
+              <ul className="space-y-0.5">
+                <li>
+                  <button
+                    onClick={() => selectCategory('')}
+                    className={`w-full flex items-center justify-between px-3 py-2 rounded-lg text-sm font-medium transition-colors text-left ${
+                      activeCategory === ''
+                        ? 'bg-[#0A1628] text-white'
+                        : 'text-[#0A1628]/60 hover:bg-gray-50 hover:text-[#0A1628]'
+                    }`}
+                  >
+                    <span>All</span>
+                    <span className={`text-xs font-semibold tabular-nums ${activeCategory === '' ? 'text-white/60' : 'text-[#0A1628]/30'}`}>
+                      {brandFilteredProducts.length}
+                    </span>
+                  </button>
+                </li>
+                {categories.map(cat => {
+                  const count = brandFilteredProducts.filter((p: any) => p.category === cat).length
+                  return (
+                    <li key={cat}>
+                      <button
+                        onClick={() => selectCategory(cat)}
+                        className={`w-full flex items-center justify-between px-3 py-2 rounded-lg text-sm font-medium transition-colors text-left ${
+                          activeCategory === cat
+                            ? 'bg-[#15A7DC]/10 text-[#15A7DC]'
+                            : 'text-[#0A1628]/60 hover:bg-gray-50 hover:text-[#0A1628]'
+                        }`}
+                      >
+                        <span>{cat}</span>
+                        <span className={`text-xs font-semibold tabular-nums ${activeCategory === cat ? 'text-[#15A7DC]/70' : 'text-[#0A1628]/30'}`}>
+                          {count}
+                        </span>
+                      </button>
+                    </li>
+                  )
+                })}
+              </ul>
+            </div>
+          )}
+        </aside>
 
         {/* Products area */}
         <div className="flex-1 min-w-0">
-          <div className="flex items-center justify-between mb-8">
+          <div className="flex items-center justify-between mb-8 gap-3 flex-wrap">
             <div>
               <h2 className="text-lg font-semibold text-[#0A1628]">
-                {activeCategory || 'All Products'}
+                {heading}
               </h2>
               <p className="text-sm text-gray-400 mt-0.5">
                 Page {currentPage} of {totalPages} · {filteredProducts.length} product{filteredProducts.length !== 1 ? 's' : ''}
               </p>
             </div>
-            {/* Mobile category dropdown */}
-            {categories.length > 1 && (
-              <select
-                value={activeCategory}
-                onChange={e => selectCategory(e.target.value)}
-                className="md:hidden text-xs border border-gray-200 rounded-lg px-3 py-2 text-[#0A1628] bg-white"
-              >
-                <option value="">All ({products.length})</option>
-                {categories.map(cat => (
-                  <option key={cat} value={cat}>
-                    {cat} ({products.filter((p: any) => p.category === cat).length})
-                  </option>
-                ))}
-              </select>
-            )}
+            {/* Mobile dropdowns */}
+            <div className="flex md:hidden gap-2">
+              {brandSlugs.length > 1 && (
+                <select
+                  value={activeBrand}
+                  onChange={e => selectBrand(e.target.value)}
+                  className="text-xs border border-gray-200 rounded-lg px-3 py-2 text-[#0A1628] bg-white"
+                >
+                  <option value="">All Brands ({products.length})</option>
+                  {brandSlugs.map(slug => (
+                    <option key={slug} value={slug}>
+                      {brandNames[slug] || slug} ({products.filter((p: any) => p.brandSlug === slug).length})
+                    </option>
+                  ))}
+                </select>
+              )}
+              {categories.length > 1 && (
+                <select
+                  value={activeCategory}
+                  onChange={e => selectCategory(e.target.value)}
+                  className="text-xs border border-gray-200 rounded-lg px-3 py-2 text-[#0A1628] bg-white"
+                >
+                  <option value="">All Categories ({brandFilteredProducts.length})</option>
+                  {categories.map(cat => (
+                    <option key={cat} value={cat}>
+                      {cat} ({brandFilteredProducts.filter((p: any) => p.category === cat).length})
+                    </option>
+                  ))}
+                </select>
+              )}
+            </div>
           </div>
 
         {filteredProducts.length === 0 ? (
           <div className="flex flex-col items-center justify-center py-24 text-center">
             <div className="text-5xl mb-4">📦</div>
             <p className="text-gray-400">
-              {activeCategory ? `No products in "${activeCategory}".` : 'No products listed yet.'}
+              {heading !== 'All Products' ? `No products in "${heading}".` : 'No products listed yet.'}
             </p>
           </div>
         ) : (
           <>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
-              {visibleProducts.map((product: any) => (
+              {visibleProducts.map((product: any) => {
+                const productParams = new URLSearchParams()
+                if (activeCategory) productParams.set('category', activeCategory)
+                if (activeBrand) productParams.set('brand', activeBrand)
+                const productHref = productParams.toString()
+                  ? `/products/${product.slug}?${productParams.toString()}`
+                  : `/products/${product.slug}`
+                return (
                 <Link
                   key={product._id}
-                  href={activeCategory ? `/${product.brandSlug}/${product.slug}?category=${encodeURIComponent(activeCategory)}` : `/${product.brandSlug}/${product.slug}`}
+                  href={productHref}
                   className="bg-white border border-gray-100 rounded-2xl overflow-hidden hover:border-[#15A7DC]/50 hover:shadow-[0_4px_20px_rgba(21,167,220,0.1)] transition-all duration-200 group"
                 >
                   {product.images?.[0] ? (
@@ -251,7 +348,8 @@ export default function ProductsPageClient({
                     })()}
                   </div>
                 </Link>
-              ))}
+                )
+              })}
             </div>
 
            {/* Pagination */}

@@ -537,7 +537,7 @@ useEffect(() => {
               {searchResults.map((p, i) => (
                 <button
                   key={p._id}
-                  onClick={() => { router.push(`/${p.brandSlug}/${p.slug}`); closeSearch(); }}
+                  onClick={() => { router.push(`/products/${p.slug}`); closeSearch(); }}
                   className="w-full flex items-center gap-3 px-4 py-3 text-left
                              border-b border-white/5 last:border-0
                              hover:bg-[#15A7DC]/10 transition-colors group"

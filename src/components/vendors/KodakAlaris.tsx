@@ -55,8 +55,8 @@ const officeScanners = [
     intro: 'Fast, reliable desktop scanning for front-office and customer-facing workflows.',
     image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1782152343/alaris_e1035_scanner-sq.jpg_rhpnuw.webp',
     links: [
-      { label: 'E1030', href: '/kodak-alaris/kodak-e1030-document-scanner' },
-      { label: 'E1040', href: '/kodak-alaris/kodak-e1040-document-scanner' },
+      { label: 'E1030', href: '/products/kodak-e1030-document-scanner' },
+      { label: 'E1040', href: '/products/kodak-e1040-document-scanner' },
     ],
   },
   {
@@ -73,9 +73,9 @@ const officeScanners = [
     intro: 'Professional sheet-fed solutions with robust feeding and embedded image processing.',
     image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1782152343/S2000_bss1gy.webp',
     links: [
-      { label: 'S2050', href: '/kodak-alaris/kodak-s2050-scanner' },
-      { label: 'S2070', href: '/kodak-alaris/kodak-s2070-scanner' },
-      { label: 'S2085f', href: '/kodak-alaris/kodak-s2085f-scanner' },
+      { label: 'S2050', href: '/products/kodak-s2050-scanner' },
+      { label: 'S2070', href: '/products/kodak-s2070-scanner' },
+      { label: 'S2085f', href: '/products/kodak-s2085f-scanner' },
     ],
   },
 ];
@@ -96,8 +96,8 @@ const networkData = {
       ],
       intro: 'Productive shared network scanning — up to 20 jobs per department, no IT complexity.',
       links: [
-        { label: 'S2060w', href: '/kodak-alaris/kodak-s2060w-scanner' },
-        { label: 'S2080w', href: '/kodak-alaris/kodak-s2080w-scanner' },
+        { label: 'S2060w', href: '/products/kodak-s2060w-scanner' },
+        { label: 'S2080w', href: '/products/kodak-s2080w-scanner' },
       ],
     }],
   },
@@ -115,8 +115,8 @@ const networkData = {
       ],
       intro: 'PC-free customisable scanning kiosk — powerful, secure, and ready to deploy.',
       links: [
-        { label: 'Scan Station 730EX Plus', href: '/kodak-alaris/kodak-scan-station-730ex-plus-scanner' },
-        { label: 'Scan Station 710', href: '/kodak-alaris/kodak-scan-station-710-scanner' },
+        { label: 'Scan Station 730EX Plus', href: '/products/kodak-scan-station-730ex-plus-scanner' },
+        { label: 'Scan Station 710', href: '/products/kodak-scan-station-710-scanner' },
       ],
     }],
   },
@@ -140,10 +140,10 @@ const productionScanners = [
     image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1782152342/S3140_Max_Scanner.png_z3oyry.webp?h=7e49063a&itok=2zMnsBE8',
     imageLabel: 'S3000 Series',
     links: [
-      { label: 'S3060', href: '/kodak-alaris/kodak-s3060-scanner' },
-      { label: 'S3100', href: '/kodak-alaris/kodak-s3100-scanner' },
-      { label: 'S3120 Max', href: '/kodak-alaris/kodak-s3120-max-scanner' },
-      { label: 'S3140 Max', href: '/kodak-alaris/kodak-s3140-max-scanner' },
+      { label: 'S3060', href: '/products/kodak-s3060-scanner' },
+      { label: 'S3100', href: '/products/kodak-s3100-scanner' },
+      { label: 'S3120 Max', href: '/products/kodak-s3120-max-scanner' },
+      { label: 'S3140 Max', href: '/products/kodak-s3140-max-scanner' },
     ],
   },
   {
@@ -162,8 +162,8 @@ const productionScanners = [
     image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1782152342/i5650_Scanner.png_x5s8cs.webp?h=7e49063a&itok=5jJvezef',
     imageLabel: 'i4000 / i5000 Series',
     links: [
-      { label: 'i4650', href: '/kodak-alaris/kodak-i4650-scanner' },
-      { label: 'i4850', href: '/kodak-alaris/kodak-i4850-scanner' },
+      { label: 'i4650', href: '/products/kodak-i4650-scanner' },
+      { label: 'i4850', href: '/products/kodak-i4850-scanner' },
     ],
   },
   {
@@ -180,9 +180,9 @@ const productionScanners = [
       'FADGI 2023: General Collections 3-Star and MTR Compliant',
     ],
     links: [
-      { label: 'S5160', href: '/kodak-alaris/kodak-s5160-scanner' },
-      { label: 'S5180', href: '/kodak-alaris/kodak-s5180-scanner' },
-      { label: 'S5210', href: '/kodak-alaris/kodak-s5210-scanner' },
+      { label: 'S5160', href: '/products/kodak-s5160-scanner' },
+      { label: 'S5180', href: '/products/kodak-s5180-scanner' },
+      { label: 'S5210', href: '/products/kodak-s5210-scanner' },
     ],
     image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1782152342/03_S5160_HERO_LF_closed.png_t4eh6p.webp?h=60f9f39d&itok=TJpEOnkT',
     imageLabel: 'S5000 Series',
@@ -506,7 +506,7 @@ export default function KodakAlarisPage() {
                 title: 'KODAK Capture Pro Software',
                 desc: 'A powerful capture platform that automates the conversion of paper documents into high-quality digital information — with intelligent image processing, OCR, and flexible ECM integration.',
                 image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1781980249/rookie-ninja/products/KODAK-Capture-Pro_png.webp',
-                href: '/kodak-alaris/kodak-capture-pro-software',
+                href: '/products/kodak-capture-pro-software',
                 features: ['High-volume document capture', 'Advanced OCR & barcode recognition', 'Intelligent image processing', 'Supports multiple scanner brands', 'Enterprise workflow automation'],
               },
               {
@@ -514,7 +514,7 @@ export default function KodakAlarisPage() {
                 title: 'KODAK Info Input Solution',
                 desc: 'An AI-powered IDP platform that automates the entire document journey — from multi-channel capture to data extraction, validation, and seamless integration with business systems.',
                 image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1781980248/rookie-ninja/products/KODAK-Info-Input-Solution-1_png.webp',
-                href: '/kodak-alaris/kodak-info-input-solution',
+                href: '/products/kodak-info-input-solution',
                 features: ['AI-powered document processing', 'Automated data extraction', 'Paper & digital capture', 'Low-code workflow automation', 'Business system integration'],
               },
             ].map((card, i) => (

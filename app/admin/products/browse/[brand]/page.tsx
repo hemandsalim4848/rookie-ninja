@@ -288,7 +288,7 @@ export default function BrandProductsPage() {
                 <td className="px-6 py-4 text-gray-400 text-xs">{p.category || '—'}</td>
                 <td className="px-6 py-4 text-right">
                   <div className="flex items-center justify-end gap-3">
-                    <a href={`/${brandSlug}/${p.slug}`} target="_blank" rel="noreferrer"
+                    <a href={`/products/${p.slug}`} target="_blank" rel="noreferrer"
                       className="text-gray-300 hover:text-[#15A7DC] transition-colors" title="View product page">
                       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                         <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/>

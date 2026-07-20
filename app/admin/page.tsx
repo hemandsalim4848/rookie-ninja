@@ -63,7 +63,7 @@ export default async function AdminDashboard() {
                   <p className="text-xs font-medium text-[#0A1628] truncate">{p.name}</p>
                   <p className="text-[10px] text-gray-400 capitalize">{p.brandSlug}</p>
                 </div>
-                <Link href={`/${p.brandSlug}/${p.slug}`} target="_blank"
+                <Link href={`/products/${p.slug}`} target="_blank"
                   className="text-[10px] text-gray-300 hover:text-[#15A7DC] transition-colors shrink-0">View ↗</Link>
               </div>
             ))}

@@ -23,8 +23,8 @@ export async function GET(req: Request) {
 
   const targets = ['/products']
   if (product) {
-    targets.push(`/${product.brandSlug}`)
-    targets.push(`/${product.brandSlug}/${product.slug}`)
+    targets.push(`/products?brand=${product.brandSlug}`)
+    targets.push(`/products/${product.slug}`)
   }
 
   const warmed = await Promise.all(targets.map(path => warm(`${base}${path}`)))

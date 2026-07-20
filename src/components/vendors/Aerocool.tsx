@@ -44,7 +44,7 @@ const caseCards = [
     title: 'Designer-G V2',
     desc: 'A striking ARGB mid-tower with 4 pre-installed ARGB fans, full tempered glass panel, and support for ATX, Micro and Mini ATX builds.',
     image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1781989335/rookie-ninja/products/Designer-V2-Product-Gallery-4.webp',
-    href: '/aerocool/aerocool-case-designer-g-bk-v2-argb-4-atx-micro-mini-atx',
+    href: '/products/aerocool-case-designer-g-bk-v2-argb-4-atx-micro-mini-atx',
     features: ['4× ARGB fans pre-installed', 'ATX / Micro / Mini ATX support', 'Full tempered glass side panel', 'Cable management routing', 'Supports 240mm radiator'],
   },
   {
@@ -52,7 +52,7 @@ const caseCards = [
     title: 'B508A / B509A Flow-G',
     desc: 'The Flow-G series delivers maximum airflow with a mesh front panel, ARGB fans, and an open interior — available in Black and White.',
     image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1781989260/rookie-ninja/products/B508A-bk-Infographics-1_1-removebg-preview.webp',
-    href: '/aerocool/aerocool-b508a-flow-g-bk-v1',
+    href: '/products/aerocool-b508a-flow-g-bk-v1',
     features: ['Mesh front panel for max airflow', 'ARGB fan hub included', 'Available in Black & White', 'Tempered glass side panel', 'ATX / Micro / Mini ATX support'],
   },
   {
@@ -60,7 +60,7 @@ const caseCards = [
     title: 'Dryft-G BK v2',
     desc: 'A compact and versatile tower with support for ATX, Micro ATX, and Mini ITX builds — designed for smaller setups without sacrificing cooling.',
     image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1781989346/rookie-ninja/products/Drift-BK-V2Product-Gallery-4.jpg',
-    href: '/aerocool/aerocool-case-dryft-g-bk-v2-atx-micro-mini-itx',
+    href: '/products/aerocool-case-dryft-g-bk-v2-atx-micro-mini-itx',
     features: ['Supports ATX / Micro / Mini ITX', 'Compact sleek profile', 'Tempered glass panel', 'Cable management tray', 'Top and side ventilation'],
   },
   {
@@ -68,7 +68,7 @@ const caseCards = [
     title: 'P500C-G',
     desc: 'A clean mid-tower with a panoramic tempered glass panel and efficient cable management — available in Black and White to match any build.',
     image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1781989355/rookie-ninja/products/P500C-bk-product-gallery-1.webp',
-    href: '/aerocool/aerocool-case-p500c-g-bk-v1',
+    href: '/products/aerocool-case-p500c-g-bk-v1',
     features: ['Full tempered glass side panel', 'Available in Black & White', 'Cable management routing', 'Supports up to 360mm radiator', 'Tool-less drive installation'],
   },
 ];
@@ -521,7 +521,7 @@ export default function AerocoolPage() {
                     <div style={{ borderRadius: 6, overflow: 'hidden', border: '1px solid #e5e7eb', background: '#fff' }}>
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img src={item.image} alt={item.heading} style={{ width: '100%', height: 200, objectFit: 'contain', display: 'block' }} />
-                      <a href={`/aerocool/${item.slug}`} style={{ display: 'block', fontSize: 11, fontWeight: 700, textAlign: 'center', background: ac.accent, color: '#fff', padding: '6px 0', letterSpacing: '0.5px', textTransform: 'uppercase', textDecoration: 'none' }}>
+                      <a href={`/products/${item.slug}`} style={{ display: 'block', fontSize: 11, fontWeight: 700, textAlign: 'center', background: ac.accent, color: '#fff', padding: '6px 0', letterSpacing: '0.5px', textTransform: 'uppercase', textDecoration: 'none' }}>
                         {item.heading}
                       </a>
                     </div>

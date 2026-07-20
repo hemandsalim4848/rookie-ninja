@@ -78,9 +78,9 @@ const ifpdCards = [
 ];
 
 const featuredProducts = [
-  { id: 'mw3565', model: 'MW3565-U-E2', desc: '65 Inch Smart Interactive Display', href: '/unv/mw3565-u-e2', image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1782164464/unv-65-scaled_ognvqd.webp' },
-  { id: 'mw3575', model: 'MW3575-U-E2', desc: '75 Inch Smart Interactive Display', href: '/unv/mw3575-u-e2', image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1782164464/unv-75-scaled_sirrln.webp' },
-  { id: 'mw3586', model: 'MW3586-U-E2', desc: '86 Inch Smart Interactive Display', href: '/unv/mw3586-u-e2', image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1782164463/unv-86-scaled_iuohon.webp' },
+  { id: 'mw3565', model: 'MW3565-U-E2', desc: '65 Inch Smart Interactive Display', href: '/products/mw3565-u-e2', image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1782164464/unv-65-scaled_ognvqd.webp' },
+  { id: 'mw3575', model: 'MW3575-U-E2', desc: '75 Inch Smart Interactive Display', href: '/products/mw3575-u-e2', image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1782164464/unv-75-scaled_sirrln.webp' },
+  { id: 'mw3586', model: 'MW3586-U-E2', desc: '86 Inch Smart Interactive Display', href: '/products/mw3586-u-e2', image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1782164463/unv-86-scaled_iuohon.webp' },
 ];
 
 const confItems = [

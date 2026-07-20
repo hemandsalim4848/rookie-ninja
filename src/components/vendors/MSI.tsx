@@ -322,7 +322,7 @@ export default function MSIPage() {
                         ))}
                       </ul>
                     )}
-                    <a href={`/msi/${gpu.slug}`}
+                    <a href={`/products/${gpu.slug}`}
                        style={{ marginTop: 14, display: 'inline-block', padding: '8px 16px', background: ms.accent, color: '#fff', fontSize: 12, fontWeight: 600, borderRadius: 50, textDecoration: 'none', alignSelf: 'flex-start', transition: 'opacity 0.2s' }}
                        onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.opacity = '0.85'; }}
                        onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.opacity = '1'; }}>
@@ -423,7 +423,7 @@ export default function MSIPage() {
                   <img src={cld(mb.images?.[0])} alt={mb.name} style={{ width: '100%', height: 200, objectFit: 'contain', marginBottom: 16, borderRadius: 6 }} />
                   <h4 style={{ fontSize: 13, fontWeight: 700, color: ms.text, margin: '0 0 8px', lineHeight: 1.3 }}>{mb.name}</h4>
                   <p style={{ fontSize: 11, color: ms.dim, marginBottom: 14, lineHeight: 1.5, flex: 1 }}>{mb.shortDescription?.split('\n')[0] || ''}</p>
-                  <a href={`/msi/${mb.slug}`}
+                  <a href={`/products/${mb.slug}`}
                      style={{ fontSize: 11, fontWeight: 700, color: ms.accent, textDecoration: 'none', display: 'flex', alignItems: 'center', gap: 4, letterSpacing: '0.5px', textTransform: 'uppercase' }}
                      onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.opacity = '0.7'; }}
                      onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.opacity = '1'; }}>
