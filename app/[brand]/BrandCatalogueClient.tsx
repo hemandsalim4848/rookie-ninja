@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { useEffect, useRef, useState } from 'react'
-import { useSearchParams, useRouter } from 'next/navigation'
+import { useSearchParams } from 'next/navigation'
 import { cld } from '@/src/lib/cloudinaryUrl'
 
 const PAGE_SIZE = 16
@@ -25,7 +25,6 @@ export default function BrandCatalogueClient({
   products: any[]
 }) {
   const searchParams = useSearchParams()
-  const router = useRouter()
 
   const gridRef = useRef<HTMLDivElement>(null)
   const [activeCategory, setActiveCategory] = useState(searchParams.get('category') || '')
@@ -48,7 +47,7 @@ export default function BrandCatalogueClient({
     setCurrentPage(page)
     const params = new URLSearchParams(searchParams.toString())
     params.set('page', String(page))
-    router.push(`?${params.toString()}`, { scroll: false })
+    window.history.pushState(null, '', `?${params.toString()}`)
     gridRef.current?.scrollIntoView({ behavior: 'smooth' })
   }
 
@@ -66,7 +65,7 @@ export default function BrandCatalogueClient({
       params.delete('category')
     }
     params.set('page', '1')
-    router.push(`?${params.toString()}`, { scroll: false })
+    window.history.pushState(null, '', `?${params.toString()}`)
   }
 
   const filteredProducts = activeCategory
