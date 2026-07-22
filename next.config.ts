@@ -209,6 +209,76 @@ const nextConfig: NextConfig = {
         destination: '/our-vendors/unv',
         permanent: true,
       },
+      {
+        source: '/training',
+        destination: '/partner-central',
+        permanent: true,
+      },
+      {
+        source: '/join-us',
+        destination: '/careers',
+        permanent: true,
+      },
+      {
+        source: '/solutions',
+        destination: '/catalogue',
+        permanent: true,
+      },
+      {
+        source: '/work-culture',
+        destination: '/careers',
+        permanent: true,
+      },
+      {
+        source: '/become_vendor',
+        destination: '/partner-central',
+        permanent: true,
+      },
+      {
+        source: '/job-form-chartered-accountant',
+        destination: '/careers',
+        permanent: true,
+      },
+      {
+        source: '/job-form-product-sales-specialist-cctv',
+        destination: '/careers',
+        permanent: true,
+      },
+      {
+        source: '/job-form-product-executive',
+        destination: '/careers',
+        permanent: true,
+      },
+      {
+        source: '/about-us',
+        destination: '/about/team',
+        permanent: true,
+      },
+      {
+        source: '/choosing-the-best-scanners',
+        destination: '/scan-solutions',
+        permanent: true,
+      },
+      {
+        source: '/kodak-s2060w-scanner',
+        destination: '/products/kodak-s2060w-scanner',
+        permanent: true,
+      },
+      {
+        source: '/wp-content/uploads/2024/05/RN-Company-Profile-2023-2024.pdf',
+        destination: '/company-profile.pdf',
+        permanent: true,
+      },
+      {
+        source: '/wp-content/uploads/2023/10/RN-Company-Profile-2023-2024-2.pdf',
+        destination: '/company-profile.pdf',
+        permanent: true,
+      },
+      {
+        source: '/wp-content/uploads/2024/07/RN-Company-Profile-2024-2025.pdf',
+        destination: '/company-profile.pdf',
+        permanent: true,
+      },
     ]
   },
   async headers() {

@@ -21,6 +21,12 @@ const GONE_PATHS = new Set([
   '/optimidoc',
   '/nexvoo-av',
   '/vaio-laptops',
+  '/eset-nod32',
+  '/msi-modern-am242tp-12m',
+  '/viewsonic-ifp-7532',
+  '/epson',
+  '/intex',
+  '/asustor-nas-storage',
 ])
 
 // ============================================================
@@ -102,6 +108,27 @@ const PRODUCT_RENAME_MAP: Record<string, string> = {
   "kodak-i3500-scanner": "kodak-i4650-scanner",
   "kodak-i4250-scanner": "kodak-i4850-scanner",
   "czur-shine500-pro-book-scanner": "czur-shine-ultra-pro-24mp-document-scanner",
+  // Data-artifact slugs (stray/doubled dashes) found via Search Console
+  // performance data — same product, just malformed in Google's index.
+  "viewsonic-vg2748-": "viewsonic-vg2748",
+  "viewsonic-ifp8630-": "viewsonic-ifp8630",
+  "viewsonic-m2e-": "viewsonic-m2e",
+  "czur--et25-pro": "czur-et25-pro",
+  "dicota-eco-accessory-pouch-move-medium": "dicota-accessory-pouch-eco-move-medium",
+  // Old site's "v2" CZUR book scanner was superseded by v3 in our catalogue
+  "czur-m3000-pro-v2-pro-book-scanner": "czur-m3000-pro-v3-pro-book-scanner",
+  "czur-m3000-pro-v2-book-scanner": "czur-m3000-pro-v3-pro-book-scanner",
+  // Canon DR-C240 was discontinued and removed from the catalogue; DR-C230
+  // is the closest current model in the same compact desktop scanner tier.
+  "canon-dr-c240": "canon-imageformula-dr-c230-document-scanner",
+  "canon-dr-c240-1yr": "canon-imageformula-dr-c230-document-scanner",
+  "canon-imageformula-dr-c240-office-document-scanner": "canon-imageformula-dr-c230-document-scanner",
+  // More data-artifact / "-alaris-" prefixed duplicates found in the second
+  // Search Console drilldown, same treatment as the batch above.
+  "kodak-alaris-e1030-document-scanner": "kodak-e1030-document-scanner",
+  "kodak-alaris-e1040-document-scanner": "kodak-e1040-document-scanner",
+  "kodak-alaris-s2070-scanner": "kodak-s2070-scanner",
+  "colortrac-smartlf-scan-series": "smartlf-scan",
 }
 
 // Old products with no current equivalent (discontinued brands like
@@ -197,6 +224,79 @@ const PRODUCT_GONE_SET = new Set([
   "contex-sd-one-plus-36",
   "dicota-usb-c-11-in-1-docking-station-5k-hdmi-dp-pd-100w-uk",
   "dicota-secret-2-way-magnetic-macbook-air-13-macbook-pro-13-macbook-pro-retina-13-2012-2015",
+  // Brands never carried on the new site (Epson, Nexvoo, Silex, Asustor, Oki),
+  // discovered via Search Console performance data. All already 404 on the
+  // old site too, but still had residual index entries worth a clean 410.
+  "epson-ecotank-pro-l15180-mfp",
+  "epson-wf-c20750-d4tw-240",
+  "epson-wf-c21000d4tw-printer",
+  "epson-workforce-enterprise-wf-c17590-d4twf-mfp",
+  "epson-fastfoto-ff-680w",
+  "epson-workforce-ds-770ii",
+  "epson-workforce-wf-m5799dwf",
+  "epson-workforce-ds-870-departmental-business-scanner",
+  "epson-workforce-ds-30000",
+  "epson-workforce-ds-410",
+  "epson-ecotank-pro-l6580-mfp",
+  "epson-expression-12000xl-pro",
+  "nexvoo-classcam-cc520",
+  "nexvoo---n110",
+  "nexvoo-nexpad-t530",
+  "silex-ds-520an",
+  "asustor-lockerstor-4rs-as6504rs--lockerstor-4rd-as6504rd",
+  "asustor-lockerstor-12r-pro-as7112rdx",
+  "oki-b432dn-mono-printer",
+  "msi-all-in--one-pcs--modern-am242-12m",
+  // More Dicota bag/case variants with no equivalent (see note above re: Dicota)
+  "dicota-backpack-go-13-156-light-grey",
+  "dicota-backpack-move-13-156-black",
+  // Data-artifact dash-variant of an already-gone Belkin product
+  "belkin-24-amp-usb-charging-8-outlet-surge-protection-strip",
+  // Second Search Console drilldown batch: more orphaned-brand products
+  // (Epson, Asustor, Nexvoo, Silex, Oki) plus a few genuinely discontinued
+  // /never-carried models in brands we do sell (Canon R40 camera, Kodak
+  // i5650, CZUR Shine800 A3, Colortrac SC-36 Xpress).
+  "epson-ecotank-m3180-business-mfp",
+  "epson-ds-32000",
+  "epson-workforce-enterprise-wf-c20600-d4tw-departmental-mfp",
+  "epson-workforce-pro-wf-c878rdtwfc-business-inkjet-mfp",
+  "epson-ecotank-m1180-business-printer",
+  "epson-workforce-ds-7500n",
+  "epson-wf-c5890dwf-",
+  "epson-workforce-ds-6500n",
+  "epson-workforce-ds-60000n",
+  "asustor-drivestor-2-pro-as3302t",
+  "asustor-lockerstor-4-as6604t",
+  "asustor-lockerstor-12rd-as6512rd",
+  "asustor-lockerstor-10-pro-as7110t",
+  "asustor-nimbustor-2-as5202t",
+  "asustor-lockerstor-16r-pro-as7116rdx",
+  "asustor-lockerstor-2-as6602t",
+  "asustor-lockerstor-4-gen2-as6704t",
+  "asustor-nimbustor-4-as5304t",
+  "asustor-lockerstor-8-as6508t",
+  "nexvoo-nexpod-n109",
+  "nexvoo--n120w",
+  "nexvoo-bh06-stereo-bluetooth-headset-",
+  "nexvoo-nexbar-n120u",
+  "nexvoo-nexpod-pro-n149",
+  "silex-ds-600",
+  "silex-br-300an",
+  "silex-ds-510",
+  "oki-c650-a4-colour-led-printer",
+  "oki-mc883dnct-multifunction-printer",
+  "canon-r40",
+  "kodak-i5650-scanner",
+  "czur-shine800-a3-pro-book-scanner",
+  "colortrac-smartlf-sc-36-xpress-series",
+  "dicota-skin-flow-13-141-anthraciteblue",
+  "base-xx-laptop-sleeve-13-133-black",
+  "base-xx-laptop-sleeve-14-141-black",
+  "base-xx-laptop-slim-case-10-125-black",
+  "dicota-backpack-go-13-156-black",
+  "dicota-backpack-move-13-156-light-grey",
+  "dicota-d31760-backpack-for-156inch-laptop",
+  "belkin-soundform-headphones-with-lightning-connectorwhite",
 ])
 
 // Old /brand/:slug taxonomy pages -> our brandSlug (used as /products?brand=X)
@@ -242,6 +342,16 @@ const CATEGORY_TAXONOMY_MAP: Record<string, string> = {
   // 'uncategorized' falls through to the generic /products redirect below
 }
 
+// Shared by /product/:slug and the legacy /single-product/:id?name=X pattern —
+// both identify a product purely by slug, just via a different URL shape.
+function resolveProduct(slug: string, requestUrl: string): NextResponse {
+  if (PRODUCT_GONE_SET.has(slug)) {
+    return new NextResponse(null, { status: 410 })
+  }
+  const newSlug = PRODUCT_RENAME_MAP[slug] || slug
+  return NextResponse.redirect(new URL(`/products/${newSlug}`, requestUrl), 308)
+}
+
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl
   const clean = pathname.replace(/\/$/, '') || '/'
@@ -250,19 +360,43 @@ export function middleware(request: NextRequest) {
     return new NextResponse(null, { status: 410 })
   }
 
+  // Legacy rookie-ninja.com/product-single/:mongoId pattern — an even older
+  // URL shape than /single-product/, and unlike that one it carries no name/
+  // slug at all, so the specific product can't be resolved. Best effort:
+  // send to the general listing rather than 404.
+  if (/^\/product-single\/[^/]+$/.test(clean)) {
+    return NextResponse.redirect(new URL('/products', request.url), 308)
+  }
+
   // /product/:slug
   const productMatch = clean.match(/^\/product\/([^/]+)$/)
   if (productMatch) {
-    const slug = decodeURIComponent(productMatch[1])
-    if (PRODUCT_GONE_SET.has(slug)) {
-      return new NextResponse(null, { status: 410 })
-    }
-    const newSlug = PRODUCT_RENAME_MAP[slug] || slug
-    return NextResponse.redirect(new URL(`/products/${newSlug}`, request.url), 308)
+    return resolveProduct(decodeURIComponent(productMatch[1]), request.url)
   }
 
-  // /brand/:slug
-  const brandMatch = clean.match(/^\/brand\/([^/]+)$/)
+  // Legacy /single-product/:id?name=slug pattern (an older URL shape from
+  // the catalogue site, still live and still getting search impressions).
+  // The MongoDB id in the path is meaningless to us; the real identity is
+  // the `name` query param, which is a product slug just like /product/:slug.
+  if (/^\/single-product\/[^/]+$/.test(clean)) {
+    const name = request.nextUrl.searchParams.get('name')
+    if (name) {
+      return resolveProduct(decodeURIComponent(name), request.url)
+    }
+    return NextResponse.redirect(new URL('/products', request.url), 308)
+  }
+
+  // Legacy /view-all?brand=<mongoId> or ?catId=<mongoId> listing pages.
+  // The ids don't map to anything we have, so send to the general listing
+  // rather than 410 — someone landing here is browsing, not looking for one
+  // specific gone product.
+  if (clean === '/view-all') {
+    return NextResponse.redirect(new URL('/products', request.url), 308)
+  }
+
+  // /brand/:slug and the paginated /brand/:slug/page/:num variant — both
+  // just mean "browsing this brand", so page number is dropped.
+  const brandMatch = clean.match(/^\/brand\/([^/]+)(?:\/page\/\d+)?$/)
   if (brandMatch) {
     const slug = decodeURIComponent(brandMatch[1])
     if (BRAND_TAXONOMY_GONE.has(slug)) {
@@ -324,7 +458,16 @@ export const config = {
     '/optimidoc', '/optimidoc/',
     '/nexvoo-av', '/nexvoo-av/',
     '/vaio-laptops', '/vaio-laptops/',
+    '/eset-nod32', '/eset-nod32/',
+    '/msi-modern-am242tp-12m', '/msi-modern-am242tp-12m/',
+    '/viewsonic-ifp-7532', '/viewsonic-ifp-7532/',
+    '/epson', '/epson/',
+    '/intex', '/intex/',
+    '/asustor-nas-storage', '/asustor-nas-storage/',
     '/product/:path*',
+    '/product-single/:path*',
+    '/single-product/:path*',
+    '/view-all', '/view-all/',
     '/brand/:path*',
     '/product-category/:path*',
     '/shop', '/shop/',
