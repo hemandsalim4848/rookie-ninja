@@ -6,7 +6,7 @@ interface Props {
   images?: string[]
 }
 
-// ── Structured format ─────────────────────────────────────────────────────────
+// ── Structured format (admin-authored, rich layout) ───────────────────────────
 // [stats: Value§Label | Value§Label | Value§Label]
 // Intro paragraph (no heading)
 // ## Section heading
@@ -49,69 +49,31 @@ function parseStructured(text: string): {
   return { stats, lead, sections }
 }
 
-// ── Legacy parsers (fallback for plain-text descriptions) ─────────────────────
-function parseFeatures(text: string): string[] {
-  const lines = text.split('\n')
-  const features: string[] = []
-  for (const line of lines) {
-    const cleaned = line.replace(/^[-•*]\s*/, '').trim()
-    if (cleaned.length > 5 && cleaned.length < 120) features.push(cleaned)
-  }
-  return features.slice(0, 6)
+// ── Plain-text renderer (every catalogue-imported product) ───────────────────
+// Descriptions come in as one continuous block with no line breaks, so we
+// split on sentence boundaries and regroup into evenly-sized paragraphs
+// rather than showing either one giant wall of text or repeating the
+// shortDescription bullets that already sit beside the image slider.
+
+function splitIntoSentences(text: string): string[] {
+  const clean = text.replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim()
+  if (!clean) return []
+  return clean.split(/(?<=[.!?])\s+(?=[A-Z0-9])/).map(s => s.trim()).filter(Boolean)
 }
 
-function parseSections(text: string): { title: string; body: string }[] {
-  const sections: { title: string; body: string }[] = []
-  const lines = text.split('\n').map(l => l.trim()).filter(Boolean)
-  let current: { title: string; body: string } | null = null
-
-  for (const line of lines) {
-    const isHeading =
-      line.length < 60 &&
-      !line.endsWith('.') &&
-      !line.includes(',') &&
-      line === line.replace(/[^a-zA-Z0-9\s&/-]/g, '') &&
-      line.split(' ').length <= 6
-    if (isHeading) {
-      if (current && current.body.trim()) sections.push(current)
-      current = { title: line, body: '' }
+function groupIntoParagraphs(sentences: string[], targetChars = 260): string[] {
+  const paragraphs: string[] = []
+  let current = ''
+  for (const s of sentences) {
+    if (current && current.length + s.length > targetChars) {
+      paragraphs.push(current)
+      current = s
     } else {
-      if (!current) current = { title: '', body: '' }
-      current.body += ' ' + line
+      current = current ? `${current} ${s}` : s
     }
   }
-  if (current && current.body.trim()) sections.push(current)
-  return sections.filter(s => s.body.trim().length > 20).slice(0, 3)
-}
-
-function extractHighlights(text: string): { icon: string; label: string; value: string }[] {
-  const highlights: { icon: string; label: string; value: string }[] = []
-  const patterns = [
-    { regex: /(\d+w)\s*(usb|power|charging)/i, label: 'Power Output', icon: '⚡' },
-    { regex: /usb-if certified/i, label: 'Certification', icon: '🛡️' },
-    { regex: /(\d+)-year\s*\w*\s*warranty/i, label: 'Warranty', icon: '✅' },
-    { regex: /plastic.free/i, label: 'Packaging', icon: '🌿' },
-    { regex: /(\d+)\s*m\s*(cable|length|cord)/i, label: 'Cable Length', icon: '📏' },
-    { regex: /bluetooth\s*([\d.]+)/i, label: 'Bluetooth', icon: '📶' },
-    { regex: /(\d+)\s*mah/i, label: 'Battery', icon: '🔋' },
-    { regex: /water.?proof|ipx?\d/i, label: 'Protection', icon: '💧' },
-    { regex: /mfi.?approved|mfi certified/i, label: 'MFi', icon: '🍎' },
-    { regex: /(\d+)\s*port/i, label: 'Ports', icon: '🔌' },
-  ]
-  for (const p of patterns) {
-    const match = text.match(p.regex)
-    if (match) {
-      let value = match[1] || match[0]
-      value = value.charAt(0).toUpperCase() + value.slice(1)
-      if (p.label === 'Certification') value = 'USB-IF Certified'
-      if (p.label === 'Packaging') value = '100% Plastic Free'
-      if (p.label === 'MFi') value = 'MFi Approved'
-      if (p.label === 'Warranty') value = `${match[1]}-Year Warranty`
-      highlights.push({ icon: p.icon, label: p.label, value })
-      if (highlights.length === 4) break
-    }
-  }
-  return highlights
+  if (current) paragraphs.push(current)
+  return paragraphs
 }
 
 // ── Component ─────────────────────────────────────────────────────────────────
@@ -122,7 +84,7 @@ export default function ProductDescription({ description, shortDescription, imag
 
   const structured = description ? parseStructured(description) : null
 
-  // ── New editorial layout (structured format) ─────────────────────────────────
+  // ── Editorial layout (structured format) ──────────────────────────────────
   if (structured) {
     const { stats, lead, sections } = structured
     const heroImage = images?.[0]
@@ -222,65 +184,31 @@ export default function ProductDescription({ description, shortDescription, imag
     )
   }
 
-  // ── Legacy layout (plain text fallback) ──────────────────────────────────────
-  const fullText   = [shortDescription, description].filter(Boolean).join('\n')
-  const highlights = extractHighlights(fullText)
-  const features   = parseFeatures(fullText)
-  const sections   = parseSections(description || '')
-  const leadText   = shortDescription?.replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim()
+  // ── Plain-text layout (every product today) ────────────────────────────────
+  // Use the long-form description when present; only fall back to the
+  // shortDescription bullets (already shown beside the image) when a
+  // product has nothing else — never render both.
+  const sentences = description
+    ? splitIntoSentences(description)
+    : splitIntoSentences((shortDescription || '').split('\n').join('. '))
+
+  if (sentences.length === 0) {
+    return <p className="text-[#0A1628]/40 text-sm">No description available.</p>
+  }
+
+  const [lead, ...rest] = sentences
+  const paragraphs = groupIntoParagraphs(rest)
 
   return (
     <div className="max-w-3xl">
-      {leadText && (
-        <p className="text-base text-[#0A1628] leading-relaxed mb-8 pl-5 border-l-[3px] border-[#15A7DC]">
-          {leadText}
-        </p>
-      )}
-
-      {highlights.length > 0 && (
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-8">
-          {highlights.map((h, i) => (
-            <div key={i} className="bg-gray-50 rounded-xl p-4 flex flex-col gap-1.5">
-              <span className="text-xl">{h.icon}</span>
-              <span className="text-[10px] text-[#0A1628]/40 uppercase tracking-widest font-medium">{h.label}</span>
-              <span className="text-sm font-semibold text-[#0A1628] leading-tight">{h.value}</span>
-            </div>
-          ))}
-        </div>
-      )}
-      {highlights.length > 0 && <div className="h-px bg-gray-100 mb-8" />}
-
-      {sections.length > 0 && (
-        <div className="space-y-6 mb-8">
-          {sections.map((section, i) => (
-            <div key={i}>
-              {section.title && (
-                <p className="text-[11px] font-semibold text-[#15A7DC] uppercase tracking-widest mb-2">
-                  {section.title}
-                </p>
-              )}
-              <p className="text-sm text-[#0A1628]/60 leading-relaxed">{section.body.trim()}</p>
-            </div>
-          ))}
-        </div>
-      )}
-
-      {features.length > 0 && (
-        <>
-          <div className="h-px bg-gray-100 mb-8" />
-          <div>
-            <p className="text-[11px] font-semibold text-[#15A7DC] uppercase tracking-widest mb-4">Key Features</p>
-            <ul className="space-y-3">
-              {features.map((f, i) => (
-                <li key={i} className="flex items-start gap-3 text-sm text-[#0A1628]/60 leading-relaxed">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#15A7DC] mt-2 shrink-0" />
-                  {f}
-                </li>
-              ))}
-            </ul>
-          </div>
-        </>
-      )}
+      <p className="text-base text-[#0A1628] leading-relaxed mb-6 pl-5 border-l-[3px] border-[#15A7DC]">
+        {lead}
+      </p>
+      <div className="space-y-4">
+        {paragraphs.map((p, i) => (
+          <p key={i} className="text-sm text-[#0A1628]/65 leading-relaxed">{p}</p>
+        ))}
+      </div>
     </div>
   )
 }
