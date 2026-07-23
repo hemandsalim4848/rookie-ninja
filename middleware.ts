@@ -1,5 +1,39 @@
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
+import { connectDB } from '@/src/lib/mongodb'
+import { Product } from '@/src/lib/models/Products'
+
+// Next.js/Turbopack has a long-standing bug where notFound() called from a
+// dynamic page returns HTTP 200 instead of 404 (vercel/next.js#76474) —
+// reproduced exhaustively for this exact route (dev + production build,
+// full cache wipes, renamed segment) with no code-level fix found. Search
+// engines need a real 404 for gone products, so the existence check is done
+// here instead, where status codes aren't subject to that bug.
+const NOT_FOUND_HTML = `<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Page Not Found — Rookie Ninja</title>
+<style>
+  body { margin: 0; font-family: system-ui, -apple-system, sans-serif; background: #fff; }
+  main { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 0 16px; }
+  .code { font-size: 6rem; font-weight: 700; color: rgba(10, 22, 40, 0.1); margin: 0 0 16px; }
+  h1 { font-size: 1.5rem; font-weight: 700; color: #0A1628; margin: 0 0 8px; }
+  .sub { color: #9ca3af; font-size: 0.875rem; margin: 0 0 32px; }
+  .btn { background: #0A1628; color: #fff; font-size: 0.875rem; font-weight: 600; padding: 12px 24px; border-radius: 12px; text-decoration: none; display: inline-block; }
+  .btn:hover { background: #15A7DC; }
+</style>
+</head>
+<body>
+<main>
+  <p class="code">404</p>
+  <h1>Page Not Found</h1>
+  <p class="sub">The page you're looking for doesn't exist or has been moved.</p>
+  <a class="btn" href="/">Back to Home</a>
+</main>
+</body>
+</html>`
 
 // ============================================================
 // rookie-ninja.com (main site) — pages retired with no content
@@ -352,7 +386,7 @@ function resolveProduct(slug: string, requestUrl: string): NextResponse {
   return NextResponse.redirect(new URL(`/products/${newSlug}`, requestUrl), 308)
 }
 
-export function middleware(request: NextRequest) {
+export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl
   const clean = pathname.replace(/\/$/, '') || '/'
 
@@ -438,13 +472,31 @@ export function middleware(request: NextRequest) {
   // products.rookie-ninja.com /unv page (a thin camera-series overview) is
   // effectively superseded by /brand/unv -> /products?brand=unv anyway.
 
+  // Real 404 for missing products — see NOT_FOUND_HTML comment above.
+  const productPageMatch = clean.match(/^\/products\/([^/]+)$/)
+  if (productPageMatch) {
+    const slug = decodeURIComponent(productPageMatch[1])
+    await connectDB()
+    const exists = await Product.exists({ slug })
+    if (!exists) {
+      return new NextResponse(NOT_FOUND_HTML, {
+        status: 404,
+        headers: { 'Content-Type': 'text/html; charset=utf-8' },
+      })
+    }
+  }
+
   return NextResponse.next()
 }
 
 // Next.js statically analyzes `matcher`, so it must be a literal array
 // (no spreading/computing from the sets/maps above here).
+// runtime: 'nodejs' is required here — Mongoose (used for the product
+// existence check below) doesn't run on the default Edge runtime.
 export const config = {
+  runtime: 'nodejs',
   matcher: [
+    '/products/:slug',
     '/itdistribution', '/itdistribution/',
     '/rowe-scan', '/rowe-scan/',
     '/belkin', '/belkin/',

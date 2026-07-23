@@ -4,6 +4,11 @@ import { Product } from '@/src/lib/models/Products'
 import { Brand } from '@/src/lib/models/Brands'
 import ProductsPageClient from './ProductsPageClient'
 
+export const metadata = {
+  title: 'Product Catalogue — Rookie Ninja',
+  description: 'Browse our full range of IT hardware and software from authorised distributor brands across the Middle East & Africa.',
+}
+
 export default async function ProductsPage() {
   await connectDB()
   const [products, brands] = await Promise.all([

@@ -1,8 +1,77 @@
-import Link from 'next/link'
+import type { Metadata } from 'next'
+import { notFound } from 'next/navigation'
 import { connectDB } from '@/src/lib/mongodb'
 import { Product } from '@/src/lib/models/Products'
 import { Brand } from '@/src/lib/models/Brands'
 import ProductDetailClient from './ProductDetailClient'
+
+export const dynamic = 'force-dynamic'
+
+const DESCRIPTION_LIMIT = 155
+
+function stripLabel(line: string): string {
+  return line.replace(/^[A-Z][A-Z0-9 /]*:\s*/, '').trim()
+}
+
+function factsFrom(product: any): string[] {
+  if (product.specs?.length) {
+    return product.specs.map((s: any) => s.value).filter(Boolean)
+  }
+  if (product.shortDescription) {
+    return product.shortDescription
+      .split('\n')
+      .map((l: string) => stripLabel(l.trim()))
+      .filter(Boolean)
+  }
+  return []
+}
+
+function buildFactsClause(facts: string[]): string {
+  const picked: string[] = []
+  let len = 0
+  for (const f of facts) {
+    const added = picked.length ? f.length + 2 : f.length
+    if (len + added > DESCRIPTION_LIMIT - 1) break
+    picked.push(f)
+    len += added
+  }
+  return picked.length ? `${picked.join(', ')}.` : ''
+}
+
+function firstSentence(text: string): string {
+  const clean = text.replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim()
+  const match = clean.match(/^.*?[.!?](?=\s|$)/)
+  return match ? match[0] : clean
+}
+
+function buildMetaDescription(product: any): string {
+  const factsClause = buildFactsClause(factsFrom(product))
+
+  if (!product.description) return factsClause || product.name
+
+  const lead = firstSentence(product.description)
+  const combined = factsClause ? `${factsClause} ${lead}` : lead
+
+  if (combined.length <= DESCRIPTION_LIMIT) return combined
+  return factsClause || lead.slice(0, DESCRIPTION_LIMIT)
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ product: string }>
+}): Promise<Metadata> {
+  const { product: productSlug } = await params
+
+  await connectDB()
+  const product = await Product.findOne({ slug: productSlug }).lean() as any
+  if (!product) return {}
+
+  return {
+    title: `${product.name} — Rookie Ninja`,
+    description: buildMetaDescription(product),
+  }
+}
 
 export default async function ProductPage({
   params,
@@ -14,23 +83,7 @@ export default async function ProductPage({
   await connectDB()
   const product = await Product.findOne({ slug: productSlug }).lean() as any
 
-  if (!product) {
-    return (
-      <main className="min-h-screen bg-white flex flex-col items-center justify-center text-center px-4">
-        <p className="text-8xl font-bold text-[#0A1628]/10 mb-4">404</p>
-        <h1 className="text-2xl font-bold text-[#0A1628] mb-2">Page Not Found</h1>
-        <p className="text-gray-400 text-sm mb-8">
-          The page you're looking for doesn't exist or has been moved.
-        </p>
-        <Link
-          href="/"
-          className="bg-[#0A1628] hover:bg-[#15A7DC] text-white text-sm font-semibold px-6 py-3 rounded-xl transition-colors"
-        >
-          Back to Home
-        </Link>
-      </main>
-    )
-  }
+  if (!product) notFound()
 
   const brand = await Brand.findOne({ slug: product.brandSlug }).lean()
 

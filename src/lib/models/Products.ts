@@ -18,5 +18,6 @@ shortDescription: { type: String, default: '' },
 }, { timestamps: true })
 
 ProductSchema.index({ brandSlug: 1, slug: 1 }, { unique: true })
+ProductSchema.index({ slug: 1 })
 
 export const Product = models.Product || model('Product', ProductSchema)
