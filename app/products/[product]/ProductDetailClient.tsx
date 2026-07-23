@@ -20,7 +20,7 @@ export default function ProductDetailClient({
   const brandHref = category ? `/products?brand=${brandSlug}&category=${encodeURIComponent(category)}` : `/products?brand=${brandSlug}`
 
   const [activeImage, setActiveImage] = useState(0)
-  const [activeTab, setActiveTab] = useState<'description' | 'specifications' | 'downloads'>('description')
+  const [activeTab, setActiveTab] = useState<'specifications' | 'description' | 'downloads'>('specifications')
   const [showEnquiry, setShowEnquiry] = useState(false)
 
   const [form, setForm] = useState({ name: '', email: '', phone: '', message: '', website: '' })
@@ -56,8 +56,8 @@ export default function ProductDetailClient({
   }
 
   const tabs = [
-    { id: 'description', label: 'Description' },
     { id: 'specifications', label: 'Specifications' },
+    { id: 'description', label: 'Description' },
     { id: 'downloads', label: 'Downloads' },
   ] as const
 
@@ -236,14 +236,6 @@ export default function ProductDetailClient({
           </div>
 
           <div className="px-6 py-10 max-w-4xl">
-            {activeTab === 'description' && (
-              <ProductDescription
-                description={product.description}
-                shortDescription={product.shortDescription}
-                images={product.images}
-              />
-            )}
-
             {activeTab === 'specifications' && (
               <div>
                 {product.specs?.length > 0 ? (
@@ -261,6 +253,14 @@ export default function ProductDetailClient({
                   <p className="text-[#0A1628]/40 text-sm">No specifications available.</p>
                 )}
               </div>
+            )}
+
+            {activeTab === 'description' && (
+              <ProductDescription
+                description={product.description}
+                shortDescription={product.shortDescription}
+                images={product.images}
+              />
             )}
 
             {activeTab === 'downloads' && (
