@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation'
 import { connectDB } from '@/src/lib/mongodb'
 import { Product } from '@/src/lib/models/Products'
 import ProductDetailClient from './ProductDetailClient'
+import CleanupStreamingArtifact from './CleanupStreamingArtifact'
 
 const DESCRIPTION_LIMIT = 155
 const SITE_URL = 'https://rookie-ninja.com'
@@ -136,6 +137,7 @@ export default async function ProductPage({
         brand={brand ? JSON.parse(JSON.stringify(brand)) : null}
         brandSlug={product.brandSlug}
       />
+      <CleanupStreamingArtifact />
     </>
   )
 }
