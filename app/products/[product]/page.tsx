@@ -5,6 +5,7 @@ import { Product } from '@/src/lib/models/Products'
 import ProductDetailClient from './ProductDetailClient'
 
 const DESCRIPTION_LIMIT = 155
+const SITE_URL = 'https://rookie-ninja.com'
 
 function stripLabel(line: string): string {
   return line.replace(/^[A-Z][A-Z0-9 /]*:\s*/, '').trim()
@@ -95,12 +96,46 @@ export default async function ProductPage({
   if (!product) notFound()
 
   const { brand, ...productFields } = product
+  const brandName = brand?.name || product.brandSlug
+  const productUrl = `${SITE_URL}/products/${product.slug}`
+
+  const productJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Product',
+    name: product.name,
+    description: buildMetaDescription(productFields),
+    image: product.images?.length ? product.images : undefined,
+    sku: product.sku || undefined,
+    category: product.category || undefined,
+    brand: { '@type': 'Brand', name: brandName },
+    url: productUrl,
+  }
+
+  const breadcrumbJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Brands', item: `${SITE_URL}/catalogue` },
+      { '@type': 'ListItem', position: 2, name: brandName, item: `${SITE_URL}/products?brand=${product.brandSlug}` },
+      { '@type': 'ListItem', position: 3, name: product.name, item: productUrl },
+    ],
+  }
 
   return (
-    <ProductDetailClient
-      product={JSON.parse(JSON.stringify(productFields))}
-      brand={brand ? JSON.parse(JSON.stringify(brand)) : null}
-      brandSlug={product.brandSlug}
-    />
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd).replace(/</g, '\\u003c') }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd).replace(/</g, '\\u003c') }}
+      />
+      <ProductDetailClient
+        product={JSON.parse(JSON.stringify(productFields))}
+        brand={brand ? JSON.parse(JSON.stringify(brand)) : null}
+        brandSlug={product.brandSlug}
+      />
+    </>
   )
 }
