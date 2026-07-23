@@ -34,7 +34,7 @@ export default function PrivacyPolicyContent() {
             At Rookie Ninja Distribution, we respect your privacy and are committed to
             handling any personal information you share with us responsibly,
             transparently, and securely. This Privacy Policy explains what information
-            we collect through our website at www.rookie-ninja.com, how we use it, who
+            we collect through our website at rookie-ninja.com, how we use it, who
             we may share it with, and what rights you have over it.
           </p>
           <p className="font-body text-[15px] text-gray-500 leading-[1.8] font-light mb-10">
@@ -60,7 +60,7 @@ export default function PrivacyPolicyContent() {
             <p><strong className="text-navy">Registered Office:</strong> Al Nasr Sports Building 02, Oud Metha Road, Dubai – UAE</p>
             <p><strong className="text-navy">Warehouse:</strong> Jebel Ali Freezone, Dubai, United Arab Emirates</p>
             <p><strong className="text-navy">Phone:</strong> +971 4 296 5256</p>
-            <p><strong className="text-navy">Website:</strong> www.rookie-ninja.com</p>
+            <p><strong className="text-navy">Website:</strong> rookie-ninja.com</p>
           </div>
         </LegalSection>
 

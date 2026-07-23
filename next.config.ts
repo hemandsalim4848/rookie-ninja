@@ -19,6 +19,14 @@ const csp = [
 const nextConfig: NextConfig = {
   async redirects() {
     return [
+      // Canonical host: rookie-ninja.com (no www). Keep this first — it's
+      // a host-level rule, unrelated to the path-specific ones below.
+      {
+        source: '/:path*',
+        has: [{ type: 'host', value: 'www.rookie-ninja.com' }],
+        destination: 'https://rookie-ninja.com/:path*',
+        permanent: true,
+      },
       {
         source: '/brother/brother-ads-1200-portable-scanner',
         destination: '/products/brother-ads-1200-portable-document-scanner',

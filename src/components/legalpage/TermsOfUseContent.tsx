@@ -37,7 +37,7 @@ export default function TermsOfUseContent() {
         <Animate type="fade-up">
           <p className="font-body text-[15px] text-gray-500 leading-[1.8] font-light mb-4">
             Welcome to Rookie Ninja Distribution. By accessing or browsing our website
-            at www.rookie-ninja.com, you acknowledge that you have read, understood,
+            at rookie-ninja.com, you acknowledge that you have read, understood,
             and agree to be legally bound by these Terms of Use, along with our{' '}
             <a href="/privacy-policy" className="text-accent hover:text-[#0d8fb8] transition-colors">
               Privacy Policy
@@ -58,7 +58,7 @@ export default function TermsOfUseContent() {
           <p>
             Welcome to Rookie Ninja Distribution (&quot;Rookie Ninja&quot;,
             &quot;we&quot;, &quot;us&quot;, or &quot;our&quot;). By accessing or
-            browsing our website at www.rookie-ninja.com (&quot;Website&quot;), you
+            browsing our website at rookie-ninja.com (&quot;Website&quot;), you
             acknowledge that you have read, understood, and agree to be legally bound
             by these Terms of Use (&quot;Terms&quot;), along with our Privacy Policy,
             which is incorporated herein by reference.

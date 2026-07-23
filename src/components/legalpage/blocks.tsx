@@ -118,7 +118,7 @@ export function ContactBlock() {
           <a href="/"
              className="font-body text-[13.5px] text-accent no-underline
                         hover:text-[#0d8fb8] transition-colors">
-            www.rookie-ninja.com
+            rookie-ninja.com
           </a>
         </div>
       </div>
