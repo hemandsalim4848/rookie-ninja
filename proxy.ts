@@ -386,7 +386,7 @@ function resolveProduct(slug: string, requestUrl: string): NextResponse {
   return NextResponse.redirect(new URL(`/products/${newSlug}`, requestUrl), 308)
 }
 
-export async function middleware(request: NextRequest) {
+export async function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl
   const clean = pathname.replace(/\/$/, '') || '/'
 
@@ -494,7 +494,6 @@ export async function middleware(request: NextRequest) {
 // runtime: 'nodejs' is required here — Mongoose (used for the product
 // existence check below) doesn't run on the default Edge runtime.
 export const config = {
-  runtime: 'nodejs',
   matcher: [
     '/products/:slug',
     '/itdistribution', '/itdistribution/',
@@ -526,5 +525,5 @@ export const config = {
     '/cart', '/cart/',
     '/checkout', '/checkout/',
     '/my-account', '/my-account/',
-  ],
+  ]
 }
