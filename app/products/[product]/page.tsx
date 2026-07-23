@@ -2,10 +2,7 @@ import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { connectDB } from '@/src/lib/mongodb'
 import { Product } from '@/src/lib/models/Products'
-import { Brand } from '@/src/lib/models/Brands'
 import ProductDetailClient from './ProductDetailClient'
-
-export const dynamic = 'force-dynamic'
 
 const DESCRIPTION_LIMIT = 155
 
@@ -81,15 +78,27 @@ export default async function ProductPage({
   const { product: productSlug } = await params
 
   await connectDB()
-  const product = await Product.findOne({ slug: productSlug }).lean() as any
+  const results = await Product.aggregate([
+    { $match: { slug: productSlug } },
+    {
+      $lookup: {
+        from: 'brands',
+        localField: 'brandSlug',
+        foreignField: 'slug',
+        as: 'brand',
+      },
+    },
+    { $unwind: { path: '$brand', preserveNullAndEmptyArrays: true } },
+  ])
+  const product = results[0]
 
   if (!product) notFound()
 
-  const brand = await Brand.findOne({ slug: product.brandSlug }).lean()
+  const { brand, ...productFields } = product
 
   return (
     <ProductDetailClient
-      product={JSON.parse(JSON.stringify(product))}
+      product={JSON.parse(JSON.stringify(productFields))}
       brand={brand ? JSON.parse(JSON.stringify(brand)) : null}
       brandSlug={product.brandSlug}
     />
