@@ -79,7 +79,7 @@ const [quoteVisible, setQuoteVisible] = useState<boolean>(false);
 
 const closeQuote = () => {
   setQuoteVisible(false);
-  setTimeout(() => setQuoteOpen(false), 300);
+  setTimeout(() => { setQuoteOpen(false); setQuoteSent(false); setQuoteError(''); }, 300);
 };
 
 const openQuote = useCallback(() => {
@@ -91,6 +91,37 @@ useEffect(() => {
   window.addEventListener('rn:open-quote', openQuote);
   return () => window.removeEventListener('rn:open-quote', openQuote);
 }, [openQuote]);
+
+const [quoteForm, setQuoteForm] = useState({
+  firstName: '', lastName: '', email: '', phone: '', message: '', website: '',
+});
+const [quoteSending, setQuoteSending] = useState(false);
+const [quoteSent, setQuoteSent] = useState(false);
+const [quoteError, setQuoteError] = useState('');
+
+function updateQuoteField(field: keyof typeof quoteForm, value: string) {
+  setQuoteForm(f => ({ ...f, [field]: value }));
+}
+
+async function handleQuoteSubmit(e: React.FormEvent) {
+  e.preventDefault();
+  setQuoteSending(true);
+  setQuoteError('');
+  try {
+    const res = await fetch('/api/contact', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ ...quoteForm, source: 'quote' }),
+    });
+    if (!res.ok) throw new Error('Failed');
+    setQuoteSent(true);
+    setQuoteForm({ firstName: '', lastName: '', email: '', phone: '', message: '', website: '' });
+  } catch {
+    setQuoteError('Something went wrong. Please try again.');
+  } finally {
+    setQuoteSending(false);
+  }
+}
 
   return (
     <>
@@ -626,14 +657,38 @@ useEffect(() => {
               </button>
             </div>
 
-            {/* Form */}
+            {quoteSent ? (
+              <div className="px-8 py-12 flex flex-col items-center text-center">
+                <div className="w-14 h-14 rounded-2xl bg-accent/10 text-accent
+                                flex items-center justify-center mb-4">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                       stroke="currentColor" strokeWidth="1.6"
+                       strokeLinecap="round" strokeLinejoin="round">
+                    <polyline points="20 6 9 17 4 12"/>
+                  </svg>
+                </div>
+                <h3 className="font-display text-[18px] font-bold text-navy mb-1.5">
+                  Request Sent!
+                </h3>
+                <p className="font-body text-[13px] text-gray-400 font-light">
+                  We&apos;ll get back to you within 24 hours.
+                </p>
+              </div>
+            ) : (
+            /* Form */
             <form
               className="px-8 py-6 flex flex-col gap-4"
-              onSubmit={(e) => {
-                e.preventDefault();
-                closeQuote();
-              }}
+              onSubmit={handleQuoteSubmit}
             >
+              <input
+                type="text"
+                value={quoteForm.website}
+                onChange={(e) => updateQuoteField('website', e.target.value)}
+                tabIndex={-1}
+                autoComplete="off"
+                aria-hidden="true"
+                className="absolute -left-[9999px] w-px h-px opacity-0"
+              />
               {/* Name row */}
               <div className="grid grid-cols-2 gap-4">
                 <div className="flex flex-col gap-1.5">
@@ -645,6 +700,8 @@ useEffect(() => {
                     type="text"
                     placeholder="John"
                     required
+                    value={quoteForm.firstName}
+                    onChange={(e) => updateQuoteField('firstName', e.target.value)}
                     className="font-body text-[14px] text-navy placeholder:text-gray-300
                                border border-gray-200 rounded-xl px-4 py-2.5
                                outline-none transition-all duration-200
@@ -661,6 +718,8 @@ useEffect(() => {
                     type="text"
                     placeholder="Doe"
                     required
+                    value={quoteForm.lastName}
+                    onChange={(e) => updateQuoteField('lastName', e.target.value)}
                     className="font-body text-[14px] text-navy placeholder:text-gray-300
                                border border-gray-200 rounded-xl px-4 py-2.5
                                outline-none transition-all duration-200
@@ -680,6 +739,8 @@ useEffect(() => {
                   type="email"
                   placeholder="john@company.com"
                   required
+                  value={quoteForm.email}
+                  onChange={(e) => updateQuoteField('email', e.target.value)}
                   className="font-body text-[14px] text-navy placeholder:text-gray-300
                              border border-gray-200 rounded-xl px-4 py-2.5
                              outline-none transition-all duration-200
@@ -697,6 +758,8 @@ useEffect(() => {
                 <input
                   type="tel"
                   placeholder="+971 50 000 0000"
+                  value={quoteForm.phone}
+                  onChange={(e) => updateQuoteField('phone', e.target.value)}
                   className="font-body text-[14px] text-navy placeholder:text-gray-300
                              border border-gray-200 rounded-xl px-4 py-2.5
                              outline-none transition-all duration-200
@@ -714,6 +777,8 @@ useEffect(() => {
                 <textarea
                   placeholder="Tell us what you're looking for..."
                   rows={3}
+                  value={quoteForm.message}
+                  onChange={(e) => updateQuoteField('message', e.target.value)}
                   className="font-body text-[14px] text-navy placeholder:text-gray-300
                              border border-gray-200 rounded-xl px-4 py-2.5
                              outline-none transition-all duration-200
@@ -722,22 +787,26 @@ useEffect(() => {
                 />
               </div>
 
+              {quoteError && <p className="font-body text-[12px] text-red-500 text-center">{quoteError}</p>}
+
               {/* Submit */}
               <button
                 type="submit"
+                disabled={quoteSending}
                 className="font-body text-[14px] font-medium text-white
                            bg-accent py-3 rounded-xl transition-all duration-200
                            hover:opacity-85 hover:-translate-y-px
                            shadow-[0_4px_20px_rgba(21,167,220,0.3)]
-                           mt-1 cursor-pointer"
+                           mt-1 cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed"
               >
-                Submit Request
+                {quoteSending ? 'Sending...' : 'Submit Request'}
               </button>
 
               <p className="font-body text-[11px] text-gray-400 text-center">
                 We typically respond within 24 hours.
               </p>
             </form>
+            )}
 
           </div>
         </div>

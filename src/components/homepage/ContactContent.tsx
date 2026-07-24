@@ -75,6 +75,36 @@ export default function ContactContent() {
   const [submitted, setSubmitted] = useState(false);
   const [activeRegion, setActiveRegion] = useState(0);
 
+  const [form, setForm] = useState({
+    firstName: '', lastName: '', email: '', phone: '', company: '', message: '', website: '',
+  });
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState('');
+
+  function updateField(field: keyof typeof form, value: string) {
+    setForm(f => ({ ...f, [field]: value }));
+  }
+
+  async function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    setSending(true);
+    setError('');
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ...form, source: 'contact' }),
+      });
+      if (!res.ok) throw new Error('Failed');
+      setSubmitted(true);
+      setForm({ firstName: '', lastName: '', email: '', phone: '', company: '', message: '', website: '' });
+    } catch {
+      setError('Something went wrong. Please try again.');
+    } finally {
+      setSending(false);
+    }
+  }
+
   return (
     <main className="bg-white">
 
@@ -236,15 +266,29 @@ export default function ContactContent() {
                 ) : (
                   <form
                     className="flex flex-col gap-4"
-                    onSubmit={(e) => { e.preventDefault(); setSubmitted(true); }}
+                    onSubmit={handleSubmit}
                   >
+                    <input
+                      type="text"
+                      value={form.website}
+                      onChange={(e) => updateField('website', e.target.value)}
+                      tabIndex={-1}
+                      autoComplete="off"
+                      aria-hidden="true"
+                      className="absolute -left-[9999px] w-px h-px opacity-0"
+                    />
                     <div className="grid grid-cols-2 gap-4">
-                      <FormField label="First Name" type="text" placeholder="John"    required />
-                      <FormField label="Last Name"  type="text" placeholder="Doe"     required />
+                      <FormField label="First Name" type="text" placeholder="John" required
+                        value={form.firstName} onChange={(v) => updateField('firstName', v)} />
+                      <FormField label="Last Name"  type="text" placeholder="Doe" required
+                        value={form.lastName} onChange={(v) => updateField('lastName', v)} />
                     </div>
-                    <FormField label="Email Address" type="email" placeholder="john@company.com" required />
-                    <FormField label="Phone Number"  type="tel"   placeholder="+971 50 000 0000" />
-                    <FormField label="Company"       type="text"  placeholder="Your company name" />
+                    <FormField label="Email Address" type="email" placeholder="john@company.com" required
+                      value={form.email} onChange={(v) => updateField('email', v)} />
+                    <FormField label="Phone Number"  type="tel"   placeholder="+971 50 000 0000"
+                      value={form.phone} onChange={(v) => updateField('phone', v)} />
+                    <FormField label="Company"       type="text"  placeholder="Your company name"
+                      value={form.company} onChange={(v) => updateField('company', v)} />
 
                     <div className="flex flex-col gap-1.5">
                       <label className="font-body text-[12px] font-medium
@@ -255,6 +299,8 @@ export default function ContactContent() {
                         placeholder="Tell us what you're looking for..."
                         rows={4}
                         required
+                        value={form.message}
+                        onChange={(e) => updateField('message', e.target.value)}
                         className="font-body text-[14px] text-navy placeholder:text-gray-300
                                    border border-gray-200 rounded-xl px-4 py-3
                                    outline-none transition-all duration-200
@@ -263,14 +309,18 @@ export default function ContactContent() {
                       />
                     </div>
 
+                    {error && <p className="font-body text-[12px] text-red-500 text-center">{error}</p>}
+
                     <button
                       type="submit"
+                      disabled={sending}
                       className="font-body text-[14px] font-medium text-white
                                  bg-accent py-3.5 rounded-xl transition-all duration-200
                                  hover:opacity-85 hover:-translate-y-px
-                                 shadow-[0_4px_20px_rgba(21,167,220,0.3)] mt-1">
-                      Send Message
-                      <span className="ml-2">→</span>
+                                 shadow-[0_4px_20px_rgba(21,167,220,0.3)] mt-1
+                                 disabled:opacity-60 disabled:cursor-not-allowed">
+                      {sending ? 'Sending...' : 'Send Message'}
+                      {!sending && <span className="ml-2">→</span>}
                     </button>
 
                     <p className="font-body text-[11px] text-gray-400 text-center">
@@ -480,12 +530,14 @@ export default function ContactContent() {
 
 /* ── Reusable form field ── */
 function FormField({
-  label, type, placeholder, required,
+  label, type, placeholder, required, value, onChange,
 }: {
   label: string;
   type: string;
   placeholder: string;
   required?: boolean;
+  value: string;
+  onChange: (value: string) => void;
 }) {
   return (
     <div className="flex flex-col gap-1.5">
@@ -497,6 +549,8 @@ function FormField({
         type={type}
         placeholder={placeholder}
         required={required}
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
         className="font-body text-[14px] text-navy placeholder:text-gray-300
                    border border-gray-200 rounded-xl px-4 py-2.5
                    outline-none transition-all duration-200

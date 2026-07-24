@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server'
 import { randomInt } from 'node:crypto'
-import nodemailer from 'nodemailer'
+import { resend, FROM_EMAIL } from '@/src/lib/resend'
 
 function escapeHtml(value: unknown) {
   return String(value ?? '').replace(/[&<>"']/g, (c) => ({
@@ -73,19 +73,9 @@ export async function POST(req: Request) {
 
     const ticketId = `RN-${new Date().getFullYear()}-${String(randomInt(0, 10000)).padStart(4, '0')}`
 
-    const transporter = nodemailer.createTransport({
-      host: process.env.SMTP_HOST,
-      port: Number(process.env.SMTP_PORT),
-      secure: false,
-      auth: {
-        user: process.env.SMTP_USER,
-        pass: process.env.SMTP_PASS,
-      },
-    })
-
-    await transporter.sendMail({
-      from: `"Rookie Ninja Support" <${process.env.SMTP_USER}>`,
-      to: process.env.ENQUIRY_EMAIL,
+    await resend.emails.send({
+      from: FROM_EMAIL,
+      to: process.env.ENQUIRY_EMAIL!,
       replyTo: email,
       subject: `[${ticketId}] Support Ticket — ${escapeHtml(brand)} (${escapeHtml(priority)})`,
       html: `

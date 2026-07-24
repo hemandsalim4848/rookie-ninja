@@ -23,7 +23,7 @@ function isRateLimited(ip: string) {
 
 export async function POST(req: Request) {
   try {
-    const { name, email, phone, message, product, brand, website } = await req.json()
+    const { firstName, lastName, email, phone, company, message, source, website } = await req.json()
 
     // Honeypot: real users never fill this hidden field
     if (website) {
@@ -35,26 +35,31 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: 'Too many requests, please try again later' }, { status: 429 })
     }
 
+    if (!firstName || !lastName || !email) {
+      return NextResponse.json({ error: 'Missing required fields' }, { status: 400 })
+    }
+
+    const label = source === 'quote' ? 'Quote Request' : 'Contact Form'
+
     await resend.emails.send({
       from: FROM_EMAIL,
       to: process.env.ENQUIRY_EMAIL!,
       replyTo: email,
-      subject: `New Enquiry — ${escapeHtml(product)} (${escapeHtml(brand)})`,
+      subject: `New ${label} — ${escapeHtml(firstName)} ${escapeHtml(lastName)}`,
       html: `
-        <h2>New Product Enquiry</h2>
-        <p><strong>Product:</strong> ${escapeHtml(product)}</p>
-        <p><strong>Brand:</strong> ${escapeHtml(brand)}</p>
-        <hr/>
-        <p><strong>Name:</strong> ${escapeHtml(name)}</p>
+        <h2>New ${label}</h2>
+        <p><strong>Name:</strong> ${escapeHtml(firstName)} ${escapeHtml(lastName)}</p>
         <p><strong>Email:</strong> ${escapeHtml(email)}</p>
         <p><strong>Phone:</strong> ${escapeHtml(phone) || 'Not provided'}</p>
-        <p><strong>Message:</strong><br/>${escapeHtml(message)}</p>
+        <p><strong>Company:</strong> ${escapeHtml(company) || 'Not provided'}</p>
+        <hr/>
+        <p><strong>Message:</strong><br/>${escapeHtml(message) || 'Not provided'}</p>
       `,
     })
 
     return NextResponse.json({ success: true })
   } catch (err) {
     console.error(err)
-    return NextResponse.json({ error: 'Failed to send enquiry' }, { status: 500 })
+    return NextResponse.json({ error: 'Failed to send message' }, { status: 500 })
   }
 }
