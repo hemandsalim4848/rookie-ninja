@@ -106,7 +106,7 @@ const networkRows = [
     desc: 'Wired network scanner for reliable, high-speed shared scanning.',
     image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1782247892/lg_1000p_dc4545fa-b202-43b3-8277-370ab4d1c3d9-600x600_c3vsa6.webp',
     features: ['40ppm / 80ipm duplex', 'Gigabit Ethernet & USB', '80 Sheet ADF', 'Scan to network folders & FTP', 'Touchscreen LCD panel'],
-    links: [{ label: 'ADS-4300N', href: '/products/brother-ads-4300n-professional-desktop-document-scanner' }],
+    links: [{ label: 'ADS-4300N', href: '/products/brother-ads-4300n-desktop-document-scanner' }],
     reverse: true,
   },
   {

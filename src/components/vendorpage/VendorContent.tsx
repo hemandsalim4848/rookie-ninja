@@ -284,7 +284,7 @@ export default function VendorContent() {
                             strokeLinejoin="round"/>
                     </svg>
                   </a>
-                  <a href="/about"
+                  <a href="/about/mission"
                      className="inline-flex items-center justify-center gap-2
                                 font-body text-[14px] text-white/60
                                 border border-white/15 px-8 py-4 rounded-xl
