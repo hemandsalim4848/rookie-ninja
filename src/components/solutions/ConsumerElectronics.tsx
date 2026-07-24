@@ -205,7 +205,7 @@ export default function ConsumerElectronicsPage() {
                       {product.title}
                     </p>
                     <a
-                      href={`/aztech/${product.slug}`}
+                      href={`/products/${product.slug}`}
                       className="inline-flex items-center gap-1.5 font-body
                                  font-medium text-accent mt-3 no-underline
                                  transition-all duration-200 hover:gap-2.5"
@@ -304,7 +304,7 @@ export default function ConsumerElectronicsPage() {
                   </p>
 
                   <a
-                    href={`/aztech/${product.slug}`}
+                    href={`/products/${product.slug}`}
                     className="inline-flex items-center gap-2 font-body font-medium
                                text-accent border border-accent/40 px-5 py-2.5
                                rounded-xl transition-all duration-200 no-underline
