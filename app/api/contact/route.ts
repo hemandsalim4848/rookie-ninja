@@ -48,10 +48,11 @@ export async function POST(req: Request) {
       subject: `New ${label} — ${escapeHtml(firstName)} ${escapeHtml(lastName)}`,
       html: `
         <h2>New ${label}</h2>
-        <p><strong>Name:</strong> ${escapeHtml(firstName)} ${escapeHtml(lastName)}</p>
-        <p><strong>Email:</strong> ${escapeHtml(email)}</p>
-        <p><strong>Phone:</strong> ${escapeHtml(phone) || 'Not provided'}</p>
-        <p><strong>Company:</strong> ${escapeHtml(company) || 'Not provided'}</p>
+        <p><strong>First Name:</strong> ${escapeHtml(firstName)}</p>
+        <p><strong>Last Name:</strong> ${escapeHtml(lastName)}</p>
+        <p><strong>Email Address:</strong> ${escapeHtml(email)}</p>
+        <p><strong>Phone Number:</strong> ${escapeHtml(phone) || 'Not provided'}</p>
+        ${company ? `<p><strong>Company:</strong> ${escapeHtml(company)}</p>` : ''}
         <hr/>
         <p><strong>Message:</strong><br/>${escapeHtml(message) || 'Not provided'}</p>
       `,
