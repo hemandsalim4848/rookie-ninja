@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState, useCallback } from 'react';
+import Link from 'next/link';
 
 const slides = [
   {
@@ -170,7 +171,7 @@ export default function Hero() {
             key={`cta-${current}`}
             className="flex items-center gap-3 flex-wrap animate-fade-up
                        max-sm:flex-col max-sm:items-stretch">
-            <a href={slide.cta.href}
+            <Link href={slide.cta.href}
                className="inline-flex items-center justify-center gap-2
                           font-body text-sm font-medium text-white bg-accent
                           px-7 py-3.5 rounded-xl no-underline accent-glow
@@ -178,9 +179,9 @@ export default function Hero() {
                           hover:opacity-90 hover:-translate-y-0.5">
               {slide.cta.label}
               <ArrowIcon />
-            </a>
+            </Link>
             {slide.ctaGhost && (
-              <a href={slide.ctaGhost.href}
+              <Link href={slide.ctaGhost.href}
                  className="inline-flex items-center justify-center gap-2
                             font-body text-sm text-white/70
                             border border-white/[0.15] px-6 py-3.5 rounded-xl
@@ -188,7 +189,7 @@ export default function Hero() {
                             hover:text-white hover:border-white/[0.3]
                             hover:bg-white/[0.07]">
                 {slide.ctaGhost.label}
-              </a>
+              </Link>
             )}
           </div>
 

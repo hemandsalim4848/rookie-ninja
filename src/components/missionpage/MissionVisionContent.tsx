@@ -2,6 +2,7 @@
 
 import Animate from '../Animate';
 import SectionHeader from '../SectionHeader';
+import Link from 'next/link';
 
 export default function MissionVisionContent() {
   return (
@@ -212,7 +213,7 @@ export default function MissionVisionContent() {
                   </h2>
                 </div>
                 <div className="flex flex-col sm:flex-row gap-3 shrink-0">
-                  <a href="/contact"
+                  <Link href="/contact"
                      className="inline-flex items-center justify-center gap-2
                                 font-body text-[14px] font-medium text-white
                                 bg-accent px-8 py-4 rounded-xl no-underline
@@ -225,7 +226,7 @@ export default function MissionVisionContent() {
                       <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor"
                             strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>

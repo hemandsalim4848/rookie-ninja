@@ -2,6 +2,7 @@
 
 import Animate from '../Animate';
 import SectionHeader from '../SectionHeader';
+import Link from 'next/link';
 
 /* ── Featured Products ── */
 const featuredProducts = [
@@ -204,7 +205,7 @@ export default function ConsumerElectronicsPage() {
                        style={{ fontSize: '13px' }}>
                       {product.title}
                     </p>
-                    <a
+                    <Link 
                       href={`/products/${product.slug}`}
                       className="inline-flex items-center gap-1.5 font-body
                                  font-medium text-accent mt-3 no-underline
@@ -217,7 +218,7 @@ export default function ConsumerElectronicsPage() {
                               stroke="currentColor" strokeWidth="1.5"
                               strokeLinecap="round" strokeLinejoin="round"/>
                       </svg>
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </Animate>
@@ -227,7 +228,7 @@ export default function ConsumerElectronicsPage() {
           {/* View all */}
           <Animate type="fade-up" delay={120}>
             <div className="flex justify-center mt-12">
-              <a
+              <Link 
                 href="/products"
                 className="inline-flex items-center gap-2 font-body font-medium
                            text-white bg-accent px-6 py-3 rounded-xl
@@ -242,7 +243,7 @@ export default function ConsumerElectronicsPage() {
                         stroke="currentColor" strokeWidth="1.5"
                         strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
-              </a>
+              </Link>
             </div>
           </Animate>
         </div>
@@ -303,7 +304,7 @@ export default function ConsumerElectronicsPage() {
                     {product.description}
                   </p>
 
-                  <a
+                  <Link 
                     href={`/products/${product.slug}`}
                     className="inline-flex items-center gap-2 font-body font-medium
                                text-accent border border-accent/40 px-5 py-2.5
@@ -318,7 +319,7 @@ export default function ConsumerElectronicsPage() {
                             stroke="currentColor" strokeWidth="1.5"
                             strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
-                  </a>
+                  </Link>
                 </div>
               </Animate>
             </div>

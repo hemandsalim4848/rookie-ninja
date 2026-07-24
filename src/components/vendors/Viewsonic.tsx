@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import Animate from '../Animate';
+import Link from 'next/link';
 
 /* ─────────────────────────────────────────────
    THEME — matches Rookie Ninja light design system
@@ -800,17 +801,17 @@ export default function ViewSonicPage() {
               From boardrooms to classrooms — Rookie Ninja delivers the complete ViewSonic portfolio with expert support and fast regional logistics.
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
-              <a href="/contact"
+              <Link href="/contact"
                  className="inline-flex items-center gap-2 font-body font-medium text-white bg-accent px-6 py-3 rounded-xl transition-all duration-200 no-underline hover:opacity-85 hover:-translate-y-px"
                  style={{ fontSize: '14px', boxShadow: '0 4px_20px rgba(21,167,220,0.3)' }}>
                 Request a Quote
                 <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
-              </a>
-              <a href="/contact"
+              </Link>
+              <Link href="/contact"
                  className="inline-flex items-center gap-2 font-body font-medium text-accent border border-accent/40 px-6 py-3 rounded-xl transition-all duration-200 no-underline hover:bg-accent hover:text-white hover:-translate-y-px"
                  style={{ fontSize: '14px' }}>
                 Schedule a Demo
-              </a>
+              </Link>
             </div>
           </Animate>
         </div>

@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
+import Link from 'next/link';
 
 /* ─────────────────────────────────────────────
    THEME
@@ -288,7 +289,7 @@ export default function UNVPage() {
                   {s.desc}
                 </p>
                 {s.cta && (
-                  <a href={s.cta.href} className="unv-hero-btn"
+                  <Link href={s.cta.href} className="unv-hero-btn"
                      onClick={e => { e.preventDefault(); document.querySelector(s.cta!.href)?.scrollIntoView({ behavior: 'smooth' }); }}
                      style={{
                        display: 'inline-block', padding: '13px 28px',
@@ -310,7 +311,7 @@ export default function UNVPage() {
                        el.style.color = s.cta!.solid ? '#0d0d0d' : '#fff';
                      }}>
                     {s.cta.label}
-                  </a>
+                  </Link>
                 )}
               </div>
             </div>
@@ -375,7 +376,7 @@ export default function UNVPage() {
               { label: 'Controller',             href: '#controller' },
             ].map(link => (
               <li key={link.href} style={{ flexShrink: 0 }}>
-                <a href={link.href}
+                <Link href={link.href}
                    style={{
                      display: 'inline-block', fontSize: 14, fontWeight: 500,
                      color: '#111',
@@ -398,7 +399,7 @@ export default function UNVPage() {
                     position: 'absolute', bottom: 0, left: 0, width: 0, height: 2,
                     background: u.accent, borderRadius: 2, transition: 'width 0.25s ease',
                   }} />
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
@@ -481,7 +482,7 @@ export default function UNVPage() {
 
           <div className="unv-prod-grid unv-reveal unv-reveal-d1" style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 20, maxWidth: 855, margin: '0 auto' }}>
             {featuredProducts.map(p => (
-              <a key={p.id} href={p.href} style={{ textDecoration: 'none', color: 'inherit', display: 'block' }}>
+              <Link key={p.id} href={p.href} style={{ textDecoration: 'none', color: 'inherit', display: 'block' }}>
                 <div style={{
                   background: '#fff', borderRadius: 14, border: `1px solid ${u.line}`,
                   overflow: 'hidden', boxShadow: '0 2px 12px rgba(0,0,0,0.05)',
@@ -498,7 +499,7 @@ export default function UNVPage() {
                     <p style={{ fontSize: 13, color: u.dim, lineHeight: 1.6, margin: 0 }}>{p.desc}</p>
                   </div>
                 </div>
-              </a>
+              </Link>
             ))}
           </div>
         </div>

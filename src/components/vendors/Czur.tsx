@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
+import Link from 'next/link';
 
 const cz = {
   accent: '#0982cb',
@@ -438,12 +439,12 @@ export default function CzurPage() {
                         ))}
                       </ul>
                       <div style={{ marginTop: 16 }}>
-                        <a href={`/products/${item.slug}`}
+                        <Link href={`/products/${item.slug}`}
                            style={{ display: 'inline-block', fontSize: 13, fontWeight: 600, padding: '7px 18px', border: `1.5px solid ${cz.accent}`, color: cz.accent, borderRadius: 4, textDecoration: 'none', transition: 'background 0.2s, color 0.2s' }}
                            onMouseEnter={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = cz.accent; el.style.color = '#fff'; }}
                            onMouseLeave={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = 'transparent'; el.style.color = cz.accent; }}>
                           View Product
-                        </a>
+                        </Link>
                       </div>
                     </>
                   )}
@@ -538,12 +539,12 @@ export default function CzurPage() {
                     ))}
                   </ul>
                   <div style={{ marginTop: 18 }}>
-                    <a href={`/products/${p.slug}`}
+                    <Link href={`/products/${p.slug}`}
                        style={{ display: 'inline-block', fontSize: 13, fontWeight: 600, padding: '7px 18px', border: `1.5px solid ${cz.accent}`, color: cz.accent, borderRadius: 4, textDecoration: 'none', transition: 'background 0.2s, color 0.2s' }}
                        onMouseEnter={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = cz.accent; el.style.color = '#fff'; }}
                        onMouseLeave={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = 'transparent'; el.style.color = cz.accent; }}>
                       View Product
-                    </a>
+                    </Link>
                   </div>
                 </div>
               ))}
@@ -594,9 +595,9 @@ export default function CzurPage() {
                     <div style={{ borderRadius: 6, overflow: 'hidden', border: '1px solid #e5e7eb', background: '#fff' }}>
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img src={item.image} alt={item.heading} style={{ width: '100%', height: 200, objectFit: 'contain', display: 'block' }} />
-                      <a href={`/products/${item.slug}`} style={{ display: 'block', fontSize: 11, fontWeight: 700, textAlign: 'center', background: cz.accent, color: '#fff', padding: '6px 0', letterSpacing: '0.5px', textTransform: 'uppercase', textDecoration: 'none' }}>
+                      <Link href={`/products/${item.slug}`} style={{ display: 'block', fontSize: 11, fontWeight: 700, textAlign: 'center', background: cz.accent, color: '#fff', padding: '6px 0', letterSpacing: '0.5px', textTransform: 'uppercase', textDecoration: 'none' }}>
                         View Product
-                      </a>
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -643,7 +644,7 @@ export default function CzurPage() {
                       </div>
                     ))}
                   </div>
-                  <a href={`/products/${mfContent.panels[0].slug}`} style={{ marginTop: 8, display: 'inline-block', fontSize: 13, fontWeight: 600, color: cz.accent, textDecoration: 'none' }}>View Product →</a>
+                  <Link href={`/products/${mfContent.panels[0].slug}`} style={{ marginTop: 8, display: 'inline-block', fontSize: 13, fontWeight: 600, color: cz.accent, textDecoration: 'none' }}>View Product →</Link>
                 </div>
                 <div style={{ background: '#fff', padding: 36, display: 'flex', flexDirection: 'column', gap: 14 }}>
                   <p style={{ fontSize: 11, fontWeight: 700, color: cz.accent, textTransform: 'uppercase', letterSpacing: '1.2px', margin: 0 }}>Product Image</p>
@@ -672,7 +673,7 @@ export default function CzurPage() {
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img src={panel.image} alt={panel.title} style={{ width: '100%', height: 200, objectFit: 'contain', display: 'block' }} />
                     </div>
-                    <a href={`/products/${panel.slug}`} style={{ display: 'inline-block', fontSize: 13, fontWeight: 600, color: cz.accent, textDecoration: 'none' }}>View Product →</a>
+                    <Link href={`/products/${panel.slug}`} style={{ display: 'inline-block', fontSize: 13, fontWeight: 600, color: cz.accent, textDecoration: 'none' }}>View Product →</Link>
                   </div>
                 </div>
               ))

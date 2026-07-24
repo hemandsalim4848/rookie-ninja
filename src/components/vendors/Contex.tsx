@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import { cld } from '@/src/lib/cloudinaryUrl';
+import Link from 'next/link';
 
 const c = {
   accent: '#f94e58',
@@ -362,13 +363,13 @@ export default function ContexPage() {
                             </div>
                           )}
 
-                          <a href={`/products/${p.slug}`}
+                          <Link href={`/products/${p.slug}`}
                              style={{ display: 'inline-flex', alignItems: 'center', gap: 6, fontSize: 13, fontWeight: 600, color: c.accent, textDecoration: 'none', letterSpacing: 0.3 }}
                              onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.opacity = '0.7'; }}
                              onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.opacity = '1'; }}>
                             View Full Product
                             <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
-                          </a>
+                          </Link>
                         </>
                       )}
                     </div>

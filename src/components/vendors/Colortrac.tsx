@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
+import Link from 'next/link';
 
 /* ─────────────────────────────────────────────
    THEME
@@ -526,12 +527,12 @@ export default function ColortracPage() {
                     ))}
                   </ul>
                   <div style={{ marginTop: 20 }}>
-                    <a href={`/products/${card.slug}`}
+                    <Link href={`/products/${card.slug}`}
                        style={{ display: 'inline-block', fontSize: 13, fontWeight: 600, padding: '7px 18px', border: `1.5px solid ${c.accent}`, color: c.accent, borderRadius: 4, textDecoration: 'none', transition: 'background 0.2s, color 0.2s' }}
                        onMouseEnter={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = c.accent; el.style.color = '#fff'; }}
                        onMouseLeave={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = 'transparent'; el.style.color = c.accent; }}>
                       View Product
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -566,12 +567,12 @@ export default function ColortracPage() {
                 ))}
               </ul>
               <div style={{ marginTop: 24 }}>
-                <a href="/products/smartlf-sgi"
+                <Link href="/products/smartlf-sgi"
                    style={{ display: 'inline-block', fontSize: 13, fontWeight: 600, padding: '7px 18px', border: `1.5px solid ${c.accent}`, color: c.accent, borderRadius: 4, textDecoration: 'none', transition: 'background 0.2s, color 0.2s' }}
                    onMouseEnter={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = c.accent; el.style.color = '#fff'; }}
                    onMouseLeave={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = 'transparent'; el.style.color = c.accent; }}>
                   View Product
-                </a>
+                </Link>
               </div>
             </div>
             <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
@@ -652,12 +653,12 @@ export default function ColortracPage() {
                   </p>
                   {'slug' in tab && (
                     <div style={{ marginTop: 16 }}>
-                      <a href={`/products/${tab.slug}`}
+                      <Link href={`/products/${tab.slug}`}
                          style={{ display: 'inline-block', fontSize: 13, fontWeight: 600, padding: '7px 18px', border: `1.5px solid ${c.accent}`, color: c.accent, borderRadius: 4, textDecoration: 'none', transition: 'background 0.2s, color 0.2s' }}
                          onMouseEnter={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = c.accent; el.style.color = '#fff'; }}
                          onMouseLeave={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = 'transparent'; el.style.color = c.accent; }}>
                         View Product
-                      </a>
+                      </Link>
                     </div>
                   )}
                 </div>
@@ -710,9 +711,9 @@ export default function ColortracPage() {
                   <div style={{ display: 'flex', gap: 12, marginTop: 'auto', paddingTop: 20 }}>
                     <div style={{ flex: 1, borderRadius: 6, overflow: 'hidden', border: '1px solid #e5e7eb', background: '#fff' }}>
                       <img src={item.image} alt={item.cap} style={{ width: '100%', height: 180, objectFit: 'contain', display: 'block', padding: 10 }} />
-                      <a href={`/products/${item.slug}`} style={{ display: 'block', fontSize: 11, fontWeight: 700, textAlign: 'center', background: c.accent, color: c.gold, padding: '6px 0', letterSpacing: 0.5, textTransform: 'uppercase', textDecoration: 'none' }}>
+                      <Link href={`/products/${item.slug}`} style={{ display: 'block', fontSize: 11, fontWeight: 700, textAlign: 'center', background: c.accent, color: c.gold, padding: '6px 0', letterSpacing: 0.5, textTransform: 'uppercase', textDecoration: 'none' }}>
                         View Product
-                      </a>
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -743,12 +744,12 @@ export default function ColortracPage() {
                 <p style={{ fontSize: 11, fontWeight: 700, color: c.accent, textTransform: 'uppercase', letterSpacing: 1.2, marginBottom: 8 }}>{card.tag}</p>
                 <h3 style={{ fontSize: 16, fontWeight: 700, color: c.text, marginBottom: 8 }}>{card.title}</h3>
                 <p style={{ fontSize: 13, color: c.dim, lineHeight: 1.6, marginBottom: 16 }}>{card.desc}</p>
-                <a href={`/products/${card.slug}`}
+                <Link href={`/products/${card.slug}`}
                    style={{ display: 'inline-block', fontSize: 13, fontWeight: 600, padding: '7px 18px', border: `1.5px solid ${c.accent}`, color: c.accent, borderRadius: 4, textDecoration: 'none', transition: 'background 0.2s, color 0.2s' }}
                    onMouseEnter={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = c.accent; el.style.color = '#fff'; }}
                    onMouseLeave={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = 'transparent'; el.style.color = c.accent; }}>
                   View Product
-                </a>
+                </Link>
               </div>
             ))}
           </div>

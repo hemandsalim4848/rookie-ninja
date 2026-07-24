@@ -1,3 +1,4 @@
+import Link from 'next/link';
 export function Bullets({ items }: { items: React.ReactNode[] }) {
   return (
     <ul className="space-y-2.5">
@@ -115,11 +116,11 @@ export function ContactBlock() {
                         hover:text-[#0d8fb8] transition-colors">
             sales@rookie-ninja.com
           </a>
-          <a href="/"
+          <Link href="/"
              className="font-body text-[13.5px] text-accent no-underline
                         hover:text-[#0d8fb8] transition-colors">
             rookie-ninja.com
-          </a>
+          </Link>
         </div>
       </div>
     </div>

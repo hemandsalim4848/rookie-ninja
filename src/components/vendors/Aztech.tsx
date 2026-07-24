@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
+import Link from 'next/link';
 
 /* ─────────────────────────────────────────────
    THEME
@@ -350,7 +351,7 @@ function AzNavInner({ accent, onMountsClick }: { accent: string; onMountsClick?:
       }}>
         {AZ_NAV_LINKS.map(link => (
           <li key={link.href} style={{ flexShrink: 0 }}>
-            <a href={link.href}
+            <Link href={link.href}
                onClick={e => {
                  e.preventDefault();
                  if (link.href === '#mounts' && onMountsClick) onMountsClick();
@@ -377,7 +378,7 @@ function AzNavInner({ accent, onMountsClick }: { accent: string; onMountsClick?:
                 position: 'absolute', bottom: 0, left: 0, width: 0, height: 2,
                 background: accent, borderRadius: 2, transition: 'width 0.25s ease',
               }} />
-            </a>
+            </Link>
           </li>
         ))}
       </ul>
@@ -553,7 +554,7 @@ export default function AztechPage() {
                    style={{ fontSize: 15, color: 'rgba(255,255,255,0.72)', lineHeight: 1.65, marginBottom: 32, fontWeight: 300, maxWidth: 420 }}>
                   {s.desc}
                 </p>
-                <a href={s.cta.href} className="az-hero-btn"
+                <Link href={s.cta.href} className="az-hero-btn"
                    onClick={e => { e.preventDefault(); document.querySelector(s.cta.href)?.scrollIntoView({ behavior: 'smooth' }); }}
                    style={{
                      display: 'inline-block', padding: '13px 28px',
@@ -575,7 +576,7 @@ export default function AztechPage() {
                      el.style.color = s.cta.solid ? '#0d0d0d' : '#fff';
                    }}>
                   {s.cta.label}
-                </a>
+                </Link>
               </div>
             </div>
           </div>
@@ -661,12 +662,12 @@ export default function AztechPage() {
                   </ul>
                   <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', marginTop: 16 }}>
                     {card.links.map(lnk => (
-                      <a key={lnk.href} href={lnk.href}
+                      <Link key={lnk.href} href={lnk.href}
                          style={{ fontSize: 12, fontWeight: 600, padding: '5px 14px', borderRadius: 4, border: `1.5px solid ${az.accent}`, color: az.accent, textDecoration: 'none', background: '#fff', transition: 'all 0.2s' }}
                          onMouseEnter={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = az.accent; el.style.color = '#fff'; }}
                          onMouseLeave={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = '#fff'; el.style.color = az.accent; }}>
                         {lnk.label}
-                      </a>
+                      </Link>
                     ))}
                   </div>
                 </div>
@@ -724,12 +725,12 @@ export default function AztechPage() {
                       </ul>
                       <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', marginTop: 14 }}>
                         {item.links.map(lnk => (
-                          <a key={lnk.href} href={lnk.href}
+                          <Link key={lnk.href} href={lnk.href}
                              style={{ fontSize: 12, fontWeight: 600, padding: '5px 14px', borderRadius: 4, border: `1.5px solid ${az.accent}`, color: az.accent, textDecoration: 'none', background: '#fff', transition: 'all 0.2s' }}
                              onMouseEnter={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = az.accent; el.style.color = '#fff'; }}
                              onMouseLeave={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = '#fff'; el.style.color = az.accent; }}>
                             {lnk.label}
-                          </a>
+                          </Link>
                         ))}
                       </div>
                     </>
@@ -872,12 +873,12 @@ export default function AztechPage() {
                   </ul>
                   <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', marginTop: 14 }}>
                     {p.links.map(lnk => (
-                      <a key={lnk.href} href={lnk.href}
+                      <Link key={lnk.href} href={lnk.href}
                          style={{ fontSize: 12, fontWeight: 600, padding: '5px 14px', borderRadius: 4, border: `1.5px solid ${az.accent}`, color: az.accent, textDecoration: 'none', background: '#fff', transition: 'all 0.2s' }}
                          onMouseEnter={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = az.accent; el.style.color = '#fff'; }}
                          onMouseLeave={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = '#fff'; el.style.color = az.accent; }}>
                         {lnk.label}
-                      </a>
+                      </Link>
                     ))}
                   </div>
                 </div>
@@ -942,12 +943,12 @@ export default function AztechPage() {
                   </div>
                   <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
                     {item.links.map(lnk => (
-                      <a key={lnk.href} href={lnk.href}
+                      <Link key={lnk.href} href={lnk.href}
                          style={{ fontSize: 12, fontWeight: 600, padding: '5px 14px', borderRadius: 4, border: `1.5px solid ${az.accent}`, color: az.accent, textDecoration: 'none', background: '#fff', transition: 'all 0.2s' }}
                          onMouseEnter={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = az.accent; el.style.color = '#fff'; }}
                          onMouseLeave={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = '#fff'; el.style.color = az.accent; }}>
                         {lnk.label}
-                      </a>
+                      </Link>
                     ))}
                   </div>
                   <div style={{ marginTop: 'auto', paddingTop: 20 }}>
@@ -1018,12 +1019,12 @@ export default function AztechPage() {
                 <p style={{ fontSize: 11, fontWeight: 700, color: az.accent, textTransform: 'uppercase', letterSpacing: 1, margin: '0 0 12px' }}>Products</p>
                 <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
                   {gamingPanels[gameTab].right.chips.map(chip => (
-                    <a key={chip.href} href={chip.href}
+                    <Link key={chip.href} href={chip.href}
                        style={{ fontSize: 12, fontWeight: 600, background: '#fff', border: `1px solid ${az.accent}`, color: az.accent, padding: '4px 12px', borderRadius: 4, textDecoration: 'none', transition: 'all 0.2s' }}
                        onMouseEnter={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = az.accent; el.style.color = '#fff'; }}
                        onMouseLeave={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = '#fff'; el.style.color = az.accent; }}>
                       {chip.label}
-                    </a>
+                    </Link>
                   ))}
                 </div>
               </div>

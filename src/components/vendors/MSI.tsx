@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import { cld } from '@/src/lib/cloudinaryUrl';
+import Link from 'next/link';
 
 const ms = {
   accent: '#e4001b',
@@ -322,12 +323,12 @@ export default function MSIPage() {
                         ))}
                       </ul>
                     )}
-                    <a href={`/products/${gpu.slug}`}
+                    <Link href={`/products/${gpu.slug}`}
                        style={{ marginTop: 14, display: 'inline-block', padding: '8px 16px', background: ms.accent, color: '#fff', fontSize: 12, fontWeight: 600, borderRadius: 50, textDecoration: 'none', alignSelf: 'flex-start', transition: 'opacity 0.2s' }}
                        onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.opacity = '0.85'; }}
                        onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.opacity = '1'; }}>
                       View Product
-                    </a>
+                    </Link>
                   </div>
                 </div>
               ))}
@@ -335,13 +336,13 @@ export default function MSIPage() {
           )}
 
           <div className="ms-reveal" style={{ textAlign: 'center', marginTop: 36 }}>
-            <a href="/msi?category=Graphics+Cards"
+            <Link href="/msi?category=Graphics+Cards"
                style={{ display: 'inline-flex', alignItems: 'center', gap: 8, fontSize: 14, fontWeight: 600, color: ms.accent, textDecoration: 'none', border: `1.5px solid ${ms.accent}`, padding: '10px 24px', borderRadius: 50, transition: 'background 0.2s, color 0.2s' }}
                onMouseEnter={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = ms.accent; el.style.color = '#fff'; }}
                onMouseLeave={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = 'transparent'; el.style.color = ms.accent; }}>
               View All Graphics Cards
               <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
-            </a>
+            </Link>
           </div>
         </div>
       </section>
@@ -423,26 +424,26 @@ export default function MSIPage() {
                   <img src={cld(mb.images?.[0])} alt={mb.name} style={{ width: '100%', height: 200, objectFit: 'contain', marginBottom: 16, borderRadius: 6 }} />
                   <h4 style={{ fontSize: 13, fontWeight: 700, color: ms.text, margin: '0 0 8px', lineHeight: 1.3 }}>{mb.name}</h4>
                   <p style={{ fontSize: 11, color: ms.dim, marginBottom: 14, lineHeight: 1.5, flex: 1 }}>{mb.shortDescription?.split('\n')[0] || ''}</p>
-                  <a href={`/products/${mb.slug}`}
+                  <Link href={`/products/${mb.slug}`}
                      style={{ fontSize: 11, fontWeight: 700, color: ms.accent, textDecoration: 'none', display: 'flex', alignItems: 'center', gap: 4, letterSpacing: '0.5px', textTransform: 'uppercase' }}
                      onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.opacity = '0.7'; }}
                      onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.opacity = '1'; }}>
                     View Product
                     <svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
-                  </a>
+                  </Link>
                 </div>
               ))}
             </div>
           )}
 
           <div className="ms-reveal" style={{ textAlign: 'center', marginTop: 32 }}>
-            <a href="/msi?category=Motherboards"
+            <Link href="/msi?category=Motherboards"
                style={{ display: 'inline-flex', alignItems: 'center', gap: 8, fontSize: 14, fontWeight: 600, color: ms.accent, textDecoration: 'none', border: `1.5px solid ${ms.accent}`, padding: '10px 24px', borderRadius: 50, transition: 'background 0.2s, color 0.2s' }}
                onMouseEnter={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = ms.accent; el.style.color = '#fff'; }}
                onMouseLeave={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = 'transparent'; el.style.color = ms.accent; }}>
               View All Motherboards
               <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
-            </a>
+            </Link>
           </div>
         </div>
       </section>

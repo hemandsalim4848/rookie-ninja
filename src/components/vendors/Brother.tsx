@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
+import Link from 'next/link';
 
 /* ─────────────────────────────────────────────
    THEME
@@ -387,9 +388,9 @@ export default function BrotherPage() {
                 </h1>
                 <p style={{ fontSize: isMobile ? 13 : 15, color: 'rgba(255,255,255,0.72)', lineHeight: 1.65, marginBottom: isMobile ? 22 : 32, fontWeight: 300, maxWidth: isMobile ? '100%' : 420 }}>{s.desc}</p>
                 {s.cta && (
-                  <a href={s.cta.href}
+                  <Link href={s.cta.href}
                     onClick={e => { e.preventDefault(); document.querySelector(s.cta!.href)?.scrollIntoView({ behavior: 'smooth' }); }}
-                    style={{ display: 'inline-block', padding: isMobile ? '10px 20px' : '13px 28px', background: s.cta.solid ? '#fff' : 'transparent', color: s.cta.solid ? '#0d0d0d' : '#fff', border: '2px solid #fff', fontSize: isMobile ? 12 : 13, fontWeight: 600, letterSpacing: 1, textTransform: 'uppercase', textDecoration: 'none' }}>{s.cta.label}</a>
+                    style={{ display: 'inline-block', padding: isMobile ? '10px 20px' : '13px 28px', background: s.cta.solid ? '#fff' : 'transparent', color: s.cta.solid ? '#0d0d0d' : '#fff', border: '2px solid #fff', fontSize: isMobile ? 12 : 13, fontWeight: 600, letterSpacing: 1, textTransform: 'uppercase', textDecoration: 'none' }}>{s.cta.label}</Link>
                 )}
               </div>
             </div>
@@ -408,12 +409,12 @@ export default function BrotherPage() {
         <div style={{ maxWidth: 1140, margin: '0 auto', padding: isMobile ? '0 16px' : '0 20px', height: isMobile ? 52 : 58, display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: isMobile ? 12 : 20, overflow: 'hidden' }}>
           <div style={{ display: 'flex', alignItems: 'center', flex: 1, gap: isMobile ? 4 : 28, overflowX: 'auto', scrollbarWidth: 'none' }}>
             {navLinks.map((lnk, i) => (
-              <a key={i} href={lnk.href} style={{ fontSize: isMobile ? 12 : 13, fontWeight: 500, color: '#111', textDecoration: 'none', whiteSpace: 'nowrap', padding: isMobile ? '4px 10px' : '4px 0', position: 'relative', letterSpacing: 0.15, transition: 'color 0.2s' }}
+              <Link key={i} href={lnk.href} style={{ fontSize: isMobile ? 12 : 13, fontWeight: 500, color: '#111', textDecoration: 'none', whiteSpace: 'nowrap', padding: isMobile ? '4px 10px' : '4px 0', position: 'relative', letterSpacing: 0.15, transition: 'color 0.2s' }}
                 onMouseEnter={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.color = c.accent; (el.querySelector('.br-underline') as HTMLElement | null)?.style.setProperty('width', '100%'); }}
                 onMouseLeave={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.color = '#111'; (el.querySelector('.br-underline') as HTMLElement | null)?.style.setProperty('width', '0'); }}>
                 {lnk.label}
                 <span className="br-underline" style={{ position: 'absolute', bottom: 0, left: 0, width: 0, height: 2, background: c.accent, borderRadius: 2, transition: 'width 0.25s ease' }} />
-              </a>
+              </Link>
             ))}
           </div>
           <a href="#printers" style={{ flexShrink: 0, padding: isMobile ? '7px 14px' : '10px 22px', background: c.accent, color: '#fff', fontSize: isMobile ? 12 : 13, fontWeight: 600, letterSpacing: 0.2, textDecoration: 'none', borderRadius: 50, whiteSpace: 'nowrap', transition: 'background 0.2s' }}
@@ -457,12 +458,12 @@ export default function BrotherPage() {
                   {card.links.length > 0 && (
                     <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', marginTop: 16 }}>
                       {card.links.map(lnk => (
-                        <a key={lnk.href} href={lnk.href}
+                        <Link key={lnk.href} href={lnk.href}
                            style={{ fontSize: 12, fontWeight: 600, padding: '5px 14px', borderRadius: 4, border: `1.5px solid ${c.accent}`, color: c.accent, textDecoration: 'none', background: '#fff', transition: 'all 0.2s' }}
                            onMouseEnter={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = c.accent; el.style.color = '#fff'; }}
                            onMouseLeave={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = '#fff'; el.style.color = c.accent; }}>
                           View Product
-                        </a>
+                        </Link>
                       ))}
                     </div>
                   )}
@@ -499,12 +500,12 @@ export default function BrotherPage() {
                 {row.links.length > 0 && (
                   <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', marginTop: 20 }}>
                     {row.links.map(lnk => (
-                      <a key={lnk.href} href={lnk.href}
+                      <Link key={lnk.href} href={lnk.href}
                          style={{ fontSize: 12, fontWeight: 600, padding: '5px 14px', borderRadius: 4, border: `1.5px solid ${c.accent}`, color: c.accent, textDecoration: 'none', background: '#fff', transition: 'all 0.2s' }}
                          onMouseEnter={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = c.accent; el.style.color = '#fff'; }}
                          onMouseLeave={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = '#fff'; el.style.color = c.accent; }}>
                         View Product
-                      </a>
+                      </Link>
                     ))}
                   </div>
                 )}
@@ -567,12 +568,12 @@ export default function BrotherPage() {
                   {tab.links.length > 0 && (
                     <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', marginTop: 16 }}>
                       {tab.links.map(lnk => (
-                        <a key={lnk.href} href={lnk.href}
+                        <Link key={lnk.href} href={lnk.href}
                            style={{ fontSize: 12, fontWeight: 600, padding: '5px 14px', borderRadius: 4, border: `1.5px solid ${c.accent}`, color: c.accent, textDecoration: 'none', background: '#fff', transition: 'all 0.2s' }}
                            onMouseEnter={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = c.accent; el.style.color = '#fff'; }}
                            onMouseLeave={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = '#fff'; el.style.color = c.accent; }}>
                           {lnk.label}
-                        </a>
+                        </Link>
                       ))}
                     </div>
                   )}

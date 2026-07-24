@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
+import Link from 'next/link';
 
 /* ─────────────────────────────────────────────
    THEME
@@ -226,7 +227,7 @@ function CnNavInner({ navLinks, accent }: { navLinks: { label: string; href: str
     <div style={{ maxWidth: 1140, margin: '0 auto', height: 58, display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0 20px', gap: 20 }}>
       <div className="cn-subnav-links" style={{ display: 'flex', alignItems: 'center', flex: 1, gap: 28, overflowX: 'auto', scrollbarWidth: 'none' }}>
         {navLinks.map((lnk, i) => (
-          <a key={i} href={lnk.href} style={{
+          <Link key={i} href={lnk.href} style={{
             fontSize: 13, fontWeight: 500, color: '#111', textDecoration: 'none',
             whiteSpace: 'nowrap', padding: '4px 0', position: 'relative',
             letterSpacing: 0.15, transition: 'color 0.2s',
@@ -246,7 +247,7 @@ function CnNavInner({ navLinks, accent }: { navLinks: { label: string; href: str
               position: 'absolute', bottom: 0, left: 0, width: 0, height: 2,
               background: accent, borderRadius: 2, transition: 'width 0.25s ease',
             }} />
-          </a>
+          </Link>
         ))}
       </div>
       <a href="#workgroup-departmental-scanners" style={{
@@ -410,7 +411,7 @@ export default function CanonPage() {
                 </p>
 
                 {s.cta && (
-                  <a href={s.cta.href}
+                  <Link href={s.cta.href}
                     onClick={e => { e.preventDefault(); document.querySelector(s.cta!.href)?.scrollIntoView({ behavior: 'smooth' }); }}
                     style={{
                     display: 'inline-block', padding: '13px 28px',
@@ -424,7 +425,7 @@ export default function CanonPage() {
                   onMouseEnter={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = c.accent; el.style.borderColor = c.accent; el.style.color = '#fff'; }}
                   onMouseLeave={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = s.cta!.solid ? '#fff' : 'transparent'; el.style.borderColor = '#fff'; el.style.color = s.cta!.solid ? '#0d0d0d' : '#fff'; }}>
                     {s.cta.label}
-                  </a>
+                  </Link>
                 )}
               </div>
             </div>
@@ -518,12 +519,12 @@ export default function CanonPage() {
                   {card.links.length > 0 && (
                     <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', marginTop: 16 }}>
                       {card.links.map(lnk => (
-                        <a key={lnk.href} href={lnk.href}
+                        <Link key={lnk.href} href={lnk.href}
                            style={{ fontSize: 12, fontWeight: 600, padding: '5px 14px', borderRadius: 4, border: `1.5px solid ${c.accent}`, color: c.accent, textDecoration: 'none', background: '#fff', transition: 'all 0.2s' }}
                            onMouseEnter={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = c.accent; el.style.color = '#fff'; }}
                            onMouseLeave={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = '#fff'; el.style.color = c.accent; }}>
                           {lnk.label}
-                        </a>
+                        </Link>
                       ))}
                     </div>
                   )}
@@ -576,12 +577,12 @@ export default function CanonPage() {
                       {item.links.length > 0 && (
                         <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', marginTop: 14 }}>
                           {item.links.map(lnk => (
-                            <a key={lnk.href} href={lnk.href}
+                            <Link key={lnk.href} href={lnk.href}
                                style={{ fontSize: 12, fontWeight: 600, padding: '5px 14px', borderRadius: 4, border: `1.5px solid ${c.accent}`, color: c.accent, textDecoration: 'none', background: '#fff', transition: 'all 0.2s' }}
                                onMouseEnter={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = c.accent; el.style.color = '#fff'; }}
                                onMouseLeave={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = '#fff'; el.style.color = c.accent; }}>
                               {lnk.label}
-                            </a>
+                            </Link>
                           ))}
                         </div>
                       )}
@@ -731,12 +732,12 @@ export default function CanonPage() {
                   {p.links.length > 0 && (
                     <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', marginTop: 14 }}>
                       {p.links.map(lnk => (
-                        <a key={lnk.href} href={lnk.href}
+                        <Link key={lnk.href} href={lnk.href}
                            style={{ fontSize: 12, fontWeight: 600, padding: '5px 14px', borderRadius: 4, border: `1.5px solid ${c.accent}`, color: c.accent, textDecoration: 'none', background: '#fff', transition: 'all 0.2s' }}
                            onMouseEnter={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = c.accent; el.style.color = '#fff'; }}
                            onMouseLeave={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = '#fff'; el.style.color = c.accent; }}>
                           {lnk.label}
-                        </a>
+                        </Link>
                       ))}
                     </div>
                   )}
@@ -804,12 +805,12 @@ export default function CanonPage() {
               {(productionItems[prodItem] as any).links?.length > 0 && (
                 <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
                   {(productionItems[prodItem] as any).links.map((lnk: { label: string; href: string }) => (
-                    <a key={lnk.href} href={lnk.href}
+                    <Link key={lnk.href} href={lnk.href}
                        style={{ fontSize: 12, fontWeight: 600, padding: '5px 14px', borderRadius: 4, border: `1.5px solid ${c.accent}`, color: c.accent, textDecoration: 'none', background: '#fff', transition: 'all 0.2s' }}
                        onMouseEnter={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = c.accent; el.style.color = '#fff'; }}
                        onMouseLeave={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = '#fff'; el.style.color = c.accent; }}>
                       {lnk.label}
-                    </a>
+                    </Link>
                   ))}
                 </div>
               )}

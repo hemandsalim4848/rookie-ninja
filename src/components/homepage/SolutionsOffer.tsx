@@ -1,6 +1,7 @@
 'use client';
 
 import { useRef } from 'react';
+import Link from 'next/link';
 
 const solutions = [
   {
@@ -114,7 +115,7 @@ export default function SolutionsSection() {
   style={{ scrollbarWidth: 'none' as const }}
 >
   {solutions.map((s) => (
-    <a
+    <Link
       key={s.id}
       href={s.href}
       className="group flex-none no-underline w-[calc(100%-24px)] sm:w-[calc(33%-16px)] lg:w-[calc(25%-18px)]"
@@ -175,7 +176,7 @@ export default function SolutionsSection() {
           </div>
         </div>
       </div>
-    </a>
+    </Link>
   ))}
 </div>
       </div>

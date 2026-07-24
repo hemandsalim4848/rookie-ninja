@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Animate from '../Animate';
 import SectionHeader from '../SectionHeader';
+import Link from 'next/link';
 
 const vendors = [
  {
@@ -269,7 +270,7 @@ export default function VendorContent() {
                   </p>
                 </div>
                 <div className="flex flex-col sm:flex-row gap-3 shrink-0">
-                  <a href="/contact"
+                  <Link href="/contact"
                      className="inline-flex items-center justify-center gap-2
                                 font-body text-[14px] font-medium text-white
                                 bg-accent px-8 py-4 rounded-xl no-underline
@@ -283,8 +284,8 @@ export default function VendorContent() {
                             strokeWidth="1.5" strokeLinecap="round"
                             strokeLinejoin="round"/>
                     </svg>
-                  </a>
-                  <a href="/about/mission"
+                  </Link>
+                  <Link href="/about/mission"
                      className="inline-flex items-center justify-center gap-2
                                 font-body text-[14px] text-white/60
                                 border border-white/15 px-8 py-4 rounded-xl
@@ -292,7 +293,7 @@ export default function VendorContent() {
                                 hover:text-white hover:border-white/30
                                 whitespace-nowrap">
                     About Us
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>

@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
+import Link from 'next/link';
 
 const ac = {
   accent: '#4594e1',
@@ -324,12 +325,12 @@ export default function AerocoolPage() {
                   {s.lines.map((line, li) => <span key={li} style={{ display: 'block', color: li === s.accentLine ? ac.accent : '#fff' }}>{line}</span>)}
                 </h1>
                 <p className="ka-hero-desc" style={{ fontSize: 15, color: 'rgba(255,255,255,0.72)', lineHeight: 1.65, marginBottom: 32, fontWeight: 300, maxWidth: 420 }}>{s.desc}</p>
-                <a href={s.cta.href} className="ka-hero-btn"
+                <Link href={s.cta.href} className="ka-hero-btn"
                    style={{ display: 'inline-block', padding: '13px 28px', background: s.cta.solid ? '#fff' : 'transparent', color: s.cta.solid ? '#0d0d0d' : '#fff', border: '2px solid #fff', fontSize: 13, fontWeight: 600, letterSpacing: 1, textTransform: 'uppercase', textDecoration: 'none', borderRadius: 2, transition: 'background 0.25s, color 0.25s, border-color 0.25s' }}
                    onMouseEnter={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = ac.accent; el.style.borderColor = ac.accent; el.style.color = '#fff'; }}
                    onMouseLeave={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = s.cta.solid ? '#fff' : 'transparent'; el.style.borderColor = '#fff'; el.style.color = s.cta.solid ? '#0d0d0d' : '#fff'; }}>
                   {s.cta.label}
-                </a>
+                </Link>
               </div>
             </div>
           </div>
@@ -385,11 +386,11 @@ export default function AerocoolPage() {
                       </li>
                     ))}
                   </ul>
-                  <a href={card.href} style={{ marginTop: 20, display: 'inline-block', padding: '10px 20px', background: ac.accent, color: '#fff', fontSize: 13, fontWeight: 600, borderRadius: 50, textDecoration: 'none', alignSelf: 'flex-start', transition: 'opacity 0.2s' }}
+                  <Link href={card.href} style={{ marginTop: 20, display: 'inline-block', padding: '10px 20px', background: ac.accent, color: '#fff', fontSize: 13, fontWeight: 600, borderRadius: 50, textDecoration: 'none', alignSelf: 'flex-start', transition: 'opacity 0.2s' }}
                      onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.opacity = '0.85'; }}
                      onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.opacity = '1'; }}>
                     View Product
-                  </a>
+                  </Link>
                 </div>
               </div>
             ))}
@@ -521,9 +522,9 @@ export default function AerocoolPage() {
                     <div style={{ borderRadius: 6, overflow: 'hidden', border: '1px solid #e5e7eb', background: '#fff' }}>
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img src={item.image} alt={item.heading} style={{ width: '100%', height: 200, objectFit: 'contain', display: 'block' }} />
-                      <a href={`/products/${item.slug}`} style={{ display: 'block', fontSize: 11, fontWeight: 700, textAlign: 'center', background: ac.accent, color: '#fff', padding: '6px 0', letterSpacing: '0.5px', textTransform: 'uppercase', textDecoration: 'none' }}>
+                      <Link href={`/products/${item.slug}`} style={{ display: 'block', fontSize: 11, fontWeight: 700, textAlign: 'center', background: ac.accent, color: '#fff', padding: '6px 0', letterSpacing: '0.5px', textTransform: 'uppercase', textDecoration: 'none' }}>
                         {item.heading}
-                      </a>
+                      </Link>
                     </div>
                   </div>
                 </div>

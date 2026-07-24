@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
 import { cld } from '@/src/lib/cloudinaryUrl';
+import Link from 'next/link';
 
 export default function Navbar() {
   const router = useRouter();
@@ -143,7 +144,7 @@ async function handleQuoteSubmit(e: React.FormEvent) {
 >
 
           {/* Logo */}
-          <a href="/" className="flex items-center shrink-0 z-[1001] relative">
+          <Link href="/" className="flex items-center shrink-0 z-[1001] relative">
             <img
               src="/logo.png"
               alt="Rookie Ninja"
@@ -151,7 +152,7 @@ async function handleQuoteSubmit(e: React.FormEvent) {
             transform-gpu will-change-transform transition-all duration-500
             ${scrolled && !mobileOpen ? 'brightness-0' : 'brightness-100'}`}
             />
-          </a>
+          </Link>
 
           {/* Desktop Links */}
           <ul className="hidden xl:flex items-center gap-0 list-none">
@@ -291,7 +292,7 @@ async function handleQuoteSubmit(e: React.FormEvent) {
   { label: 'Partners', href: '/partner-central' },
 ].map(({ label, href }) => (
   <li key={label}>
-    <a href={href}
+    <Link href={href}
        className={`font-body text-[13px] px-3 py-1.5 rounded-lg
                    flex items-center transition-all duration-200
                    whitespace-nowrap no-underline
@@ -299,13 +300,13 @@ async function handleQuoteSubmit(e: React.FormEvent) {
                      ? 'text-navy/70 hover:text-navy hover:bg-navy/[0.06]'
                      : 'text-white hover:text-white/70 hover:bg-white/[0.1]'}`}>
       {label}
-    </a>
+    </Link>
   </li>
 ))}
 
 {/* Careers */}
 <li>
-  <a href="/careers"
+  <Link href="/careers"
      className={`font-body text-[13px] px-3 py-1.5 rounded-lg
                  flex items-center transition-all duration-200
                  whitespace-nowrap no-underline
@@ -313,12 +314,12 @@ async function handleQuoteSubmit(e: React.FormEvent) {
                    ? 'text-navy/70 hover:text-navy hover:bg-navy/[0.06]'
                    : 'text-white hover:text-white/70 hover:bg-white/[0.1]'}`}>
     Careers
-  </a>
+  </Link>
 </li>
 
 {/* Contact Us */}
 <li>
-  <a href="/contact"
+  <Link href="/contact"
      className={`font-body text-[13px] px-3 py-1.5 rounded-lg
                  flex items-center transition-all duration-200
                  whitespace-nowrap no-underline
@@ -326,7 +327,7 @@ async function handleQuoteSubmit(e: React.FormEvent) {
                    ? 'text-navy/70 hover:text-navy hover:bg-navy/[0.06]'
                    : 'text-white hover:text-white/70 hover:bg-white/[0.1]'}`}>
     Contact Us
-  </a>
+  </Link>
 </li>
 
 
@@ -457,32 +458,32 @@ async function handleQuoteSubmit(e: React.FormEvent) {
           <MobSubLink href="/it-accessories" icon={<AccessoriesIconDark />} label="IT Accessories"       />
         </MobItem>
 
-        <a href="/our-vendors" className="font-body text-[15px] text-navy/70 px-4 py-3
+        <Link href="/our-vendors" className="font-body text-[15px] text-navy/70 px-4 py-3
                                rounded-xl flex items-center transition-all
                                duration-150 hover:bg-navy/[0.05] hover:text-navy
                                no-underline">
           Vendors
-        </a>
-        <a href="/partner-central/" className="font-body text-[15px] text-navy/70 px-4 py-3
+        </Link>
+        <Link href="/partner-central/" className="font-body text-[15px] text-navy/70 px-4 py-3
                                rounded-xl flex items-center transition-all
                                duration-150 hover:bg-navy/[0.05] hover:text-navy
                                no-underline">
           Partners
-        </a>
+        </Link>
 
-       <a href="/careers/" className="font-body text-[15px] text-navy/70 px-4 py-3
+       <Link href="/careers/" className="font-body text-[15px] text-navy/70 px-4 py-3
                                rounded-xl flex items-center transition-all
                                duration-150 hover:bg-navy/[0.05] hover:text-navy
                                no-underline">
   Careers
-</a>
+</Link>
 
-        <a href="/contact" className="font-body text-[15px] text-navy/70 px-4 py-3
+        <Link href="/contact" className="font-body text-[15px] text-navy/70 px-4 py-3
                                rounded-xl flex items-center transition-all
                                duration-150 hover:bg-navy/[0.05] hover:text-navy
                                no-underline">
           Contact Us
-        </a>
+        </Link>
 
         <div className="h-px bg-gray-100 my-2" />
 
@@ -832,7 +833,7 @@ function LightDropItem({ icon, label, href }: {
   icon: React.ReactNode; label: string; href: string;
 }) {
   return (
-    <a href={href}
+    <Link href={href}
        className="flex items-center gap-2.5 px-3 py-2 rounded-lg text-[13px]
                   text-gray-600 no-underline transition-all duration-150
                   hover:bg-accent/[0.07] hover:text-accent group mx-1">
@@ -842,7 +843,7 @@ function LightDropItem({ icon, label, href }: {
         {icon}
       </span>
       {label}
-    </a>
+    </Link>
   );
 }
 
@@ -879,7 +880,7 @@ function MobSubLink({ href, icon, label }: {
   href: string; icon: React.ReactNode; label: string;
 }) {
   return (
-    <a href={href}
+    <Link href={href}
        className="font-body flex items-center gap-2.5 px-4 py-2.5 rounded-lg text-sm
                   text-navy/60 no-underline transition-all
                   hover:bg-accent/[0.07] hover:text-accent">
@@ -888,7 +889,7 @@ function MobSubLink({ href, icon, label }: {
         {icon}
       </span>
       {label}
-    </a>
+    </Link>
   );
 }
 

@@ -1,6 +1,7 @@
 'use client';
 
 import Animate from '../Animate';
+import Link from 'next/link';
 
 const footerLinks = {
   Solutions: [
@@ -93,13 +94,13 @@ export default function Footer() {
             <div className="flex flex-col gap-6">
 
               {/* Logo */}
-              <a href="/" className="flex items-center gap-2.5 no-underline w-fit">
+              <Link href="/" className="flex items-center gap-2.5 no-underline w-fit">
                 <img
                   src="/logo.png"
                   alt="Rookie Ninja"
                   className="h-14 w-auto object-contain"
                 />
-              </a>
+              </Link>
 
               {/* Tagline */}
               <p className="font-body text-[14px] text-white/50
@@ -187,7 +188,7 @@ export default function Footer() {
                           {link.label}
                         </button>
                       ) : (
-                        <a href={link.href}
+                        <Link href={link.href}
                            className="font-body text-[13px] text-white/45
                                       no-underline transition-colors duration-200
                                       hover:text-accent flex items-center gap-1.5
@@ -195,7 +196,7 @@ export default function Footer() {
                           <span className="w-0 h-px bg-accent transition-all
                                            duration-200 group-hover:w-3" />
                           {link.label}
-                        </a>
+                        </Link>
                       )}
                     </li>
                   ))}
@@ -227,12 +228,12 @@ export default function Footer() {
               { label: 'Privacy Policy', href: '/privacy-policy' },
               { label: 'Terms of Use', href: '/terms-of-use' },
             ].map((item) => (
-              <a key={item.label} href={item.href}
+              <Link key={item.label} href={item.href}
                  className="font-body text-[12px] text-white/30
                             no-underline hover:text-white/60
                             transition-colors duration-200">
                 {item.label}
-              </a>
+              </Link>
             ))}
           </div>
 

@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
+import Link from 'next/link';
 
 /* ─────────────────────────────────────────────
    THEME
@@ -212,7 +213,7 @@ function KaNavInner({ accent }: { accent: string }) {
       }}>
         {KA_NAV_LINKS.map(link => (
           <li key={link.href} style={{ flexShrink: 0 }}>
-            <a href={link.href}
+            <Link href={link.href}
                style={{
                  display: 'inline-block', fontSize: 14, fontWeight: 500,
                  color: '#111', textDecoration: 'none', letterSpacing: '0.15px',
@@ -234,7 +235,7 @@ function KaNavInner({ accent }: { accent: string }) {
                 position: 'absolute', bottom: 0, left: 0, width: 0, height: 2,
                 background: accent, borderRadius: 2, transition: 'width 0.25s ease',
               }} />
-            </a>
+            </Link>
           </li>
         ))}
       </ul>
@@ -412,7 +413,7 @@ export default function KodakAlarisPage() {
                    style={{ fontSize: 15, color: 'rgba(255,255,255,0.72)', lineHeight: 1.65, marginBottom: 32, fontWeight: 300, maxWidth: 420 }}>
                   {s.desc}
                 </p>
-                <a href={s.cta.href} className="ka-hero-btn"
+                <Link href={s.cta.href} className="ka-hero-btn"
                    onClick={e => { e.preventDefault(); document.querySelector(s.cta.href)?.scrollIntoView({ behavior: 'smooth' }); }}
                    style={{
                      display: 'inline-block', padding: '13px 28px',
@@ -434,7 +435,7 @@ export default function KodakAlarisPage() {
                      el.style.color = s.cta.solid ? '#0d0d0d' : '#fff';
                    }}>
                   {s.cta.label}
-                </a>
+                </Link>
               </div>
             </div>
           </div>
@@ -538,7 +539,7 @@ export default function KodakAlarisPage() {
                       </li>
                     ))}
                   </ul>
-                  <a href={card.href} style={{
+                  <Link href={card.href} style={{
                     marginTop: 20, display: 'inline-block', padding: '10px 20px',
                     background: ka.accent, color: '#fff', fontSize: 13, fontWeight: 600,
                     borderRadius: 50, textDecoration: 'none', alignSelf: 'flex-start',
@@ -547,7 +548,7 @@ export default function KodakAlarisPage() {
                   onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.opacity = '0.85'; }}
                   onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.opacity = '1'; }}>
                     View Product
-                  </a>
+                  </Link>
                 </div>
               </div>
             ))}
@@ -604,12 +605,12 @@ export default function KodakAlarisPage() {
                       {(item as any).links && (
                         <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', marginTop: 14 }}>
                           {(item as any).links.map((lnk: any) => (
-                            <a key={lnk.href} href={lnk.href}
+                            <Link key={lnk.href} href={lnk.href}
                                style={{ fontSize: 12, fontWeight: 600, padding: '5px 14px', borderRadius: 4, border: `1.5px solid ${ka.accent}`, color: ka.accent, textDecoration: 'none', background: '#fff', transition: 'all 0.2s' }}
                                onMouseEnter={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = ka.accent; el.style.color = '#fff'; }}
                                onMouseLeave={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = '#fff'; el.style.color = ka.accent; }}>
                               {lnk.label}
-                            </a>
+                            </Link>
                           ))}
                         </div>
                       )}
@@ -754,12 +755,12 @@ export default function KodakAlarisPage() {
                   {(p as any).links && (
                     <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', marginTop: 14 }}>
                       {(p as any).links.map((lnk: any) => (
-                        <a key={lnk.href} href={lnk.href}
+                        <Link key={lnk.href} href={lnk.href}
                            style={{ fontSize: 12, fontWeight: 600, padding: '5px 14px', borderRadius: 4, border: `1.5px solid ${ka.accent}`, color: ka.accent, textDecoration: 'none', background: '#fff', transition: 'all 0.2s' }}
                            onMouseEnter={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = ka.accent; el.style.color = '#fff'; }}
                            onMouseLeave={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = '#fff'; el.style.color = ka.accent; }}>
                           {lnk.label}
-                        </a>
+                        </Link>
                       ))}
                     </div>
                   )}
@@ -826,12 +827,12 @@ export default function KodakAlarisPage() {
                   {(item as any).links && (
                     <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
                       {(item as any).links.map((lnk: any) => (
-                        <a key={lnk.href} href={lnk.href}
+                        <Link key={lnk.href} href={lnk.href}
                            style={{ fontSize: 12, fontWeight: 600, padding: '5px 14px', borderRadius: 4, border: `1.5px solid ${ka.accent}`, color: ka.accent, textDecoration: 'none', background: '#fff', transition: 'all 0.2s' }}
                            onMouseEnter={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = ka.accent; el.style.color = '#fff'; }}
                            onMouseLeave={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = '#fff'; el.style.color = ka.accent; }}>
                           {lnk.label}
-                        </a>
+                        </Link>
                       ))}
                     </div>
                   )}

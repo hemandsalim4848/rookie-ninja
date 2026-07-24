@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Animate from '../Animate';
 import SectionHeader from '../SectionHeader';
+import Link from 'next/link';
 
 /* ── Brand partner logos ── */
 const brandPartners = [
@@ -283,7 +284,7 @@ export default function ScanSolutionsPage() {
 
           <Animate type="fade-up" delay={100}>
             <div className="flex justify-center mt-8">
-              <a
+              <Link 
                 href="/products?category=Document+Scanners&page=1"
                 className="inline-flex items-center gap-2 font-body font-medium
                            text-white bg-accent px-6 py-3 rounded-xl
@@ -298,7 +299,7 @@ export default function ScanSolutionsPage() {
                         stroke="currentColor" strokeWidth="1.5"
                         strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
-              </a>
+              </Link>
             </div>
           </Animate>
         </div>

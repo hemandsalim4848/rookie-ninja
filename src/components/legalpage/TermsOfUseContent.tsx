@@ -3,6 +3,7 @@ import LegalHero from './LegalHero';
 import QuickNav from './QuickNav';
 import LegalSection from './LegalSection';
 import { CheckCrossColumns, ContactBlock } from './blocks';
+import Link from 'next/link';
 
 const navItems = [
   { id: 'introduction', label: 'Introduction & Acceptance' },
@@ -39,9 +40,9 @@ export default function TermsOfUseContent() {
             Welcome to Rookie Ninja Distribution. By accessing or browsing our website
             at rookie-ninja.com, you acknowledge that you have read, understood,
             and agree to be legally bound by these Terms of Use, along with our{' '}
-            <a href="/privacy-policy" className="text-accent hover:text-[#0d8fb8] transition-colors">
+            <Link href="/privacy-policy" className="text-accent hover:text-[#0d8fb8] transition-colors">
               Privacy Policy
-            </a>, which is incorporated herein by reference.
+            </Link>, which is incorporated herein by reference.
           </p>
           <p className="font-body text-[15px] text-gray-500 leading-[1.8] font-light mb-10">
             If you do not agree to these Terms, you must immediately discontinue use
@@ -223,9 +224,9 @@ export default function TermsOfUseContent() {
           </p>
           <p>
             Personal data submitted in applications is handled in accordance with our{' '}
-            <a href="/privacy-policy" className="text-accent hover:text-[#0d8fb8] transition-colors">
+            <Link href="/privacy-policy" className="text-accent hover:text-[#0d8fb8] transition-colors">
               Privacy Policy
-            </a>.
+            </Link>.
           </p>
         </LegalSection>
 
@@ -248,9 +249,9 @@ export default function TermsOfUseContent() {
             user experience, analyze traffic, and understand how visitors interact
             with our content. By continuing to use the Website, you consent to our use
             of cookies as described in our{' '}
-            <a href="/privacy-policy" className="text-accent hover:text-[#0d8fb8] transition-colors">
+            <Link href="/privacy-policy" className="text-accent hover:text-[#0d8fb8] transition-colors">
               Privacy Policy
-            </a>.
+            </Link>.
           </p>
           <p>
             You may disable cookies through your browser settings; however, doing so
