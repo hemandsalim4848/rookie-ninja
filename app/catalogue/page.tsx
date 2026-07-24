@@ -154,7 +154,7 @@ export default function CataloguePage() {
             <span className="block w-8 h-px bg-[#15A7DC] shrink-0" />
           </div>
           <h2 className="font-display font-bold text-[#0A1628] text-[clamp(28px,4vw,42px)] leading-[1.15] tracking-[-0.02em]">
-            Shop Our Brand Catalogue
+            Brand Catalogue
           </h2>
           <p className="font-body text-[16px] font-light text-gray-500 leading-[1.7] mt-4 max-w-2xl mx-auto">
             Select a brand to explore its full product lineup — from scanners and displays to accessories and components.
