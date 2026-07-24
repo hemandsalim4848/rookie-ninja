@@ -4,15 +4,16 @@ import { useState } from 'react';
 import Animate from '../Animate';
 import SectionHeader from '../SectionHeader';
 import Link from 'next/link';
+import { BRAND_LOGOS } from '@/src/lib/brandLogos';
 
 /* ── Brand partner logos ── */
 const brandPartners = [
-  { name: 'Brother',       logo: '/logos/brother-logo.png'       },
-  { name: 'Czur',          logo: '/logos/czur-logo.webp'          },
-  { name: 'Colortrac',     logo: '/logos/colortrac-logo.png'     },
-  { name: 'Canon',         logo: '/logos/canon-logo.png'         },
-  { name: 'Kodak Alaris',  logo: '/logos/kodak-alaris-logo.png'  },
-  { name: 'Contex',        logo: '/logos/contex-logo.png'        },
+  { name: 'Brother',       logo: BRAND_LOGOS.brother       },
+  { name: 'Czur',          logo: BRAND_LOGOS.czur          },
+  { name: 'Colortrac',     logo: BRAND_LOGOS.colortrac     },
+  { name: 'Canon',         logo: BRAND_LOGOS.canon         },
+  { name: 'Kodak Alaris',  logo: BRAND_LOGOS.kodakAlaris  },
+  { name: 'Contex',        logo: BRAND_LOGOS.contex        },
 ];
 
 /* ── Scanner tab data ── */

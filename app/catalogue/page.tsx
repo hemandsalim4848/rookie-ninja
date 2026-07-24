@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import { useEffect, useState, useRef } from 'react'
 import { cld } from '@/src/lib/cloudinaryUrl'
+import { BRAND_LOGOS } from '@/src/lib/brandLogos'
 
 const categories = [
   { label: 'All Products', icon: '🗂️', value: '' },
@@ -16,30 +17,30 @@ const categories = [
 ]
 
 const brands = [
-  { name: 'Kodak Alaris', slug: 'kodak-alaris', logo: '/logos/Kodak-alaris-logo.png' },
-  { name: 'Canon', slug: 'canon', logo: '/logos/canon-logo.png'},
-    { name: 'Brother', slug: 'brother', logo: '/logos/brother-logo.png'},
-  { name: 'Czur', slug: 'czur', logo: '/logos/czur-logo.webp' },
-  { name: 'Colortrac', slug: 'colortrac', logo: '/logos/colortrac-logo.png' },
-    { name: 'Viewsonic', slug: 'viewsonic', logo: '/logos/viewsonic-logo.webp' },
-    
-  { name: 'Dicota', slug: 'dicota', logo: '/logos/dicota-logo.webp'},
-  { name: 'UNV', slug: 'unv', logo: '/logos/unv-logo.svg'},
-    { name: 'Aerocool', slug: 'aerocool', logo: '/logos/aerocool-logo.svg'},
-      { name: 'MSI', slug: 'msi', logo: '/logos/msi-logo.png' },
-  { name: 'Silex', slug: 'silex', logo: '/logos/silex-logo.png'},
-{ name: 'Ezofis', slug: 'ezofis', logo: '/logos/ezofis-logo.png'},
+  { name: 'Kodak Alaris', slug: 'kodak-alaris', logo: BRAND_LOGOS.kodakAlaris },
+  { name: 'Canon', slug: 'canon', logo: BRAND_LOGOS.canon},
+    { name: 'Brother', slug: 'brother', logo: BRAND_LOGOS.brother},
+  { name: 'Czur', slug: 'czur', logo: BRAND_LOGOS.czur },
+  { name: 'Colortrac', slug: 'colortrac', logo: BRAND_LOGOS.colortrac },
+    { name: 'Viewsonic', slug: 'viewsonic', logo: BRAND_LOGOS.viewsonic },
 
-  { name: 'Aztech', slug: 'aztech', logo: '/logos/aztech-logo.png'},
-  { name: 'Deli', slug: 'deli', logo: '/logos/deli-logo.png'},
-  { name: 'Contex', slug: 'contex', logo: '/logos/contex-logo.png' },
-  { name: 'Dahua', slug: 'dahua', logo: '/logos/dahua-logo.png' },
-      { name: 'Ricoh', slug: 'ricoh', logo: '/logos/ricoh-logo.svg' },
-  { name: 'Fujitsu', slug: 'fujitsu', logo: '/logos/fujitsu-logo.svg'},
+  { name: 'Dicota', slug: 'dicota', logo: BRAND_LOGOS.dicota},
+  { name: 'UNV', slug: 'unv', logo: BRAND_LOGOS.unv},
+    { name: 'Aerocool', slug: 'aerocool', logo: BRAND_LOGOS.aerocool},
+      { name: 'MSI', slug: 'msi', logo: BRAND_LOGOS.msi },
+  { name: 'Silex', slug: 'silex', logo: BRAND_LOGOS.silex},
+{ name: 'Ezofis', slug: 'ezofis', logo: BRAND_LOGOS.ezofis},
+
+  { name: 'Aztech', slug: 'aztech', logo: BRAND_LOGOS.aztech},
+  { name: 'Deli', slug: 'deli', logo: BRAND_LOGOS.deli},
+  { name: 'Contex', slug: 'contex', logo: BRAND_LOGOS.contex },
+  { name: 'Dahua', slug: 'dahua', logo: BRAND_LOGOS.dahua },
+      { name: 'Ricoh', slug: 'ricoh', logo: BRAND_LOGOS.ricoh },
+  { name: 'Fujitsu', slug: 'fujitsu', logo: BRAND_LOGOS.fujitsu},
 
 
-  { name: 'IRIS', slug: 'iris', logo: '/logos/iris-logo.svg'},
-  
+  { name: 'IRIS', slug: 'iris', logo: BRAND_LOGOS.iris},
+
 ]
 export default function CataloguePage() {
   const [query, setQuery] = useState('')

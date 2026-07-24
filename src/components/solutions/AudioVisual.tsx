@@ -4,13 +4,14 @@ import { useState } from 'react';
 import Animate from '../Animate';
 import SectionHeader from '../SectionHeader';
 import Link from 'next/link';
+import { BRAND_LOGOS } from '@/src/lib/brandLogos';
 
 /* ── Brand partner logos ── */
 const brandPartners = [
-  { name: 'ViewSonic', logo: '/logos/viewsonic-logo.webp' },
-  { name: 'UNV',       logo: '/logos/unv-logo.svg'       },
-  { name: 'Dahua',     logo: '/logos/dahua-logo.png'     },
-  { name: 'Aztech',    logo: '/logos/aztech-logo.png'    },
+  { name: 'ViewSonic', logo: BRAND_LOGOS.viewsonic },
+  { name: 'UNV',       logo: BRAND_LOGOS.unv       },
+  { name: 'Dahua',     logo: BRAND_LOGOS.dahua     },
+  { name: 'Aztech',    logo: BRAND_LOGOS.aztech    },
 ];
 
 /* ── AV tab data ── */

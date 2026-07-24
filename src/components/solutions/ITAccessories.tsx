@@ -4,10 +4,11 @@ import { useState } from 'react';
 import Animate from '../Animate';
 import SectionHeader from '../SectionHeader';
 import Link from 'next/link';
+import { BRAND_LOGOS } from '@/src/lib/brandLogos';
 
 /* ── Brand partner logos ── */
 const brandPartners = [
-  { name: 'Aztech', logo: '/logos/aztech-logo.png' },
+  { name: 'Aztech', logo: BRAND_LOGOS.aztech },
 ];
 
 /* ── IT Accessories tab data ── */

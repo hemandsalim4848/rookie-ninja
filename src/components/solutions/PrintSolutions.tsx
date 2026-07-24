@@ -4,12 +4,13 @@ import { useState } from 'react';
 import Animate from '../Animate';
 import SectionHeader from '../SectionHeader';
 import Link from 'next/link';
+import { BRAND_LOGOS } from '@/src/lib/brandLogos';
 
 /* ── Brand partner logos ── */
 const brandPartners = [
-  { name: 'Fujitsu', logo: '/logos/fujitsu-logo.svg' },
-  { name: 'Brother', logo: '/logos/brother-logo.png' },
-  { name: 'Deli',    logo: '/logos/deli-logo.png'    },
+  { name: 'Fujitsu', logo: BRAND_LOGOS.fujitsu },
+  { name: 'Brother', logo: BRAND_LOGOS.brother },
+  { name: 'Deli',    logo: BRAND_LOGOS.deli    },
 ];
 
 /* ── Printer tab data ── */

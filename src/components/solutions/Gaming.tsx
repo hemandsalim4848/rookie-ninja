@@ -4,13 +4,14 @@ import { useState } from 'react';
 import Animate from '../Animate';
 import SectionHeader from '../SectionHeader';
 import Link from 'next/link';
+import { BRAND_LOGOS } from '@/src/lib/brandLogos';
 
 /* ── Brand partner logos ── */
 const brandPartners = [
-  { name: 'ViewSonic', logo: '/logos/viewsonic-logo.webp' },
-  { name: 'Aerocool',  logo: '/logos/aerocool-logo.png'  },
-  { name: 'MSI',       logo: '/logos/msi-logo.png'       },
-  { name: 'Aztech',    logo: '/logos/aztech-logo.png'    },
+  { name: 'ViewSonic', logo: BRAND_LOGOS.viewsonic },
+  { name: 'Aerocool',  logo: BRAND_LOGOS.aerocool  },
+  { name: 'MSI',       logo: BRAND_LOGOS.msi       },
+  { name: 'Aztech',    logo: BRAND_LOGOS.aztech    },
 ];
 
 /* ── Gaming tab data ── */

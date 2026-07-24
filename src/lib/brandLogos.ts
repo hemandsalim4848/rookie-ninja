@@ -1,0 +1,25 @@
+const base = 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto'
+
+export const BRAND_LOGOS: Record<string, string> = {
+  kodakAlaris: `${base}/v1784910948/Kodak-alaris-logo_hed8ti.webp`,
+  canon:       `${base}/v1784910951/canon-logo_lg34dc.webp`,
+  brother:     `${base}/v1784910951/brother-logo_tookta.webp`,
+  czur:        `${base}/v1784910631/czur-logo_gyyvqs.webp`,
+  colortrac:   `${base}/v1784910950/colortrac-logo_he8p7v.webp`,
+  viewsonic:   `${base}/v1784910839/viewsonic-logo_lxcdc3.webp`,
+  dicota:      `${base}/v1784910669/dicota-logo_djbl1d.webp`,
+  unv:         `${base}/v1784910775/unv-logo_ekuykq.svg`,
+  aerocool:    `${base}/v1784910441/aerocool-logo_ffpwen.svg`,
+  msi:         `${base}/v1784910947/msi-logo_wtmcca.webp`,
+  silex:       `${base}/v1784910946/silex-logo_wwdzyl.webp`,
+  ezofis:      `${base}/v1784910948/ezofis-logo_fjpbrd.webp`,
+  aztech:      `${base}/v1784910491/aztech-logo_bkuqdq.webp`,
+  deli:        `${base}/v1784910949/deli-logo_z6ybah.webp`,
+  contex:      `${base}/v1784910950/contex-logo_bfonw0.webp`,
+  dahua:       `${base}/v1784910949/dahua-logo_yi12pq.webp`,
+  ricoh:       `${base}/v1784910774/ricoh-logo_s7d02p.svg`,
+  fujitsu:     `${base}/v1784910734/fujitsu-logo_ypirpj.svg`,
+  iris:        `${base}/v1784910734/iris-logo_fbpz7j.svg`,
+  belkin:      `${base}/v1784910543/belkin_logo_dtfxg7.svg`,
+  rowe:        `${base}/v1784910947/rowe-logo_arrdvd.webp`,
+} as const

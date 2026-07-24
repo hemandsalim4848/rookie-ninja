@@ -3,12 +3,13 @@
 import { useState } from 'react';
 import Animate from '../Animate';
 import SectionHeader from '../SectionHeader';
+import { BRAND_LOGOS } from '@/src/lib/brandLogos';
 
 /* ── Brand partner logos ── */
 const brandPartners = [
-  { name: 'Ezofis',       logo: '/logos/ezofis-logo.png' },
-  { name: 'Kodak Alaris',  logo: '/logos/Kodak-alaris-logo.png' },
-  { name: 'IRIS',          logo: '/logos/iris-logo.svg' },
+  { name: 'Ezofis',       logo: BRAND_LOGOS.ezofis },
+  { name: 'Kodak Alaris',  logo: BRAND_LOGOS.kodakAlaris },
+  { name: 'IRIS',          logo: BRAND_LOGOS.iris },
 ];
 
 /* ── Software tab data ── */

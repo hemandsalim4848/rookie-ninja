@@ -3,28 +3,29 @@
 import { useState } from 'react';
 import Animate from '../Animate';
 import SectionHeader from '../SectionHeader';
+import { BRAND_LOGOS } from '@/src/lib/brandLogos';
 
 /* ── Brands we service ── */
 const brands = [
-  { name: 'Kodak Alaris', logo: '/logos/Kodak-alaris-logo.png' },
-  { name: 'Canon', logo: '/logos/canon-logo.png' },
-  { name: 'Brother', logo: '/logos/brother-logo.png' },
-  { name: 'Czur', logo: '/logos/czur-logo.webp' },
-  { name: 'Colortrac', logo: '/logos/colortrac-logo.png' },
-  { name: 'Viewsonic', logo: '/logos/viewsonic-logo.webp' },
-  { name: 'Dicota', logo: '/logos/dicota-logo.webp' },
-  { name: 'UNV', logo: '/logos/unv-logo.svg' },
-  { name: 'Aerocool', logo: '/logos/aerocool-logo.svg' },
-  { name: 'MSI', logo: '/logos/msi-logo.png' },
-  { name: 'Silex', logo: '/logos/silex-logo.png' },
-  { name: 'Ezofis', logo: '/logos/ezofis-logo.png' },
-  { name: 'Aztech', logo: '/logos/aztech-logo.png' },
-  { name: 'Deli', logo: '/logos/deli-logo.png' },
-  { name: 'Contex', logo: '/logos/contex-logo.png' },
-  { name: 'Dahua', logo: '/logos/dahua-logo.png' },
-  { name: 'Ricoh', logo: '/logos/ricoh-logo.svg' },
-  { name: 'Fujitsu', logo: '/logos/fujitsu-logo.svg' },
-  { name: 'IRIS', logo: '/logos/iris-logo.svg' },
+  { name: 'Kodak Alaris', logo: BRAND_LOGOS.kodakAlaris },
+  { name: 'Canon', logo: BRAND_LOGOS.canon },
+  { name: 'Brother', logo: BRAND_LOGOS.brother },
+  { name: 'Czur', logo: BRAND_LOGOS.czur },
+  { name: 'Colortrac', logo: BRAND_LOGOS.colortrac },
+  { name: 'Viewsonic', logo: BRAND_LOGOS.viewsonic },
+  { name: 'Dicota', logo: BRAND_LOGOS.dicota },
+  { name: 'UNV', logo: BRAND_LOGOS.unv },
+  { name: 'Aerocool', logo: BRAND_LOGOS.aerocool },
+  { name: 'MSI', logo: BRAND_LOGOS.msi },
+  { name: 'Silex', logo: BRAND_LOGOS.silex },
+  { name: 'Ezofis', logo: BRAND_LOGOS.ezofis },
+  { name: 'Aztech', logo: BRAND_LOGOS.aztech },
+  { name: 'Deli', logo: BRAND_LOGOS.deli },
+  { name: 'Contex', logo: BRAND_LOGOS.contex },
+  { name: 'Dahua', logo: BRAND_LOGOS.dahua },
+  { name: 'Ricoh', logo: BRAND_LOGOS.ricoh },
+  { name: 'Fujitsu', logo: BRAND_LOGOS.fujitsu },
+  { name: 'IRIS', logo: BRAND_LOGOS.iris },
 ];
 
 const brandOptions = [...brands.map(b => b.name), 'Other'];
