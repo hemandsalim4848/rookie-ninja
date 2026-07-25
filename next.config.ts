@@ -4,12 +4,12 @@ const isDev = process.env.NODE_ENV !== 'production'
 
 const csp = [
   "default-src 'self'",
-  `script-src 'self' 'unsafe-inline'${isDev ? " 'unsafe-eval'" : ''}`,
+  `script-src 'self' 'unsafe-inline' https://www.googletagmanager.com${isDev ? " 'unsafe-eval'" : ''}`,
   "style-src 'self' 'unsafe-inline'",
-  "img-src 'self' data: https://res.cloudinary.com",
+  "img-src 'self' data: https://res.cloudinary.com https://www.googletagmanager.com https://www.google-analytics.com",
   "font-src 'self' data:",
   "frame-src https://www.google.com https://maps.google.com https://www.youtube.com",
-  "connect-src 'self'",
+  "connect-src 'self' https://www.googletagmanager.com https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com",
   "object-src 'none'",
   "base-uri 'self'",
   "form-action 'self'",
