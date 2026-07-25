@@ -8,7 +8,7 @@ const solutions = [
     id: 1,
     title: 'Print Solutions',
     description: 'Desktop to wide-format printing for every business scale.',
-    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1783791924/Print_hnavwu.webp',
+    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1784965509/Print_hnavwu_q5dcka.webp',
     href: '/print-solutions',
     icon: (<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>),
   },
