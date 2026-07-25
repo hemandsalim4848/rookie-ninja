@@ -201,8 +201,8 @@ export default function MissionVisionContent() {
                    }} />
 
               <div className="relative z-10 flex flex-col lg:flex-row
-                              items-center justify-center gap-8 lg:gap-20 p-12">
-                <div className="lg:ml-12">
+                              items-center justify-between gap-8 p-12">
+                <div>
                   <p className="font-body text-[11px] font-medium tracking-[0.18em]
                                 uppercase text-accent mb-3">
                     Join Our Journey
