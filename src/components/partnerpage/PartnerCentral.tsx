@@ -83,9 +83,11 @@ export default function PartnersPage() {
   const tab = partnerTabs[activeTab];
 
   const [form, setForm] = useState({
-    name: '', company: '', email: '', phone: '', geos: [] as string[],
+    name: '', company: '', email: '', phone: '', geos: [] as string[], website: '',
   });
   const [submitted, setSubmitted] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState('');
 
   const toggleGeo = (g: string) =>
     setForm(f => ({
@@ -93,9 +95,24 @@ export default function PartnersPage() {
       geos: f.geos.includes(g) ? f.geos.filter(x => x !== g) : [...f.geos, g],
     }));
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    setSending(true);
+    setError('');
+    try {
+      const res = await fetch('/api/partner-registration', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      });
+      if (!res.ok) throw new Error();
+      setSubmitted(true);
+      setForm({ name: '', company: '', email: '', phone: '', geos: [], website: '' });
+    } catch {
+      setError('Something went wrong. Please try again.');
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
@@ -452,6 +469,15 @@ export default function PartnersPage() {
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+                <input
+                  type="text"
+                  value={form.website}
+                  onChange={e => setForm(f => ({ ...f, website: e.target.value }))}
+                  tabIndex={-1}
+                  autoComplete="off"
+                  aria-hidden="true"
+                  className="absolute -left-[9999px] w-px h-px opacity-0"
+                />
 
                 {/* Name */}
                 <FormField
@@ -521,13 +547,17 @@ export default function PartnersPage() {
                   </div>
                 </div>
 
+                {error && <p className="font-body text-[12px] text-red-500 text-center">{error}</p>}
+
                 <button
                   type="submit"
+                  disabled={sending}
                   className="font-body text-[14px] font-medium text-white
                              bg-accent py-3.5 rounded-xl transition-all duration-200
                              hover:opacity-85 hover:-translate-y-px mt-2
-                             shadow-[0_4px_20px_rgba(21,167,220,0.3)]">
-                  Register as Partner →
+                             shadow-[0_4px_20px_rgba(21,167,220,0.3)]
+                             disabled:opacity-60 disabled:cursor-not-allowed">
+                  {sending ? 'Submitting...' : 'Register as Partner →'}
                 </button>
 
                 <p className="font-body text-[11px] text-gray-400 text-center">
