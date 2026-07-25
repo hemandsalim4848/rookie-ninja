@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { cache } from 'react'
 import { notFound } from 'next/navigation'
 import { connectDB } from '@/src/lib/mongodb'
 import { Product } from '@/src/lib/models/Products'
@@ -11,8 +12,30 @@ const SITE_URL = 'https://rookie-ninja.com'
 export const revalidate = 300
 
 export async function generateStaticParams() {
-  return []
+  await connectDB()
+  const products = await Product.find({}, 'slug').lean()
+  return products.map((p: any) => ({ product: p.slug }))
 }
+
+// Deduped via React's cache() — generateMetadata and the page component
+// both call this with the same slug, so this runs as one DB round-trip
+// per request instead of two.
+const getProduct = cache(async (slug: string) => {
+  await connectDB()
+  const results = await Product.aggregate([
+    { $match: { slug } },
+    {
+      $lookup: {
+        from: 'brands',
+        localField: 'brandSlug',
+        foreignField: 'slug',
+        as: 'brand',
+      },
+    },
+    { $unwind: { path: '$brand', preserveNullAndEmptyArrays: true } },
+  ])
+  return results[0] ?? null
+})
 
 function stripLabel(line: string): string {
   return line.replace(/^[A-Z][A-Z0-9 /]*:\s*/, '').trim()
@@ -68,8 +91,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { product: productSlug } = await params
 
-  await connectDB()
-  const product = await Product.findOne({ slug: productSlug }).lean() as any
+  const product = await getProduct(productSlug)
   if (!product) return {}
 
   return {
@@ -85,21 +107,7 @@ export default async function ProductPage({
 }) {
   const { product: productSlug } = await params
 
-  await connectDB()
-  const results = await Product.aggregate([
-    { $match: { slug: productSlug } },
-    {
-      $lookup: {
-        from: 'brands',
-        localField: 'brandSlug',
-        foreignField: 'slug',
-        as: 'brand',
-      },
-    },
-    { $unwind: { path: '$brand', preserveNullAndEmptyArrays: true } },
-  ])
-  const product = results[0]
-
+  const product = await getProduct(productSlug)
   if (!product) notFound()
 
   const { brand, ...productFields } = product
