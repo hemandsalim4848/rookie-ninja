@@ -9,6 +9,8 @@ export const metadata = {
   description: 'Browse our full range of IT hardware and software from authorised distributor brands across the Middle East & Africa.',
 }
 
+export const revalidate = 300
+
 export default async function ProductsPage() {
   await connectDB()
   const [products, brands] = await Promise.all([

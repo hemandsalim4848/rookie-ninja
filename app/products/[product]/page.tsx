@@ -8,6 +8,8 @@ import CleanupStreamingArtifact from './CleanupStreamingArtifact'
 const DESCRIPTION_LIMIT = 155
 const SITE_URL = 'https://rookie-ninja.com'
 
+export const revalidate = 300
+
 function stripLabel(line: string): string {
   return line.replace(/^[A-Z][A-Z0-9 /]*:\s*/, '').trim()
 }
