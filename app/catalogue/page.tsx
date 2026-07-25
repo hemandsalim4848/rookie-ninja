@@ -52,7 +52,7 @@ export default function CataloguePage() {
   const searchWrapRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    fetch('/api/products')
+    fetch('/api/products/search')
       .then(r => r.json())
       .then(data => setAllProducts(Array.isArray(data) ? data : []))
       .catch(() => {})

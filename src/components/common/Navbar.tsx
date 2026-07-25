@@ -21,7 +21,7 @@ export default function Navbar() {
   const searchInputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
-    fetch('/api/products')
+    fetch('/api/products/search')
       .then(r => r.json())
       .then(d => setAllProducts(Array.isArray(d) ? d : []))
       .catch(() => {});
