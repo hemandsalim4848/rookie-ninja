@@ -10,6 +10,10 @@ const SITE_URL = 'https://rookie-ninja.com'
 
 export const revalidate = 300
 
+export async function generateStaticParams() {
+  return []
+}
+
 function stripLabel(line: string): string {
   return line.replace(/^[A-Z][A-Z0-9 /]*:\s*/, '').trim()
 }
