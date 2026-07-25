@@ -171,9 +171,9 @@ export default function ConsumerElectronicsPage() {
 
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-5 mt-12">
             {featuredProducts.map((product, i) => (
-              <Animate key={product.id} type="fade-up" delay={i * 70}>
+              <Animate key={product.id} type="fade-up" delay={i * 70} className="h-full">
                 <div
-                  className="group flex flex-col rounded-2xl bg-white border
+                  className="group flex flex-col h-full rounded-2xl bg-white border
                              overflow-hidden transition-all duration-300
                              hover:-translate-y-1
                              hover:shadow-[0_12px_40px_rgba(21,167,220,0.1)]"
