@@ -860,7 +860,7 @@ export default function ViewSonicAVPage() {
     setFormState('sending');
     try {
       const form = e.currentTarget;
-      const res  = await fetch('https://formspree.io/f/xdajrzpv', {
+      const res  = await fetch('/api/vendor-quote', {
         method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' },
       });
       if (res.ok) { setFormState('success'); form.reset(); }
@@ -1460,6 +1460,8 @@ export default function ViewSonicAVPage() {
               </div>
             ) : (
               <form onSubmit={handleFormSubmit} style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
+                <input type="hidden" name="vendor" value="ViewSonic AV" />
+                <input type="text" name="website" tabIndex={-1} autoComplete="off" aria-hidden="true" style={{ position: 'absolute', left: '-9999px', width: 1, height: 1, opacity: 0 }} />
                 {(['text:name:Full Name', 'email:email:Business Email'] as const).map(raw => {
                   const [type, name, placeholder] = raw.split(':');
                   return (

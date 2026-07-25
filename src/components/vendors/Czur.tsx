@@ -328,7 +328,7 @@ export default function CzurPage() {
     e.preventDefault(); setFormState('sending');
     try {
       const form = e.currentTarget;
-      const res  = await fetch('https://formspree.io/f/xdajrzpv', { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' } });
+      const res  = await fetch('/api/vendor-quote', { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' } });
       if (res.ok) { setFormState('success'); form.reset(); } else setFormState('error');
     } catch { setFormState('error'); }
   };
@@ -487,6 +487,8 @@ export default function CzurPage() {
               </div>
             ) : (
               <form onSubmit={handleFormSubmit} style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
+                <input type="hidden" name="vendor" value="CZUR" />
+                <input type="text" name="website" tabIndex={-1} autoComplete="off" aria-hidden="true" style={{ position: 'absolute', left: '-9999px', width: 1, height: 1, opacity: 0 }} />
                 {['text:name:Full Name', 'email:email:Business Email'].map(raw => {
                   const [type, name, placeholder] = raw.split(':');
                   return <input key={name} type={type} name={name} placeholder={placeholder} required style={{ width: '100%', padding: '12px 14px', borderRadius: 6, border: 'none', background: 'rgba(255,255,255,0.12)', color: '#fff', fontSize: 14, outline: 'none', fontFamily: 'var(--font-poppins)' }} />;

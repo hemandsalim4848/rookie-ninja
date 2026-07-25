@@ -9,7 +9,7 @@ const ACCENT_TEXT = '#3dbfb3';
 
 // ── isolated form ─────────────────────────────────────────────────────────────
 function IrisForm() {
-  const [form, setForm]     = useState({ name: '', email: '', licence: '' });
+  const [form, setForm]     = useState({ name: '', email: '', licence: '', website: '' });
   const [status, setStatus] = useState<'idle' | 'sending' | 'done' | 'error'>('idle');
 
   const handle = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) =>
@@ -19,10 +19,10 @@ function IrisForm() {
     e.preventDefault();
     setStatus('sending');
     try {
-      const r = await fetch('https://formspree.io/f/xdajrzpv', {
+      const r = await fetch('/api/vendor-quote', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify(form),
+        body: JSON.stringify({ ...form, vendor: 'IRIS' }),
       });
       setStatus(r.ok ? 'done' : 'error');
     } catch {
@@ -44,6 +44,7 @@ function IrisForm() {
 
   return (
     <form onSubmit={submit} style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
+      <input type="text" name="website" value={form.website} onChange={handle} tabIndex={-1} autoComplete="off" aria-hidden="true" style={{ position: 'absolute', left: '-9999px', width: 1, height: 1, opacity: 0 }} />
       <input style={inp} name="name" placeholder="Full Name" required
         value={form.name} onChange={handle} />
       <input style={inp} type="email" name="email" placeholder="Business Email" required

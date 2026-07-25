@@ -665,7 +665,7 @@ function BrotherForm({ highlight, accentDark }: { highlight: string; accentDark:
     e.preventDefault();
     setStatus('sending');
     try {
-      const res = await fetch('https://formspree.io/f/xdajrzpv', { method: 'POST', headers: { Accept: 'application/json' }, body: new FormData(e.currentTarget) });
+      const res = await fetch('/api/vendor-quote', { method: 'POST', headers: { Accept: 'application/json' }, body: new FormData(e.currentTarget) });
       setStatus(res.ok ? 'done' : 'error');
     } catch { setStatus('error'); }
   }
@@ -674,6 +674,8 @@ function BrotherForm({ highlight, accentDark }: { highlight: string; accentDark:
 
   return (
     <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
+      <input type="hidden" name="vendor" value="Brother" />
+      <input type="text" name="website" tabIndex={-1} autoComplete="off" aria-hidden="true" style={{ position: 'absolute', left: '-9999px', width: 1, height: 1, opacity: 0 }} />
       <input name="name" type="text" placeholder="Full Name" required style={{ width: '100%', padding: '12px 14px', borderRadius: 6, border: 'none', background: 'rgba(255,255,255,0.12)', color: '#fff', fontSize: 14, outline: 'none' }} />
       <input name="email" type="email" placeholder="Business Email" required style={{ width: '100%', padding: '12px 14px', borderRadius: 6, border: 'none', background: 'rgba(255,255,255,0.12)', color: '#fff', fontSize: 14, outline: 'none' }} />
       <select name="category" required style={{ width: '100%', padding: '12px 14px', borderRadius: 6, border: 'none', background: 'rgba(255,255,255,0.12)', color: '#e5e7eb', fontSize: 14, outline: 'none' }}>

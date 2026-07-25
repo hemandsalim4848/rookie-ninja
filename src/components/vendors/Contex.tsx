@@ -189,7 +189,7 @@ export default function ContexPage() {
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault(); setFormState('sending');
     try {
-      const res = await fetch('https://formspree.io/f/xdajrzpv', { method: 'POST', body: new FormData(e.currentTarget), headers: { Accept: 'application/json' } });
+      const res = await fetch('/api/vendor-quote', { method: 'POST', body: new FormData(e.currentTarget), headers: { Accept: 'application/json' } });
       if (res.ok) { setFormState('success'); (e.currentTarget as HTMLFormElement).reset(); }
       else setFormState('error');
     } catch { setFormState('error'); }
@@ -407,6 +407,8 @@ export default function ContexPage() {
               </div>
             ) : (
               <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
+                <input type="hidden" name="vendor" value="Contex" />
+                <input type="text" name="website" tabIndex={-1} autoComplete="off" aria-hidden="true" style={{ position: 'absolute', left: '-9999px', width: 1, height: 1, opacity: 0 }} />
                 {(['text:name:Full Name', 'email:email:Business Email'] as const).map(raw => {
                   const [type, name, placeholder] = raw.split(':');
                   return (
