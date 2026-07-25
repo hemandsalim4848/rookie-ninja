@@ -7,6 +7,7 @@ const csp = [
   `script-src 'self' 'unsafe-inline' https://www.googletagmanager.com${isDev ? " 'unsafe-eval'" : ''}`,
   "style-src 'self' 'unsafe-inline'",
   "img-src 'self' data: https://res.cloudinary.com https://www.googletagmanager.com https://www.google-analytics.com",
+  "media-src 'self' https://res.cloudinary.com",
   "font-src 'self' data:",
   "frame-src https://www.google.com https://maps.google.com https://www.youtube.com",
   "connect-src 'self' https://www.googletagmanager.com https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com",

@@ -20,7 +20,7 @@ function StillVideo() {
           playsInline
           className="h-full w-full object-cover"
         >
-          <source src="/videos/videoo.mp4" type="video/mp4" />
+          <source src="https://res.cloudinary.com/df52xzi3y/video/upload/f_auto,q_auto/v1784997411/videoo_zgro8t.mp4" type="video/mp4" />
         </video>
       </div>
     </section>
@@ -92,7 +92,7 @@ function FixedVideoExpand() {
             className="h-full w-full object-cover"
           >
             <source
-              src="/videos/videoo.mp4"
+              src="https://res.cloudinary.com/df52xzi3y/video/upload/f_auto,q_auto/v1784997411/videoo_zgro8t.mp4"
               type="video/mp4"
             />
           </video>
