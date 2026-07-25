@@ -8,7 +8,7 @@ const partnerTabs = [
   {
     id: 'portfolio',
     label: 'Unparalleled Product Portfolio',
-    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1783857793/photo-1519389950473-47ba0277781c_jnqvro.jpg',
+    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1783857792/photo-1552664730-d307ca884978_ecgfia.jpg',
     body: 'Gain access to an extensive and diverse range of cutting-edge IT products and solutions. We curate a portfolio that encompasses the latest technologies and industry-leading brands, ensuring you have access to the right tools to meet your business needs.',
     stat: { value: '50+', label: 'Global Vendors' },
   },
