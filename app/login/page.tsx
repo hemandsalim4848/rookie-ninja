@@ -22,7 +22,7 @@ export default function LoginPage() {
     })
 
     if (res?.error) {
-      setError('Invalid email or password')
+      setError(res.error.includes('Too many') ? res.error : 'Invalid email or password')
       setLoading(false)
     } else {
       router.push('/admin')
