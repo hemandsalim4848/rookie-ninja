@@ -10,10 +10,9 @@ const navItems = [
   { href: '/admin/categories', label: 'Categories', icon: '🗂️' },
   { href: '/admin/products/browse', label: 'Products', icon: '📦' },
   { href: '/admin/products', label: 'Add Product', icon: '➕' },
-  { href: '/admin/users', label: 'Users', icon: '👤' },
 ]
 
-export default function AdminSidebar({ role, user }: { role: string; user: any }) {
+export default function AdminSidebar({ user }: { user: any }) {
   const pathname = usePathname()
 
   return (
@@ -35,7 +34,6 @@ export default function AdminSidebar({ role, user }: { role: string; user: any }
       {/* Nav */}
       <nav className="flex-1 px-3 py-6 space-y-1">
         {navItems.map(item => {
-          if (item.href === '/admin/users' && role !== 'admin') return null
           const isActive = item.href === '/admin/products/browse'
             ? pathname.startsWith('/admin/products/browse')
             : item.href === '/admin/products'
