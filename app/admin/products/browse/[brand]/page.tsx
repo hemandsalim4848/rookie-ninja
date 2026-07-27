@@ -444,7 +444,6 @@ export default function BrandProductsPage() {
                   downloads={editForm.downloads}
                   onChange={downloads => setEditForm({ ...editForm, downloads })}
                   onCountChange={setEditDownloadCount}
-                  productName={editForm.name}
                 />
               </div>
 

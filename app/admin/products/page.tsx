@@ -136,7 +136,7 @@ export default function AddProductPage() {
 
           <div className="sm:col-span-2">
             <p className="text-xs font-medium text-gray-400 mb-2">Downloads <span className="text-gray-300">(PDF datasheets)</span></p>
-            <PdfUploader ref={pdfUploaderRef} downloads={downloads} onChange={setDownloads} onCountChange={setDownloadCount} productName={form.name} />
+            <PdfUploader ref={pdfUploaderRef} downloads={downloads} onChange={setDownloads} onCountChange={setDownloadCount} />
           </div>
 
           {downloadCount > 1 && (

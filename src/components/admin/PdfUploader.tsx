@@ -20,7 +20,6 @@ type Row =
 interface Props {
   downloads: Download[]
   onChange: (downloads: Download[]) => void
-  productName?: string
   /** Fires with the total row count (committed + still-uploading) so the
    * parent can react before files are actually saved. */
   onCountChange?: (count: number) => void
@@ -30,7 +29,7 @@ export interface PdfUploaderHandle {
   uploadPending: () => Promise<Download[]>
 }
 
-const PdfUploader = forwardRef<PdfUploaderHandle, Props>(({ downloads, onChange, productName, onCountChange }, ref) => {
+const PdfUploader = forwardRef<PdfUploaderHandle, Props>(({ downloads, onChange, onCountChange }, ref) => {
   const inputRef = useRef<HTMLInputElement>(null)
   const [pending, setPending] = useState<Pending[]>([])
   const [error, setError] = useState('')
@@ -79,8 +78,7 @@ const PdfUploader = forwardRef<PdfUploaderHandle, Props>(({ downloads, onChange,
   function addUrl() {
     const trimmed = urlInput.trim()
     if (!trimmed) return
-    const label = productName ? `Datasheet for ${productName}` : 'Product Datasheet'
-    onChange([...downloads, { label, url: trimmed }])
+    onChange([...downloads, { label: 'Product Datasheet', url: trimmed }])
     setUrlInput('')
     setShowUrlInput(false)
   }
@@ -88,8 +86,7 @@ const PdfUploader = forwardRef<PdfUploaderHandle, Props>(({ downloads, onChange,
   function addFile(file: File) {
     if (file.type !== 'application/pdf') { setError('Only PDF files are allowed.'); return }
     setError('')
-    const label = productName ? `Datasheet for ${productName}` : file.name.replace(/\.pdf$/i, '').replace(/_/g, ' ')
-    setPending(prev => [...prev, { file, label, previewName: file.name }])
+    setPending(prev => [...prev, { file, label: 'Product Datasheet', previewName: file.name }])
   }
 
   function removeRow(index: number) {
