@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server'
-import { put, del } from '@vercel/blob'
+import { PutObjectCommand, DeleteObjectCommand } from '@aws-sdk/client-s3'
+import { r2, R2_BUCKET, R2_PUBLIC_URL } from '@/src/lib/r2'
 import { requireAdmin } from '@/src/lib/requireAdmin'
 
 export async function POST(req: Request) {
@@ -17,12 +18,17 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: 'File too large (max 20MB)' }, { status: 400 })
   }
 
-  const blob = await put(`datasheets/${Date.now()}-${file.name}`, file, {
-    access: 'public',
-    contentType: 'application/pdf',
-  })
+  const key = `datasheets/${Date.now()}-${file.name}`
+  const buffer = Buffer.from(await file.arrayBuffer())
 
-  return NextResponse.json({ url: blob.url })
+  await r2.send(new PutObjectCommand({
+    Bucket: R2_BUCKET,
+    Key: key,
+    Body: buffer,
+    ContentType: 'application/pdf',
+  }))
+
+  return NextResponse.json({ url: `${R2_PUBLIC_URL}/${key}` })
 }
 
 export async function DELETE(req: Request) {
@@ -30,6 +36,9 @@ export async function DELETE(req: Request) {
   if (!session) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
   const { url } = await req.json()
   if (!url) return NextResponse.json({ error: 'No url' }, { status: 400 })
-  await del(url)
+
+  const key = url.replace(`${R2_PUBLIC_URL}/`, '')
+  await r2.send(new DeleteObjectCommand({ Bucket: R2_BUCKET, Key: key }))
+
   return NextResponse.json({ success: true })
 }
