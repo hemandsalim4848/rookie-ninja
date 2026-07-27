@@ -211,7 +211,7 @@ export default function ContactContent() {
                             shadow-[0_8px_40px_rgba(0,0,0,0.06)]">
               <iframe
                 title="Rookie Ninja Head Office"
-                src="https://maps.google.com/maps?q=Al+Nasr+Sports+Complex,+Oud+Metha,+Dubai,+UAE&t=&z=16&ie=UTF8&iwloc=&output=embed"
+                src="https://maps.google.com/maps?q=ROOKIE+NINJA+DISTRIBUTION+-+Head+Office,+Dubai,+UAE&t=&z=16&ie=UTF8&iwloc=&output=embed"
                 width="100%"
                 height="420"
                 style={{ border: 0, display: 'block' }}
