@@ -336,7 +336,7 @@ export default function MSIPage() {
           )}
 
           <div className="ms-reveal" style={{ textAlign: 'center', marginTop: 36 }}>
-            <Link href="/msi?category=Graphics+Cards"
+            <Link href="/products?brand=msi&category=Graphics+Cards"
                style={{ display: 'inline-flex', alignItems: 'center', gap: 8, fontSize: 14, fontWeight: 600, color: ms.accent, textDecoration: 'none', border: `1.5px solid ${ms.accent}`, padding: '10px 24px', borderRadius: 50, transition: 'background 0.2s, color 0.2s' }}
                onMouseEnter={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = ms.accent; el.style.color = '#fff'; }}
                onMouseLeave={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = 'transparent'; el.style.color = ms.accent; }}>
@@ -365,7 +365,7 @@ export default function MSIPage() {
           </div>
 
           <div style={{ background: 'rgba(255,255,255,0.06)', padding: 30, borderRadius: 14, border: '1px solid rgba(255,255,255,0.1)', backdropFilter: 'blur(8px)' }}>
-            <h3 style={{ fontSize: 20, fontWeight: 600, marginBottom: 20, color: '#fff' }}>Inquire for Distribution</h3>
+            <h3 style={{ fontSize: 20, fontWeight: 600, marginBottom: 20, color: '#fff' }}>Product Enquiry</h3>
             {formState === 'success' ? (
               <div style={{ textAlign: 'center', padding: '24px 0' }}>
                 <div style={{ fontSize: 32, marginBottom: 12 }}>✓</div>
@@ -439,7 +439,7 @@ export default function MSIPage() {
           )}
 
           <div className="ms-reveal" style={{ textAlign: 'center', marginTop: 32 }}>
-            <Link href="/msi?category=Motherboards"
+            <Link href="/products?brand=msi&category=Motherboards"
                style={{ display: 'inline-flex', alignItems: 'center', gap: 8, fontSize: 14, fontWeight: 600, color: ms.accent, textDecoration: 'none', border: `1.5px solid ${ms.accent}`, padding: '10px 24px', borderRadius: 50, transition: 'background 0.2s, color 0.2s' }}
                onMouseEnter={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = ms.accent; el.style.color = '#fff'; }}
                onMouseLeave={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = 'transparent'; el.style.color = ms.accent; }}>

@@ -496,7 +496,7 @@ export default function IrisPage() {
           </div>
 
           <div className="ir-reveal" style={{ background: 'rgba(255,255,255,0.06)', padding: isMobile ? 22 : 30, borderRadius: 14, border: '1px solid rgba(255,255,255,0.1)' }}>
-            <h3 style={{ fontSize: 20, fontWeight: 600, marginBottom: 20, color: '#fff' }}>Send an Inquiry</h3>
+            <h3 style={{ fontSize: 20, fontWeight: 600, marginBottom: 20, color: '#fff' }}>Product Enquiry</h3>
             <IrisForm />
           </div>
         </div>

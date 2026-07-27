@@ -605,7 +605,7 @@ export default function ColortracPage() {
           </div>
           {/* form */}
           <div className="ct-reveal ct-reveal-d1" style={{ background: 'rgba(255,255,255,0.06)', padding: isMobile ? 22 : 30, borderRadius: 14, border: '1px solid rgba(255,255,255,0.1)', backdropFilter: 'blur(8px)' }}>
-            <h3 style={{ fontSize: 20, fontWeight: 600, marginBottom: 20, color: '#fff' }}>Inquire for Distribution</h3>
+            <h3 style={{ fontSize: 20, fontWeight: 600, marginBottom: 20, color: '#fff' }}>Product Enquiry</h3>
             <IvoForm accentGold={c.gold} accentGreen={c.accent} />
           </div>
         </div>

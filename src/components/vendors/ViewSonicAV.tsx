@@ -132,6 +132,7 @@ const VS_IMAGES: Record<string, string> = {
   UMB202: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1784196037/rookie-ninja/vendors/viewsonic/vc-bars.png',
   'VB-CAM-201': 'https://res.cloudinary.com/df52xzi3y/image/upload/v1784196038/rookie-ninja/vendors/viewsonic/vc-cam201.png',
   'VB-CAM-001': 'https://res.cloudinary.com/df52xzi3y/image/upload/v1784199475/vb-cam-001_right_hires_1_upaqjo.png',
+  'MPC310-W31-TU': 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1785142072/GPG-24-MTR-MPC310-W31-TU-Product_Photo_RB01_pc_l_ngdtkg.webp',
   TWC101: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1784199598/26-ACC-TWC101-Product_Photo_F02_1_pc_l_ufrbsc.webp',
   cde: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1784196039/rookie-ninja/vendors/viewsonic/sig-cde.jpg',
   ep: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1784196041/rookie-ninja/vendors/viewsonic/sig-ep.png',
@@ -589,7 +590,7 @@ const vcTiles = [
     models: [
       { sku: 'TRS10', title: 'Touch Console', desc: 'Dedicated 10" touch controller running the Microsoft Teams Rooms native experience — table-top or wall.' },
       { sku: 'UMB202', title: '4K Video Bar System', desc: 'All-in-one 4K camera, speaker, and mic array engineered for Microsoft Teams Rooms.' },
-      { sku: 'VB-CAM-001', title: 'PTZ Conference Camera', desc: 'Pan-tilt-zoom camera for medium-to-large rooms — pairs with the MTR ecosystem.' },
+      { sku: 'MPC310-W31-TU', title: 'TeamJoin™ Computing Engine', desc: '12th Gen Intel Core™ Processor and TPM 2.0 with Pre-installed Microsoft Teams Rooms on the latest Windows 11 IoT Enterprise OS.' },
     ],
   },
   {
@@ -1451,7 +1452,7 @@ export default function ViewSonicAVPage() {
             </p>
           </div>
           <div style={{ background: 'rgba(255,255,255,0.06)', padding: 30, borderRadius: 14, border: '1px solid rgba(255,255,255,0.1)', backdropFilter: 'blur(8px)' }}>
-            <h3 style={{ fontSize: 20, fontWeight: 600, marginBottom: 20, color: '#fff' }}>Inquire for Distribution</h3>
+            <h3 style={{ fontSize: 20, fontWeight: 600, marginBottom: 20, color: '#fff' }}>Product Enquiry</h3>
             {formState === 'success' ? (
               <div style={{ textAlign: 'center', padding: '24px 0' }}>
                 <div style={{ fontSize: 32, marginBottom: 12 }}>✓</div>
