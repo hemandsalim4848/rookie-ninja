@@ -93,6 +93,19 @@ const networkData = {
       ],
     }],
   },
+  smartTouch: {
+    heading: 'KODAK Smart Touch Software',
+    desc: 'Turn routine, multi-step scan jobs into a single button press — built into most Kodak Alaris document scanners, with up to 20 customizable scan functions and seamless integration into the tools you already use.',
+    products: [{
+      image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1785441384/smart_touch_technology.png_syoxo4.webp',
+      title: 'Smart Touch Technology',
+      bullets: ['One-touch scan-to-email, folder, or cloud', 'Up to 20 customizable scan functions', 'Built-in OCR for searchable PDFs', 'Integrates with Office, SharePoint, Adobe Acrobat', 'Pre-configured and ready to use out of the box'],
+      intro: 'Turn routine, multi-step scan jobs into a single button press — built into most Kodak Alaris document scanners, with up to 20 customizable scan functions and seamless integration into the tools you already use.',
+      links: [
+        { label: 'KODAK Smart Touch Software', href: '/products/kodak-smart-touch-software' },
+      ],
+    }],
+  },
 };
 
 const productionScanners = [
@@ -238,7 +251,7 @@ export default function KodakAlarisPage() {
   const [isSticky, setIsSticky]           = useState(false);
   const [activeScanner, setActiveScanner] = useState(0);
   const [imgFade, setImgFade]             = useState(false);
-  const [netTab, setNetTab]               = useState<'shared' | 'standalone'>('shared');
+  const [netTab, setNetTab]               = useState<'shared' | 'standalone' | 'smartTouch'>('shared');
   const [prodActive, setProdActive]       = useState(0);
   const [flatTab, setFlatTab]             = useState(0);
   const [formState, setFormState]         = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
@@ -613,7 +626,7 @@ export default function KodakAlarisPage() {
         <div style={{ maxWidth: 1200, margin: '0 auto' }}>
 
           <div style={{ display: 'flex', flexWrap: 'wrap', borderBottom: '2px solid #eee', marginBottom: 40, gap: 10 }}>
-            {([['shared', 'Capture Pro Software'], ['standalone', 'Info Input Solution']] as const).map(([key, label]) => (
+            {([['shared', 'Capture Pro Software'], ['standalone', 'Info Input Solution'], ['smartTouch', 'Smart Touch Software']] as const).map(([key, label]) => (
               <button key={key} onClick={() => setNetTab(key)}
                       style={{
                         padding: '15px 22px', cursor: 'pointer',
