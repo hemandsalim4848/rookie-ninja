@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server'
 import { randomInt } from 'node:crypto'
-import { resend, FROM_EMAIL } from '@/src/lib/resend'
+import { resend, FROM_EMAIL, ENQUIRY_RECIPIENTS } from '@/src/lib/resend'
 
 function escapeHtml(value: unknown) {
   return String(value ?? '').replace(/[&<>"']/g, (c) => ({
@@ -75,7 +75,7 @@ export async function POST(req: Request) {
 
     await resend.emails.send({
       from: FROM_EMAIL,
-      to: process.env.ENQUIRY_EMAIL!,
+      to: ENQUIRY_RECIPIENTS,
       replyTo: email,
       subject: `[${ticketId}] Support Ticket — ${escapeHtml(brand)} (${escapeHtml(priority)})`,
       html: `
