@@ -104,7 +104,7 @@ const psuTabData = {
         image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1781989389/rookie-ninja/products/Lux-550W-Photo-Gallery-1042x589-01.webp',
         title: 'LUX 750W 230V APFC',
         intro: 'Aerocool LUX — an APFC-equipped 750W PSU with wide-voltage compatibility for the MEA market.',
-        bullets: ['Active PFC (APFC)', '750W continuous power', '230V input optimised', 'Universal protections suite', 'Quiet 120mm sleeve bearing fan'],
+        bullets: ['Active PFC (APFC)', '750W continuous power', '230V input optimized', 'Universal protections suite', 'Quiet 120mm sleeve bearing fan'],
       },
     ],
   },

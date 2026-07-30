@@ -230,7 +230,7 @@ export default function PartnersPage() {
               <p className="font-body text-gray-500 leading-[1.8]"
                  style={{ fontSize: '15px' }}>
                 At Rookie Ninja, we prioritize a partner-first approach. As a leading IT
-                distributor based in Dubai, you are at the heart of our strategy. We are
+                distributor based in Dubai, we put you at the heart of our strategy. We are
                 dedicated to your success and work closely with you as an extension of
                 your team. Together, we drive growth and accelerate business outcomes.
               </p>
@@ -437,7 +437,7 @@ export default function PartnersPage() {
               </h2>
               <p className="font-body text-gray-400"
                  style={{ fontSize: '14px' }}>
-                Fill the form below to register as a partner with Rookie Ninja.
+                Fill out the form below to register as a partner with Rookie Ninja.
               </p>
             </div>
           </Animate>

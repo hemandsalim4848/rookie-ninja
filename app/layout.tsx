@@ -12,7 +12,7 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "Rookie Ninja — Value Added Distribution",
+  title: "Rookie Ninja | Value Added Distribution",
   description: "Value Added Distribution across Middle East & Africa",
 };
 

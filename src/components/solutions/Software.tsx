@@ -219,7 +219,7 @@ export default function SoftwareSolutionsPage() {
             <SectionHeader
               label="Software Solutions"
               heading="Simplifying Your Digital Journey"
-              subheading="Rookie Ninja specializes in information management and information capture solutions. Our portfolio includes document management and solutions from multiple vendors that cater to your specific requirement, to help improve work performance and overall enhance efficiency."
+              subheading="Rookie Ninja specializes in information management and information capture solutions. Our portfolio includes document management solutions from multiple vendors that cater to your specific requirements, helping improve work performance and enhance overall efficiency."
               align="center"
             />
           </Animate>

@@ -158,7 +158,7 @@ const workgroupTabs = [
       {
         title: 'ScanFront 400',
         image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1782244926/imageformula-scanfront-400-open-frt_810x475_xvcnco.webp',
-        bullets: ['45ppm | 60 Sheet ADF', '10.1" colour touchscreen', 'Wired & Wi-Fi connectivity', 'Scan-to-email, FTP, cloud & USB', 'No PC required'],
+        bullets: ['45ppm | 60 Sheet ADF', '10.1" color touchscreen', 'Wired & Wi-Fi connectivity', 'Scan-to-email, FTP, cloud & USB', 'No PC required'],
         links: [{ label: 'ScanFront 400', href: '/products/canon-scanfront-400-document-scanner' }],
       },
       {
@@ -177,9 +177,9 @@ const productionItems = [
     label: 'Departmental Production — DR-6030C',
     tag: 'Departmental Production',
     title: 'DR-6030C',
-    desc: 'A high-speed colour production scanner built for demanding document capture with large daily volumes.',
+    desc: 'A high-speed color production scanner built for demanding document capture with large daily volumes.',
     features: [
-      '60ppm / 120ipm duplex colour scanning',
+      '60ppm / 120ipm duplex color scanning',
       '500 Sheet ADF capacity',
       'Handles documents from A8 to A3',
       'Ultrasonic double-feed detection',
@@ -195,7 +195,7 @@ const productionItems = [
     label: 'High Volume — DR-G2090 / DR-G2110 / DR-G2140',
     tag: 'High Volume Production',
     title: 'DR-G2090 / DR-G2110 / DR-G2140',
-    desc: "Canon's flagship production scanner series — engineered for the highest-volume digitisation with unmatched reliability and image quality.",
+    desc: "Canon's flagship production scanner series — engineered for the highest-volume digitization with unmatched reliability and image quality.",
     features: [
       'DR-G2090 — 90ppm | DR-G2110 — 110ppm | DR-G2140 — 140ppm',
       '500 Sheet ADF | Handles A3, A4, and mixed batches',

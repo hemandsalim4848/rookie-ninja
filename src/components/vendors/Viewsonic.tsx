@@ -127,7 +127,7 @@ const projectors = [
     models: ['LS510W', 'LS560W', 'LS831WU'],
     highlight: { label: 'Lamp Life', value: '30,000 hrs', desc: 'Zero lamp replacement — laser source with consistent brightness over its full lifetime.' },
     specs: [{ label: 'Brightness', value: '3,500 – 5,000 lm' }, { label: 'Resolution', value: 'WXGA · WUXGA' }, { label: 'Throw', value: 'Short / Ultra-short' }, { label: 'Source', value: 'Laser' }],
-    features: ['InstantOn™ — full brightness in under 5 seconds, zero warm-up.', 'SuperColor™ 6-segment colour wheel for vivid, accurate images.', 'Vertical and horizontal lens shift + digital zoom for flexible installation.'],
+    features: ['InstantOn™ — full brightness in under 5 seconds, zero warm-up.', 'SuperColor™ 6-segment color wheel for vivid, accurate images.', 'Vertical and horizontal lens shift + digital zoom for flexible installation.'],
   },
   {
     id: 'px', type: '4K · Home Cinema', name: 'PX / PA Series',

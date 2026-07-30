@@ -126,7 +126,7 @@ const ivoTabs = [
     ],
   },
   {
-    id: 'colour',
+    id: 'color',
     label: 'Colour Accuracy',
     heading: 'Colour Accuracy',
     intro: 'ICC Color Management powered by X-Rite® combined with closed loop calibration ensures your scanned output is accurately matched to your printer.',
@@ -137,7 +137,7 @@ const ivoTabs = [
       'Includes closed loop calibration (CLC)',
       'Pairs scanned input with your printer output',
       'Ideal for fine art reprographics and print inspection',
-      'Consistent, accurate colour reproduction',
+      'Consistent, accurate color reproduction',
     ],
   },
   {

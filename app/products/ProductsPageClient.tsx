@@ -116,7 +116,7 @@ export default function ProductsPageClient({
         />
         <div className="relative z-10 max-w-2xl mx-auto">
           <p className="text-white/30 text-xs tracking-widest uppercase mb-3">
-            Authorised Distributor · UAE & MEA
+            Authorized Distributor · UAE & MEA
           </p>
           <h1 className="text-5xl font-bold text-white leading-tight mb-4">
             All Products

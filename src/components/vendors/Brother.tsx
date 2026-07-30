@@ -115,7 +115,7 @@ const networkRows = [
     title: 'ADS-4700W',
     desc: 'Feature-rich wireless scanner with large touchscreen for departmental use.',
     image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1782247891/lg_1000p_224e8e5c-42ea-4ed8-a3b2-31d80405ab3e_b4mkqi.webp',
-    features: ['60ppm / 120ipm duplex', 'Wi-Fi, LAN & USB', '80 Sheet ADF', '4.3" colour touchscreen', 'Scan to SharePoint & cloud'],
+    features: ['60ppm / 120ipm duplex', 'Wi-Fi, LAN & USB', '80 Sheet ADF', '4.3" color touchscreen', 'Scan to SharePoint & cloud'],
     links: [{ label: 'ADS-4700W', href: '/products/brother-ads-4700w-professional-desktop-document-scanner' }],
     reverse: false,
   },
@@ -124,7 +124,7 @@ const networkRows = [
     title: 'ADS-4900W',
     desc: 'High-volume wireless & wired network scanner for demanding workgroups.',
     image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1782247887/lg_1000p_a31a4911-15fb-4cea-9107-5b63fcf2eb21-600x600_lcgozm.webp',
-    features: ['60ppm / 120ipm duplex', 'Wi-Fi, LAN & USB', '100 Sheet ADF', '4.3" colour touchscreen', 'Ultrasonic double-feed detection'],
+    features: ['60ppm / 120ipm duplex', 'Wi-Fi, LAN & USB', '100 Sheet ADF', '4.3" color touchscreen', 'Ultrasonic double-feed detection'],
     links: [{ label: 'ADS-4900W', href: '/products/brother-ads-4900w-professional-desktop-document-scanner' }],
     reverse: true,
   },
@@ -134,7 +134,7 @@ const printerTabs = [
   {
     label: 'Inkjet Printers',
     heading: 'Inkjet Printers',
-    intro: 'Brother inkjet printers offer vibrant colour output, wireless connectivity, and versatile media handling for home and small office use.',
+    intro: 'Brother inkjet printers offer vibrant color output, wireless connectivity, and versatile media handling for home and small office use.',
     image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1782247888/MFC_J3940DW_F-removebg-preview_tybl78.webp',
     cardTitle: 'Inkjet Printers',
     points: ['Wireless (Wi-Fi) & USB connectivity', 'Colour & mono printing, copying & scanning', 'Mobile printing via AirPrint & Mopria', 'Suitable for home & small office use', 'Low cost-per-page ink systems'],
@@ -145,10 +145,10 @@ const printerTabs = [
   {
     label: 'Colour Laser',
     heading: 'Colour Laser Printers',
-    intro: 'High-speed colour laser printers for professional-quality colour documents in demanding business environments.',
+    intro: 'High-speed color laser printers for professional-quality color documents in demanding business environments.',
     image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1782247889/MFC-L8730CDW_front_No_Reflection-removebg-preview_izv91j.webp',
     cardTitle: 'Colour Laser Printers',
-    points: ['Fast colour & mono output (up to 30ppm)', 'Wired LAN, Wi-Fi & USB connectivity', 'Automatic duplex printing', 'High-yield toner options', 'Compact footprint for office use'],
+    points: ['Fast color & mono output (up to 30ppm)', 'Wired LAN, Wi-Fi & USB connectivity', 'Automatic duplex printing', 'High-yield toner options', 'Compact footprint for office use'],
     links: [
       { label: 'DCP-L3510CDW', href: '/products/brother-dcp-l3510cdw' },
       { label: 'DCP-L3520CDW', href: '/products/brother-dcp-l3520cdw' },
@@ -212,7 +212,7 @@ const cartridgeItems = [
     title: 'Ink Cartridges',
     tag: 'Inkjet Consumables',
     heading: 'Ink Cartridges',
-    desc: 'Genuine Brother ink cartridges deliver vivid, long-lasting colour and sharp mono output for Brother inkjet printers.',
+    desc: 'Genuine Brother ink cartridges deliver vivid, long-lasting color and sharp mono output for Brother inkjet printers.',
     features: [
       'Genuine Brother formula for optimal print quality',
       'Available in standard and high-yield versions',
@@ -231,7 +231,7 @@ const cartridgeItems = [
     desc: 'Genuine Brother toner cartridges for laser printers — delivering sharp, consistent print quality across every page.',
     features: [
       'Standard and ultra-high yield variants available',
-      'Mono & colour toner for all laser ranges',
+      'Mono & color toner for all laser ranges',
       'Crisp text and image reproduction',
       'Consistent output up to last page',
       'Compatible with Brother laser & Toner Box printers',
@@ -251,13 +251,13 @@ const accessoryCards = [
   {
     tag: 'Colour Laser',
     title: 'Belt Unit',
-    desc: 'Replacement belt units for Brother colour laser printers — essential for accurate paper transport and print registration.',
+    desc: 'Replacement belt units for Brother color laser printers — essential for accurate paper transport and print registration.',
     image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1782247885/BU635CL_3QL-removebg-preview_fxrsfe.webp',
   },
   {
     tag: 'Maintenance',
     title: 'Waste Toner Box',
-    desc: 'Genuine waste toner collection boxes for Brother colour laser printers to maintain clean, reliable operation.',
+    desc: 'Genuine waste toner collection boxes for Brother color laser printers to maintain clean, reliable operation.',
     image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1782247886/WT229CL_3QL-removebg-preview_suwb15.webp',
   },
   {
@@ -529,7 +529,7 @@ export default function BrotherPage() {
             <div style={{ fontSize: 14, color: '#cbd5e1', lineHeight: 2 }}>
               <strong style={{ color: '#fff', fontSize: 13, letterSpacing: 0.5, textTransform: 'uppercase', display: 'block', marginBottom: 6 }}>Printer Ranges</strong>
               • Inkjet Printers — Colour printing for home &amp; office<br />
-              • Colour Laser Printers — High-speed colour laser output<br />
+              • Colour Laser Printers — High-speed color laser output<br />
               • Monochrome Laser Printers — Reliable, cost-efficient mono printing<br />
               • Toner Box Series — Ultra-high yield, low cost per page
             </div>

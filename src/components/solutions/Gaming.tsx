@@ -53,7 +53,7 @@ const gamingTabs = [
       'https://res.cloudinary.com/df52xzi3y/image/upload/v1783682109/aztech-aztech-gaming-mouse-infrared-micro-switch-laser-0-mouse-top-view.jpg',
     ],
     heading: 'Precision, Control & Comfort',
-    body: 'Gaming peripherals are the core components for elevating gamers\' experiences. Rookie Ninja offers premium gaming peripherals such as monitors, keyboards, mice, mousepads, headsets, CPU cases, and more to maximize control, precision, and responsiveness, and optimize performance. Designed for durability and comfort during long gaming sessions, ensuring a comfortable and immersive gaming experience. Level up your gameplay with Rookie Ninja.',
+    body: 'Gaming peripherals are the core components for elevating gamers\' experiences. Rookie Ninja offers premium gaming peripherals such as monitors, keyboards, mice, mousepads, headsets, CPU cases, and more to maximize control, precision, and responsiveness, and optimize performance. Every product is built for durability and comfort during long sessions, delivering an immersive experience from start to finish. Level up your gameplay with Rookie Ninja.',
     highlights: ['Keyboards, mice & headsets', 'Designed for durability', 'Optimized for performance'],
   },
   {
@@ -74,7 +74,7 @@ const gamingTabs = [
       'https://res.cloudinary.com/df52xzi3y/image/upload/v1781989335/rookie-ninja/products/Designer-V2-Product-Gallery-4.webp',
     ],
     heading: 'Build Your Perfect Setup',
-    body: 'CPU cabinets protect and organise your components, ensure proper airflow and cooling, and allow for easy expansion. Whether you\'re a gamer, a professional, or a casual user, a reliable CPU cabinet is essential for optimal performance and longevity. Upgrade your setup with the perfect CPU cabinet from Rookie Ninja.',
+    body: 'CPU cabinets protect and organize your components, ensure proper airflow and cooling, and allow for easy expansion. Whether you\'re a gamer, a professional, or a casual user, a reliable CPU cabinet is essential for optimal performance and longevity. Upgrade your setup with the perfect CPU cabinet from Rookie Ninja.',
     highlights: ['Proper airflow & cooling', 'Easy component access', 'Expandable & upgradeable'],
   },
   {

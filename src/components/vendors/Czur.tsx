@@ -89,7 +89,7 @@ const etTabs = {
   },
   ultraclear: {
     heading: 'ET24 Pro & ET25 Pro',
-    desc: 'Ultra-high-resolution professional scanners with 3-laser alignment, dual LED side lighting, and hands-free operation — for the most demanding document digitisation workflows.',
+    desc: 'Ultra-high-resolution professional scanners with 3-laser alignment, dual LED side lighting, and hands-free operation — for the most demanding document digitization workflows.',
     products: [
       {
         image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1781893215/rookie-ninja/products/et-24-pro.webp',
@@ -187,7 +187,7 @@ const compactScanners = [
     navTitle: 'M3000 Pro V3 — Professional Archive Scanner',
     tag: 'Professional Archive',
     heading: 'CZUR M3000 Pro V3',
-    desc: 'A professional-grade A3 overhead scanner with 48MP capture and tri-laser curve flattening — built for libraries, archives, and service centres.',
+    desc: 'A professional-grade A3 overhead scanner with 48MP capture and tri-laser curve flattening — built for libraries, archives, and service centers.',
     features: [
       '48MP HD CMOS | 470 DPI optical resolution',
       'Tri-laser curve flattening | A3 support',
@@ -469,7 +469,7 @@ export default function CzurPage() {
           <div className="cz-reveal">
             <h2 style={{ fontSize: 'clamp(22px, 3vw, 36px)', fontWeight: 700, marginBottom: 20, color: '#fff', lineHeight: 1.2 }}>ET Scanners</h2>
             <p style={{ fontSize: 15, color: '#cbd5e1', lineHeight: 1.7 }}>
-              The CZUR ET series delivers professional-grade overhead scanning for offices, libraries, educational institutions, and service centres — combining high-resolution capture, intelligent auto-correction, advanced OCR, and built-in HDMI presentation into a single, space-saving device.
+              The CZUR ET series delivers professional-grade overhead scanning for offices, libraries, educational institutions, and service centers — combining high-resolution capture, intelligent auto-correction, advanced OCR, and built-in HDMI presentation into a single, space-saving device.
             </p>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: 10, marginTop: 24 }}>
               {['ET Max', 'ET Ultra', 'ET24 Pro', 'ET25 Pro', 'ET18 Pro', 'ET16 Plus'].map(name => (

@@ -24,7 +24,7 @@ const vendors = [
 {
     name: 'Brother',
     logo: BRAND_LOGOS.brother,
-    description: 'Printers, labelling and document management solutions.',
+    description: 'Printers, labeling and document management solutions.',
     category: 'Print',
     website: '/our-vendors/brother',
 },

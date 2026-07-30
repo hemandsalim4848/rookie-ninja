@@ -110,11 +110,11 @@ const networkData = {
       title: 'Scan Station 730EX Plus',
       bullets: [
         '70ppm | 75 Sheet ADF',
-        'Large intuitive colour touchscreen',
+        'Large intuitive color touchscreen',
         'Supports LDAP and Active Directory',
         'No connected PC required',
       ],
-      intro: 'PC-free customisable scanning kiosk — powerful, secure, and ready to deploy.',
+      intro: 'PC-free customizable scanning kiosk — powerful, secure, and ready to deploy.',
       links: [
         { label: 'Scan Station 730EX Plus', href: '/products/kodak-scan-station-730ex-plus-scanner' },
         { label: 'Scan Station 710', href: '/products/kodak-scan-station-710-scanner' },
@@ -172,7 +172,7 @@ const productionScanners = [
     navTitle: 'High Capacity — S5000 Series',
     tag: 'High Capacity Production',
     heading: 'S5000 Series',
-    desc: 'High speed, high capacity scanners — FADGI 2023 compliant, built for large-scale document digitisation.',
+    desc: 'High speed, high capacity scanners — FADGI 2023 compliant, built for large-scale document digitization.',
     features: [
       'S5160 — 160ppm | S5180 — 180ppm | S5210 — 210ppm',
       '750 Sheet ADF | High speed, high capacity scanning',
@@ -497,7 +497,7 @@ export default function KodakAlarisPage() {
               Software Solutions
             </h2>
             <p style={{ fontSize: 15, color: '#64748b', lineHeight: 1.65, maxWidth: 560, margin: '0 auto' }}>
-              Intelligent document capture and automation software from Kodak Alaris — purpose-built to digitise, classify, and route information across every business workflow.
+              Intelligent document capture and automation software from Kodak Alaris — purpose-built to digitize, classify, and route information across every business workflow.
             </p>
           </div>
           <div className="ka-sw-grid ka-reveal ka-reveal-d1" style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 24 }}>

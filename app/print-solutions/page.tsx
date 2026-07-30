@@ -3,7 +3,7 @@ import Footer from '@/src/components/common/Footer';
 import PrintSolutionsPage from '@/src/components/solutions/PrintSolutions';
 
 export const metadata = {
-  title: 'Print Solutions — Rookie Ninja',
+  title: 'Print Solutions | Rookie Ninja',
   description: 'High-performance laser, inkjet, dot matrix, and multi-function printers for home, office, and industrial use.',
 };
 

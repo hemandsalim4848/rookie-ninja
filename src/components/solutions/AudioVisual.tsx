@@ -55,7 +55,7 @@ const avTabs = [
       'https://res.cloudinary.com/df52xzi3y/image/upload/v1781981773/rookie-ninja/products/lg_1000p_79a60fcc-62c7-4972-8263-12b5e98a9e16.webp',
     ],
     heading: 'Immersive Viewing for Every Need',
-    body: 'As monitors are the heart and soul of computers, enabling viewers to interact, aids in carrying out day-to-day operations and making informed decisions. Rookie Ninja offers an array of viewing solutions from mainstream and business monitors to gaming and professionals providing users with smooth, immersive experiences, that suits your need. Choosing the right monitor type is crucial for optimal performance and visual satisfaction in specific sectors.',
+    body: 'Monitors are central to any computing setup — shaping how people interact with their work and make informed decisions every day. Rookie Ninja offers a full range of viewing solutions, from mainstream and business monitors to gaming and professional displays, delivering the smooth, immersive experience that suits your needs. Choosing the right monitor type is crucial for optimal performance and visual satisfaction in specific sectors.',
     highlights: ['Business to professional grade', 'Gaming & mainstream options', 'Smooth immersive display'],
   },
   {
@@ -76,7 +76,7 @@ const avTabs = [
       'https://res.cloudinary.com/df52xzi3y/image/upload/v1781988810/rookie-ninja/products/Digital-signage-05.jpg',
     ],
     heading: 'Professional Displays for Demanding Environments',
-    body: 'Create engaging and meaningful client interactions with Rookie Ninja\'s commercial display solutions. Designed for demanding environments, delivering high durability and performance for professional applications like digital signage, control rooms, study spaces, and retail. Unlike consumer televisions, commercial displays provide higher brightness, robust design, and multi-source viewing orientation.',
+    body: 'Create engaging and meaningful client interactions with Rookie Ninja\'s commercial display solutions. Our commercial displays are designed for demanding environments, delivering high durability and performance for professional applications like digital signage, control rooms, study spaces, and retail. Unlike consumer televisions, they provide higher brightness, robust design, and multi-source viewing orientation.',
     highlights: ['Digital signage & retail ready', 'Higher brightness output', 'Robust multi-source design'],
   },
   {
@@ -118,7 +118,7 @@ const avTabs = [
       'https://res.cloudinary.com/df52xzi3y/image/upload/v1782317665/rookie-ninja/products/lg_1000p_9a2b748c-f75c-42b1-bcc4-35e2f22256c0.webp',
     ],
     heading: 'Remote Collaboration, Redefined',
-    body: 'Video conferencing solutions are crucial in today\'s era for remote collaboration, to enhance productivity, save cost, and improve communication quality. At Rookie Ninja, we stand out as a reliable and technologically advanced provider of video conferencing solutions, and premium video conferencing accessories, that offer customization, integration capabilities, and expert support guidance to ensure your needs are met.',
+    body: 'Video conferencing solutions are crucial in today\'s era for remote collaboration, helping enhance productivity, reduce costs, and improve communication quality. At Rookie Ninja, we stand out as a reliable and technologically advanced provider of video conferencing solutions and premium video conferencing accessories that offer customization, integration capabilities, and expert support guidance to ensure your needs are met.',
     highlights: ['Enhanced remote productivity', 'Custom integration support', 'Premium AV accessories'],
   },
 ];

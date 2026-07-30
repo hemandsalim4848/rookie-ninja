@@ -134,7 +134,7 @@ export default function ProductDetailClient({
                 <span className="text-xs text-gray-400 font-medium">{brand?.name}</span>
               )}
               <span className="w-1 h-1 rounded-full bg-gray-300" />
-              <span className="text-xs text-gray-400">Authorised Distributor · UAE</span>
+              <span className="text-xs text-gray-400">Authorized Distributor · UAE</span>
             </div>
 
             {/* Title */}

@@ -25,7 +25,7 @@ const heroSlides = [
     badge: 'Personal & Small Business',
     lines: ['Scan Less.', 'Do More.'],
     accentLine: 1,
-    desc: 'The Ricoh ScanSnap series turns paper chaos into searchable, organised digital files at the touch of a button — built for home offices and small teams.',
+    desc: 'The Ricoh ScanSnap series turns paper chaos into searchable, organized digital files at the touch of a button — built for home offices and small teams.',
     cta: { label: 'View ScanSnap Series', href: '#scansnap-series', solid: true },
     bg: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1783696920/PSAI_Hero_1000x800_vpfd5j.webp',
   },
@@ -97,7 +97,7 @@ const fi7000Data = {
       {
         image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1783695912/recoh-fi7300nx-edge.jpg',
         title: 'fi-7300NX EdgeXperience Bundle',
-        intro: 'Centralised document management from remote locations — a network scanner bundled with a secure hosted cloud environment.',
+        intro: 'Centralized document management from remote locations — a network scanner bundled with a secure hosted cloud environment.',
         bullets: [
           'Scans 60 pages per minute with 80-sheet ADF',
           'Hosted data via Microsoft Azure',
@@ -214,7 +214,7 @@ const fi8000Scanners = [
     navTitle: 'fi-8820 — High Volume ADF Production Scanner',
     tag: 'Production',
     heading: 'fi-8820',
-    desc: 'Maximise ROI with speed and performance. The fi-8820 production scanner is purpose-built to deliver sustained performance, optimised throughput, and an efficient document workflow.',
+    desc: 'Maximize ROI with speed and performance. The fi-8820 production scanner is purpose-built to deliver sustained performance, optimized throughput, and an efficient document workflow.',
     features: [
       'High-speed, double-sided scanning up to 120 pages per minute / 240ipm',
       '500-sheet automatic document feeder (ADF)',
@@ -547,7 +547,7 @@ export default function RicohPage() {
               ScanSnap Series
             </h2>
             <p style={{ fontSize: 16, color: '#64748b', maxWidth: 700, lineHeight: 1.7 }}>
-              Personal and small-business document scanners built for effortless, one-touch digitisation.
+              Personal and small-business document scanners built for effortless, one-touch digitization.
             </p>
           </div>
 

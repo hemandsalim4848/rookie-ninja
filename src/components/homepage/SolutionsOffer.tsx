@@ -83,7 +83,7 @@ export default function SolutionsSection() {
             </p>
             <h2 className="font-display font-bold text-navy leading-[1.05] tracking-[-0.02em]"
                 style={{ fontSize: 'clamp(28px, 3.5vw, 44px)' }}>
-              What <span className="text-accent">we Offer</span>
+              What <span className="text-accent">We Offer</span>
             </h2>
           </div>
           <div className="hidden sm:flex items-center gap-2">

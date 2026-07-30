@@ -72,10 +72,10 @@ const peripheralItems = [
     navTitle: 'Gaming Headsets',
     tag: 'Gaming Peripherals',
     heading: 'MSI Immerse Series — Gaming Headsets',
-    desc: 'MSI Immerse headsets deliver spatial audio with virtual 7.1 surround sound, noise-cancelling microphones, and plush memory foam earcups for marathon sessions.',
+    desc: 'MSI Immerse headsets deliver spatial audio with virtual 7.1 surround sound, noise-canceling microphones, and plush memory foam earcups for marathon sessions.',
     features: [
       'Virtual 7.1 surround sound',
-      'Noise-cancelling retractable microphone',
+      'Noise-canceling retractable microphone',
       'Memory foam earcups for extended comfort',
       'Foldable design for easy portability',
       'USB and 3.5mm dual connectivity',

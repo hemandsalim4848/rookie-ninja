@@ -9,7 +9,7 @@ const ACCENT_TEXT = '#3dbfb3';
 
 // ── isolated form ─────────────────────────────────────────────────────────────
 function IrisForm() {
-  const [form, setForm]     = useState({ name: '', email: '', licence: '', website: '' });
+  const [form, setForm]     = useState({ name: '', email: '', license: '', website: '' });
   const [status, setStatus] = useState<'idle' | 'sending' | 'done' | 'error'>('idle');
 
   const handle = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) =>
@@ -49,8 +49,8 @@ function IrisForm() {
         value={form.name} onChange={handle} />
       <input style={inp} type="email" name="email" placeholder="Business Email" required
         value={form.email} onChange={handle} />
-      <select style={{ ...inp, color: '#e5e7eb' }} name="licence" required
-        value={form.licence} onChange={handle}>
+      <select style={{ ...inp, color: '#e5e7eb' }} name="license" required
+        value={form.license} onChange={handle}>
         <option value="" style={{ background: '#fff', color: '#000' }}>Select Licence Type</option>
         <option style={{ background: '#fff', color: '#000' }}>PDF Essential — 1 PC</option>
         <option style={{ background: '#fff', color: '#000' }}>PDF Essential — 3 PC</option>
@@ -80,7 +80,7 @@ const slides = [
     badge: 'IRIS PDF Software',
     line1: 'PDF Work,',
     line2: 'Simplified.',
-    sub: 'OCR in 138 languages, direct PDF editing, form filling, redaction, merging, and cloud sharing — all in one perpetual-licence platform for Windows & macOS.',
+    sub: 'OCR in 138 languages, direct PDF editing, form filling, redaction, merging, and cloud sharing — all in one perpetual-license platform for Windows & macOS.',
     btnLabel: 'Explore Features',
     btnHref: '#pdf-features',
   },
@@ -124,7 +124,7 @@ const featureCards = [
   },
   {
     img: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1782334329/RIPDF25-combine_merge-630x450-min_zn74de.webp',
-    tag: 'Organise & Secure',
+    tag: 'Organize & Secure',
     title: 'Merge, Split, Redact & Share',
     desc: 'Combine multiple documents into one PDF, split large files into focused sub-files, scrub sensitive data, and share securely to the cloud.',
     features: [
@@ -151,7 +151,7 @@ const editions = [
       'Fill PDF forms',
       'Export to/from Word, Excel, and more',
       'Search / replace within PDFs',
-      'Available as 1 PC or 3 PC perpetual licence',
+      'Available as 1 PC or 3 PC perpetual license',
     ],
   },
   {
@@ -167,7 +167,7 @@ const editions = [
       'E-signature with double-signature support',
       'Cloud sharing — Google Drive, Dropbox, Box, OneDrive, SharePoint',
       'PDF redaction including hidden metadata',
-      'Available as 1 PC, 3 PC, or volume licence (10+ users)',
+      'Available as 1 PC, 3 PC, or volume license (10+ users)',
     ],
   },
 ];
@@ -431,7 +431,7 @@ export default function IrisPage() {
         <div style={{ maxWidth: 1140, margin: '0 auto' }}>
           <div className="ir-reveal" style={{ marginBottom: 40 }}>
             <h2 style={{ fontSize: isMobile ? 24 : 34, fontWeight: 700, color: '#0f1320', marginBottom: 10 }}>Choose Your Edition</h2>
-            <p style={{ fontSize: 16, color: '#64748b', maxWidth: 700, lineHeight: 1.7 }}>Both editions are perpetual (lifetime) licences compatible with Windows 10/11 and macOS 10.15+, including Apple M1 &amp; M2 chips.</p>
+            <p style={{ fontSize: 16, color: '#64748b', maxWidth: 700, lineHeight: 1.7 }}>Both editions are perpetual (lifetime) licenses compatible with Windows 10/11 and macOS 10.15+, including Apple M1 &amp; M2 chips.</p>
           </div>
 
           <div style={{ display: 'flex', flexDirection: isTablet ? 'column-reverse' : 'row', gap: isTablet ? 40 : 60, alignItems: 'center', justifyContent: 'center', minHeight: isTablet ? 'auto' : 460 }}>
@@ -483,7 +483,7 @@ export default function IrisPage() {
           <div className="ir-reveal">
             <h2 style={{ fontSize: isMobile ? 24 : 36, fontWeight: 700, marginBottom: 20, lineHeight: 1.2 }}>Inquire for Readiris PDF Licensing</h2>
             <p style={{ fontSize: isMobile ? 14 : 15, color: '#cbd5e1', lineHeight: 1.7, marginBottom: 20 }}>
-              Readiris PDF is available as a perpetual licence — no subscription, no recurring fees. Contact us to discuss pricing for individual, 3-PC, or volume licensing across your organisation.
+              Readiris PDF is available as a perpetual license — no subscription, no recurring fees. Contact us to discuss pricing for individual, 3-PC, or volume licensing across your organization.
             </p>
             <div style={{ fontSize: 14, color: '#cbd5e1', lineHeight: 2 }}>
               <strong style={{ color: '#fff', fontSize: 13, letterSpacing: 0.5, textTransform: 'uppercase', display: 'block', marginBottom: 6 }}>Licence Options</strong>

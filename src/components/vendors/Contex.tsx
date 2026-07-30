@@ -277,7 +277,7 @@ export default function ContexPage() {
             <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: 3, textTransform: 'uppercase', color: c.accent }}>Wide Format Scanners</span>
             <h2 style={{ fontSize: 'clamp(26px,4vw,40px)', fontWeight: 700, color: c.text, marginTop: 8, marginBottom: 12 }}>Contex Scanner Range</h2>
             <p style={{ fontSize: 15, color: c.dim, maxWidth: 540, margin: '0 auto', lineHeight: 1.6 }}>
-              From compact portable scanners to museum-grade contact-free art digitisers — Contex wide format scanners set the standard for precision and reliability.
+              From compact portable scanners to museum-grade contact-free art digitizers — Contex wide format scanners set the standard for precision and reliability.
             </p>
           </div>
 
@@ -393,7 +393,7 @@ export default function ContexPage() {
               Contex Scanner Solutions
             </h2>
             <p style={{ fontSize: 15, color: '#cbd5e1', lineHeight: 1.7 }}>
-              From compact single-operator scanners to museum-grade contact-free digitisers — Contex wide format scanners deliver industry-leading accuracy, FADGI compliance, and unmatched versatility for engineering, GIS, reprographics, and fine art archiving across UAE &amp; MEA.
+              From compact single-operator scanners to museum-grade contact-free digitizers — Contex wide format scanners deliver industry-leading accuracy, FADGI compliance, and unmatched versatility for engineering, GIS, reprographics, and fine art archiving across UAE &amp; MEA.
             </p>
           </div>
 

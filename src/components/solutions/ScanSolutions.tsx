@@ -115,7 +115,7 @@ const scannerTabs = [
       'https://res.cloudinary.com/df52xzi3y/image/upload/v1781893276/rookie-ninja/products/lg_1000p_48ec2413-e4e2-48a8-879f-ae472aabad60.webp',
     ],
     heading: 'Digitize Bound Books with Ease',
-    body: 'Scanning bound books is a difficult task if you are using a traditional scanner, that is where a dedicated book scanner comes in. Book scanners can help anyone needing to scan their books into an electronic document with high efficiency. Some book scanners can even scan 3D objects into 2D images.',
+    body: 'Scanning bound books is a difficult task with a traditional scanner — that\'s where a dedicated book scanner comes in. Book scanners can help anyone who needs to turn their books into electronic documents with high efficiency. Some can even scan 3D objects into 2D images.',
     highlights: ['Bound book compatible', 'High-efficiency digitization', '3D to 2D object scanning'],
   },
 ];

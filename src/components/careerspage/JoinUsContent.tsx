@@ -70,7 +70,7 @@ const reasons = [
   },
   {
     title: 'Solve Real-World Challenges',
-    body: 'Tired of mundane tasks? You will tackle real-world challenges that push boundaries — creating scalable solutions for global clients, optimising complex workflows, and designing cutting-edge distribution strategies.',
+    body: 'Tired of mundane tasks? You will tackle real-world challenges that push boundaries — creating scalable solutions for global clients, optimizing complex workflows, and designing cutting-edge distribution strategies.',
     icon: (
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
            stroke="currentColor" strokeWidth="1.6"
@@ -242,7 +242,7 @@ export default function JoinUsContent() {
             <SectionHeader
               label="Why Rookie Ninja"
               heading="Your Next Career Destination"
-              subheading="At Rookie Ninja, we are on a mission to revolutionise the tech industry — and we need bold, passionate people like you."
+              subheading="At Rookie Ninja, we are on a mission to revolutionize the tech industry — and we need bold, passionate people like you."
               align="center"
             />
           </Animate>

@@ -33,7 +33,7 @@ export async function POST(req: Request) {
       data = Object.fromEntries(Array.from(form.entries()).map(([k, v]) => [k, String(v)]))
     }
 
-    const { name, email, category, licence, vendor, website } = data
+    const { name, email, category, license, vendor, website } = data
 
     // Honeypot: real users never fill this hidden field
     if (website) {
@@ -49,7 +49,7 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: 'Missing required fields' }, { status: 400 })
     }
 
-    const interest = category || licence || 'Not specified'
+    const interest = category || license || 'Not specified'
     const vendorLabel = vendor || 'Unknown vendor'
 
     await resend.emails.send({

@@ -3,7 +3,7 @@ import Footer from '@/src/components/common/Footer';
 import VendorContent from '@/src/components//vendorpage/VendorContent';
 
 export const metadata = {
-  title: 'Our Vendors — Rookie Ninja',
+  title: 'Our Vendors | Rookie Ninja',
   description: 'Meet the world-class technology brands we partner with across MEA and beyond.',
 };
 

@@ -58,7 +58,7 @@ const sleeveSeries = [
     id: 'smart',
     eyebrow: 'Smart Everyday Sleeve',
     title: 'Laptop Sleeve SMART',
-    intro: 'A slim, lightweight sleeve designed for clean-desk professionals who prioritise simplicity and a neat, minimalist profile.',
+    intro: 'A slim, lightweight sleeve designed for clean-desk professionals who prioritize simplicity and a neat, minimalist profile.',
     bullets: [
       'Available in 13–13.3" and 14–14.1"',
       'Lightweight and ultra-slim profile',
@@ -76,7 +76,7 @@ const sleeveSeries = [
     intro: 'A sleek anthracite sleeve sized for 16" laptops — built for urban professionals who need reliable protection for larger screens.',
     bullets: [
       'Fits laptops up to 16"',
-      'Anthracite colour for a professional look',
+      'Anthracite color for a professional look',
       'Padded interior for drop protection',
       'Slim enough to fit inside a trolley or backpack',
       'Durable outer material',
@@ -105,14 +105,14 @@ const shoulderTabs = {
         image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1780052556/rookie-ninja/products/lg_1000p_3e390e6d-f4e4-4f77-ba44-86ad6426d177.webp',
         title: 'Eco Multi BASE 14–15.6"',
         intro: 'An entry-level eco messenger bag with clean lines and a spacious main compartment for everyday use.',
-        bullets: ['Fits 14"–15.6" laptops', 'Made from recycled PET', 'Padded laptop compartment', 'Front organisation panel', 'Trolley strap'],
+        bullets: ['Fits 14"–15.6" laptops', 'Made from recycled PET', 'Padded laptop compartment', 'Front organization panel', 'Trolley strap'],
         slug: 'eco-multi-base-14-156',
       },
     ],
   },
   traveller: {
     heading: 'Eco Top Traveller Series',
-    desc: 'Top-loading shoulder bags built for frequent travellers — with quick-access organisation, padded protection, and an eco-conscious construction.',
+    desc: 'Top-loading shoulder bags built for frequent travellers — with quick-access organization, padded protection, and an eco-conscious construction.',
     products: [
       {
         image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1780052598/rookie-ninja/products/lg_1000p_dbd20773-3332-41e1-86d7-61fcd56a55dd.webp',
@@ -125,7 +125,7 @@ const shoulderTabs = {
         image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1780053008/rookie-ninja/products/lg_1000p_07bb4f0c-f608-44b5-b99a-07134a10ace9.webp',
         title: 'Eco Top Traveller PRO 12–14.1"',
         intro: 'A PRO-grade top traveller with extra padding and storage for professionals who need more than the basics.',
-        bullets: ['Fits 12"–14.1" laptops', 'Reinforced padded laptop section', 'Dedicated tablet pocket', 'Multiple organisation pockets', 'Made from recycled PET'],
+        bullets: ['Fits 12"–14.1" laptops', 'Reinforced padded laptop section', 'Dedicated tablet pocket', 'Multiple organization pockets', 'Made from recycled PET'],
         slug: 'dicota-eco-top-traveller-pro-12-141',
       },
     ],
@@ -162,7 +162,7 @@ const backpackItems = [
     features: [
       'Fits 13"–15.6" laptops',
       'Dedicated padded laptop compartment',
-      'Multiple organisation pockets',
+      'Multiple organization pockets',
       'Side water bottle pocket',
       'Padded back panel and shoulder straps',
       'USB charging port compatible',
@@ -199,7 +199,7 @@ const backpackItems = [
       'Made from recycled PET materials',
       'Padded and protective laptop sleeve',
       'Ergonomic ventilated back panel',
-      'Multiple pockets for full organisation',
+      'Multiple pockets for full organization',
     ],
     image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1780052910/rookie-ninja/products/lg_1000p_12e3619c-ac8f-492a-8b7d-d78dcfd8606b.webp',
     slug: 'dicota-eco-backpack-scale-13-156',
@@ -217,14 +217,14 @@ const extraTabs = [
       {
         tag: 'Cabin-Ready Roller',
         title: 'Cabin Roller PRO 14–15.6"',
-        desc: 'A professional cabin-approved roller bag with a dedicated padded laptop compartment and smart organisation — perfect for frequent business travellers.',
+        desc: 'A professional cabin-approved roller bag with a dedicated padded laptop compartment and smart organization — perfect for frequent business travellers.',
         features: [
           'Fits 14"–15.6" laptops',
           'Cabin luggage approved size',
           'Telescopic trolley handle',
           'Smooth rolling wheels',
           'Padded laptop compartment with fleece lining',
-          'Front quick-access organisation panel',
+          'Front quick-access organization panel',
         ],
         image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1780052931/rookie-ninja/products/lg_1000p_7769c650-e757-4d29-95e4-edbd29289a23.webp',
         slug: 'dicota-cabin-roller-pro-14-156',
@@ -251,9 +251,9 @@ const extraTabs = [
     label: 'Eco Accessory Pouch',
     panels: [
       {
-        tag: 'Eco Organiser',
+        tag: 'Eco Organizer',
         title: 'Accessory Pouch Eco MOVE',
-        desc: 'Keep cables, chargers, and accessories neatly organised in a sustainable eco pouch — available in Small, Medium, and Large to suit every setup.',
+        desc: 'Keep cables, chargers, and accessories neatly organized in a sustainable eco pouch — available in Small, Medium, and Large to suit every setup.',
         features: [
           'Available in Small, Medium and Large',
           'Made from recycled PET materials',
@@ -517,7 +517,7 @@ export default function DicotaPage() {
           <div className="dc-reveal">
             <h2 style={{ fontSize: 'clamp(22px, 3vw, 36px)', fontWeight: 700, marginBottom: 20, color: '#fff', lineHeight: 1.2 }}>Shoulder Bags</h2>
             <p style={{ fontSize: 15, color: '#cbd5e1', lineHeight: 1.7 }}>
-              DICOTA shoulder bags combine smart organisation with sustainable materials — designed for professionals who need their laptop, documents, and essentials in one place, always at hand.
+              DICOTA shoulder bags combine smart organization with sustainable materials — designed for professionals who need their laptop, documents, and essentials in one place, always at hand.
             </p>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: 10, marginTop: 24 }}>
               {['Eco Multi PRO', 'Eco Multi BASE', 'Eco Top Traveller BASE', 'Eco Top Traveller PRO'].map(name => (

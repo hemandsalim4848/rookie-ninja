@@ -314,7 +314,7 @@ export default function SupportContent() {
           <Animate type="fade-up">
             <SectionHeader
               label="Brands We Service"
-              heading="Authorised support across leading brands."
+              heading="Authorized support across leading brands."
               subheading="We provide service and warranty support for every brand in our distribution portfolio. Each brand follows its own verified service path."
               align="center"
             />

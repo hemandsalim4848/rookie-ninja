@@ -97,8 +97,8 @@ const printerTabs = [
       'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1782300320/rookie-ninja/products/m3100adnw-wholesale.webp',
     ],
     heading: 'Print, Copy & Scan — All in One',
-    body: 'Multi-function printers allow you to print, copy, and scan from one device. And with a range of built-in functions, multi-function printers help improve productivity and efficiency while being cost-effective. As their all-in-one design helps in better space optimization.',
-    highlights: ['3-in-1 functionality', 'Space saving design', 'Cost effective'],
+    body: 'Multi-function printers allow you to print, copy, and scan from one device. With a range of built-in functions, they help improve productivity and efficiency while being cost-effective, and their all-in-one design makes better use of space.',
+    highlights: ['3-in-1 functionality', 'Space-saving design', 'Cost-effective'],
   },
 ];
 

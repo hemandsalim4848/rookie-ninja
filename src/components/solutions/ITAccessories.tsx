@@ -87,7 +87,7 @@ const accessoryTabs = [
       'https://res.cloudinary.com/df52xzi3y/image/upload/v1783682038/aztech-aztech-gan-car-hypercharger-dual-ports-95w-0-Product-images_Car-Charger-0.jpg',
     ],
     heading: 'Bridge the Gap Between Devices',
-    body: 'Adapters are essential for connectivity and compatibility between devices, bridging the gap between seamless communication, data transfer, and success. Rookie Ninja provides flexible solutions to connect otherwise incompatible devices, maximizing technology investments. Whether IT adapters or gaming or business or home, we offer ideal solutions to meet your specific needs.',
+    body: 'Adapters are essential for connectivity and compatibility between devices, enabling seamless communication and data transfer. Rookie Ninja provides flexible solutions to connect otherwise incompatible devices, maximizing technology investments. Whether for IT, gaming, business, or home use, we offer ideal solutions to meet your specific needs.',
     highlights: ['Universal device compatibility', 'Seamless data transfer', 'IT, gaming & home use'],
   },
   {

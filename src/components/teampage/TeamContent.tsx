@@ -36,7 +36,7 @@ const management = [
     name: 'Garros Rolland',
     role: 'Retail Sales & Export',
     image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1783926744/garros_nmrrmh.png',
-    bio: 'Bridging retail and export channels to maximise reach and deliver consistent value to our growing partner network.',
+    bio: 'Bridging retail and export channels to maximize reach and deliver consistent value to our growing partner network.',
     initials: 'GR',
     color: '#15A7DC',
     linkedin: 'https://www.linkedin.com/in/garros-rolland-26b304b9',
@@ -180,7 +180,7 @@ export default function TeamContent() {
                   <div className="flex items-center gap-4">
                     <div className="w-10 h-px bg-white" />
                     <span className="font-body text-[13px] text-white/70 font-medium">
-                      Founder, Rookie Ninja
+                      Shashank Patel, Rookie Ninja
                     </span>
                     <a href="https://www.linkedin.com/in/shashankpatel10/"
                        target="_blank"
