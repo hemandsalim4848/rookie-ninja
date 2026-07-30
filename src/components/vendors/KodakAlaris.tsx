@@ -134,19 +134,17 @@ const productionScanners = [
   },
   {
     num: '02',
-    navTitle: 'Ultra-Fast Production — i4000 / i5000 Series',
+    navTitle: 'Ultra-Fast Production — i4000 Series',
     tag: 'Ultra-Fast Production',
-    heading: 'i4000 / i5000 Series',
+    heading: 'i4000 Series',
     desc: 'The most powerful production scanners — built for BPOs, mailrooms and service bureaus.',
     features: [
       'i4250 — 110ppm | i4650 — 145ppm | i4850 — 160ppm',
-      'i5250 — 150ppm | i5650 — 180ppm | i5850 — 210ppm',
-      'i5650S / i5850S — with three-way sorting',
       'Surepath™ intelligent document feed technology',
       'Unlimited duty cycle',
     ],
-    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1782152342/i5650_Scanner.png_x5s8cs.webp?h=7e49063a&itok=5jJvezef',
-    imageLabel: 'i4000 / i5000 Series',
+    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1785441196/kodak-i4250-scanner_qwruoy.webp',
+    imageLabel: 'i4000 Series',
     links: [
       { label: 'i4250', href: '/products/kodak-i4250-scanner' },
       { label: 'i4650', href: '/products/kodak-i4650-scanner' },
