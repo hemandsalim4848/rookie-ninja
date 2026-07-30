@@ -224,6 +224,8 @@ export default function Hero() {
                 goTo(i);
                 intervalRef.current = setInterval(next, DURATION);
               }}
+              aria-label={`Go to slide ${i + 1}`}
+              aria-current={i === current}
               className="relative h-[3px] rounded-full overflow-hidden
                          cursor-pointer transition-all duration-300
                          bg-white/20"

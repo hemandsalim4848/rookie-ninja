@@ -21,12 +21,15 @@ function isRateLimited(ip: string) {
   return timestamps.length > RATE_LIMIT
 }
 
+const MAX_FILE_BYTES = 5 * 1024 * 1024
+
 export async function POST(req: Request) {
   try {
-    const { firstName, lastName, email, phone, company, subject, message, source, website } = await req.json()
+    const form = await req.formData()
 
+    const website = form.get('website')
     // Honeypot: real users never fill this hidden field
-    if (website) {
+    if (typeof website === 'string' && website) {
       return NextResponse.json({ success: true })
     }
 
@@ -35,33 +38,52 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: 'Too many requests, please try again later' }, { status: 429 })
     }
 
-    if (!firstName || !lastName || !email) {
+    const firstName = String(form.get('firstName') || '')
+    const lastName = String(form.get('lastName') || '')
+    const email = String(form.get('email') || '')
+    const phone = String(form.get('phone') || '')
+    const jobTitle = String(form.get('jobTitle') || '')
+    const coverLetter = String(form.get('coverLetter') || '')
+
+    if (!firstName || !lastName || !email || !jobTitle) {
       return NextResponse.json({ error: 'Missing required fields' }, { status: 400 })
     }
 
-    const label = source === 'quote' ? 'Quote Request' : 'Contact Form'
+    const cv = form.get('cv')
+    if (!(cv instanceof File) || cv.size === 0) {
+      return NextResponse.json({ error: 'CV / Resume is required' }, { status: 400 })
+    }
+    if (cv.size > MAX_FILE_BYTES) {
+      return NextResponse.json({ error: 'CV / Resume is too large (max 5MB)' }, { status: 400 })
+    }
+
+    const attachments = [{
+      filename: cv.name,
+      content: Buffer.from(await cv.arrayBuffer()),
+    }]
 
     await resend.emails.send({
       from: FROM_EMAIL,
       to: process.env.ENQUIRY_EMAIL!,
       replyTo: email,
-      subject: `New ${label} — ${escapeHtml(firstName)} ${escapeHtml(lastName)}`,
+      subject: `New Job Application — ${escapeHtml(jobTitle)} (${escapeHtml(firstName)} ${escapeHtml(lastName)})`,
       html: `
-        <h2>New ${label}</h2>
+        <h2>New Job Application</h2>
+        <p><strong>Position:</strong> ${escapeHtml(jobTitle)}</p>
+        <hr/>
         <p><strong>First Name:</strong> ${escapeHtml(firstName)}</p>
         <p><strong>Last Name:</strong> ${escapeHtml(lastName)}</p>
-        <p><strong>Email Address:</strong> ${escapeHtml(email)}</p>
+        <p><strong>Email:</strong> ${escapeHtml(email)}</p>
         <p><strong>Phone Number:</strong> ${escapeHtml(phone) || 'Not provided'}</p>
-        ${company ? `<p><strong>Company:</strong> ${escapeHtml(company)}</p>` : ''}
-        ${subject ? `<p><strong>Subject:</strong> ${escapeHtml(subject)}</p>` : ''}
         <hr/>
-        <p><strong>Message:</strong><br/>${escapeHtml(message) || 'Not provided'}</p>
+        <p><strong>Cover Letter:</strong><br/>${escapeHtml(coverLetter) || 'Not provided'}</p>
       `,
+      attachments,
     })
 
     return NextResponse.json({ success: true })
   } catch (err) {
     console.error(err)
-    return NextResponse.json({ error: 'Failed to send message' }, { status: 500 })
+    return NextResponse.json({ error: 'Failed to submit application' }, { status: 500 })
   }
 }

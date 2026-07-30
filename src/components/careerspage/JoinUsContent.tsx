@@ -594,6 +594,45 @@ function ApplyModal({
   onSubmit: () => void;
   onClose: () => void;
 }) {
+  const [form, setForm] = useState({
+    firstName: '', lastName: '', email: '', phone: '', coverLetter: '', website: '',
+  });
+  const [cv, setCv] = useState<File | null>(null);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState('');
+
+  function update<K extends keyof typeof form>(key: K, value: string) {
+    setForm(f => ({ ...f, [key]: value }));
+  }
+
+  async function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    if (!cv) {
+      setError('Please attach your CV / Resume.');
+      return;
+    }
+    setSending(true);
+    setError('');
+    try {
+      const body = new FormData();
+      Object.entries(form).forEach(([k, v]) => body.append(k, v));
+      body.append('jobTitle', jobTitle);
+      body.append('cv', cv);
+
+      const res = await fetch('/api/careers', { method: 'POST', body });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data?.error || 'Failed');
+
+      onSubmit();
+    } catch (err: any) {
+      setError(err?.message === 'Too many requests, please try again later'
+        ? 'Too many requests — please try again in a few minutes.'
+        : 'Something went wrong. Please try again or email us directly.');
+    } finally {
+      setSending(false);
+    }
+  }
+
   return (
     <div
       className="fixed inset-0 z-[9999] flex items-center justify-center px-4 py-6"
@@ -657,14 +696,26 @@ function ApplyModal({
         ) : (
           <form
             className="px-8 py-6 flex flex-col gap-4"
-            onSubmit={(e) => { e.preventDefault(); onSubmit(); }}
+            onSubmit={handleSubmit}
           >
+            {/* Honeypot */}
+            <input
+              type="text" name="website" value={form.website}
+              onChange={e => update('website', e.target.value)}
+              tabIndex={-1} autoComplete="off" aria-hidden="true"
+              className="absolute -left-[9999px] w-px h-px opacity-0"
+            />
+
             <div className="grid grid-cols-2 gap-4">
-              <FormField label="First Name" type="text"  placeholder="John"             required />
-              <FormField label="Last Name"  type="text"  placeholder="Doe"              required />
+              <FormField label="First Name" type="text"  placeholder="John"             required
+                value={form.firstName} onChange={(v) => update('firstName', v)} />
+              <FormField label="Last Name"  type="text"  placeholder="Doe"              required
+                value={form.lastName} onChange={(v) => update('lastName', v)} />
             </div>
-            <FormField label="Email Address" type="email" placeholder="john@email.com" required />
-            <FormField label="Phone Number"  type="tel"   placeholder="+971 50 000 0000" />
+            <FormField label="Email Address" type="email" placeholder="john@email.com" required
+              value={form.email} onChange={(v) => update('email', v)} />
+            <FormField label="Phone Number"  type="tel"   placeholder="+971 50 000 0000"
+              value={form.phone} onChange={(v) => update('phone', v)} />
 
             {/* CV Upload */}
             <div className="flex flex-col gap-1.5">
@@ -676,6 +727,7 @@ function ApplyModal({
                 type="file"
                 accept=".pdf,.doc,.docx"
                 required
+                onChange={(e) => setCv(e.target.files?.[0] || null)}
                 className="font-body text-[13px] text-gray-500
                            border border-gray-200 rounded-xl px-4 py-2.5
                            outline-none transition-all duration-200
@@ -685,6 +737,7 @@ function ApplyModal({
                            file:bg-accent/10 file:text-accent
                            hover:file:bg-accent/20 cursor-pointer"
               />
+              <p className="font-body text-[11px] text-gray-400">Max 5MB.</p>
             </div>
 
             <div className="flex flex-col gap-1.5">
@@ -695,6 +748,8 @@ function ApplyModal({
               <textarea
                 placeholder="Tell us why you'd be a great Ninja..."
                 rows={3}
+                value={form.coverLetter}
+                onChange={(e) => update('coverLetter', e.target.value)}
                 className="font-body text-[14px] text-navy placeholder:text-gray-300
                            border border-gray-200 rounded-xl px-4 py-3 outline-none
                            transition-all duration-200 focus:border-accent
@@ -702,13 +757,17 @@ function ApplyModal({
               />
             </div>
 
+            {error && <p className="font-body text-[12px] text-red-500 text-center">{error}</p>}
+
             <button
               type="submit"
+              disabled={sending}
               className="font-body text-[14px] font-medium text-white
                          bg-accent py-3 rounded-xl transition-all duration-200
                          hover:opacity-85 hover:-translate-y-px
-                         shadow-[0_4px_20px_rgba(21,167,220,0.3)] mt-1">
-              Submit Application →
+                         shadow-[0_4px_20px_rgba(21,167,220,0.3)] mt-1
+                         disabled:opacity-60 disabled:cursor-not-allowed">
+              {sending ? 'Submitting...' : 'Submit Application →'}
             </button>
 
             <p className="font-body text-[11px] text-gray-400 text-center">
@@ -722,9 +781,10 @@ function ApplyModal({
 }
 
 function FormField({
-  label, type, placeholder, required,
+  label, type, placeholder, required, value, onChange,
 }: {
   label: string; type: string; placeholder: string; required?: boolean;
+  value: string; onChange: (value: string) => void;
 }) {
   return (
     <div className="flex flex-col gap-1.5">
@@ -736,6 +796,8 @@ function FormField({
         type={type}
         placeholder={placeholder}
         required={required}
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
         className="font-body text-[14px] text-navy placeholder:text-gray-300
                    border border-gray-200 rounded-xl px-4 py-2.5 outline-none
                    transition-all duration-200 focus:border-accent
