@@ -140,7 +140,6 @@ const PRODUCT_RENAME_MAP: Record<string, string> = {
   "kodak-alaris-e1025-scanner": "kodak-e1030-document-scanner",
   "kodak-alaris-e1035-scanner": "kodak-e1040-document-scanner",
   "kodak-i3500-scanner": "kodak-i4650-scanner",
-  "kodak-i4250-scanner": "kodak-i4850-scanner",
   "czur-shine500-pro-book-scanner": "czur-shine-ultra-pro-24mp-document-scanner",
   // Data-artifact slugs (stray/doubled dashes) found via Search Console
   // performance data — same product, just malformed in Google's index.
@@ -163,6 +162,9 @@ const PRODUCT_RENAME_MAP: Record<string, string> = {
   "kodak-alaris-e1040-document-scanner": "kodak-e1040-document-scanner",
   "kodak-alaris-s2070-scanner": "kodak-s2070-scanner",
   "colortrac-smartlf-scan-series": "smartlf-scan",
+  // Scan Station 710 discontinued/removed from the catalogue; 730EX Plus is
+  // the closest current model in the same standalone scanner line.
+  "kodak-scan-station-710-scanner": "kodak-scan-station-730ex-plus-scanner",
 }
 
 // Old products with no current equivalent (discontinued brands like

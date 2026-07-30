@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
+import { BRAND_LOGOS } from '@/src/lib/brandLogos';
 
 /* ─────────────────────────────────────────────
    THEME
@@ -20,104 +21,75 @@ const ka = {
 /* ─────────────────────────────────────────────
    DATA
 ───────────────────────────────────────────── */
-const heroSlides = [
-  {
-    id: 'software',
-    badge: 'Official Distributor',
-    lines: ['Paper to Insights.', 'Instantly.'],
-    accentLine: 1,
-    desc: 'Eliminate manual document processing with Kodak Alaris intelligent capture and automation software — built for every department, every workflow.',
-    cta: { label: 'Explore Software', href: '#software-solutions', solid: true },
-    bg: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1782152344/i4x50-Photo-Using-the-Scanner-Closeup.png-1_nvl59w.webp',
-  },
-  {
-    id: 'scanners',
-    badge: 'Document Scanners',
-    lines: ['Built to Scan.', 'Built to Last'],
-    accentLine: 1,
-    desc: 'From compact office scanners to ultra-fast production workhorses — Kodak Alaris delivers reliable, high-accuracy scanning for every environment.',
-    cta: { label: 'View Scanners', href: '#office-scanners', solid: false },
-    bg: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1782152343/Scanner-Lifestyle.jpg_m2cwhg.webp',
-  },
-];
+const heroBanner = {
+  lines: ['Built to Scan.', 'Built to Last'],
+  accentLine: 1,
+  desc: 'From compact office scanners to ultra-fast production workhorses — Kodak Alaris delivers reliable, high-accuracy scanning for every environment.',
+  cta: { label: 'View Scanners', href: '/products?brand=kodak-alaris&category=Document+Scanners&page=1', solid: true },
+  bg: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1782152344/i4x50-Photo-Using-the-Scanner-Closeup.png-1_nvl59w.webp',
+};
 
 const officeScanners = [
   {
-    id: 'e1000',
-    eyebrow: 'Simple Scanning',
-    title: 'E1000 Series',
+    id: 'shared-network',
+    eyebrow: 'Shared Network Scanners',
+    title: 'S2000w Series',
     bullets: [
-      'E1030 — 30ppm | 80 Sheet ADF',
-      'E1040 — 40ppm | 80 Sheet ADF',
+      'S2060w — 60ppm | 80 Sheet ADF',
+      'S2080w — 80ppm | 80 Sheet ADF',
+      'Embedded image processing',
       'Dual Light Illumination (DLI)',
-      '9 Quick Scan Jobs',
-      'Modular passport and legal flatbed available',
+      'Wi-Fi and Ethernet connectivity',
     ],
-    intro: 'Fast, reliable desktop scanning for front-office and customer-facing workflows.',
-    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1782152343/alaris_e1035_scanner-sq.jpg_rhpnuw.webp',
+    intro: 'Productive shared network scanning — up to 20 jobs per department, no IT complexity.',
+    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1782152342/alaris-passport-flatbed-accessory.jpg_iply8c.webp',
     links: [
-      { label: 'E1030', href: '/products/kodak-e1030-document-scanner' },
-      { label: 'E1040', href: '/products/kodak-e1040-document-scanner' },
+      { label: 'S2060w', href: '/products/kodak-s2060w-scanner' },
+      { label: 'S2080w', href: '/products/kodak-s2080w-scanner' },
     ],
   },
   {
-    id: 's2000',
-    eyebrow: 'Professional A4',
-    title: 'S2000 Series',
+    id: 'standalone',
+    eyebrow: 'Standalone Scanners',
+    title: 'Scan Station 730EX Plus',
     bullets: [
-      'S2050 — 50ppm | 80 Sheet ADF',
-      'S2070 — 70ppm | 80 Sheet ADF',
-      'S2085f — 85ppm | 300 Sheet ADF',
-      'Active Feeding System (AFS)',
-      'Surepath™ intelligent document feed technology',
+      '70ppm | 75 Sheet ADF',
+      'Large intuitive color touchscreen',
+      'Supports LDAP and Active Directory',
+      'No connected PC required',
     ],
-    intro: 'Professional sheet-fed solutions with robust feeding and embedded image processing.',
-    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1782152343/S2000_bss1gy.webp',
+    intro: 'PC-free customizable scanning kiosk — powerful, secure, and ready to deploy.',
+    image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1782152344/kodak-alaris-scanstation-730ex-scanner_ezu73d.webp',
     links: [
-      { label: 'S2050', href: '/products/kodak-s2050-scanner' },
-      { label: 'S2070', href: '/products/kodak-s2070-scanner' },
-      { label: 'S2085f', href: '/products/kodak-s2085f-scanner' },
+      { label: 'Scan Station 730EX Plus', href: '/products/kodak-scan-station-730ex-plus-scanner' },
     ],
   },
 ];
 
 const networkData = {
   shared: {
-    heading: 'Shared Network Scanners',
-    desc: 'Productive shared network scanning for up to 20 jobs per department — with zero IT complexity. Wi-Fi and Ethernet ready out of the box, featuring embedded image processing and Dual Light Illumination.',
+    heading: 'KODAK Capture Pro Software',
+    desc: 'A powerful capture platform that automates the conversion of paper documents into high-quality digital information — with intelligent image processing, OCR, and flexible ECM integration.',
     products: [{
-      image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1782152342/alaris-passport-flatbed-accessory.jpg_iply8c.webp',
-      title: 'S2000w Series',
-      bullets: [
-        'S2060w — 60ppm | 80 Sheet ADF',
-        'S2080w — 80ppm | 80 Sheet ADF',
-        'Embedded image processing',
-        'Dual Light Illumination (DLI)',
-        'Wi-Fi and Ethernet connectivity',
-      ],
-      intro: 'Productive shared network scanning — up to 20 jobs per department, no IT complexity.',
+      image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1781980249/rookie-ninja/products/KODAK-Capture-Pro_png.webp',
+      title: 'Document Capture',
+      bullets: ['High-volume document capture', 'Advanced OCR & barcode recognition', 'Intelligent image processing', 'Supports multiple scanner brands', 'Enterprise workflow automation'],
+      intro: 'A powerful capture platform that automates the conversion of paper documents into high-quality digital information — with intelligent image processing, OCR, and flexible ECM integration.',
       links: [
-        { label: 'S2060w', href: '/products/kodak-s2060w-scanner' },
-        { label: 'S2080w', href: '/products/kodak-s2080w-scanner' },
+        { label: 'KODAK Capture Pro Software', href: '/products/kodak-capture-pro-software' },
       ],
     }],
   },
   standalone: {
-    heading: 'Standalone Scanners',
-    desc: 'PC-free scanning kiosks that are powerful, secure, and ready to deploy straight out of the box — no connected PC, no complex IT setup required.',
+    heading: 'KODAK Info Input Solution',
+    desc: 'An AI-powered IDP platform that automates the entire document journey — from multi-channel capture to data extraction, validation, and seamless integration with business systems.',
     products: [{
-      image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1782152344/kodak-alaris-scanstation-730ex-scanner_ezu73d.webp',
-      title: 'Scan Station 730EX Plus',
-      bullets: [
-        '70ppm | 75 Sheet ADF',
-        'Large intuitive color touchscreen',
-        'Supports LDAP and Active Directory',
-        'No connected PC required',
-      ],
-      intro: 'PC-free customizable scanning kiosk — powerful, secure, and ready to deploy.',
+      image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1781980248/rookie-ninja/products/KODAK-Info-Input-Solution-1_png.webp',
+      title: 'Intelligent Document Processing',
+      bullets: ['AI-powered document processing', 'Automated data extraction', 'Paper & digital capture', 'Low-code workflow automation', 'Business system integration'],
+      intro: 'An AI-powered IDP platform that automates the entire document journey — from multi-channel capture to data extraction, validation, and seamless integration with business systems.',
       links: [
-        { label: 'Scan Station 730EX Plus', href: '/products/kodak-scan-station-730ex-plus-scanner' },
-        { label: 'Scan Station 710', href: '/products/kodak-scan-station-710-scanner' },
+        { label: 'KODAK Info Input Solution', href: '/products/kodak-info-input-solution' },
       ],
     }],
   },
@@ -163,6 +135,7 @@ const productionScanners = [
     image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1782152342/i5650_Scanner.png_x5s8cs.webp?h=7e49063a&itok=5jJvezef',
     imageLabel: 'i4000 / i5000 Series',
     links: [
+      { label: 'i4250', href: '/products/kodak-i4250-scanner' },
       { label: 'i4650', href: '/products/kodak-i4650-scanner' },
       { label: 'i4850', href: '/products/kodak-i4850-scanner' },
     ],
@@ -191,9 +164,9 @@ const productionScanners = [
 ];
 
 const KA_NAV_LINKS = [
-  { label: 'Software Solutions',           href: '#software-solutions' },
-  { label: 'Office Scanners',              href: '#office-scanners' },
-  { label: 'Network / Connected Scanners', href: '#network-connected-scanners' },
+  { label: 'Document Scanners',            href: '#software-solutions' },
+  { label: 'Network / Connected Scanners', href: '#office-scanners' },
+  { label: 'Software Solutions',           href: '#network-connected-scanners' },
   { label: 'Production Scanners',          href: '#production-scanners' },
   { label: 'Flatbed Accessories',          href: '#flatbed-accessories' },
 ];
@@ -260,12 +233,7 @@ function KaNavInner({ accent }: { accent: string }) {
 ───────────────────────────────────────────── */
 export default function KodakAlarisPage() {
 
-  const [heroIdx, setHeroIdx]             = useState(0);
-  const [progress, setProgress]           = useState(0);
-  const rafRef                            = useRef<number | null>(null);
-  const startRef                          = useRef<number | null>(null);
   const heroRef                           = useRef<HTMLElement>(null);
-  const DURATION                          = 5000;
 
   const [isSticky, setIsSticky]           = useState(false);
   const [activeScanner, setActiveScanner] = useState(0);
@@ -274,36 +242,6 @@ export default function KodakAlarisPage() {
   const [prodActive, setProdActive]       = useState(0);
   const [flatTab, setFlatTab]             = useState(0);
   const [formState, setFormState]         = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
-
-  /* ── Hero progress ── */
-  const tick = (ts: number) => {
-    if (!startRef.current) startRef.current = ts;
-    const pct = Math.min(((ts - startRef.current) / DURATION) * 100, 100);
-    setProgress(pct);
-    if (pct < 100) {
-      rafRef.current = requestAnimationFrame(tick);
-    } else {
-      setHeroIdx(i => (i + 1) % heroSlides.length);
-    }
-  };
-
-  const resetProgress = () => {
-    if (rafRef.current) cancelAnimationFrame(rafRef.current);
-    startRef.current = null;
-    setProgress(0);
-    rafRef.current = requestAnimationFrame(tick);
-  };
-
-  const goSlide = (n: number) => {
-    setHeroIdx(((n % heroSlides.length) + heroSlides.length) % heroSlides.length);
-    resetProgress();
-  };
-
-  useEffect(() => {
-    resetProgress();
-    return () => { if (rafRef.current) cancelAnimationFrame(rafRef.current); };
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [heroIdx]);
 
   /* ── Sticky nav ── */
   useEffect(() => {
@@ -355,112 +293,65 @@ export default function KodakAlarisPage() {
     } catch { setFormState('error'); }
   };
 
-  const slide      = heroSlides[heroIdx];
   const netContent = networkData[netTab];
 
   return (
     <main style={{ background: ka.bg, color: ka.text, fontFamily: 'var(--font-poppins)', overflowX: 'hidden' }}>
 
       {/* ══════════════════════════════════════════
-          HERO SLIDER
+          HERO BANNER
       ══════════════════════════════════════════ */}
-      <section ref={heroRef} className="ka-hero" style={{ position: 'relative', width: '100%', overflow: 'hidden', background: '#000' }}>
-
-        {heroSlides.map((s, i) => (
-          <div key={s.id} className="ka-slide"
-               style={{
-                 position: 'absolute', inset: 0, display: 'flex', alignItems: 'center',
-                 opacity: i === heroIdx ? 1 : 0,
-                 transition: 'opacity 0.9s cubic-bezier(0.77,0,0.175,1)',
-                 zIndex: i === heroIdx ? 2 : 1,
-               }}>
-            <div style={{
-              position: 'absolute', inset: 0,
-              backgroundImage: `url('${s.bg}')`,
-              backgroundSize: 'cover', backgroundPosition: 'center',
-              transform: i === heroIdx ? 'scale(1)' : 'scale(1.06)',
-              transition: 'transform 6s ease',
-              filter: 'brightness(0.38)',
-            }} />
-            <div className="ka-vignette" style={{
-              position: 'absolute', inset: 0,
-              background: 'linear-gradient(90deg, rgba(0,0,0,0.72) 38%, transparent 80%)',
-            }} />
-            <div className="ka-hero-container"
-                 style={{ position: 'relative', zIndex: 3, width: '100%', maxWidth: 1220, margin: '0 auto', padding: '0 20px' }}>
-              <div className="ka-hero-content"
-                   style={{
-                     maxWidth: 580,
-                     opacity: i === heroIdx ? 1 : 0,
-                     transform: i === heroIdx ? 'translateY(0)' : 'translateY(24px)',
-                     transition: 'opacity 0.7s ease 0.4s, transform 0.7s ease 0.4s',
-                   }}>
-                <span style={{
-                  display: 'inline-flex', alignItems: 'center', gap: 8, background: ka.accent, color: '#fff',
-                  fontSize: 11, fontWeight: 600, letterSpacing: 2, textTransform: 'uppercase',
-                  padding: '5px 12px', marginBottom: 18, borderRadius: 2,
-                }}>
-                  <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#fff', opacity: 0.9, display: 'inline-block', animation: 'kaPulse 2s infinite' }} />
-                  {s.badge}
-                </span>
-                <h1 className="ka-hero-heading"
-                    style={{ fontSize: 'clamp(40px, 6vw, 78px)', color: '#fff', lineHeight: 0.95, marginBottom: 18, fontWeight: 700, letterSpacing: 1 }}>
-                  {s.lines.map((line, li) => (
-                    <span key={li} style={{ display: 'block', color: li === s.accentLine ? ka.accent : '#fff' }}>{line}</span>
-                  ))}
-                </h1>
-                <p className="ka-hero-desc"
-                   style={{ fontSize: 15, color: 'rgba(255,255,255,0.72)', lineHeight: 1.65, marginBottom: 32, fontWeight: 300, maxWidth: 420 }}>
-                  {s.desc}
-                </p>
-                <Link href={s.cta.href} className="ka-hero-btn"
-                   onClick={e => { e.preventDefault(); document.querySelector(s.cta.href)?.scrollIntoView({ behavior: 'smooth' }); }}
-                   style={{
-                     display: 'inline-block', padding: '13px 28px',
-                     background: s.cta.solid ? '#fff' : 'transparent',
-                     color: s.cta.solid ? '#0d0d0d' : '#fff',
-                     border: '2px solid #fff',
-                     fontSize: 13, fontWeight: 600, letterSpacing: 1, textTransform: 'uppercase',
-                     textDecoration: 'none', borderRadius: 2,
-                     transition: 'background 0.25s, color 0.25s, border-color 0.25s',
-                   }}
-                   onMouseEnter={e => {
-                     const el = e.currentTarget as HTMLAnchorElement;
-                     el.style.background = ka.accent; el.style.borderColor = ka.accent; el.style.color = '#fff';
-                   }}
-                   onMouseLeave={e => {
-                     const el = e.currentTarget as HTMLAnchorElement;
-                     el.style.background = s.cta.solid ? '#fff' : 'transparent';
-                     el.style.borderColor = '#fff';
-                     el.style.color = s.cta.solid ? '#0d0d0d' : '#fff';
-                   }}>
-                  {s.cta.label}
-                </Link>
-              </div>
-            </div>
-          </div>
-        ))}
-
-        {/* Dots */}
-        <div className="ka-dots"
-             style={{ position: 'absolute', bottom: 28, left: '50%', transform: 'translateX(calc(-570px + 20px))', display: 'flex', gap: 10, zIndex: 10 }}>
-          {heroSlides.map((_, i) => (
-            <button key={i} onClick={() => goSlide(i)}
-                    style={{
-                      width: 10, height: 10, borderRadius: '50%', padding: 0, border: 'none', cursor: 'pointer',
-                      background: i === heroIdx ? ka.accent : 'rgba(255,255,255,0.35)',
-                      transform: i === heroIdx ? 'scale(1.3)' : 'scale(1)',
-                      transition: 'background 0.3s, transform 0.3s',
-                    }} />
-          ))}
-        </div>
-
-        {/* Progress bar */}
+      <section ref={heroRef} className="ka-hero" style={{ position: 'relative', width: '100%', overflow: 'hidden', background: '#000', display: 'flex', alignItems: 'center' }}>
         <div style={{
-          position: 'absolute', bottom: 0, left: 0, height: 3,
-          background: ka.accent, width: `${progress}%`,
-          zIndex: 10, transition: 'width 0.1s linear',
+          position: 'absolute', inset: 0,
+          backgroundImage: `url('${heroBanner.bg}')`,
+          backgroundSize: 'cover', backgroundPosition: 'center',
+          filter: 'brightness(0.65)',
         }} />
+        <div className="ka-vignette" style={{
+          position: 'absolute', inset: 0,
+          background: 'linear-gradient(90deg, rgba(0,0,0,0.45) 38%, transparent 80%)',
+        }} />
+        <div className="ka-hero-container"
+             style={{ position: 'relative', zIndex: 3, width: '100%', maxWidth: 1220, margin: '0 auto', padding: '0 20px' }}>
+          <div className="ka-hero-content" style={{ maxWidth: 580 }}>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={BRAND_LOGOS.kodakAlaris} alt="Kodak Alaris" className="ka-hero-logo"
+                 style={{ height: 30, width: 'auto', maxWidth: '100%', display: 'block', marginBottom: 28, objectFit: 'contain' }} />
+            <h1 className="ka-hero-heading"
+                style={{ fontSize: 'clamp(30px, 4.5vw, 58px)', color: '#fff', lineHeight: 0.95, marginBottom: 18, fontWeight: 700, letterSpacing: 1 }}>
+              {heroBanner.lines.map((line, li) => (
+                <span key={li} style={{ display: 'block', color: li === heroBanner.accentLine ? ka.accent : '#fff' }}>{line}</span>
+              ))}
+            </h1>
+            <p className="ka-hero-desc"
+               style={{ fontSize: 15, color: 'rgba(255,255,255,0.72)', lineHeight: 1.65, marginBottom: 32, fontWeight: 300, maxWidth: 420 }}>
+              {heroBanner.desc}
+            </p>
+            <Link href={heroBanner.cta.href} className="ka-hero-btn"
+               style={{
+                 display: 'inline-block', padding: '13px 28px',
+                 background: heroBanner.cta.solid ? '#fff' : 'transparent',
+                 color: heroBanner.cta.solid ? '#0d0d0d' : '#fff',
+                 border: '2px solid #fff',
+                 fontSize: 13, fontWeight: 600, letterSpacing: 1, textTransform: 'uppercase',
+                 textDecoration: 'none', borderRadius: 2,
+                 transition: 'background 0.25s, color 0.25s, border-color 0.25s',
+               }}
+               onMouseEnter={e => {
+                 const el = e.currentTarget as HTMLAnchorElement;
+                 el.style.background = ka.accent; el.style.borderColor = ka.accent; el.style.color = '#fff';
+               }}
+               onMouseLeave={e => {
+                 const el = e.currentTarget as HTMLAnchorElement;
+                 el.style.background = heroBanner.cta.solid ? '#fff' : 'transparent';
+                 el.style.borderColor = '#fff';
+                 el.style.color = heroBanner.cta.solid ? '#0d0d0d' : '#fff';
+               }}>
+              {heroBanner.cta.label}
+            </Link>
+          </div>
+        </div>
       </section>
 
       {/* ══════════════════════════════════════════
@@ -494,29 +385,36 @@ export default function KodakAlarisPage() {
         <div style={{ maxWidth: 1140, margin: '0 auto' }}>
           <div className="ka-reveal" style={{ textAlign: 'center', marginBottom: 48 }}>
             <h2 style={{ fontSize: 'clamp(24px, 3vw, 36px)', fontWeight: 700, color: ka.text, marginBottom: 14, letterSpacing: -0.3 }}>
-              Software Solutions
+              Document Scanners
             </h2>
             <p style={{ fontSize: 15, color: '#64748b', lineHeight: 1.65, maxWidth: 560, margin: '0 auto' }}>
-              Intelligent document capture and automation software from Kodak Alaris — purpose-built to digitize, classify, and route information across every business workflow.
+              Reliable desktop and professional A4 scanning solutions for modern business workflows.
             </p>
           </div>
           <div className="ka-sw-grid ka-reveal ka-reveal-d1" style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 24 }}>
             {[
               {
-                tag: 'Document Capture',
-                title: 'KODAK Capture Pro Software',
-                desc: 'A powerful capture platform that automates the conversion of paper documents into high-quality digital information — with intelligent image processing, OCR, and flexible ECM integration.',
-                image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1781980249/rookie-ninja/products/KODAK-Capture-Pro_png.webp',
-                href: '/products/kodak-capture-pro-software',
-                features: ['High-volume document capture', 'Advanced OCR & barcode recognition', 'Intelligent image processing', 'Supports multiple scanner brands', 'Enterprise workflow automation'],
+                tag: 'Simple Scanning',
+                title: 'E1000 Series',
+                desc: 'Fast, reliable desktop scanning for front-office and customer-facing workflows.',
+                image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1782152343/alaris_e1035_scanner-sq.jpg_rhpnuw.webp',
+                features: ['E1030 — 30ppm | 80 Sheet ADF', 'E1040 — 40ppm | 80 Sheet ADF', 'Dual Light Illumination (DLI)', '9 Quick Scan Jobs', 'Modular passport and legal flatbed available'],
+                links: [
+                  { label: 'E1030', href: '/products/kodak-e1030-document-scanner' },
+                  { label: 'E1040', href: '/products/kodak-e1040-document-scanner' },
+                ],
               },
               {
-                tag: 'Intelligent Document Processing',
-                title: 'KODAK Info Input Solution',
-                desc: 'An AI-powered IDP platform that automates the entire document journey — from multi-channel capture to data extraction, validation, and seamless integration with business systems.',
-                image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1781980248/rookie-ninja/products/KODAK-Info-Input-Solution-1_png.webp',
-                href: '/products/kodak-info-input-solution',
-                features: ['AI-powered document processing', 'Automated data extraction', 'Paper & digital capture', 'Low-code workflow automation', 'Business system integration'],
+                tag: 'Professional A4',
+                title: 'S2000 Series',
+                desc: 'Professional sheet-fed solutions with robust feeding and embedded image processing.',
+                image: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1782152343/S2000_bss1gy.webp',
+                features: ['S2050 — 50ppm | 80 Sheet ADF', 'S2070 — 70ppm | 80 Sheet ADF', 'S2085f — 85ppm | 300 Sheet ADF', 'Active Feeding System (AFS)', 'Surepath™ intelligent document feed technology'],
+                links: [
+                  { label: 'S2050', href: '/products/kodak-s2050-scanner' },
+                  { label: 'S2070', href: '/products/kodak-s2070-scanner' },
+                  { label: 'S2085f', href: '/products/kodak-s2085f-scanner' },
+                ],
               },
             ].map((card, i) => (
               <div key={i} className={`ka-reveal ka-reveal-d${i + 1}`}
@@ -539,16 +437,16 @@ export default function KodakAlarisPage() {
                       </li>
                     ))}
                   </ul>
-                  <Link href={card.href} style={{
-                    marginTop: 20, display: 'inline-block', padding: '10px 20px',
-                    background: ka.accent, color: '#fff', fontSize: 13, fontWeight: 600,
-                    borderRadius: 50, textDecoration: 'none', alignSelf: 'flex-start',
-                    transition: 'opacity 0.2s',
-                  }}
-                  onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.opacity = '0.85'; }}
-                  onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.opacity = '1'; }}>
-                    View Product
-                  </Link>
+                  <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', marginTop: 20 }}>
+                    {card.links.map(lnk => (
+                      <Link key={lnk.href} href={lnk.href}
+                         style={{ fontSize: 12, fontWeight: 600, padding: '5px 14px', borderRadius: 4, border: `1.5px solid ${ka.accent}`, color: ka.accent, textDecoration: 'none', background: '#fff', transition: 'all 0.2s' }}
+                         onMouseEnter={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = ka.accent; el.style.color = '#fff'; }}
+                         onMouseLeave={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = '#fff'; el.style.color = ka.accent; }}>
+                        {lnk.label}
+                      </Link>
+                    ))}
+                  </div>
                 </div>
               </div>
             ))}
@@ -564,10 +462,10 @@ export default function KodakAlarisPage() {
 
           <div className="ka-reveal" style={{ marginBottom: 40 }}>
             <h2 style={{ fontSize: 'clamp(22px, 3vw, 34px)', fontWeight: 700, color: '#0f1320', marginBottom: 10 }}>
-              KODAK Document Scanners
+              Network / Connected Scanners
             </h2>
             <p style={{ fontSize: 16, color: '#64748b', maxWidth: 700, lineHeight: 1.7 }}>
-              Reliable desktop and professional A4 scanning solutions for modern business workflows.
+              Enable seamless shared and standalone document scanning with intelligent network connectivity, embedded image processing, enterprise-grade security, intuitive touchscreen control, and high-speed PC-free performance designed for modern departments, distributed teams, and demanding business environments.
             </p>
           </div>
 
@@ -647,10 +545,10 @@ export default function KodakAlarisPage() {
 
           <div className="ka-reveal">
             <h2 style={{ fontSize: 'clamp(22px, 3vw, 36px)', fontWeight: 700, marginBottom: 20, color: '#fff', lineHeight: 1.2 }}>
-              Network / Connected Scanners
+              Software Solutions
             </h2>
             <p style={{ fontSize: 15, color: '#cbd5e1', lineHeight: 1.7 }}>
-              Enable seamless shared and standalone document scanning with intelligent network connectivity, embedded image processing, enterprise-grade security, intuitive touchscreen control, and high-speed PC-free performance designed for modern departments, distributed teams, and demanding business environments.
+              Intelligent document capture and automation software from Kodak Alaris — purpose-built to digitize, classify, and route information across every business workflow.
             </p>
           </div>
 
@@ -688,7 +586,7 @@ export default function KodakAlarisPage() {
                           color: '#e5e7eb', fontSize: 14, outline: 'none', fontFamily: 'var(--font-poppins)',
                         }}>
                   <option value="" style={{ background: '#fff', color: '#000' }}>Select Product Category</option>
-                  {['Software Solutions','Office Scanners','Network / Connected Scanners','Production Scanners','Flatbed Accessories'].map(o => (
+                  {['Document Scanners','Network / Connected Scanners','Software Solutions','Production Scanners','Flatbed Accessories'].map(o => (
                     <option key={o} style={{ background: '#fff', color: '#000' }}>{o}</option>
                   ))}
                 </select>
@@ -715,7 +613,7 @@ export default function KodakAlarisPage() {
         <div style={{ maxWidth: 1200, margin: '0 auto' }}>
 
           <div style={{ display: 'flex', flexWrap: 'wrap', borderBottom: '2px solid #eee', marginBottom: 40, gap: 10 }}>
-            {([['shared', 'Shared Network'], ['standalone', 'Standalone']] as const).map(([key, label]) => (
+            {([['shared', 'Capture Pro Software'], ['standalone', 'Info Input Solution']] as const).map(([key, label]) => (
               <button key={key} onClick={() => setNetTab(key)}
                       style={{
                         padding: '15px 22px', cursor: 'pointer',
@@ -964,7 +862,7 @@ export default function KodakAlarisPage() {
         .ka-reveal-d2 { transition-delay: 0.24s; }
 
         /* ── Hero ── */
-        .ka-hero { height: 680px; }
+        .ka-hero { height: 660px; }
 
         /* ── Tablet 768–1024px ── */
         @media (max-width: 1024px) {
@@ -980,12 +878,10 @@ export default function KodakAlarisPage() {
 
         /* ── Tablet 768px ── */
         @media (max-width: 768px) {
-          .ka-hero { height: 420px !important; }
-          .ka-slide { align-items: flex-end !important; padding-bottom: 70px !important; }
+          .ka-hero { height: auto !important; min-height: 480px !important; align-items: flex-end !important; padding-bottom: 70px !important; }
           .ka-vignette { background: linear-gradient(180deg, transparent 10%, rgba(0,0,0,0.85) 70%) !important; }
           .ka-hero-container { padding: 0 24px !important; }
           .ka-hero-content { max-width: 100% !important; }
-          .ka-dots { left: 24px !important; transform: none !important; bottom: 22px !important; }
           .ka-nav-inner { height: 52px !important; gap: 12px !important; padding: 0 16px !important; }
           .ka-nav-placeholder { height: 52px !important; }
           .ka-nav-links { gap: 4px !important; }
@@ -998,11 +894,11 @@ export default function KodakAlarisPage() {
 
         /* ── Mobile 480px ── */
         @media (max-width: 480px) {
-          .ka-hero { height: 550px !important; }
           .ka-hero-content { max-width: 100% !important; }
+          .ka-hero-logo { height: 22px !important; }
           .ka-hero-heading { letter-spacing: 0 !important; }
           .ka-hero-desc { font-size: 13px !important; margin-bottom: 20px !important; }
-          .ka-hero-btn { padding: 10px 20px !important; font-size: 12px !important; margin-bottom: 35px !important; }
+          .ka-hero-btn { padding: 10px 20px !important; font-size: 12px !important; }
           .ka-flat-tabs { flex-direction: column !important; }
           .ka-flat-tabs button { width: 100% !important; justify-content: flex-start !important; }
         }
