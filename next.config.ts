@@ -30,12 +30,12 @@ const nextConfig: NextConfig = {
       },
       {
         source: '/brother/brother-ads-1200-portable-scanner',
-        destination: '/products/brother-ads-1200-portable-document-scanner',
+        destination: '/products/brother-ads-1300-portable-document-scanner',
         permanent: true,
       },
       {
         source: '/brother/brother-ads-3600w-scanner',
-        destination: '/products/brother-ads-3600w-desktop-document-scanner',
+        destination: '/products/brother-ads-4700w-professional-desktop-document-scanner',
         permanent: true,
       },
       {
@@ -271,6 +271,53 @@ const nextConfig: NextConfig = {
       {
         source: '/kodak-s2060w-scanner',
         destination: '/products/kodak-s2060w-scanner',
+        permanent: true,
+      },
+      // Discontinued Brother models — redirected to their closest current
+      // equivalent still in the catalogue.
+      {
+        source: '/products/brother-ads-1200-portable-document-scanner',
+        destination: '/products/brother-ads-1300-portable-document-scanner',
+        permanent: true,
+      },
+      {
+        source: '/products/brother-ads-3600w-desktop-document-scanner',
+        destination: '/products/brother-ads-4700w-professional-desktop-document-scanner',
+        permanent: true,
+      },
+      {
+        source: '/products/brother-dcp-l3510cdw',
+        destination: '/products/brother-dcp-l3520cdw',
+        permanent: true,
+      },
+      {
+        source: '/products/brother-dcp-l3551cdw',
+        destination: '/products/brother-dcp-l3560cdw',
+        permanent: true,
+      },
+      {
+        source: '/products/brother-hl-l2375dw',
+        destination: '/products/brother-hl-l2461dw',
+        permanent: true,
+      },
+      {
+        source: '/products/brother-hl-l5200dw',
+        destination: '/products/brother-hl-l6200dw',
+        permanent: true,
+      },
+      {
+        source: '/products/brother-mfc-l2715dw',
+        destination: '/products/brother-mfc-l2805dw',
+        permanent: true,
+      },
+      {
+        source: '/products/brother-mfc-l2750dw',
+        destination: '/products/brother-mfc-l2885dw',
+        permanent: true,
+      },
+      {
+        source: '/products/brother-mfc-l6900dw',
+        destination: '/products/brother-mfc-l5755dw',
         permanent: true,
       },
       {
