@@ -25,10 +25,10 @@ export async function POST(req: Request) {
   const session = await requireAdmin()
   if (!session) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
   await connectDB()
-  const { name } = await req.json()
+  const { name, parent } = await req.json()
   if (!name?.trim()) return NextResponse.json({ error: 'Name required' }, { status: 400 })
   try {
-    const category = await Category.create({ name: name.trim() })
+    const category = await Category.create({ name: name.trim(), parent: parent?.trim() || null })
     return NextResponse.json(category, { status: 201 })
   } catch {
     return NextResponse.json({ error: 'Category already exists' }, { status: 409 })

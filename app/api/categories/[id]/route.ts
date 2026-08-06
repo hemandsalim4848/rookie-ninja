@@ -9,7 +9,7 @@ export async function PATCH(req: Request, { params }: { params: Promise<{ id: st
   if (!session) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
   await connectDB()
   const { id } = await params
-  const { name } = await req.json()
+  const { name, parent } = await req.json()
   if (!name?.trim()) return NextResponse.json({ error: 'Name required' }, { status: 400 })
 
   const existing = await Category.findById(id)
@@ -17,11 +17,16 @@ export async function PATCH(req: Request, { params }: { params: Promise<{ id: st
 
   const oldName = existing.name
   const newName = name.trim()
+  const newParent = parent === undefined ? existing.parent : (parent?.trim() || null)
 
   try {
     existing.name = newName
+    existing.parent = newParent
     await existing.save()
-    await Product.updateMany({ category: oldName }, { $set: { category: newName } })
+    if (oldName !== newName) {
+      await Product.updateMany({ category: oldName }, { $set: { category: newName } })
+      await Category.updateMany({ parent: oldName }, { $set: { parent: newName } })
+    }
     return NextResponse.json(existing)
   } catch {
     return NextResponse.json({ error: 'Name already taken' }, { status: 409 })
@@ -41,6 +46,14 @@ export async function DELETE(_req: Request, { params }: { params: Promise<{ id: 
   if (productCount > 0) {
     return NextResponse.json(
       { error: `Cannot delete — ${productCount} product${productCount !== 1 ? 's' : ''} use this category.` },
+      { status: 409 }
+    )
+  }
+
+  const childCount = await Category.countDocuments({ parent: category.name })
+  if (childCount > 0) {
+    return NextResponse.json(
+      { error: `Cannot delete — ${childCount} subcategor${childCount !== 1 ? 'ies' : 'y'} nested under this category.` },
       { status: 409 }
     )
   }

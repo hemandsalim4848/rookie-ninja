@@ -399,7 +399,16 @@ export default function BrandProductsPage() {
                     className="w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-[#15A7DC] transition-colors"
                   >
                     <option value="">Select Category</option>
-                    {categories.map(c => <option key={c._id} value={c.name}>{c.name}</option>)}
+                    {categories.filter((c: any) => !c.parent).map((top: any) => {
+                      const kids = categories.filter((c: any) => c.parent === top.name)
+                      if (kids.length === 0) return <option key={top._id} value={top.name}>{top.name}</option>
+                      return (
+                        <optgroup key={top._id} label={top.name}>
+                          <option value={top.name}>{top.name} (general)</option>
+                          {kids.map((k: any) => <option key={k._id} value={k.name}>{k.name}</option>)}
+                        </optgroup>
+                      )
+                    })}
                   </select>
                 </div>
               </div>

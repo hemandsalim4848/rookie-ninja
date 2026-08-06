@@ -30,6 +30,14 @@ export default function ProductsPageClient({
   const [activeCategory, setActiveCategory] = useState(searchParams.get('category') || '')
   const [activeBrand, setActiveBrand] = useState(searchParams.get('brand') || '')
   const [currentPage, setCurrentPage] = useState(Math.max(1, parseInt(searchParams.get('page') || '1', 10)))
+  const [categoryDefs, setCategoryDefs] = useState<{ name: string; parent: string | null }[]>([])
+
+  useEffect(() => {
+    fetch('/api/categories')
+      .then(r => r.json())
+      .then(d => setCategoryDefs(Array.isArray(d) ? d : []))
+      .catch(() => {})
+  }, [])
 
   // The browser's back/forward buttons can restore a URL whose search params
   // Next's useSearchParams() hook doesn't reflect (router cache staleness).
@@ -57,9 +65,44 @@ export default function ProductsPageClient({
     ? products.filter((p: any) => p.brandSlug === activeBrand)
     : products
 
-  const categories = Array.from(
+  // A category's parent, looked up from the master Category list (undefined/null
+  // for top-level categories or ones not yet formalized in that collection).
+  function parentOf(categoryName: string): string | null {
+    return categoryDefs.find(c => c.name === categoryName)?.parent || null
+  }
+
+  // A product matches an active category filter if it's tagged with that exact
+  // category, OR the active filter is a parent category and the product is
+  // tagged with one of its children (selecting "Printers" shows every printer
+  // subcategory's products too).
+  function productMatchesCategory(product: any, category: string): boolean {
+    if (!category) return true
+    if (product.category === category) return true
+    return parentOf(product.category) === category
+  }
+
+  const productCategoryNames = Array.from(
     new Set(brandFilteredProducts.map((p: any) => p.category).filter(Boolean))
-  ).sort() as string[]
+  ) as string[]
+
+  // Group the distinct category names in use into a two-level tree: top-level
+  // categories (no parent, or not present in the Category collection at all)
+  // each carrying whichever of their children are actually in use.
+  const categoryGroups = (() => {
+    const groups = new Map<string, { name: string; hasOwnProducts: boolean; children: Set<string> }>()
+    productCategoryNames.forEach(name => {
+      const parent = parentOf(name)
+      const key = parent || name
+      if (!groups.has(key)) groups.set(key, { name: key, hasOwnProducts: false, children: new Set() })
+      if (parent) groups.get(key)!.children.add(name)
+      else groups.get(key)!.hasOwnProducts = true
+    })
+    return Array.from(groups.values())
+      .map(g => ({ name: g.name, children: Array.from(g.children).sort() }))
+      .sort((a, b) => a.name.localeCompare(b.name))
+  })()
+
+  const categories = categoryGroups.map(g => g.name) // kept for the ">1" gating checks below
 
   const brandSlugs = Array.from(
     new Set(products.map((p: any) => p.brandSlug).filter(Boolean))
@@ -96,7 +139,7 @@ export default function ProductsPageClient({
   }
 
   const filteredProducts = activeCategory
-    ? brandFilteredProducts.filter((p: any) => p.category === activeCategory)
+    ? brandFilteredProducts.filter((p: any) => productMatchesCategory(p, activeCategory))
     : brandFilteredProducts
 
   const totalPages = Math.ceil(filteredProducts.length / PAGE_SIZE)
@@ -207,23 +250,47 @@ export default function ProductsPageClient({
                     </span>
                   </button>
                 </li>
-                {categories.map(cat => {
-                  const count = brandFilteredProducts.filter((p: any) => p.category === cat).length
+                {categoryGroups.map(group => {
+                  const count = brandFilteredProducts.filter((p: any) => productMatchesCategory(p, group.name)).length
                   return (
-                    <li key={cat}>
+                    <li key={group.name}>
                       <button
-                        onClick={() => selectCategory(cat)}
+                        onClick={() => selectCategory(group.name)}
                         className={`w-full flex items-center justify-between px-3 py-2 rounded-lg text-sm font-medium transition-colors text-left ${
-                          activeCategory === cat
+                          activeCategory === group.name
                             ? 'bg-[#15A7DC]/10 text-[#15A7DC]'
                             : 'text-[#0A1628]/60 hover:bg-gray-50 hover:text-[#0A1628]'
                         }`}
                       >
-                        <span>{cat}</span>
-                        <span className={`text-xs font-semibold tabular-nums ${activeCategory === cat ? 'text-[#15A7DC]/70' : 'text-[#0A1628]/30'}`}>
+                        <span>{group.name}</span>
+                        <span className={`text-xs font-semibold tabular-nums ${activeCategory === group.name ? 'text-[#15A7DC]/70' : 'text-[#0A1628]/30'}`}>
                           {count}
                         </span>
                       </button>
+                      {group.children.length > 0 && (
+                        <ul className="mt-0.5 space-y-0.5">
+                          {group.children.map(child => {
+                            const childCount = brandFilteredProducts.filter((p: any) => p.category === child).length
+                            return (
+                              <li key={child}>
+                                <button
+                                  onClick={() => selectCategory(child)}
+                                  className={`w-full flex items-center justify-between pl-6 pr-3 py-1.5 rounded-lg text-xs font-medium transition-colors text-left ${
+                                    activeCategory === child
+                                      ? 'bg-[#15A7DC]/10 text-[#15A7DC]'
+                                      : 'text-[#0A1628]/45 hover:bg-gray-50 hover:text-[#0A1628]'
+                                  }`}
+                                >
+                                  <span>↳ {child}</span>
+                                  <span className={`text-xs font-semibold tabular-nums ${activeCategory === child ? 'text-[#15A7DC]/70' : 'text-[#0A1628]/25'}`}>
+                                    {childCount}
+                                  </span>
+                                </button>
+                              </li>
+                            )
+                          })}
+                        </ul>
+                      )}
                     </li>
                   )
                 })}
@@ -266,11 +333,22 @@ export default function ProductsPageClient({
                   className="text-xs border border-gray-200 rounded-lg px-3 py-2 text-[#0A1628] bg-white"
                 >
                   <option value="">All Categories ({brandFilteredProducts.length})</option>
-                  {categories.map(cat => (
-                    <option key={cat} value={cat}>
-                      {cat} ({brandFilteredProducts.filter((p: any) => p.category === cat).length})
-                    </option>
-                  ))}
+                  {categoryGroups.map(group => {
+                    const count = brandFilteredProducts.filter((p: any) => productMatchesCategory(p, group.name)).length
+                    if (group.children.length === 0) {
+                      return <option key={group.name} value={group.name}>{group.name} ({count})</option>
+                    }
+                    return (
+                      <optgroup key={group.name} label={`${group.name} (${count})`}>
+                        <option value={group.name}>{group.name} — all ({count})</option>
+                        {group.children.map(child => (
+                          <option key={child} value={child}>
+                            {child} ({brandFilteredProducts.filter((p: any) => p.category === child).length})
+                          </option>
+                        ))}
+                      </optgroup>
+                    )
+                  })}
                 </select>
               )}
             </div>
