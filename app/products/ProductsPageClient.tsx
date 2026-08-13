@@ -404,8 +404,7 @@ export default function ProductsPageClient({
                     )}
                     {product.shortDescription && (() => {
                       const lines = product.shortDescription.split('\n').map((l: string) => l.trim()).filter((l: string) => l.length > 2)
-                      const offset = product.slug ? product.slug.split('').reduce((a: number, c: string) => a + c.charCodeAt(0), 0) % Math.max(lines.length - 1, 1) : 0
-                      const visible = [...lines.slice(offset), ...lines.slice(0, offset)].slice(0, 2)
+                      const visible = lines.slice(0, 2)
                       return (
                         <ul className="space-y-1.5 mt-2">
                           {visible.map((line: string, i: number) => (
