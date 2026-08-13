@@ -3,6 +3,12 @@
 import Animate from '../Animate';
 import SectionHeader from '../SectionHeader';
 import Link from 'next/link';
+import { BRAND_LOGOS } from '@/src/lib/brandLogos';
+
+/* ── Brand partner logos ── */
+const brandPartners = [
+  { name: 'Aztech', logo: BRAND_LOGOS.aztech },
+];
 
 /* ── Featured Products ── */
 const featuredProducts = [
@@ -122,17 +128,17 @@ export default function ConsumerElectronicsPage() {
             <h1 className="font-display font-bold text-white
                            leading-[1.1] tracking-[-0.02em] mb-5 max-w-xl"
                 style={{ fontSize: 'clamp(36px, 5vw, 60px)' }}>
-              Cutting-Edge{' '}
-              <span className="text-accent">Computing Solutions</span>
+              Power, Audio &{' '}
+              <span className="text-accent">Smart Devices</span>
             </h1>
           </Animate>
 
           <Animate type="fade-up" delay={200}>
             <p className="font-body text-white/60 leading-[1.8] max-w-lg"
                style={{ fontSize: '16px', fontWeight: 300 }}>
-              Through our strategic partnerships with industry-leading brands,
-              Rookie Ninja delivers an extensive range of innovative products
-              tailored to your unique needs and preferences.
+              From power accessories and audio gear to gaming peripherals and
+              smart displays, Rookie Ninja delivers everyday consumer
+              electronics built for modern life.
             </p>
           </Animate>
         </div>
@@ -147,9 +153,70 @@ export default function ConsumerElectronicsPage() {
             <SectionHeader
               label="Consumer Electronics"
               heading="Your Partner for Innovation"
-              subheading="Through our strategic partnerships with some of the industry's foremost laptop and computing brands, Rookie Ninja proudly delivers an extensive range of cutting-edge computing solutions. Our commitment to excellence allows us to offer a wide array of innovative products, tailored to meet your unique needs and preferences."
+              subheading="Through our strategic partnership with Aztech, a leading consumer electronics brand, Rookie Ninja proudly delivers everyday tech — from power accessories and audio gear to gaming peripherals and smart displays. Our commitment to quality and innovation ensures reliable products tailored to your unique needs and preferences."
               align="center"
             />
+          </Animate>
+
+          <Animate type="fade-up" delay={100}>
+            <div className="flex justify-center mt-8">
+              <Link
+                href="/products?brand=aztech&page=1"
+                className="inline-flex items-center gap-2 font-body font-medium
+                           text-white bg-accent px-6 py-3 rounded-xl
+                           transition-all duration-200 no-underline
+                           hover:opacity-85 hover:-translate-y-px
+                           shadow-[0_4px_20px_rgba(21,167,220,0.3)]"
+                style={{ fontSize: '14px' }}
+              >
+                View Products
+                <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                  <path d="M3 8h10M9 4l4 4-4 4"
+                        stroke="currentColor" strokeWidth="1.5"
+                        strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </Link>
+            </div>
+          </Animate>
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════════════
+          BRAND PARTNERS
+      ══════════════════════════════════════════ */}
+      <section className="py-16 px-6 border-t border-gray-100"
+               style={{ background: 'linear-gradient(180deg, #f8fbff 0%, #ffffff 100%)' }}>
+        <div className="max-w-6xl mx-auto">
+          <Animate type="fade-up">
+            <p className="font-body text-center text-gray-400 mb-8 uppercase
+                          tracking-[0.12em]"
+               style={{ fontSize: '18px' }}>
+              Our Brand Partners
+            </p>
+          </Animate>
+
+          <Animate type="fade-up" delay={80}>
+            <div className="flex flex-wrap justify-center items-center gap-4">
+              {brandPartners.map(({ name, logo }) => (
+                <div
+                  key={name}
+                  className="flex items-center justify-center px-8 py-5
+                             rounded-xl border border-gray-100 bg-white
+                             transition-all duration-200
+                             hover:border-accent/30
+                             hover:shadow-[0_4px_16px_rgba(21,167,220,0.08)]"
+                  style={{ minWidth: '160px' }}
+                >
+                  <img
+                    src={logo}
+                    alt={name}
+                    className="h-8 w-auto object-contain
+                               transition-opacity duration-200"
+                    style={{ maxWidth: '120px' }}
+                  />
+                </div>
+              ))}
+            </div>
           </Animate>
         </div>
       </section>
@@ -224,28 +291,6 @@ export default function ConsumerElectronicsPage() {
               </Animate>
             ))}
           </div>
-
-          {/* View all */}
-          <Animate type="fade-up" delay={120}>
-            <div className="flex justify-center mt-12">
-              <Link 
-                href="/products"
-                className="inline-flex items-center gap-2 font-body font-medium
-                           text-white bg-accent px-6 py-3 rounded-xl
-                           transition-all duration-200 no-underline
-                           hover:opacity-85 hover:-translate-y-px
-                           shadow-[0_4px_20px_rgba(21,167,220,0.3)]"
-                style={{ fontSize: '14px' }}
-              >
-                View All Products
-                <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
-                  <path d="M3 8h10M9 4l4 4-4 4"
-                        stroke="currentColor" strokeWidth="1.5"
-                        strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-              </Link>
-            </div>
-          </Animate>
         </div>
       </section>
 
