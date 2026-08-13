@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
+import { BRAND_LOGOS } from '@/src/lib/brandLogos';
 
 /* ─────────────────────────────────────────────
    THEME
@@ -20,26 +21,13 @@ const az = {
 /* ─────────────────────────────────────────────
    DATA
 ───────────────────────────────────────────── */
-const heroSlides = [
-  {
-    id: 'display',
-    badge: 'Official Distributor',
-    lines: ['Smarter.', 'Brighter Spaces.'],
-    accentLine: 1,
-    desc: 'From ultra-large interactive flat panels to digital signage and audio — Aztech transforms how teams collaborate, learn, and communicate.',
-    cta: { label: 'Explore Display & Audio', href: '#display-audio', solid: true },
-    bg: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1783687223/Banner-13_fldjp6.webp',
-  },
-  {
-    id: 'gaming',
-    badge: 'Gaming & Power',
-    lines: ['Play Harder.', 'Win.'],
-    accentLine: 1,
-    desc: 'Pro-grade gaming peripherals and high-efficiency power supplies — built for peak performance and absolute reliability.',
-    cta: { label: 'Explore Gaming', href: '#gaming', solid: false },
-    bg: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1783687222/ifp-1_f7hbi0.webp',
-  },
-];
+const heroBanner = {
+  lines: ['Smarter.', 'Brighter Spaces.'],
+  accentLine: 1,
+  desc: 'From ultra-large interactive flat panels to digital signage, audio, gaming peripherals, and power supplies — Aztech transforms how teams collaborate, learn, and play.',
+  cta: { label: 'Explore Aztech', href: '/products?brand=aztech&page=1', solid: true },
+  bg: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1786624107/Portable-Screen-04-1024x689_yxjkg1.webp',
+};
 
 /* IFP — shown as 2 feature cards (like KA Software Solutions) */
 const ifpCards = [
@@ -404,12 +392,7 @@ function AzNavInner({ accent, onMountsClick }: { accent: string; onMountsClick?:
 ───────────────────────────────────────────── */
 export default function AztechPage() {
 
-  const [heroIdx, setHeroIdx]         = useState(0);
-  const [progress, setProgress]       = useState(0);
-  const rafRef                        = useRef<number | null>(null);
-  const startRef                      = useRef<number | null>(null);
   const heroRef                       = useRef<HTMLElement>(null);
-  const DURATION                      = 5000;
 
   const [isSticky, setIsSticky]       = useState(false);
   const [activeBar, setActiveBar]     = useState(0);
@@ -418,36 +401,6 @@ export default function AztechPage() {
   const [psuActive, setPsuActive]     = useState(0);
   const [gameTab, setGameTab]         = useState(0);
   const [formState, setFormState]     = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
-
-  /* ── Hero progress ── */
-  const tick = (ts: number) => {
-    if (!startRef.current) startRef.current = ts;
-    const pct = Math.min(((ts - startRef.current) / DURATION) * 100, 100);
-    setProgress(pct);
-    if (pct < 100) {
-      rafRef.current = requestAnimationFrame(tick);
-    } else {
-      setHeroIdx(i => (i + 1) % heroSlides.length);
-    }
-  };
-
-  const resetProgress = () => {
-    if (rafRef.current) cancelAnimationFrame(rafRef.current);
-    startRef.current = null;
-    setProgress(0);
-    rafRef.current = requestAnimationFrame(tick);
-  };
-
-  const goSlide = (n: number) => {
-    setHeroIdx(((n % heroSlides.length) + heroSlides.length) % heroSlides.length);
-    resetProgress();
-  };
-
-  useEffect(() => {
-    resetProgress();
-    return () => { if (rafRef.current) cancelAnimationFrame(rafRef.current); };
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [heroIdx]);
 
   /* ── Sticky nav ── */
   useEffect(() => {
@@ -496,112 +449,64 @@ export default function AztechPage() {
     } catch { setFormState('error'); }
   };
 
-  const slide       = heroSlides[heroIdx];
   const cableContent = cablesData[cableTab];
 
   return (
     <main style={{ background: az.bg, color: az.text, fontFamily: 'var(--font-poppins)', overflowX: 'hidden' }}>
 
       {/* ══════════════════════════════════════════
-          HERO SLIDER
+          HERO BANNER
       ══════════════════════════════════════════ */}
-      <section ref={heroRef} className="az-hero" style={{ position: 'relative', width: '100%', overflow: 'hidden', background: '#000' }}>
-
-        {heroSlides.map((s, i) => (
-          <div key={s.id} className="az-slide"
-               style={{
-                 position: 'absolute', inset: 0, display: 'flex', alignItems: 'center',
-                 opacity: i === heroIdx ? 1 : 0,
-                 transition: 'opacity 0.9s cubic-bezier(0.77,0,0.175,1)',
-                 zIndex: i === heroIdx ? 2 : 1,
-               }}>
-            <div style={{
-              position: 'absolute', inset: 0,
-              backgroundImage: `url('${s.bg}')`,
-              backgroundSize: 'cover', backgroundPosition: 'center',
-              transform: i === heroIdx ? 'scale(1)' : 'scale(1.06)',
-              transition: 'transform 6s ease',
-              filter: 'brightness(0.38)',
-            }} />
-            <div className="az-vignette" style={{
-              position: 'absolute', inset: 0,
-              background: 'linear-gradient(90deg, rgba(0,0,0,0.72) 38%, transparent 80%)',
-            }} />
-            <div className="az-hero-container"
-                 style={{ position: 'relative', zIndex: 3, width: '100%', maxWidth: 1220, margin: '0 auto', padding: '0 20px' }}>
-              <div className="az-hero-content"
-                   style={{
-                     maxWidth: 580,
-                     opacity: i === heroIdx ? 1 : 0,
-                     transform: i === heroIdx ? 'translateY(0)' : 'translateY(24px)',
-                     transition: 'opacity 0.7s ease 0.4s, transform 0.7s ease 0.4s',
-                   }}>
-                <span style={{
-                  display: 'inline-flex', alignItems: 'center', gap: 8, background: az.accent, color: '#fff',
-                  fontSize: 11, fontWeight: 600, letterSpacing: 2, textTransform: 'uppercase',
-                  padding: '5px 12px', marginBottom: 18, borderRadius: 2,
-                }}>
-                  <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#fff', opacity: 0.9, display: 'inline-block', animation: 'azPulse 2s infinite' }} />
-                  {s.badge}
-                </span>
-                <h1 className="az-hero-heading"
-                    style={{ fontSize: 'clamp(40px, 6vw, 78px)', color: '#fff', lineHeight: 0.95, marginBottom: 18, fontWeight: 700, letterSpacing: 1 }}>
-                  {s.lines.map((line, li) => (
-                    <span key={li} style={{ display: 'block', color: li === s.accentLine ? 'rgba(255,255,255,0.6)' : '#fff' }}>{line}</span>
-                  ))}
-                </h1>
-                <p className="az-hero-desc"
-                   style={{ fontSize: 15, color: 'rgba(255,255,255,0.72)', lineHeight: 1.65, marginBottom: 32, fontWeight: 300, maxWidth: 420 }}>
-                  {s.desc}
-                </p>
-                <Link href={s.cta.href} className="az-hero-btn"
-                   onClick={e => { e.preventDefault(); document.querySelector(s.cta.href)?.scrollIntoView({ behavior: 'smooth' }); }}
-                   style={{
-                     display: 'inline-block', padding: '13px 28px',
-                     background: s.cta.solid ? '#fff' : 'transparent',
-                     color: s.cta.solid ? '#0d0d0d' : '#fff',
-                     border: '2px solid #fff',
-                     fontSize: 13, fontWeight: 600, letterSpacing: 1, textTransform: 'uppercase',
-                     textDecoration: 'none', borderRadius: 2,
-                     transition: 'background 0.25s, color 0.25s, border-color 0.25s',
-                   }}
-                   onMouseEnter={e => {
-                     const el = e.currentTarget as HTMLAnchorElement;
-                     el.style.background = az.accent; el.style.borderColor = az.accent; el.style.color = '#fff';
-                   }}
-                   onMouseLeave={e => {
-                     const el = e.currentTarget as HTMLAnchorElement;
-                     el.style.background = s.cta.solid ? '#fff' : 'transparent';
-                     el.style.borderColor = '#fff';
-                     el.style.color = s.cta.solid ? '#0d0d0d' : '#fff';
-                   }}>
-                  {s.cta.label}
-                </Link>
-              </div>
-            </div>
-          </div>
-        ))}
-
-        {/* Dots */}
-        <div className="az-dots"
-             style={{ position: 'absolute', bottom: 28, left: '50%', transform: 'translateX(calc(-570px + 20px))', display: 'flex', gap: 10, zIndex: 10 }}>
-          {heroSlides.map((_, i) => (
-            <button key={i} onClick={() => goSlide(i)}
-                    style={{
-                      width: 10, height: 10, borderRadius: '50%', padding: 0, border: 'none', cursor: 'pointer',
-                      background: i === heroIdx ? '#fff' : 'rgba(255,255,255,0.35)',
-                      transform: i === heroIdx ? 'scale(1.3)' : 'scale(1)',
-                      transition: 'background 0.3s, transform 0.3s',
-                    }} />
-          ))}
-        </div>
-
-        {/* Progress bar */}
+      <section ref={heroRef} className="az-hero" style={{ position: 'relative', width: '100%', overflow: 'hidden', background: '#000', display: 'flex', alignItems: 'center' }}>
         <div style={{
-          position: 'absolute', bottom: 0, left: 0, height: 3,
-          background: '#fff', width: `${progress}%`,
-          zIndex: 10, transition: 'width 0.1s linear',
+          position: 'absolute', inset: 0,
+          backgroundImage: `url('${heroBanner.bg}')`,
+          backgroundSize: 'cover', backgroundPosition: 'center',
+          filter: 'brightness(0.75)',
         }} />
+        <div className="az-vignette" style={{
+          position: 'absolute', inset: 0,
+          background: 'linear-gradient(90deg, rgba(0,0,0,0.32) 38%, transparent 80%)',
+        }} />
+        <div className="az-hero-container"
+             style={{ position: 'relative', zIndex: 3, width: '100%', maxWidth: 1220, margin: '0 auto', padding: '0 20px' }}>
+          <div className="az-hero-content" style={{ maxWidth: 580 }}>
+            <img src={BRAND_LOGOS.aztech} alt="Aztech" className="az-hero-logo"
+                 style={{ height: 30, width: 'auto', maxWidth: '100%', display: 'block', marginBottom: 28, objectFit: 'contain' }} />
+            <h1 className="az-hero-heading"
+                style={{ fontSize: 'clamp(30px, 4.5vw, 58px)', color: '#fff', lineHeight: 0.95, marginBottom: 18, fontWeight: 700, letterSpacing: 1 }}>
+              {heroBanner.lines.map((line, li) => (
+                <span key={li} style={{ display: 'block', color: li === heroBanner.accentLine ? 'rgba(255,255,255,0.6)' : '#fff' }}>{line}</span>
+              ))}
+            </h1>
+            <p className="az-hero-desc"
+               style={{ fontSize: 15, color: 'rgba(255,255,255,0.72)', lineHeight: 1.65, marginBottom: 32, fontWeight: 300, maxWidth: 420 }}>
+              {heroBanner.desc}
+            </p>
+            <Link href={heroBanner.cta.href} className="az-hero-btn"
+               style={{
+                 display: 'inline-block', padding: '13px 28px',
+                 background: heroBanner.cta.solid ? '#fff' : 'transparent',
+                 color: heroBanner.cta.solid ? '#0d0d0d' : '#fff',
+                 border: '2px solid #fff',
+                 fontSize: 13, fontWeight: 600, letterSpacing: 1, textTransform: 'uppercase',
+                 textDecoration: 'none', borderRadius: 2,
+                 transition: 'background 0.25s, color 0.25s, border-color 0.25s',
+               }}
+               onMouseEnter={e => {
+                 const el = e.currentTarget as HTMLAnchorElement;
+                 el.style.background = az.accent; el.style.borderColor = az.accent; el.style.color = '#fff';
+               }}
+               onMouseLeave={e => {
+                 const el = e.currentTarget as HTMLAnchorElement;
+                 el.style.background = heroBanner.cta.solid ? '#fff' : 'transparent';
+                 el.style.borderColor = '#fff';
+                 el.style.color = heroBanner.cta.solid ? '#0d0d0d' : '#fff';
+               }}>
+              {heroBanner.cta.label}
+            </Link>
+          </div>
+        </div>
       </section>
 
       {/* ══════════════════════════════════════════
@@ -1040,14 +945,13 @@ export default function AztechPage() {
           RESPONSIVE STYLES
       ══════════════════════════════════════════ */}
       <style>{`
-        @keyframes azPulse { 0%,100%{ opacity:1; transform:scale(1); } 50%{ opacity:.5; transform:scale(.8); } }
         body.az-subnav-active .ka-navbar-hide { transform: translateY(-120%) !important; pointer-events: none !important; }
         .az-reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.65s cubic-bezier(0.22,1,0.36,1), transform 0.65s cubic-bezier(0.22,1,0.36,1); }
         .az-reveal.az-visible { opacity: 1; transform: translateY(0); }
         .az-reveal-d1 { transition-delay: 0.12s; }
         .az-reveal-d2 { transition-delay: 0.24s; }
 
-        .az-hero { height: 680px; }
+        .az-hero { height: 660px; }
 
         @media (max-width: 1024px) {
           .az-comm-inner   { grid-template-columns: 1fr !important; gap: 40px !important; }
@@ -1061,22 +965,21 @@ export default function AztechPage() {
         }
 
         @media (max-width: 768px) {
-          .az-hero { height: 420px !important; }
-          .az-slide { align-items: flex-end !important; padding-bottom: 70px !important; }
+          .az-hero { height: auto !important; min-height: 480px !important; align-items: flex-end !important; padding-bottom: 70px !important; }
           .az-vignette { background: linear-gradient(180deg, transparent 10%, rgba(0,0,0,0.85) 70%) !important; }
           .az-hero-container { padding: 0 24px !important; }
           .az-hero-content { max-width: 100% !important; }
-          .az-dots { left: 24px !important; transform: none !important; bottom: 22px !important; }
           .az-net-products { grid-template-columns: 1fr !important; }
           .az-net-img { height: 200px !important; }
           .az-scanner-img { height: 260px !important; }
         }
 
         @media (max-width: 480px) {
-          .az-hero { height: 550px !important; }
           .az-hero-content { max-width: 100% !important; }
+          .az-hero-logo { height: 22px !important; }
+          .az-hero-heading { letter-spacing: 0 !important; }
           .az-hero-desc { font-size: 13px !important; margin-bottom: 20px !important; }
-          .az-hero-btn { padding: 10px 20px !important; font-size: 12px !important; margin-bottom: 35px !important; }
+          .az-hero-btn { padding: 10px 20px !important; font-size: 12px !important; }
           .az-flat-tabs { flex-direction: column !important; }
           .az-flat-tabs button { width: 100% !important; justify-content: flex-start !important; }
         }

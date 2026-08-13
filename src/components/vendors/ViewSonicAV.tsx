@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import { cld } from '@/src/lib/cloudinaryUrl';
+import { BRAND_LOGOS } from '@/src/lib/brandLogos';
 
 /* ─────────────────────────────────────────────
    THEME
@@ -141,48 +142,13 @@ const VS_IMAGES: Record<string, string> = {
 /* ─────────────────────────────────────────────
    HERO SLIDES
 ───────────────────────────────────────────── */
-const heroSlides = [
-  {
-    id: 'ifp',
-    badge: '01 — Interactive Displays',
-    lines: ['Built for', 'everyone.'],
-    accentLine: 1,
-    desc: 'From kindergarten classrooms to executive boardrooms — ViewSonic\'s EDLA-certified ViewBoard® interactive flat panels bring 4K touch, myViewBoard whiteboarding, and centralized device management to every space.',
-    tags: ['Education — IFP34 · IFP35 · IFP52', 'Corporate — IFP41 · IFP51 · IFP62'],
-    cta: { label: 'Explore ViewBoards', href: '#ifp', solid: true },
-    bg: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1784150367/24ALL-CON1404-3572-T2_Monitors_Images_HeaderMobile3-800x360_pmcffg.webp',
-  },
-  {
-    id: 'monitors',
-    badge: '02 — Monitors',
-    lines: ['Pick your', 'pixel.'],
-    accentLine: 1,
-    desc: 'From everyday office screens to color-critical creator panels and 360Hz Mini-LED gaming weapons — there\'s a ViewSonic monitor for every desk.',
-    tags: ['VA — Home & Office', 'VX / XG — Gaming', 'VP — ColorPro', 'VG — Business', 'TD — Touch'],
-    cta: { label: 'See All Monitors', href: '#monitors', solid: false },
-    bg: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1783982076/24ALL-CON1404-3572-T2_Monitors_Images_SubHeader-2_hxojbb.webp',
-  },
-  {
-    id: 'projectors',
-    badge: '03 — Laser Projectors',
-    lines: ['Beams of', 'brilliance.'],
-    accentLine: 1,
-    desc: 'From 5,500-lumen 4K installation lasers to RGB-laser cinema flagships and Designed-for-Xbox gaming projectors — premium imagery for every venue.',
-    tags: ['LS901-4K — 5,500 ANSI', 'LX700-4K RGB — BT.2020 100%', 'LS741HD — 5,000 lm'],
-    cta: { label: 'Discover Projectors', href: '#projectors', solid: false },
-    bg: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1783982076/25PRJ-CON1282-RC_SubHeader-1280x524_ntz30s.webp',
-  },
-  {
-    id: 'led',
-    badge: '04 — Direct View LED',
-    lines: ['Bigger, brighter,', 'borderless.'],
-    accentLine: 1,
-    desc: 'From a foldable 138" all-in-one to fully customizable LED walls up to 800" — ViewSonic dvLED delivers cinematic scale with broadcast-grade color.',
-    tags: ['Foldable — LDS138-151', 'All-in-One — 136" / 163" / 217"', 'Customizable — up to 800"'],
-    cta: { label: 'View LED Walls', href: '#led', solid: false },
-    bg: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1784150367/24ALL-CON1404-3572-T2_Monitors_Images_HeaderMobile2-800x360_hvyvzt.webp',
-  },
-];
+const heroBanner = {
+  lines: ['Visual Solutions.', 'For Every Space.'],
+  accentLine: 1,
+  desc: 'From EDLA-certified interactive displays and colour-accurate monitors to laser projectors, direct-view LED, and video conferencing — ViewSonic delivers premium visual technology for education, business, and beyond.',
+  cta: { label: 'Explore ViewSonic', href: '/products?brand=viewsonic&page=1', solid: true },
+  bg: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1784150367/24ALL-CON1404-3572-T2_Monitors_Images_HeaderMobile3-800x360_pmcffg.webp',
+};
 
 /* ─────────────────────────────────────────────
    SECTION 1 — IFP / VIEWBOARD
@@ -775,12 +741,7 @@ function ToggleDot({ open }: { open: boolean }) {
 ───────────────────────────────────────────── */
 export default function ViewSonicAVPage() {
 
-  const [heroIdx, setHeroIdx]             = useState(0);
-  const [progress, setProgress]           = useState(0);
-  const rafRef                            = useRef<number | null>(null);
-  const startRef                          = useRef<number | null>(null);
   const heroRef                           = useRef<HTMLElement>(null);
-  const DURATION                          = 5500;
 
   const [isSticky, setIsSticky]           = useState(false);
   const [openTiles, setOpenTiles]         = useState<Record<string, boolean>>({
@@ -795,36 +756,6 @@ export default function ViewSonicAVPage() {
   const [formState, setFormState]         = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
 
   const toggleTile = (id: string) => setOpenTiles(prev => ({ ...prev, [id]: !prev[id] }));
-
-  /* ── Hero progress ── */
-  const tick = (ts: number) => {
-    if (!startRef.current) startRef.current = ts;
-    const pct = Math.min(((ts - startRef.current) / DURATION) * 100, 100);
-    setProgress(pct);
-    if (pct < 100) {
-      rafRef.current = requestAnimationFrame(tick);
-    } else {
-      setHeroIdx(i => (i + 1) % heroSlides.length);
-    }
-  };
-
-  const resetProgress = () => {
-    if (rafRef.current) cancelAnimationFrame(rafRef.current);
-    startRef.current = null;
-    setProgress(0);
-    rafRef.current = requestAnimationFrame(tick);
-  };
-
-  const goSlide = (n: number) => {
-    setHeroIdx(((n % heroSlides.length) + heroSlides.length) % heroSlides.length);
-    resetProgress();
-  };
-
-  useEffect(() => {
-    resetProgress();
-    return () => { if (rafRef.current) cancelAnimationFrame(rafRef.current); };
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [heroIdx]);
 
   /* ── Sticky nav ── */
   useEffect(() => {
@@ -873,130 +804,63 @@ export default function ViewSonicAVPage() {
     <main style={{ background: vs.bg, color: vs.text, fontFamily: 'var(--font-poppins)', overflowX: 'hidden' }}>
 
       {/* ══════════════════════════════════════════
-          HERO SLIDER
+          HERO BANNER
       ══════════════════════════════════════════ */}
-      <section ref={heroRef} className="vs-hero" style={{ position: 'relative', width: '100%', overflow: 'hidden', background: vs.navy }}>
-
-        {heroSlides.map((s, i) => (
-          <div key={s.id} className="vs-slide"
-               style={{
-                 position: 'absolute', inset: 0, display: 'flex', alignItems: 'center',
-                 opacity: i === heroIdx ? 1 : 0,
-                 transition: 'opacity 0.9s cubic-bezier(0.77,0,0.175,1)',
-                 zIndex: i === heroIdx ? 2 : 1,
-               }}>
-            {s.bg ? (
-              <>
-                <div style={{
-                  position: 'absolute', inset: 0,
-                  backgroundImage: `url('${s.bg}')`,
-                  backgroundSize: 'cover', backgroundPosition: 'center',
-                  transform: i === heroIdx ? 'scale(1)' : 'scale(1.06)',
-                  transition: 'transform 6s ease',
-                  filter: 'brightness(0.42)',
-                }} />
-                <div className="vs-vignette" style={{
-                  position: 'absolute', inset: 0,
-                  background: 'linear-gradient(90deg, rgba(10,22,40,0.9) 38%, rgba(10,22,40,0.5) 75%, rgba(218,0,38,0.15) 100%)',
-                }} />
-              </>
-            ) : (
-              <div style={{
-                position: 'absolute', inset: 0,
-                background: `radial-gradient(ellipse 65% 65% at ${i % 2 === 0 ? '20% 30%' : '80% 70%'}, rgba(218,0,38,0.18) 0%, transparent 65%), linear-gradient(150deg, #0A1628 0%, #0F2040 60%, #0A1628 100%)`,
-              }} />
-            )}
-            <div style={{
-              position: 'absolute', inset: 0,
-              backgroundImage: 'radial-gradient(rgba(255,255,255,0.05) 1px, transparent 1px)',
-              backgroundSize: '36px 36px',
-            }} />
-            <div className="vs-hero-container"
-                 style={{ position: 'relative', zIndex: 3, width: '100%', maxWidth: 1220, margin: '0 auto', padding: '0 20px' }}>
-              <div className="vs-hero-content"
-                   style={{
-                     maxWidth: 600,
-                     opacity: i === heroIdx ? 1 : 0,
-                     transform: i === heroIdx ? 'translateY(0)' : 'translateY(24px)',
-                     transition: 'opacity 0.7s ease 0.4s, transform 0.7s ease 0.4s',
-                   }}>
-                <span style={{
-                  display: 'inline-flex', alignItems: 'center', gap: 8, background: vs.accent, color: '#fff',
-                  fontSize: 11, fontWeight: 600, letterSpacing: 2, textTransform: 'uppercase',
-                  padding: '5px 12px', marginBottom: 18, borderRadius: 2,
-                }}>
-                  <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#fff', opacity: 0.9, display: 'inline-block', animation: 'vsPulse 2s infinite' }} />
-                  {s.badge}
-                </span>
-                <h1 className="vs-hero-heading"
-                    style={{ fontSize: 'clamp(38px, 5.5vw, 72px)', color: '#fff', lineHeight: 0.98, marginBottom: 18, fontWeight: 700, letterSpacing: 1 }}>
-                  {s.lines.map((line, li) => (
-                    <span key={li} style={{ display: 'block', color: li === s.accentLine ? vs.accent : '#fff' }}>{line}</span>
-                  ))}
-                </h1>
-                <p className="vs-hero-desc"
-                   style={{ fontSize: 15, color: 'rgba(255,255,255,0.72)', lineHeight: 1.65, marginBottom: 24, fontWeight: 300, maxWidth: 460 }}>
-                  {s.desc}
-                </p>
-                <div className="vs-hero-tags" style={{ display: 'flex', flexWrap: 'wrap', gap: 8, marginBottom: 28 }}>
-                  {s.tags.map(tag => (
-                    <span key={tag} style={{
-                      fontSize: 11.5, fontWeight: 500, padding: '6px 12px', borderRadius: 999,
-                      border: '1px solid rgba(255,255,255,0.18)', background: 'rgba(255,255,255,0.05)', color: 'rgba(255,255,255,0.75)',
-                    }}>
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-                <a href={s.cta.href} className="vs-hero-btn"
-                   onClick={e => { e.preventDefault(); document.querySelector(s.cta.href)?.scrollIntoView({ behavior: 'smooth' }); }}
-                   style={{
-                     display: 'inline-block', padding: '13px 28px',
-                     background: s.cta.solid ? '#fff' : 'transparent',
-                     color: s.cta.solid ? '#0d0d0d' : '#fff',
-                     border: '2px solid #fff',
-                     fontSize: 13, fontWeight: 600, letterSpacing: 1, textTransform: 'uppercase',
-                     textDecoration: 'none', borderRadius: 2,
-                     transition: 'background 0.25s, color 0.25s, border-color 0.25s',
-                   }}
-                   onMouseEnter={e => {
-                     const el = e.currentTarget as HTMLAnchorElement;
-                     el.style.background = vs.accent; el.style.borderColor = vs.accent; el.style.color = '#fff';
-                   }}
-                   onMouseLeave={e => {
-                     const el = e.currentTarget as HTMLAnchorElement;
-                     el.style.background = s.cta.solid ? '#fff' : 'transparent';
-                     el.style.borderColor = '#fff';
-                     el.style.color = s.cta.solid ? '#0d0d0d' : '#fff';
-                   }}>
-                  {s.cta.label}
-                </a>
-              </div>
-            </div>
-          </div>
-        ))}
-
-        {/* Dots */}
-        <div className="vs-dots"
-             style={{ position: 'absolute', bottom: 28, left: '50%', transform: 'translateX(calc(-570px + 20px))', display: 'flex', gap: 10, zIndex: 10 }}>
-          {heroSlides.map((_, i) => (
-            <button key={i} onClick={() => goSlide(i)}
-                    style={{
-                      width: 10, height: 10, borderRadius: '50%', padding: 0, border: 'none', cursor: 'pointer',
-                      background: i === heroIdx ? vs.accent : 'rgba(255,255,255,0.35)',
-                      transform: i === heroIdx ? 'scale(1.3)' : 'scale(1)',
-                      transition: 'background 0.3s, transform 0.3s',
-                    }} />
-          ))}
-        </div>
-
-        {/* Progress bar */}
+      <section ref={heroRef} className="vs-hero" style={{ position: 'relative', width: '100%', overflow: 'hidden', background: vs.navy, display: 'flex', alignItems: 'center' }}>
         <div style={{
-          position: 'absolute', bottom: 0, left: 0, height: 3,
-          background: vs.accent, width: `${progress}%`,
-          zIndex: 10, transition: 'width 0.1s linear',
+          position: 'absolute', inset: 0,
+          backgroundImage: `url('${heroBanner.bg}')`,
+          backgroundSize: 'cover', backgroundPosition: 'center',
+          filter: 'brightness(0.65)',
         }} />
-
+        <div className="vs-vignette" style={{
+          position: 'absolute', inset: 0,
+          background: 'linear-gradient(90deg, rgba(10,22,40,0.9) 38%, rgba(10,22,40,0.5) 75%, rgba(218,0,38,0.15) 100%)',
+        }} />
+        <div style={{
+          position: 'absolute', inset: 0,
+          backgroundImage: 'radial-gradient(rgba(255,255,255,0.05) 1px, transparent 1px)',
+          backgroundSize: '36px 36px',
+        }} />
+        <div className="vs-hero-container"
+             style={{ position: 'relative', zIndex: 3, width: '100%', maxWidth: 1220, margin: '0 auto', padding: '0 20px' }}>
+          <div className="vs-hero-content" style={{ maxWidth: 580 }}>
+            <img src={BRAND_LOGOS.viewsonic} alt="ViewSonic" className="vs-hero-logo"
+                 style={{ height: 30, width: 'auto', maxWidth: '100%', display: 'block', marginBottom: 28, objectFit: 'contain' }} />
+            <h1 className="vs-hero-heading"
+                style={{ fontSize: 'clamp(30px, 4.5vw, 58px)', color: '#fff', lineHeight: 0.95, marginBottom: 18, fontWeight: 700, letterSpacing: 1 }}>
+              {heroBanner.lines.map((line, li) => (
+                <span key={li} style={{ display: 'block', color: li === heroBanner.accentLine ? vs.accent : '#fff' }}>{line}</span>
+              ))}
+            </h1>
+            <p className="vs-hero-desc"
+               style={{ fontSize: 15, color: 'rgba(255,255,255,0.72)', lineHeight: 1.65, marginBottom: 32, fontWeight: 300, maxWidth: 420 }}>
+              {heroBanner.desc}
+            </p>
+            <a href={heroBanner.cta.href} className="vs-hero-btn"
+               style={{
+                 display: 'inline-block', padding: '13px 28px',
+                 background: heroBanner.cta.solid ? '#fff' : 'transparent',
+                 color: heroBanner.cta.solid ? '#0d0d0d' : '#fff',
+                 border: '2px solid #fff',
+                 fontSize: 13, fontWeight: 600, letterSpacing: 1, textTransform: 'uppercase',
+                 textDecoration: 'none', borderRadius: 2,
+                 transition: 'background 0.25s, color 0.25s, border-color 0.25s',
+               }}
+               onMouseEnter={e => {
+                 const el = e.currentTarget as HTMLAnchorElement;
+                 el.style.background = vs.accent; el.style.borderColor = vs.accent; el.style.color = '#fff';
+               }}
+               onMouseLeave={e => {
+                 const el = e.currentTarget as HTMLAnchorElement;
+                 el.style.background = heroBanner.cta.solid ? '#fff' : 'transparent';
+                 el.style.borderColor = '#fff';
+                 el.style.color = heroBanner.cta.solid ? '#0d0d0d' : '#fff';
+               }}>
+              {heroBanner.cta.label}
+            </a>
+          </div>
+        </div>
       </section>
 
       {/* ══════════════════════════════════════════
@@ -1507,12 +1371,11 @@ export default function ViewSonicAVPage() {
           RESPONSIVE STYLES
       ══════════════════════════════════════════ */}
       <style>{`
-        @keyframes vsPulse { 0%,100%{ opacity:1; transform:scale(1); } 50%{ opacity:.5; transform:scale(.8); } }
         body.vs-subnav-active .ka-navbar-hide { transform: translateY(-120%) !important; pointer-events: none !important; }
         .vs-reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.65s cubic-bezier(0.22,1,0.36,1), transform 0.65s cubic-bezier(0.22,1,0.36,1); }
         .vs-reveal.vs-visible { opacity: 1; transform: translateY(0); }
 
-        .vs-hero { height: 680px; }
+        .vs-hero { height: 660px; }
         .vs-navlinks::-webkit-scrollbar { display: none; }
 
         @media (max-width: 1024px) {
@@ -1528,12 +1391,10 @@ export default function ViewSonicAVPage() {
         }
 
         @media (max-width: 768px) {
-          .vs-hero { height: 460px !important; }
-          .vs-slide { align-items: flex-end !important; padding-bottom: 60px !important; }
+          .vs-hero { height: auto !important; min-height: 480px !important; align-items: flex-end !important; padding-bottom: 70px !important; }
           .vs-vignette { background: linear-gradient(180deg, transparent 10%, rgba(10,22,40,0.85) 70%) !important; }
           .vs-hero-container { padding: 0 24px !important; }
           .vs-hero-content { max-width: 100% !important; }
-          .vs-dots { left: 24px !important; transform: none !important; bottom: 22px !important; }
           .vs-mtile-head {
             grid-template-columns: 1fr auto !important;
             grid-template-areas: "series dot" "text text" !important;
@@ -1548,19 +1409,14 @@ export default function ViewSonicAVPage() {
         }
 
         @media (max-width: 480px) {
-          .vs-hero { height: 560px !important; }
           .vs-hero-content { max-width: 100% !important; }
+          .vs-hero-logo { height: 22px !important; }
           .vs-hero-heading { letter-spacing: 0 !important; }
-          .vs-hero-desc { font-size: 13px !important; margin-bottom: 16px !important; }
-          .vs-hero-tags { display: none !important; }
-          .vs-hero-btn { padding: 10px 20px !important; font-size: 12px !important; margin-bottom: 35px !important; }
+          .vs-hero-desc { font-size: 13px !important; margin-bottom: 20px !important; }
+          .vs-hero-btn { padding: 10px 20px !important; font-size: 12px !important; }
           .vs-ltile-head { grid-template-columns: 48px 1fr auto !important; gap: 14px !important; padding: 18px !important; }
           .vs-ifp-card { padding: 20px !important; }
           .vs-product-img { height: 180px !important; }
-        }
-
-        @media (max-width: 360px) {
-          .vs-hero { height: 600px !important; }
         }
       `}</style>
     </main>

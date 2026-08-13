@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
+import { BRAND_LOGOS } from '@/src/lib/brandLogos';
 
 const ACCENT      = '#80E6D8';
 const ACCENT_DARK = '#55cebf';
@@ -74,26 +75,14 @@ function IrisForm() {
 }
 
 // ── data ──────────────────────────────────────────────────────────────────────
-const slides = [
-  {
-    bg: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1782334329/RIPDF25-combine_merge-630x450-min_zn74de.webp',
-    badge: 'IRIS PDF Software',
-    line1: 'PDF Work,',
-    line2: 'Simplified.',
-    sub: 'OCR in 138 languages, direct PDF editing, form filling, redaction, merging, and cloud sharing — all in one perpetual-license platform for Windows & macOS.',
-    btnLabel: 'Explore Features',
-    btnHref: '#pdf-features',
-  },
-  {
-    bg: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1782334328/RIPDF25-edit_PDF-630x450-min_xdabbm.webp',
-    badge: 'Two Editions Available',
-    line1: 'Essential',
-    line2: 'or Elite.',
-    sub: 'Start with Essential for everyday PDF work, or step up to Elite for batch automation, PDF/A archiving, cloud sync, and volume licensing across your team.',
-    btnLabel: 'Choose Your Edition',
-    btnHref: '#pdf-editions',
-  },
-];
+const heroBanner = {
+  bg: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1786654973/20230724-software_series2_fsrhom.webp',
+  line1: 'PDF Work,',
+  line2: 'Simplified.',
+  sub: 'OCR in 138 languages, direct PDF editing, form filling, redaction, merging, and cloud sharing — all in one perpetual-license platform for Windows & macOS.',
+  btnLabel: 'Explore Features',
+  btnHref: '#pdf-features',
+};
 
 const featureCards = [
   {
@@ -214,8 +203,6 @@ const navLinks = [
 
 // ── main component ────────────────────────────────────────────────────────────
 export default function IrisPage() {
-  const [slide,      setSlide]      = useState(0);
-  const [progress,   setProgress]   = useState(0);
   const [navSticky,  setNavSticky]  = useState(false);
   const [ledActive,  setLedActive]  = useState(0);
   const [ledImg,     setLedImg]     = useState(editions[0].img);
@@ -225,8 +212,6 @@ export default function IrisPage() {
   const [hovNav,     setHovNav]     = useState<number | null>(null);
 
   const heroRef  = useRef<HTMLDivElement>(null);
-  const startRef = useRef<number>(0);
-  const rafRef   = useRef<number>(0);
 
   const isMobile = winW > 0 && winW < 768;
   const isTablet = winW > 0 && winW < 900;
@@ -238,24 +223,6 @@ export default function IrisPage() {
     window.addEventListener('resize', set, { passive: true });
     return () => window.removeEventListener('resize', set);
   }, []);
-
-  // slider progress bar
-  useEffect(() => {
-    const DURATION = 5000;
-    startRef.current = 0;
-    const tick = (ts: number) => {
-      if (!startRef.current) startRef.current = ts;
-      const pct = Math.min(((ts - startRef.current) / DURATION) * 100, 100);
-      setProgress(pct);
-      if (pct < 100) {
-        rafRef.current = requestAnimationFrame(tick);
-      } else {
-        setSlide(s => (s + 1) % slides.length);
-      }
-    };
-    rafRef.current = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(rafRef.current);
-  }, [slide]);
 
   // sticky subnav + hide main Navbar
   useEffect(() => {
@@ -285,12 +252,6 @@ export default function IrisPage() {
     return () => obs.disconnect();
   }, []);
 
-  const goTo = (idx: number) => {
-    setSlide(idx);
-    setProgress(0);
-    startRef.current = 0;
-  };
-
   const switchEdition = (idx: number) => {
     if (idx === ledActive) return;
     setLedActive(idx);
@@ -312,62 +273,43 @@ export default function IrisPage() {
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
         .ir-reveal  { opacity: 0; transform: translateY(28px); transition: opacity 0.65s ease, transform 0.65s ease; }
         .ir-visible { opacity: 1 !important; transform: translateY(0) !important; }
-        @keyframes irPulse { 0%,100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.5); opacity: 0.5; } }
-        .ir-pulse-dot { animation: irPulse 2s ease-in-out infinite; }
         @keyframes irFadeIn { from { opacity: 0; } to { opacity: 1; } }
       `}</style>
 
-      {/* ── HERO SLIDER ── */}
+      {/* ── HERO BANNER ── */}
       <div
         ref={heroRef}
-        style={{ position: 'relative', width: '100%', height: isMobile ? 550 : 680, overflow: 'hidden', background: '#000', fontFamily: "'Poppins', sans-serif" }}
+        style={{
+          position: 'relative', width: '100%', overflow: 'hidden', background: '#000', fontFamily: "'Poppins', sans-serif",
+          display: 'flex',
+          height: isMobile ? 'auto' : 660,
+          minHeight: isMobile ? 480 : undefined,
+          alignItems: isMobile ? 'flex-end' : 'center',
+          paddingBottom: isMobile ? 70 : 0,
+        }}
       >
-        {slides.map((s, i) => (
-          <div
-            key={i}
-            style={{
-              position: 'absolute', inset: 0,
-              display: 'flex', alignItems: isMobile ? 'flex-end' : 'center',
-              paddingBottom: isMobile ? 70 : 0,
-              opacity: slide === i ? 1 : 0,
-              transition: 'opacity 0.9s cubic-bezier(0.77, 0, 0.175, 1)',
-              zIndex: slide === i ? 2 : 1,
-            }}
-          >
-            {/* bg */}
-            <div style={{ position: 'absolute', inset: 0, backgroundImage: `url('${s.bg}')`, backgroundSize: 'cover', backgroundPosition: 'center', transform: slide === i ? 'scale(1)' : 'scale(1.06)', transition: 'transform 6s ease', filter: 'brightness(0.38)' }} />
-            {/* overlay */}
-            <div style={{ position: 'absolute', inset: 0, background: isMobile ? 'linear-gradient(180deg, transparent 10%, rgba(0,0,0,0.85) 70%)' : 'linear-gradient(90deg, rgba(0,0,0,0.72) 38%, transparent 80%)', zIndex: 0 }} />
-            {/* content */}
-            <div style={{ position: 'relative', zIndex: 3, width: '100%', maxWidth: 1220, margin: '0 auto', padding: '0 24px' }}>
-              <div style={{ maxWidth: 580, opacity: slide === i ? 1 : 0, transform: slide === i ? 'translateY(0)' : 'translateY(24px)', transition: 'opacity 0.7s ease 0.4s, transform 0.7s ease 0.4s' }}>
-                <span style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: ACCENT, color: '#000', fontSize: 11, fontWeight: 700, letterSpacing: 2, textTransform: 'uppercase', padding: '5px 12px', marginBottom: 18, borderRadius: 2 }}>
-                  <span className="ir-pulse-dot" style={{ width: 7, height: 7, borderRadius: '50%', background: '#000', display: 'inline-block', flexShrink: 0 }} />
-                  {s.badge}
-                </span>
-                <h1 style={{ fontFamily: "'Poppins', sans-serif", fontSize: isMobile ? 'clamp(34px, 10vw, 48px)' : 'clamp(48px, 6vw, 78px)', color: '#fff', lineHeight: 0.95, marginBottom: 18, fontWeight: 700, letterSpacing: 1 }}>
-                  {s.line1}<br /><span style={{ color: ACCENT }}>{s.line2}</span>
-                </h1>
-                <p style={{ fontSize: isMobile ? 13 : 15, color: 'rgba(255,255,255,0.72)', lineHeight: 1.65, marginBottom: isMobile ? 20 : 32, fontWeight: 300, maxWidth: 420 }}>{s.sub}</p>
-                <a href={s.btnHref}
-                   onClick={e => { e.preventDefault(); document.querySelector(s.btnHref)?.scrollIntoView({ behavior: 'smooth' }); }}
-                   style={{ display: 'inline-block', padding: isMobile ? '10px 20px' : '13px 28px', background: ACCENT, color: '#fff', border: `2px solid ${ACCENT}`, fontSize: isMobile ? 12 : 13, fontWeight: 600, letterSpacing: 1, textTransform: 'uppercase', textDecoration: 'none', marginBottom: isMobile ? 35 : 0 }}>
-                  {s.btnLabel}
-                </a>
-              </div>
-            </div>
+        {/* bg */}
+        <div style={{ position: 'absolute', inset: 0, backgroundImage: `url('${heroBanner.bg}')`, backgroundSize: 'cover', backgroundPosition: 'center', filter: 'brightness(0.75)' }} />
+        {/* overlay */}
+        <div style={{ position: 'absolute', inset: 0, background: isMobile ? 'linear-gradient(180deg, transparent 10%, rgba(0,0,0,0.85) 70%)' : 'linear-gradient(90deg, rgba(0,0,0,0.32) 38%, transparent 80%)' }} />
+        {/* content */}
+        <div style={{ position: 'relative', zIndex: 3, width: '100%', maxWidth: 1140, margin: '0 auto', padding: isMobile ? '0 24px' : '0 20px' }}>
+          <div style={{ maxWidth: isMobile ? '100%' : 560 }}>
+            <img src={BRAND_LOGOS.iris} alt="IRIS" style={{ height: isMobile ? 32 : 40, width: 'auto', maxWidth: '100%', display: 'block', marginBottom: 28, objectFit: 'contain' }} />
+            <h1 style={{ fontFamily: "'Poppins', sans-serif", fontSize: isMobile ? 'clamp(30px, 8vw, 40px)' : 'clamp(30px, 4.5vw, 58px)', color: '#fff', lineHeight: 0.95, marginBottom: 18, fontWeight: 700, letterSpacing: isMobile ? 0 : 1 }}>
+              <span style={{ display: 'block' }}>{heroBanner.line1}</span>
+              <span style={{ display: 'block', color: ACCENT }}>{heroBanner.line2}</span>
+            </h1>
+            <p style={{ fontSize: isMobile ? 13 : 15, color: 'rgba(255,255,255,0.72)', lineHeight: 1.65, marginBottom: isMobile ? 20 : 32, fontWeight: 300, maxWidth: 420 }}>{heroBanner.sub}</p>
+            <a href={heroBanner.btnHref}
+               onClick={e => { e.preventDefault(); document.querySelector(heroBanner.btnHref)?.scrollIntoView({ behavior: 'smooth' }); }}
+               style={{ display: 'inline-block', padding: isMobile ? '10px 20px' : '13px 28px', background: 'transparent', color: '#fff', border: '2px solid #fff', fontSize: isMobile ? 12 : 13, fontWeight: 600, letterSpacing: 1, textTransform: 'uppercase', textDecoration: 'none', borderRadius: 2, transition: 'background 0.25s, color 0.25s, border-color 0.25s' }}
+               onMouseEnter={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = ACCENT; el.style.borderColor = ACCENT; el.style.color = '#fff'; }}
+               onMouseLeave={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = 'transparent'; el.style.borderColor = '#fff'; el.style.color = '#fff'; }}>
+              {heroBanner.btnLabel}
+            </a>
           </div>
-        ))}
-
-        {/* dots */}
-        <div style={{ position: 'absolute', bottom: 28, left: isMobile ? 24 : 'calc(50% - 570px + 20px)', display: 'flex', gap: 10, zIndex: 10 }}>
-          {slides.map((_, i) => (
-            <button key={i} onClick={() => goTo(i)} style={{ width: 10, height: 10, borderRadius: '50%', background: slide === i ? ACCENT : 'rgba(255,255,255,0.35)', border: 'none', cursor: 'pointer', padding: 0, transform: slide === i ? 'scale(1.3)' : 'scale(1)', transition: 'background 0.3s, transform 0.3s' }} />
-          ))}
         </div>
-
-        {/* progress bar */}
-        <div style={{ position: 'absolute', bottom: 0, left: 0, height: 3, background: ACCENT, width: `${progress}%`, zIndex: 10, transition: 'width 0.1s linear' }} />
       </div>
 
       {/* ── STICKY SUBNAV ── */}

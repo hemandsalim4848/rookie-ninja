@@ -373,15 +373,17 @@ function FlipCard({
           </p>
 
           {/* Learn more */}
-          <span className="font-body text-[10px] font-medium text-accent
-                           flex items-center gap-1
-                           group-hover:text-white transition-colors duration-200">
-            Learn More
-            <svg width="8" height="8" viewBox="0 0 12 12" fill="none">
-              <path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor"
-                    strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
-          </span>
+          {!disabled && (
+            <span className="font-body text-[10px] font-medium text-accent
+                             flex items-center gap-1
+                             group-hover:text-white transition-colors duration-200">
+              Learn More
+              <svg width="8" height="8" viewBox="0 0 12 12" fill="none">
+                <path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor"
+                      strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </span>
+          )}
 
         </div>
       </div>

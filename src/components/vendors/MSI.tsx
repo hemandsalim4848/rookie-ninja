@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { cld } from '@/src/lib/cloudinaryUrl';
 import Link from 'next/link';
+import { BRAND_LOGOS } from '@/src/lib/brandLogos';
 
 const ms = {
   accent: '#e4001b',
@@ -14,24 +15,13 @@ const ms = {
 /* ─────────────────────────────────────────────
    HERO SLIDES
 ───────────────────────────────────────────── */
-const heroSlides = [
-  {
-    id: 'gpus',
-    badge: 'Official Distributor',
-    lines: ['Game', 'Without Limits.'],
-    accentLine: 1,
-    desc: 'MSI GeForce graphic cards deliver next-generation gaming performance, ray tracing, and AI-powered DLSS features — engineered for every build tier from mid-range to flagship.',
-    cta: { label: 'Explore GPUs', href: '#graphic-cards', solid: true },
-  },
-  {
-    id: 'motherboards',
-    badge: 'Motherboards',
-    lines: ['Built to', 'Perform.'],
-    accentLine: 0,
-    desc: 'From entry-level PRO series to flagship MEG boards — MSI motherboards combine robust power delivery with feature-rich connectivity for AMD and Intel platforms.',
-    cta: { label: 'View Motherboards', href: '#motherboards', solid: false },
-  },
-];
+const heroBanner = {
+  lines: ['Game', 'Without Limits.'],
+  accentLine: 1,
+  desc: 'MSI GeForce graphic cards and motherboards deliver next-generation gaming performance, ray tracing, and AI-powered features — engineered for every build tier from entry-level to flagship.',
+  cta: { label: 'Explore MSI', href: '/products?brand=msi&page=1', solid: true },
+  bg: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1786623581/Gemini_Generated_Image_fdh4kzfdh4kzfdh4_afccxp.webp',
+};
 
 /* ─────────────────────────────────────────────
    PERIPHERALS — accordion, display only
@@ -138,12 +128,7 @@ function MsNavInner({ accent }: { accent: string }) {
    MAIN COMPONENT
 ───────────────────────────────────────────── */
 export default function MSIPage() {
-  const [heroIdx, setHeroIdx]       = useState(0);
-  const [progress, setProgress]     = useState(0);
-  const rafRef                      = useRef<number | null>(null);
-  const startRef                    = useRef<number | null>(null);
   const heroRef                     = useRef<HTMLElement>(null);
-  const DURATION                    = 5000;
 
   const [isSticky, setIsSticky]     = useState(false);
   const [mbTab, setMbTab]           = useState<'intel' | 'amd'>('intel');
@@ -153,7 +138,6 @@ export default function MSIPage() {
   /* products loaded from API */
   const [gpus,  setGpus]  = useState<any[]>([]);
   const [boards, setBoards] = useState<{ intel: any[]; amd: any[] }>({ intel: [], amd: [] });
-  const [heroBgs, setHeroBgs] = useState<string[]>(['', '']);
 
   /* ── Fetch MSI products ── */
   useEffect(() => {
@@ -170,30 +154,9 @@ export default function MSIPage() {
           .slice(0, 4);
         setGpus(gpuList);
         setBoards({ intel: intelBoards, amd: amdBoards });
-        // Use actual product images for hero backgrounds
-        setHeroBgs([
-          gpuList[0]?.images?.[0] || '',
-          (intelBoards[0] || amdBoards[0])?.images?.[0] || '',
-        ]);
       })
       .catch(() => {});
   }, []);
-
-  /* ── Hero timer ── */
-  const tick = (ts: number) => {
-    if (!startRef.current) startRef.current = ts;
-    const pct = Math.min(((ts - startRef.current) / DURATION) * 100, 100);
-    setProgress(pct);
-    if (pct < 100) { rafRef.current = requestAnimationFrame(tick); }
-    else { setHeroIdx(i => (i + 1) % heroSlides.length); }
-  };
-  const resetProgress = () => {
-    if (rafRef.current) cancelAnimationFrame(rafRef.current);
-    startRef.current = null; setProgress(0);
-    rafRef.current = requestAnimationFrame(tick);
-  };
-  const goSlide = (n: number) => { setHeroIdx(((n % heroSlides.length) + heroSlides.length) % heroSlides.length); resetProgress(); };
-  useEffect(() => { resetProgress(); return () => { if (rafRef.current) cancelAnimationFrame(rafRef.current); }; }, [heroIdx]); // eslint-disable-line
 
   /* ── Sticky nav ── */
   useEffect(() => {
@@ -233,41 +196,58 @@ export default function MSIPage() {
     <main style={{ background: '#fff', color: ms.text, fontFamily: 'var(--font-poppins)', overflowX: 'hidden' }}>
 
       {/* ══════════════════════════════════════════
-          HERO
+          HERO BANNER
       ══════════════════════════════════════════ */}
-      <section ref={heroRef} className="ka-hero" style={{ position: 'relative', width: '100%', overflow: 'hidden', background: '#000' }}>
-        {heroSlides.map((s, i) => (
-          <div key={s.id} className="ka-slide"
-               style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', opacity: i === heroIdx ? 1 : 0, transition: 'opacity 0.9s cubic-bezier(0.77,0,0.175,1)', zIndex: i === heroIdx ? 2 : 1 }}>
-            <div style={{ position: 'absolute', inset: 0, backgroundImage: heroBgs[i] ? `url('${cld(heroBgs[i])}')` : undefined, backgroundSize: 'cover', backgroundPosition: 'center', transform: i === heroIdx ? 'scale(1)' : 'scale(1.06)', transition: 'transform 6s ease', filter: 'brightness(0.38)' }} />
-            <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(90deg, rgba(0,0,0,0.72) 38%, transparent 80%)' }} />
-            <div className="ka-hero-container" style={{ position: 'relative', zIndex: 3, width: '100%', maxWidth: 1220, margin: '0 auto', padding: '0 20px' }}>
-              <div className="ka-hero-content"
-                   style={{ maxWidth: 580, opacity: i === heroIdx ? 1 : 0, transform: i === heroIdx ? 'translateY(0)' : 'translateY(24px)', transition: 'opacity 0.7s ease 0.4s, transform 0.7s ease 0.4s' }}>
-                <span style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: ms.accent, color: '#fff', fontSize: 11, fontWeight: 600, letterSpacing: 2, textTransform: 'uppercase', padding: '5px 12px', marginBottom: 18, borderRadius: 2 }}>
-                  <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#fff', opacity: 0.9, display: 'inline-block', animation: 'kaPulse 2s infinite' }} />
-                  {s.badge}
-                </span>
-                <h1 className="ka-hero-heading" style={{ fontSize: 'clamp(40px, 6vw, 78px)', color: '#fff', lineHeight: 0.95, marginBottom: 18, fontWeight: 700, letterSpacing: 1 }}>
-                  {s.lines.map((line, li) => <span key={li} style={{ display: 'block', color: li === s.accentLine ? ms.accent : '#fff' }}>{line}</span>)}
-                </h1>
-                <p className="ka-hero-desc" style={{ fontSize: 15, color: 'rgba(255,255,255,0.72)', lineHeight: 1.65, marginBottom: 32, fontWeight: 300, maxWidth: 420 }}>{s.desc}</p>
-                <a href={s.cta.href} className="ka-hero-btn"
-                   style={{ display: 'inline-block', padding: '13px 28px', background: s.cta.solid ? '#fff' : 'transparent', color: s.cta.solid ? '#0d0d0d' : '#fff', border: '2px solid #fff', fontSize: 13, fontWeight: 600, letterSpacing: 1, textTransform: 'uppercase', textDecoration: 'none', borderRadius: 2, transition: 'background 0.25s, color 0.25s, border-color 0.25s' }}
-                   onMouseEnter={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = ms.accent; el.style.borderColor = ms.accent; el.style.color = '#fff'; }}
-                   onMouseLeave={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = s.cta.solid ? '#fff' : 'transparent'; el.style.borderColor = '#fff'; el.style.color = s.cta.solid ? '#0d0d0d' : '#fff'; }}>
-                  {s.cta.label}
-                </a>
-              </div>
-            </div>
+      <section ref={heroRef} className="ms-hero" style={{ position: 'relative', width: '100%', overflow: 'hidden', background: '#000', display: 'flex', alignItems: 'center' }}>
+        <div style={{
+          position: 'absolute', inset: 0,
+          backgroundImage: `url('${heroBanner.bg}')`,
+          backgroundSize: 'cover', backgroundPosition: 'center',
+          filter: 'brightness(0.65)',
+        }} />
+        <div className="ms-vignette" style={{
+          position: 'absolute', inset: 0,
+          background: 'linear-gradient(90deg, rgba(0,0,0,0.45) 38%, transparent 80%)',
+        }} />
+        <div className="ms-hero-container"
+             style={{ position: 'relative', zIndex: 3, width: '100%', maxWidth: 1220, margin: '0 auto', padding: '0 20px' }}>
+          <div className="ms-hero-content" style={{ maxWidth: 580 }}>
+            <img src={BRAND_LOGOS.msi} alt="MSI" className="ms-hero-logo"
+                 style={{ height: 40, width: 'auto', maxWidth: '100%', display: 'block', marginBottom: 28, objectFit: 'contain' }} />
+            <h1 className="ms-hero-heading"
+                style={{ fontSize: 'clamp(30px, 4.5vw, 58px)', color: '#fff', lineHeight: 0.95, marginBottom: 18, fontWeight: 700, letterSpacing: 1 }}>
+              {heroBanner.lines.map((line, li) => (
+                <span key={li} style={{ display: 'block', color: li === heroBanner.accentLine ? ms.accent : '#fff' }}>{line}</span>
+              ))}
+            </h1>
+            <p className="ms-hero-desc"
+               style={{ fontSize: 15, color: 'rgba(255,255,255,0.72)', lineHeight: 1.65, marginBottom: 32, fontWeight: 300, maxWidth: 420 }}>
+              {heroBanner.desc}
+            </p>
+            <Link href={heroBanner.cta.href} className="ms-hero-btn"
+               style={{
+                 display: 'inline-block', padding: '13px 28px',
+                 background: heroBanner.cta.solid ? '#fff' : 'transparent',
+                 color: heroBanner.cta.solid ? '#0d0d0d' : '#fff',
+                 border: '2px solid #fff',
+                 fontSize: 13, fontWeight: 600, letterSpacing: 1, textTransform: 'uppercase',
+                 textDecoration: 'none', borderRadius: 2,
+                 transition: 'background 0.25s, color 0.25s, border-color 0.25s',
+               }}
+               onMouseEnter={e => {
+                 const el = e.currentTarget as HTMLAnchorElement;
+                 el.style.background = ms.accent; el.style.borderColor = ms.accent; el.style.color = '#fff';
+               }}
+               onMouseLeave={e => {
+                 const el = e.currentTarget as HTMLAnchorElement;
+                 el.style.background = heroBanner.cta.solid ? '#fff' : 'transparent';
+                 el.style.borderColor = '#fff';
+                 el.style.color = heroBanner.cta.solid ? '#0d0d0d' : '#fff';
+               }}>
+              {heroBanner.cta.label}
+            </Link>
           </div>
-        ))}
-        <div className="ka-dots" style={{ position: 'absolute', bottom: 28, left: '50%', transform: 'translateX(calc(-570px + 20px))', display: 'flex', gap: 10, zIndex: 10 }}>
-          {heroSlides.map((_, i) => (
-            <button key={i} onClick={() => goSlide(i)} style={{ width: 10, height: 10, borderRadius: '50%', padding: 0, border: 'none', cursor: 'pointer', background: i === heroIdx ? ms.accent : 'rgba(255,255,255,0.35)', transform: i === heroIdx ? 'scale(1.3)' : 'scale(1)', transition: 'background 0.3s, transform 0.3s' }} />
-          ))}
         </div>
-        <div style={{ position: 'absolute', bottom: 0, left: 0, height: 3, background: ms.accent, width: `${progress}%`, zIndex: 10, transition: 'width 0.1s linear' }} />
       </section>
 
       {/* ══════════════════════════════════════════
@@ -508,11 +488,10 @@ export default function MSIPage() {
           STYLES
       ══════════════════════════════════════════ */}
       <style>{`
-        .ka-hero { height: 680px; }
+        .ms-hero { height: 660px; }
         .ms-reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.65s cubic-bezier(0.22,1,0.36,1), transform 0.65s cubic-bezier(0.22,1,0.36,1); }
         .ms-reveal.ms-visible { opacity: 1; transform: translateY(0); }
         .ms-reveal-d1 { transition-delay: 0.12s; }
-        @keyframes kaPulse { 0%,100%{ opacity:1; transform:scale(1); } 50%{ opacity:.5; transform:scale(.8); } }
         @keyframes msPulse { 0%,100%{ opacity:1; } 50%{ opacity:0.4; } }
         .ms-card-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
         @media (max-width: 1024px) {
@@ -522,12 +501,20 @@ export default function MSIPage() {
           .ms-card-grid  { grid-template-columns: repeat(2, 1fr) !important; }
         }
         @media (max-width: 640px) {
-          .ka-hero { height: 420px !important; }
-          .ka-slide { align-items: flex-end !important; padding-bottom: 70px !important; }
           .ms-card-grid { grid-template-columns: 1fr !important; }
         }
         @media (max-width: 768px) {
-          .ka-hero { height: 550px !important; }
+          .ms-hero { height: auto !important; min-height: 480px !important; align-items: flex-end !important; padding-bottom: 70px !important; }
+          .ms-vignette { background: linear-gradient(180deg, transparent 10%, rgba(0,0,0,0.85) 70%) !important; }
+          .ms-hero-container { padding: 0 24px !important; }
+          .ms-hero-content { max-width: 100% !important; }
+        }
+        @media (max-width: 480px) {
+          .ms-hero-content { max-width: 100% !important; }
+          .ms-hero-logo { height: 32px !important; }
+          .ms-hero-heading { letter-spacing: 0 !important; }
+          .ms-hero-desc { font-size: 13px !important; margin-bottom: 20px !important; }
+          .ms-hero-btn { padding: 10px 20px !important; font-size: 12px !important; }
         }
       `}</style>
     </main>

@@ -198,30 +198,6 @@ export default function PrintSolutionsPage() {
           backgroundSize: '36px 36px',
         }} />
 
-        {/* Decorative right panel */}
-        <div className="absolute right-[8%] top-1/2 -translate-y-1/2 z-[1]
-                        hidden lg:flex flex-col gap-4">
-          {[
-            { label: 'Product Categories', value: '4+' },
-            { label: 'Brand Partners',     value: '3+' },
-            { label: 'Models Available',   value: '50+' },
-          ].map(({ label, value }) => (
-            <div key={label}
-                 className="flex items-center gap-4 px-5 py-4 rounded-xl
-                            border border-white/10 bg-white/[0.05]
-                            backdrop-blur-sm min-w-[200px]">
-              <span className="font-display font-bold text-accent"
-                    style={{ fontSize: '28px', lineHeight: 1 }}>
-                {value}
-              </span>
-              <span className="font-body text-white/60"
-                    style={{ fontSize: '13px' }}>
-                {label}
-              </span>
-            </div>
-          ))}
-        </div>
-
         {/* Hero text */}
         <div className="relative z-10 w-full max-w-6xl mx-auto px-6
                         pt-[120px] pb-20">

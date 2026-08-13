@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
+import { BRAND_LOGOS } from '@/src/lib/brandLogos';
 
 /* ─────────────────────────────────────────────
    THEME
@@ -21,40 +22,13 @@ const c = {
 /* ─────────────────────────────────────────────
    DATA
 ───────────────────────────────────────────── */
-const heroSlides = [
-  {
-    badge: 'Official Distributor',
-    lines: ['Desktop', 'Scanners.'],
-    accentLine: 1,
-    desc: 'From the compact DR-C225II to the high-speed DR-M160II — Canon desktop scanners deliver precision and reliability for every workspace.',
-    cta: { label: 'View Scanners', href: '#desktop-scanners', solid: true },
-    bg: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1782244677/desktop-scanners_yiwicw.webp',
-  },
-  {
-    badge: 'Cheque Scanners',
-    lines: ['Cheque', 'Scanners.'],
-    accentLine: 1,
-    desc: 'The Canon CR-190ii UV and CR-120 Series deliver high-speed, accurate cheque processing with UV counterfeit detection for banking environments.',
-    cta: { label: 'View Scanners', href: '#cheque-scanners', solid: true },
-    bg: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1782244677/cheque-scanners_qc70ms.webp',
-  },
-  {
-    badge: 'Workgroup & Departmental',
-    lines: ['Workgroup', 'Scanners.'],
-    accentLine: 1,
-    desc: 'Canon DR-S130/S150, ScanFront 400, and S350NW — network-ready scanners built for shared office environments and high daily throughput.',
-    cta: { label: 'View Scanners', href: '#workgroup-departmental-scanners', solid: true },
-    bg: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1782244677/document-scanners_nzfa4o.webp',
-  },
-  {
-    badge: 'Production Scanners',
-    lines: ['Production', 'Scanners.'],
-    accentLine: 1,
-    desc: 'The Canon DR-6030C and DR-G2090/G2110/G2140 handle the highest-volume scanning demands with unmatched speed and durability.',
-    cta: { label: 'View Scanners', href: '#production-scanners', solid: true },
-    bg: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1782244676/production-scanners_j2btop.webp',
-  },
-];
+const heroBanner = {
+  lines: ['Precision Imaging.', 'Engineered to Last'],
+  accentLine: 1,
+  desc: 'From compact desktop scanners to high-speed production and cheque processing systems — Canon delivers precision imaging and reliable performance for every workflow.',
+  cta: { label: 'View Scanners', href: '/products?brand=canon&category=Document+Scanners&page=1', solid: true },
+  bg: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1782244677/desktop-scanners_yiwicw.webp',
+};
 
 const desktopCards = [
   {
@@ -268,12 +242,7 @@ function CnNavInner({ navLinks, accent }: { navLinks: { label: string; href: str
 ───────────────────────────────────────────── */
 export default function CanonPage() {
 
-  const [heroIdx, setHeroIdx]         = useState(0);
-  const [progress, setProgress]       = useState(0);
-  const rafRef                        = useRef<number | null>(null);
-  const startRef                      = useRef<number | null>(null);
   const heroRef                       = useRef<HTMLElement>(null);
-  const DURATION                      = 5000;
 
   const [isSticky, setIsSticky]       = useState(false);
   const [chequeTab, setChequeTab]     = useState(0);
@@ -281,31 +250,6 @@ export default function CanonPage() {
   const [wgTab, setWgTab]             = useState(0);
   const [prodItem, setProdItem]       = useState(0);
   const [formState, setFormState]     = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
-
-  /* ── Hero progress ── */
-  const tick = (ts: number) => {
-    if (!startRef.current) startRef.current = ts;
-    const pct = Math.min(((ts - startRef.current) / DURATION) * 100, 100);
-    setProgress(pct);
-    if (pct < 100) { rafRef.current = requestAnimationFrame(tick); }
-    else { setHeroIdx(i => (i + 1) % heroSlides.length); }
-  };
-  const resetProgress = () => {
-    if (rafRef.current) cancelAnimationFrame(rafRef.current);
-    startRef.current = null;
-    setProgress(0);
-    rafRef.current = requestAnimationFrame(tick);
-  };
-  const goSlide = (n: number) => {
-    setHeroIdx(((n % heroSlides.length) + heroSlides.length) % heroSlides.length);
-    resetProgress();
-  };
-
-  useEffect(() => {
-    resetProgress();
-    return () => { if (rafRef.current) cancelAnimationFrame(rafRef.current); };
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [heroIdx]);
 
   /* ── Sticky nav ── */
   useEffect(() => {
@@ -358,96 +302,58 @@ export default function CanonPage() {
     <div style={{ fontFamily: 'var(--font-poppins), sans-serif', background: c.bg, color: c.text }}>
 
       {/* ══════════════════════════════════════════
-          HERO SLIDER
+          HERO BANNER
       ══════════════════════════════════════════ */}
-      <section ref={heroRef} className="cn-hero" style={{ position: 'relative', width: '100%', height: 680, overflow: 'hidden', background: '#000' }}>
-
-        {heroSlides.map((s, i) => (
-          <div key={i} style={{
-            position: 'absolute', inset: 0, display: 'flex', alignItems: 'center',
-            opacity: i === heroIdx ? 1 : 0,
-            transition: 'opacity 0.9s cubic-bezier(0.77,0,0.175,1)',
-            zIndex: i === heroIdx ? 2 : 1,
-          }}>
-            {/* BG */}
-            <div style={{
-              position: 'absolute', inset: 0,
-              backgroundImage: `url('${s.bg}')`,
-              backgroundSize: 'cover', backgroundPosition: 'center',
-              transform: i === heroIdx ? 'scale(1)' : 'scale(1.06)',
-              transition: 'transform 6s ease',
-              filter: 'brightness(0.38)',
-            }} />
-            {/* Gradient overlay */}
-            <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(90deg, rgba(0,0,0,0.72) 38%, transparent 80%)', zIndex: 0 }} />
-
-            {/* Content */}
-            <div style={{ position: 'relative', zIndex: 3, width: '100%', maxWidth: 1220, margin: '0 auto', padding: '0 20px' }}>
-              <div style={{
-                maxWidth: 580,
-                opacity: i === heroIdx ? 1 : 0,
-                transform: i === heroIdx ? 'translateY(0)' : 'translateY(24px)',
-                transition: 'opacity 0.7s ease 0.4s, transform 0.7s ease 0.4s',
-              }}>
-                {/* Badge with pulse dot */}
-                <span style={{
-                  display: 'inline-flex', alignItems: 'center', gap: 8,
-                  background: c.accent, color: '#fff',
-                  fontSize: 11, fontWeight: 600, letterSpacing: 2, textTransform: 'uppercase',
-                  padding: '5px 12px', marginBottom: 18, borderRadius: 2,
-                }}>
-                  <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#fff', opacity: 0.9, display: 'inline-block', animation: 'cnPulse 2s infinite' }} />
-                  {s.badge}
-                </span>
-
-                <h1 className="cn-hero-heading" style={{ fontSize: 'clamp(48px, 6vw, 78px)', color: '#fff', lineHeight: 0.95, marginBottom: 18, fontWeight: 700, letterSpacing: 1 }}>
-                  {s.lines.map((line, li) => (
-                    <span key={li} style={{ display: 'block', color: li === s.accentLine ? c.accent : '#fff' }}>{line}</span>
-                  ))}
-                </h1>
-
-                <p style={{ fontSize: 15, color: 'rgba(255,255,255,0.72)', lineHeight: 1.65, marginBottom: 32, fontWeight: 300, maxWidth: 420 }}>
-                  {s.desc}
-                </p>
-
-                {s.cta && (
-                  <Link href={s.cta.href}
-                    onClick={e => { e.preventDefault(); document.querySelector(s.cta!.href)?.scrollIntoView({ behavior: 'smooth' }); }}
-                    style={{
-                    display: 'inline-block', padding: '13px 28px',
-                    background: s.cta.solid ? '#fff' : 'transparent',
-                    color: s.cta.solid ? '#0d0d0d' : '#fff',
-                    border: `2px solid ${s.cta.solid ? '#fff' : '#fff'}`,
-                    fontSize: 13, fontWeight: 600, letterSpacing: 1, textTransform: 'uppercase',
-                    textDecoration: 'none', cursor: 'pointer',
-                    transition: 'background 0.25s, color 0.25s, border-color 0.25s',
-                  }}
-                  onMouseEnter={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = c.accent; el.style.borderColor = c.accent; el.style.color = '#fff'; }}
-                  onMouseLeave={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = s.cta!.solid ? '#fff' : 'transparent'; el.style.borderColor = '#fff'; el.style.color = s.cta!.solid ? '#0d0d0d' : '#fff'; }}>
-                    {s.cta.label}
-                  </Link>
-                )}
-              </div>
-            </div>
+      <section ref={heroRef} className="cn-hero" style={{ position: 'relative', width: '100%', overflow: 'hidden', background: '#000', display: 'flex', alignItems: 'center' }}>
+        <div style={{
+          position: 'absolute', inset: 0,
+          backgroundImage: `url('${heroBanner.bg}')`,
+          backgroundSize: 'cover', backgroundPosition: 'center',
+          filter: 'brightness(0.65)',
+        }} />
+        <div className="cn-vignette" style={{
+          position: 'absolute', inset: 0,
+          background: 'linear-gradient(90deg, rgba(0,0,0,0.45) 38%, transparent 80%)',
+        }} />
+        <div className="cn-hero-container"
+             style={{ position: 'relative', zIndex: 3, width: '100%', maxWidth: 1220, margin: '0 auto', padding: '0 20px' }}>
+          <div className="cn-hero-content" style={{ maxWidth: 580 }}>
+            <img src={BRAND_LOGOS.canon} alt="Canon" className="cn-hero-logo"
+                 style={{ height: 30, width: 'auto', maxWidth: '100%', display: 'block', marginBottom: 28, objectFit: 'contain' }} />
+            <h1 className="cn-hero-heading"
+                style={{ fontSize: 'clamp(30px, 4.5vw, 58px)', color: '#fff', lineHeight: 0.95, marginBottom: 18, fontWeight: 700, letterSpacing: 1 }}>
+              {heroBanner.lines.map((line, li) => (
+                <span key={li} style={{ display: 'block', color: li === heroBanner.accentLine ? c.accent : '#fff' }}>{line}</span>
+              ))}
+            </h1>
+            <p className="cn-hero-desc"
+               style={{ fontSize: 15, color: 'rgba(255,255,255,0.72)', lineHeight: 1.65, marginBottom: 32, fontWeight: 300, maxWidth: 420 }}>
+              {heroBanner.desc}
+            </p>
+            <Link href={heroBanner.cta.href} className="cn-hero-btn"
+               style={{
+                 display: 'inline-block', padding: '13px 28px',
+                 background: heroBanner.cta.solid ? '#fff' : 'transparent',
+                 color: heroBanner.cta.solid ? '#0d0d0d' : '#fff',
+                 border: '2px solid #fff',
+                 fontSize: 13, fontWeight: 600, letterSpacing: 1, textTransform: 'uppercase',
+                 textDecoration: 'none', borderRadius: 2,
+                 transition: 'background 0.25s, color 0.25s, border-color 0.25s',
+               }}
+               onMouseEnter={e => {
+                 const el = e.currentTarget as HTMLAnchorElement;
+                 el.style.background = c.accent; el.style.borderColor = c.accent; el.style.color = '#fff';
+               }}
+               onMouseLeave={e => {
+                 const el = e.currentTarget as HTMLAnchorElement;
+                 el.style.background = heroBanner.cta.solid ? '#fff' : 'transparent';
+                 el.style.borderColor = '#fff';
+                 el.style.color = heroBanner.cta.solid ? '#0d0d0d' : '#fff';
+               }}>
+              {heroBanner.cta.label}
+            </Link>
           </div>
-        ))}
-
-        {/* Dots */}
-        <div style={{ position: 'absolute', bottom: 28, left: '50%', transform: 'translateX(calc(-570px + 20px))', display: 'flex', gap: 10, zIndex: 10 }}
-             className="cn-dots">
-          {heroSlides.map((_, i) => (
-            <button key={i} onClick={() => goSlide(i)} style={{
-              width: 10, height: 10, borderRadius: '50%',
-              background: i === heroIdx ? c.accent : 'rgba(255,255,255,0.35)',
-              border: 'none', cursor: 'pointer', padding: 0,
-              transform: i === heroIdx ? 'scale(1.3)' : 'scale(1)',
-              transition: 'background 0.3s, transform 0.3s',
-            }} />
-          ))}
         </div>
-
-        {/* Progress bar */}
-        <div style={{ position: 'absolute', bottom: 0, left: 0, height: 3, background: c.accent, width: `${progress}%`, zIndex: 10, transition: 'width 0.1s linear' }} />
       </section>
 
       {/* ══════════════════════════════════════════
@@ -839,17 +745,13 @@ export default function CanonPage() {
       ══════════════════════════════════════════ */}
       <style>{`
         /* ── Animations ── */
-        @keyframes cnPulse { 0%,100%{ opacity:1; transform:scale(1); } 50%{ opacity:.5; transform:scale(.8); } }
         .cn-reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.65s cubic-bezier(0.22,1,0.36,1), transform 0.65s cubic-bezier(0.22,1,0.36,1); }
         .cn-reveal.cn-visible { opacity: 1; transform: translateY(0); }
         .cn-reveal-d1 { transition-delay: 0.12s; }
         .cn-reveal-d2 { transition-delay: 0.24s; }
 
         /* ── Hero ── */
-        .cn-hero { height: 680px; }
-
-        /* ── Dots ── */
-        @media (max-width: 1140px) { .cn-dots { left: 20px !important; transform: none !important; } }
+        .cn-hero { height: 660px; }
 
         /* ── Sub-nav ── */
         .cn-subnav-links { gap: 0; }
@@ -868,14 +770,20 @@ export default function CanonPage() {
 
         /* ── ≤768px ── */
         @media (max-width: 768px) {
-          .cn-hero { height: 420px !important; }
+          .cn-hero { height: auto !important; min-height: 480px !important; align-items: flex-end !important; padding-bottom: 70px !important; }
+          .cn-vignette { background: linear-gradient(180deg, transparent 10%, rgba(0,0,0,0.85) 70%) !important; }
+          .cn-hero-container { padding: 0 24px !important; }
+          .cn-hero-content { max-width: 100% !important; }
           .cn-cards-3 { grid-template-columns: 1fr !important; gap: 20px !important; }
         }
 
         /* ── ≤480px ── */
         @media (max-width: 480px) {
-          .cn-hero { height: 550px !important; }
-          .cn-hero-heading { font-size: clamp(34px, 10vw, 48px) !important; }
+          .cn-hero-content { max-width: 100% !important; }
+          .cn-hero-logo { height: 22px !important; }
+          .cn-hero-heading { letter-spacing: 0 !important; }
+          .cn-hero-desc { font-size: 13px !important; margin-bottom: 20px !important; }
+          .cn-hero-btn { padding: 10px 20px !important; font-size: 12px !important; }
         }
       `}</style>
     </div>

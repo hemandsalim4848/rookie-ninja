@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
+import { BRAND_LOGOS } from '@/src/lib/brandLogos';
 
 /* ─────────────────────────────────────────────
    THEME
@@ -21,32 +22,13 @@ const c = {
 /* ─────────────────────────────────────────────
    DATA
 ───────────────────────────────────────────── */
-const heroSlides = [
-  {
-    badge: 'Official Distributor',
-    heading: 'Desktop',
-    accentWord: 'Scanners.',
-    desc: 'From the compact ADS-1300 to the versatile ADS-3100 — Brother desktop scanners deliver fast, reliable document capture for every workspace.',
-    cta: { label: 'View Scanners', href: '#desktop-scanners', solid: true },
-    bg: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1782247892/category-desktop-scanners-desktop_j1d46b.webp',
-  },
-  {
-    badge: 'Wireless & Network',
-    heading: 'Network',
-    accentWord: 'Scanners.',
-    desc: 'The ADS-1350W, ADS-4300N, ADS-4700w, and ADS-4900w — wireless and wired network scanners built for connected office environments.',
-    cta: { label: 'View Scanners', href: '#wireless-network-scanners', solid: true },
-    bg: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1782247893/portable-scanner-category-desktop_yny2pr.webp',
-  },
-  {
-    badge: 'Printers',
-    heading: 'Brother',
-    accentWord: 'Printers.',
-    desc: 'Inkjet, Colour Laser, Monochrome Laser, and Toner Box Series — Brother printers engineered for performance, efficiency, and reliability.',
-    cta: { label: 'View Printers', href: '#printers', solid: true },
-    bg: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1782247890/inkjet-filter-category-desktop_d3uuf1.webp',
-  },
-];
+const heroBanner = {
+  lines: ['Scan. Print.', 'Work Smarter.'],
+  accentLine: 1,
+  desc: 'From compact desktop scanners to reliable inkjet and laser printers — Brother delivers dependable performance for every workspace, home office to enterprise.',
+  cta: { label: 'View Products', href: '/products?brand=brother&page=1', solid: true },
+  bg: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1782247892/category-desktop-scanners-desktop_j1d46b.webp',
+};
 
 const navLinks = [
   { label: 'Desktop Scanners',            href: '#desktop-scanners'           },
@@ -265,36 +247,13 @@ const accessoryCards = [
    COMPONENT
 ───────────────────────────────────────────── */
 export default function BrotherPage() {
-  const [slide, setSlide]               = useState(0);
-  const [progress, setProgress]         = useState(0);
   const [isSticky, setIsSticky]         = useState(false);
   const [activePrinterTab, setActivePrinterTab] = useState(0);
   const [activeCartridge, setActiveCartridge]   = useState(0);
   const [winW, setWinW]                 = useState(1200);
-  const startRef  = useRef<number>(0);
-  const rafRef    = useRef<number>(0);
   const sliderRef = useRef<HTMLDivElement>(null);
-  const DURATION  = 5000;
   const isMobile = winW < 768;
   const isTablet = winW < 900;
-
-  /* ── SLIDE TIMER ── */
-  useEffect(() => {
-    function tick(ts: number) {
-      if (!startRef.current) startRef.current = ts;
-      const pct = Math.min(((ts - startRef.current) / DURATION) * 100, 100);
-      setProgress(pct);
-      if (pct < 100) {
-        rafRef.current = requestAnimationFrame(tick);
-      } else {
-        setSlide(s => (s + 1) % heroSlides.length);
-      }
-    }
-    startRef.current = 0;
-    cancelAnimationFrame(rafRef.current);
-    rafRef.current = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(rafRef.current);
-  }, [slide]);
 
   /* ── WINDOW WIDTH ── */
   useEffect(() => {
@@ -334,10 +293,6 @@ export default function BrotherPage() {
     return () => observer.disconnect();
   }, []);
 
-  function goTo(idx: number) {
-    setSlide(((idx % heroSlides.length) + heroSlides.length) % heroSlides.length);
-  }
-
   return (
     <>
       <style>{`
@@ -355,46 +310,79 @@ export default function BrotherPage() {
         .br-reveal-d3 { transition-delay: 0.36s; }
         .br-reveal-d4 { transition-delay: 0.48s; }
         @keyframes brFadeIn { from { opacity:0; } to { opacity:1; } }
+
+        /* ── Hero ── */
+        .br-hero { height: 660px; }
+
+        /* ── ≤768px ── */
+        @media (max-width: 768px) {
+          .br-hero { height: auto !important; min-height: 480px !important; align-items: flex-end !important; padding-bottom: 70px !important; }
+          .br-vignette { background: linear-gradient(180deg, transparent 10%, rgba(0,0,0,0.85) 70%) !important; }
+          .br-hero-container { padding: 0 24px !important; }
+          .br-hero-content { max-width: 100% !important; }
+        }
+
+        /* ── ≤480px ── */
+        @media (max-width: 480px) {
+          .br-hero-content { max-width: 100% !important; }
+          .br-hero-logo { height: 37px !important; }
+          .br-hero-heading { letter-spacing: 0 !important; }
+          .br-hero-desc { font-size: 13px !important; margin-bottom: 20px !important; }
+          .br-hero-btn { padding: 10px 20px !important; font-size: 12px !important; }
+        }
       `}</style>
 
-      {/* ── HERO SLIDER ── */}
-      <div ref={sliderRef} style={{ position: 'relative', width: '100%', height: isMobile ? 550 : 680, overflow: 'hidden', background: '#000', fontFamily: "'Poppins', sans-serif" }}>
-        {heroSlides.map((s, i) => (
-          <div key={i} style={{
-            position: 'absolute', inset: 0,
-            display: 'flex',
-            alignItems: isMobile ? 'flex-end' : 'center',
-            paddingBottom: isMobile ? 80 : 0,
-            opacity: i === slide ? 1 : 0,
-            transition: 'opacity 0.9s cubic-bezier(0.77,0,0.175,1)',
-            zIndex: i === slide ? 2 : 1,
-          }}>
-            <div style={{ position: 'absolute', inset: 0, backgroundImage: `url('${s.bg}')`, backgroundSize: 'cover', backgroundPosition: 'center', transform: i === slide ? 'scale(1)' : 'scale(1.06)', transition: 'transform 6s ease', filter: 'brightness(0.38)' }} />
-            <div style={{ position: 'absolute', inset: 0, background: isMobile ? 'linear-gradient(180deg, transparent 10%, rgba(0,0,0,0.85) 70%)' : 'linear-gradient(90deg, rgba(0,0,0,0.72) 38%, transparent 80%)', zIndex: 0 }} />
-            <div style={{ position: 'relative', zIndex: 3, width: '100%', maxWidth: 1220, margin: '0 auto', padding: '0 24px' }}>
-              <div style={{ maxWidth: isMobile ? '100%' : 580, opacity: i === slide ? 1 : 0, transform: i === slide ? 'translateY(0)' : 'translateY(24px)', transition: 'opacity 0.7s ease 0.4s, transform 0.7s ease 0.4s' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 14 }}>
-                  <span style={{ display: 'inline-block', background: c.accent, color: '#fff', fontSize: isMobile ? 10 : 11, fontWeight: 600, letterSpacing: 2, textTransform: 'uppercase', padding: isMobile ? '4px 10px' : '5px 12px', borderRadius: 2 }}>{s.badge}</span>
-                </div>
-                <h1 style={{ fontFamily: "'Poppins', sans-serif", fontSize: isMobile ? 'clamp(34px,10vw,48px)' : 'clamp(48px,6vw,78px)', color: '#fff', lineHeight: 0.95, marginBottom: 16, fontWeight: 700, letterSpacing: 1 }}>
-                  {s.heading}<br /><span style={{ color: c.highlight }}>{s.accentWord}</span>
-                </h1>
-                <p style={{ fontSize: isMobile ? 13 : 15, color: 'rgba(255,255,255,0.72)', lineHeight: 1.65, marginBottom: isMobile ? 22 : 32, fontWeight: 300, maxWidth: isMobile ? '100%' : 420 }}>{s.desc}</p>
-                {s.cta && (
-                  <Link href={s.cta.href}
-                    onClick={e => { e.preventDefault(); document.querySelector(s.cta!.href)?.scrollIntoView({ behavior: 'smooth' }); }}
-                    style={{ display: 'inline-block', padding: isMobile ? '10px 20px' : '13px 28px', background: s.cta.solid ? '#fff' : 'transparent', color: s.cta.solid ? '#0d0d0d' : '#fff', border: '2px solid #fff', fontSize: isMobile ? 12 : 13, fontWeight: 600, letterSpacing: 1, textTransform: 'uppercase', textDecoration: 'none' }}>{s.cta.label}</Link>
-                )}
-              </div>
-            </div>
+      {/* ── HERO BANNER ── */}
+      <div ref={sliderRef} className="br-hero" style={{ position: 'relative', width: '100%', overflow: 'hidden', background: '#000', display: 'flex', alignItems: 'center', fontFamily: "'Poppins', sans-serif" }}>
+        <div style={{
+          position: 'absolute', inset: 0,
+          backgroundImage: `url('${heroBanner.bg}')`,
+          backgroundSize: 'cover', backgroundPosition: 'center',
+          filter: 'brightness(0.65)',
+        }} />
+        <div className="br-vignette" style={{
+          position: 'absolute', inset: 0,
+          background: 'linear-gradient(90deg, rgba(0,0,0,0.45) 38%, transparent 80%)',
+        }} />
+        <div className="br-hero-container"
+             style={{ position: 'relative', zIndex: 3, width: '100%', maxWidth: 1220, margin: '0 auto', padding: '0 20px' }}>
+          <div className="br-hero-content" style={{ maxWidth: 580 }}>
+            <img src={BRAND_LOGOS.brother} alt="Brother" className="br-hero-logo"
+                 style={{ height: 45, width: 'auto', maxWidth: '100%', display: 'block', marginBottom: 28, objectFit: 'contain' }} />
+            <h1 className="br-hero-heading"
+                style={{ fontSize: 'clamp(30px, 4.5vw, 58px)', color: '#fff', lineHeight: 0.95, marginBottom: 18, fontWeight: 700, letterSpacing: 1 }}>
+              {heroBanner.lines.map((line, li) => (
+                <span key={li} style={{ display: 'block', color: li === heroBanner.accentLine ? c.highlight : '#fff' }}>{line}</span>
+              ))}
+            </h1>
+            <p className="br-hero-desc"
+               style={{ fontSize: 15, color: 'rgba(255,255,255,0.72)', lineHeight: 1.65, marginBottom: 32, fontWeight: 300, maxWidth: 420 }}>
+              {heroBanner.desc}
+            </p>
+            <Link href={heroBanner.cta.href} className="br-hero-btn"
+               style={{
+                 display: 'inline-block', padding: '13px 28px',
+                 background: heroBanner.cta.solid ? '#fff' : 'transparent',
+                 color: heroBanner.cta.solid ? '#0d0d0d' : '#fff',
+                 border: '2px solid #fff',
+                 fontSize: 13, fontWeight: 600, letterSpacing: 1, textTransform: 'uppercase',
+                 textDecoration: 'none',
+                 transition: 'background 0.25s, color 0.25s, border-color 0.25s',
+               }}
+               onMouseEnter={e => {
+                 const el = e.currentTarget as HTMLAnchorElement;
+                 el.style.background = c.accent; el.style.borderColor = c.accent; el.style.color = '#fff';
+               }}
+               onMouseLeave={e => {
+                 const el = e.currentTarget as HTMLAnchorElement;
+                 el.style.background = heroBanner.cta.solid ? '#fff' : 'transparent';
+                 el.style.borderColor = '#fff';
+                 el.style.color = heroBanner.cta.solid ? '#0d0d0d' : '#fff';
+               }}>
+              {heroBanner.cta.label}
+            </Link>
           </div>
-        ))}
-        <div style={{ position: 'absolute', bottom: isMobile ? 34 : 28, left: isMobile ? 24 : '50%', transform: isMobile ? 'none' : 'translateX(calc(-570px + 20px))', display: 'flex', gap: 10, zIndex: 10 }}>
-          {heroSlides.map((_, i) => (
-            <button key={i} onClick={() => goTo(i)} style={{ width: 10, height: 10, borderRadius: '50%', border: 'none', padding: 0, cursor: 'pointer', background: i === slide ? c.accent : 'rgba(255,255,255,0.35)', transform: i === slide ? 'scale(1.3)' : 'scale(1)', transition: 'background 0.3s, transform 0.3s' }} />
-          ))}
         </div>
-        <div style={{ position: 'absolute', bottom: 0, left: 0, height: 3, background: c.accent, width: `${progress}%`, zIndex: 10, transition: 'width 0.1s linear' }} />
       </div>
 
       {/* ── STICKY SUBNAV ── */}

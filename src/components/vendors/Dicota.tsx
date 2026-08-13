@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
+import { BRAND_LOGOS } from '@/src/lib/brandLogos';
 
 const dc = {
   accent: '#000000',
@@ -14,26 +15,12 @@ const dc = {
 /* ─────────────────────────────────────────────
    HERO SLIDES
 ───────────────────────────────────────────── */
-const heroSlides = [
-  {
-    id: 'bags',
-    badge: 'Official Distributor',
-    lines: ['Carry More.', 'Stress Less.'],
-    accentLine: 1,
-    desc: 'DICOTA laptop bags, backpacks and sleeves are engineered for professionals who demand protection, sustainability, and style in every commute.',
-    cta: { label: 'Explore Collection', href: '#sleeves', solid: true },
-    bg: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1783101174/HybridWorking_main_teaser_1_hoxzhm.webp',
-  },
-  {
-    id: 'eco',
-    badge: 'Eco-Friendly Tech',
-    lines: ['Eco.', 'Professional.'],
-    accentLine: 0,
-    desc: 'DICOTA Eco series products are crafted from recycled PET materials — reducing environmental impact without compromising performance.',
-    cta: { label: 'View Eco Range', href: '#shoulder-bags', solid: false },
-    bg: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1783101174/Commuter_Reflex_3_1_sgqas2.webp',
-  },
-];
+const heroBanner = {
+  lines: ['Carry More.', 'Stress Less.'],
+  desc: 'DICOTA laptop bags, backpacks, sleeves, and trolleys are engineered for professionals who demand protection, sustainability, and style — many crafted from recycled PET materials without compromising performance.',
+  cta: { label: 'Explore Collection', href: '/products?brand=dicota&page=1', solid: true },
+  bg: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1786483728/3_MT_Urban_ob3xiq.webp',
+};
 
 /* ─────────────────────────────────────────────
    ECO LAPTOP SLEEVES — image switcher
@@ -335,12 +322,7 @@ function DcNavInner({ accent, onTabClick }: { accent: string; onTabClick: (idx: 
    COMPONENT
 ───────────────────────────────────────────── */
 export default function DicotaPage() {
-  const [heroIdx, setHeroIdx]           = useState(0);
-  const [progress, setProgress]         = useState(0);
-  const rafRef                          = useRef<number | null>(null);
-  const startRef                        = useRef<number | null>(null);
   const heroRef                         = useRef<HTMLElement>(null);
-  const DURATION                        = 5000;
 
   const [isSticky, setIsSticky]         = useState(false);
   const [sleeveActive, setSleeveActive] = useState(0);
@@ -349,22 +331,6 @@ export default function DicotaPage() {
   const [backpackActive, setBackpackActive] = useState(0);
   const [extraTab, setExtraTab]         = useState(0);
   const [formState, setFormState]       = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
-
-  /* ── Hero progress ── */
-  const tick = (ts: number) => {
-    if (!startRef.current) startRef.current = ts;
-    const pct = Math.min(((ts - startRef.current) / DURATION) * 100, 100);
-    setProgress(pct);
-    if (pct < 100) { rafRef.current = requestAnimationFrame(tick); }
-    else { setHeroIdx(i => (i + 1) % heroSlides.length); }
-  };
-  const resetProgress = () => {
-    if (rafRef.current) cancelAnimationFrame(rafRef.current);
-    startRef.current = null; setProgress(0);
-    rafRef.current = requestAnimationFrame(tick);
-  };
-  const goSlide = (n: number) => { setHeroIdx(((n % heroSlides.length) + heroSlides.length) % heroSlides.length); resetProgress(); };
-  useEffect(() => { resetProgress(); return () => { if (rafRef.current) cancelAnimationFrame(rafRef.current); }; }, [heroIdx]); // eslint-disable-line
 
   /* ── Sticky nav ── */
   useEffect(() => {
@@ -405,7 +371,6 @@ export default function DicotaPage() {
     } catch { setFormState('error'); }
   };
 
-  const slide         = heroSlides[heroIdx];
   const shoulderData  = shoulderTabs[shoulderTab];
   const extraContent  = extraTabs[extraTab];
 
@@ -413,40 +378,58 @@ export default function DicotaPage() {
     <main style={{ background: '#fff', color: dc.navy, fontFamily: 'var(--font-poppins)', overflowX: 'hidden' }}>
 
       {/* ══════════════════════════════════════════
-          HERO
+          HERO BANNER
       ══════════════════════════════════════════ */}
-      <section ref={heroRef} className="dc-hero" style={{ position: 'relative', width: '100%', overflow: 'hidden', background: '#000' }}>
-        {heroSlides.map((s, i) => (
-          <div key={s.id} style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', opacity: i === heroIdx ? 1 : 0, transition: 'opacity 0.9s cubic-bezier(0.77,0,0.175,1)', zIndex: i === heroIdx ? 2 : 1 }}>
-            <div style={{ position: 'absolute', inset: 0, backgroundImage: `url('${s.bg}')`, backgroundSize: 'cover', backgroundPosition: 'center', transform: i === heroIdx ? 'scale(1)' : 'scale(1.06)', transition: 'transform 6s ease', filter: 'brightness(0.35)' }} />
-            <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(90deg, rgba(0,0,0,0.75) 38%, transparent 80%)' }} />
-            <div className="dc-hero-container" style={{ position: 'relative', zIndex: 3, width: '100%', maxWidth: 1220, margin: '0 auto', padding: '0 20px' }}>
-              <div style={{ maxWidth: 560, opacity: i === heroIdx ? 1 : 0, transform: i === heroIdx ? 'translateY(0)' : 'translateY(24px)', transition: 'opacity 0.7s ease 0.4s, transform 0.7s ease 0.4s' }}>
-                <span style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: dc.accent, color: '#fff', fontSize: 11, fontWeight: 600, letterSpacing: 2, textTransform: 'uppercase', padding: '5px 12px', marginBottom: 18, borderRadius: 2 }}>
-                  <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#fff', opacity: 0.9, display: 'inline-block', animation: 'dcPulse 2s infinite' }} />
-                  {s.badge}
-                </span>
-                <h1 className="dc-hero-heading" style={{ fontSize: 'clamp(40px, 6vw, 78px)', color: '#fff', lineHeight: 0.95, marginBottom: 18, fontWeight: 700, letterSpacing: 1 }}>
-                  {s.lines.map((line, li) => <span key={li} style={{ display: 'block', color: '#fff' }}>{line}</span>)}
-                </h1>
-                <p style={{ fontSize: 15, color: 'rgba(255,255,255,0.72)', lineHeight: 1.65, marginBottom: 32, fontWeight: 300, maxWidth: 420 }}>{s.desc}</p>
-                <a href={s.cta.href}
-                   onClick={e => { e.preventDefault(); document.querySelector(s.cta.href)?.scrollIntoView({ behavior: 'smooth' }); }}
-                   style={{ display: 'inline-block', padding: '13px 28px', background: s.cta.solid ? '#fff' : 'transparent', color: s.cta.solid ? '#0d0d0d' : '#fff', border: '2px solid #fff', fontSize: 13, fontWeight: 600, letterSpacing: 1, textTransform: 'uppercase', textDecoration: 'none', borderRadius: 2, transition: 'background 0.25s, color 0.25s, border-color 0.25s' }}
-                   onMouseEnter={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = dc.accent; el.style.borderColor = dc.accent; el.style.color = '#fff'; }}
-                   onMouseLeave={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = s.cta.solid ? '#fff' : 'transparent'; el.style.borderColor = '#fff'; el.style.color = s.cta.solid ? '#0d0d0d' : '#fff'; }}>
-                  {s.cta.label}
-                </a>
-              </div>
-            </div>
+      <section ref={heroRef} className="dc-hero" style={{ position: 'relative', width: '100%', overflow: 'hidden', background: '#000', display: 'flex', alignItems: 'center' }}>
+        <div style={{
+          position: 'absolute', inset: 0,
+          backgroundImage: `url('${heroBanner.bg}')`,
+          backgroundSize: 'cover', backgroundPosition: 'center',
+          filter: 'brightness(0.65)',
+        }} />
+        <div className="dc-vignette" style={{
+          position: 'absolute', inset: 0,
+          background: 'linear-gradient(90deg, rgba(0,0,0,0.45) 38%, transparent 80%)',
+        }} />
+        <div className="dc-hero-container"
+             style={{ position: 'relative', zIndex: 3, width: '100%', maxWidth: 1220, margin: '0 auto', padding: '0 20px' }}>
+          <div className="dc-hero-content" style={{ maxWidth: 580 }}>
+            <img src={BRAND_LOGOS.dicota} alt="DICOTA" className="dc-hero-logo"
+                 style={{ height: 25, width: 'auto', maxWidth: '100%', display: 'block', marginBottom: 28, objectFit: 'contain' }} />
+            <h1 className="dc-hero-heading"
+                style={{ fontSize: 'clamp(30px, 4.5vw, 58px)', color: '#fff', lineHeight: 0.95, marginBottom: 18, fontWeight: 700, letterSpacing: 1 }}>
+              {heroBanner.lines.map((line, li) => (
+                <span key={li} style={{ display: 'block', color: '#fff' }}>{line}</span>
+              ))}
+            </h1>
+            <p className="dc-hero-desc"
+               style={{ fontSize: 15, color: 'rgba(255,255,255,0.72)', lineHeight: 1.65, marginBottom: 32, fontWeight: 300, maxWidth: 420 }}>
+              {heroBanner.desc}
+            </p>
+            <Link href={heroBanner.cta.href} className="dc-hero-btn"
+               style={{
+                 display: 'inline-block', padding: '13px 28px',
+                 background: heroBanner.cta.solid ? '#fff' : 'transparent',
+                 color: heroBanner.cta.solid ? '#0d0d0d' : '#fff',
+                 border: '2px solid #fff',
+                 fontSize: 13, fontWeight: 600, letterSpacing: 1, textTransform: 'uppercase',
+                 textDecoration: 'none', borderRadius: 2,
+                 transition: 'background 0.25s, color 0.25s, border-color 0.25s',
+               }}
+               onMouseEnter={e => {
+                 const el = e.currentTarget as HTMLAnchorElement;
+                 el.style.background = dc.accent; el.style.borderColor = dc.accent; el.style.color = '#fff';
+               }}
+               onMouseLeave={e => {
+                 const el = e.currentTarget as HTMLAnchorElement;
+                 el.style.background = heroBanner.cta.solid ? '#fff' : 'transparent';
+                 el.style.borderColor = '#fff';
+                 el.style.color = heroBanner.cta.solid ? '#0d0d0d' : '#fff';
+               }}>
+              {heroBanner.cta.label}
+            </Link>
           </div>
-        ))}
-        <div style={{ position: 'absolute', bottom: 28, left: '50%', transform: 'translateX(calc(-570px + 20px))', display: 'flex', gap: 10, zIndex: 10 }}>
-          {heroSlides.map((_, i) => (
-            <button key={i} onClick={() => goSlide(i)} style={{ width: 10, height: 10, borderRadius: '50%', padding: 0, border: 'none', cursor: 'pointer', background: i === heroIdx ? dc.accent : 'rgba(255,255,255,0.35)', transform: i === heroIdx ? 'scale(1.3)' : 'scale(1)', transition: 'background 0.3s, transform 0.3s' }} />
-          ))}
         </div>
-        <div style={{ position: 'absolute', bottom: 0, left: 0, height: 3, background: dc.accent, width: `${progress}%`, zIndex: 10, transition: 'width 0.1s linear' }} />
       </section>
 
       {/* ══════════════════════════════════════════
@@ -729,11 +712,10 @@ export default function DicotaPage() {
           RESPONSIVE + ANIMATIONS
       ══════════════════════════════════════════ */}
       <style>{`
-        @keyframes dcPulse { 0%,100%{ opacity:1; transform:scale(1); } 50%{ opacity:.5; transform:scale(.8); } }
         .dc-reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.65s cubic-bezier(0.22,1,0.36,1), transform 0.65s cubic-bezier(0.22,1,0.36,1); }
         .dc-reveal.dc-visible { opacity: 1; transform: translateY(0); }
         .dc-reveal-d1 { transition-delay: 0.12s; }
-        .dc-hero { height: 680px; }
+        .dc-hero { height: 660px; }
 
         @media (max-width: 1024px) {
           .dc-shoulder-inner { grid-template-columns: 1fr !important; gap: 40px !important; }
@@ -745,14 +727,20 @@ export default function DicotaPage() {
           .dc-sleeve-img-wrap img { height: 300px !important; }
         }
         @media (max-width: 768px) {
-          .dc-hero           { height: 420px !important; }
+          .dc-hero           { height: auto !important; min-height: 480px !important; align-items: flex-end !important; padding-bottom: 70px !important; }
+          .dc-vignette       { background: linear-gradient(180deg, transparent 10%, rgba(0,0,0,0.85) 70%) !important; }
           .dc-hero-container { padding: 0 24px !important; }
+          .dc-hero-content   { max-width: 100% !important; }
           .dc-net-products   { grid-template-columns: 1fr !important; }
           .dc-net-img        { height: 200px !important; }
           .dc-flat-tabs      { flex-direction: column !important; }
         }
         @media (max-width: 480px) {
-          .dc-hero           { height: 520px !important; }
+          .dc-hero-content   { max-width: 100% !important; }
+          .dc-hero-logo      { height: 17px !important; }
+          .dc-hero-heading   { letter-spacing: 0 !important; }
+          .dc-hero-desc      { font-size: 13px !important; margin-bottom: 20px !important; }
+          .dc-hero-btn       { padding: 10px 20px !important; font-size: 12px !important; }
           .dc-flat-tabs button { width: 100% !important; justify-content: flex-start !important; }
         }
       `}</style>

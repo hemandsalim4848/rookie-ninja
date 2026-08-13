@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
+import { BRAND_LOGOS } from '@/src/lib/brandLogos';
 
 /* ─────────────────────────────────────────────
    THEME
@@ -21,35 +22,13 @@ const u = {
 /* ─────────────────────────────────────────────
    DATA
 ───────────────────────────────────────────── */
-const heroSlides = [
-  {
-    id: 'interactive',
-    badge: 'Official Distributor',
-    lines: ['Smart', 'Interactive Display'],
-    accentLine: 1,
-    desc: 'Empower classrooms with smart collaboration, wireless sharing, and immersive interactive learning.',
-    cta: { label: 'View Products', href: '#ifpd', solid: true },
-    bg: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1782164332/20220520_1831889_corporate_933925_521045_0_ysracc.webp',
-  },
-  {
-    id: 'collaboration',
-    badge: 'Interactive ViewBoards',
-    lines: ['Built for', 'Collaboration.'],
-    accentLine: 1,
-    desc: 'Transform every meeting and classroom with next-generation interactive displays designed for the modern workspace.',
-    cta: { label: 'Explore Solutions', href: '#conferencing', solid: true },
-    bg: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1782164332/20220520_1831897_education_933929_521045_0_dxqgre.webp',
-  },
-  {
-    id: 'monitors',
-    badge: 'Professional Monitors',
-    lines: ['Precision', 'in Every Pixel.'],
-    accentLine: 1,
-    desc: 'From color-accurate design monitors to ultra-wide productivity panels — UNV delivers clarity that powers your best work.',
-    cta: { label: 'View Products', href: '#monitors', solid: true },
-    bg: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1782164332/20220520_1831891_control-room_933926_521045_0_pkrokg.webp',
-  },
-];
+const heroBanner = {
+  lines: ['Smart Displays.', 'Seamless Control.'],
+  accentLine: 1,
+  desc: 'From interactive flat-panel displays and video conferencing to LED walls, LCD video walls, and monitors — UNV delivers clarity and collaboration for every space.',
+  cta: { label: 'View Products', href: '/products?brand=unv&page=1', solid: true },
+  bg: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1782164332/20220520_1831889_corporate_933925_521045_0_ysracc.webp',
+};
 
 const ifpdCards = [
   {
@@ -138,12 +117,7 @@ const controllerItems = [
 ───────────────────────────────────────────── */
 export default function UNVPage() {
 
-  const [heroIdx, setHeroIdx]       = useState(0);
-  const [progress, setProgress]     = useState(0);
-  const rafRef                      = useRef<number | null>(null);
-  const startRef                    = useRef<number | null>(null);
   const heroRef                     = useRef<HTMLElement>(null);
-  const DURATION                    = 5000;
 
   const [isSticky, setIsSticky]     = useState(false);
   const [confTab, setConfTab]       = useState(0);
@@ -153,36 +127,6 @@ export default function UNVPage() {
   const [monTab, setMonTab]         = useState(0);
   const [ctItem, setCtItem]         = useState(0);
   const [formState, setFormState]   = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
-
-  /* ── Hero progress ── */
-  const tick = (ts: number) => {
-    if (!startRef.current) startRef.current = ts;
-    const pct = Math.min(((ts - startRef.current) / DURATION) * 100, 100);
-    setProgress(pct);
-    if (pct < 100) {
-      rafRef.current = requestAnimationFrame(tick);
-    } else {
-      setHeroIdx(i => (i + 1) % heroSlides.length);
-    }
-  };
-
-  const resetProgress = () => {
-    if (rafRef.current) cancelAnimationFrame(rafRef.current);
-    startRef.current = null;
-    setProgress(0);
-    rafRef.current = requestAnimationFrame(tick);
-  };
-
-  const goSlide = (n: number) => {
-    setHeroIdx(((n % heroSlides.length) + heroSlides.length) % heroSlides.length);
-    resetProgress();
-  };
-
-  useEffect(() => {
-    resetProgress();
-    return () => { if (rafRef.current) cancelAnimationFrame(rafRef.current); };
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [heroIdx]);
 
   /* ── Sticky nav ── */
   useEffect(() => {
@@ -231,113 +175,62 @@ export default function UNVPage() {
     } catch { setFormState('error'); }
   };
 
-  const slide = heroSlides[heroIdx];
-
   return (
     <main style={{ background: u.bg, color: u.text, fontFamily: 'var(--font-poppins)', overflowX: 'hidden' }}>
 
       {/* ══════════════════════════════════════════
-          HERO SLIDER
+          HERO BANNER
       ══════════════════════════════════════════ */}
-      <section ref={heroRef} className="unv-hero" style={{ position: 'relative', width: '100%', overflow: 'hidden', background: '#000', height: 680 }}>
-
-        {heroSlides.map((s, i) => (
-          <div key={s.id} className="unv-slide"
-               style={{
-                 position: 'absolute', inset: 0, display: 'flex', alignItems: 'center',
-                 opacity: i === heroIdx ? 1 : 0,
-                 transition: 'opacity 0.9s cubic-bezier(0.77,0,0.175,1)',
-                 zIndex: i === heroIdx ? 2 : 1,
-               }}>
-            <div style={{
-              position: 'absolute', inset: 0,
-              backgroundImage: `url('${s.bg}')`,
-              backgroundSize: 'cover', backgroundPosition: 'center',
-              transform: i === heroIdx ? 'scale(1)' : 'scale(1.06)',
-              transition: 'transform 6s ease',
-              filter: 'brightness(0.38)',
-            }} />
-            <div className="unv-vignette" style={{
-              position: 'absolute', inset: 0,
-              background: 'linear-gradient(90deg, rgba(0,0,0,0.72) 38%, transparent 80%)',
-            }} />
-            <div className="unv-hero-container"
-                 style={{ position: 'relative', zIndex: 3, width: '100%', maxWidth: 1220, margin: '0 auto', padding: '0 20px' }}>
-              <div className="unv-hero-content"
-                   style={{
-                     maxWidth: 580,
-                     opacity: i === heroIdx ? 1 : 0,
-                     transform: i === heroIdx ? 'translateY(0)' : 'translateY(24px)',
-                     transition: 'opacity 0.7s ease 0.4s, transform 0.7s ease 0.4s',
-                   }}>
-                <span style={{
-                  display: 'inline-flex', alignItems: 'center', gap: 8, background: u.accent, color: '#fff',
-                  fontSize: 11, fontWeight: 600, letterSpacing: 2, textTransform: 'uppercase',
-                  padding: '5px 12px', marginBottom: 18, borderRadius: 2,
-                }}>
-                  <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#fff', opacity: 0.9, display: 'inline-block', animation: 'unvPulse 2s infinite' }} />
-                  {s.badge}
-                </span>
-                <h1 className="unv-hero-heading"
-                    style={{ fontSize: 'clamp(40px, 6vw, 78px)', color: '#fff', lineHeight: 0.95, marginBottom: 18, fontWeight: 700, letterSpacing: 1 }}>
-                  {s.lines.map((line, li) => (
-                    <span key={li} style={{ display: 'block', color: li === s.accentLine ? u.accent : '#fff' }}>{line}</span>
-                  ))}
-                </h1>
-                <p className="unv-hero-desc"
-                   style={{ fontSize: 15, color: 'rgba(255,255,255,0.72)', lineHeight: 1.65, marginBottom: 32, fontWeight: 300, maxWidth: 420, width: '100%' }}>
-                  {s.desc}
-                </p>
-                {s.cta && (
-                  <Link href={s.cta.href} className="unv-hero-btn"
-                     onClick={e => { e.preventDefault(); document.querySelector(s.cta!.href)?.scrollIntoView({ behavior: 'smooth' }); }}
-                     style={{
-                       display: 'inline-block', padding: '13px 28px',
-                       background: s.cta.solid ? '#fff' : 'transparent',
-                       color: s.cta.solid ? '#0d0d0d' : '#fff',
-                       border: '2px solid #fff',
-                       fontSize: 13, fontWeight: 600, letterSpacing: 1, textTransform: 'uppercase',
-                       textDecoration: 'none', borderRadius: 2,
-                       transition: 'background 0.25s, color 0.25s, border-color 0.25s',
-                     }}
-                     onMouseEnter={e => {
-                       const el = e.currentTarget as HTMLAnchorElement;
-                       el.style.background = u.accent; el.style.borderColor = u.accent; el.style.color = '#fff';
-                     }}
-                     onMouseLeave={e => {
-                       const el = e.currentTarget as HTMLAnchorElement;
-                       el.style.background = s.cta!.solid ? '#fff' : 'transparent';
-                       el.style.borderColor = '#fff';
-                       el.style.color = s.cta!.solid ? '#0d0d0d' : '#fff';
-                     }}>
-                    {s.cta.label}
-                  </Link>
-                )}
-              </div>
-            </div>
-          </div>
-        ))}
-
-        {/* Dots */}
-        <div className="unv-dots"
-             style={{ position: 'absolute', bottom: 28, left: '50%', transform: 'translateX(calc(-570px + 20px))', display: 'flex', gap: 10, zIndex: 10 }}>
-          {heroSlides.map((_, i) => (
-            <button key={i} onClick={() => goSlide(i)}
-                    style={{
-                      width: 10, height: 10, borderRadius: '50%', padding: 0, border: 'none', cursor: 'pointer',
-                      background: i === heroIdx ? u.accent : 'rgba(255,255,255,0.35)',
-                      transform: i === heroIdx ? 'scale(1.3)' : 'scale(1)',
-                      transition: 'background 0.3s, transform 0.3s',
-                    }} />
-          ))}
-        </div>
-
-        {/* Progress bar */}
+      <section ref={heroRef} className="unv-hero" style={{ position: 'relative', width: '100%', overflow: 'hidden', background: '#000', display: 'flex', alignItems: 'center' }}>
         <div style={{
-          position: 'absolute', bottom: 0, left: 0, height: 3,
-          background: u.accent, width: `${progress}%`,
-          zIndex: 10, transition: 'width 0.1s linear',
+          position: 'absolute', inset: 0,
+          backgroundImage: `url('${heroBanner.bg}')`,
+          backgroundSize: 'cover', backgroundPosition: 'center',
+          filter: 'brightness(0.65)',
         }} />
+        <div className="unv-vignette" style={{
+          position: 'absolute', inset: 0,
+          background: 'linear-gradient(90deg, rgba(0,0,0,0.45) 38%, transparent 80%)',
+        }} />
+        <div className="unv-hero-container"
+             style={{ position: 'relative', zIndex: 3, width: '100%', maxWidth: 1220, margin: '0 auto', padding: '0 20px' }}>
+          <div className="unv-hero-content" style={{ maxWidth: 580 }}>
+            <img src={BRAND_LOGOS.unv} alt="UNV" className="unv-hero-logo"
+                 style={{ height: 45, width: 'auto', maxWidth: '100%', display: 'block', marginBottom: 28, objectFit: 'contain' }} />
+            <h1 className="unv-hero-heading"
+                style={{ fontSize: 'clamp(30px, 4.5vw, 58px)', color: '#fff', lineHeight: 0.95, marginBottom: 18, fontWeight: 700, letterSpacing: 1 }}>
+              {heroBanner.lines.map((line, li) => (
+                <span key={li} style={{ display: 'block', color: li === heroBanner.accentLine ? u.accent : '#fff' }}>{line}</span>
+              ))}
+            </h1>
+            <p className="unv-hero-desc"
+               style={{ fontSize: 15, color: 'rgba(255,255,255,0.72)', lineHeight: 1.65, marginBottom: 32, fontWeight: 300, maxWidth: 420 }}>
+              {heroBanner.desc}
+            </p>
+            <Link href={heroBanner.cta.href} className="unv-hero-btn"
+               style={{
+                 display: 'inline-block', padding: '13px 28px',
+                 background: heroBanner.cta.solid ? '#fff' : 'transparent',
+                 color: heroBanner.cta.solid ? '#0d0d0d' : '#fff',
+                 border: '2px solid #fff',
+                 fontSize: 13, fontWeight: 600, letterSpacing: 1, textTransform: 'uppercase',
+                 textDecoration: 'none', borderRadius: 2,
+                 transition: 'background 0.25s, color 0.25s, border-color 0.25s',
+               }}
+               onMouseEnter={e => {
+                 const el = e.currentTarget as HTMLAnchorElement;
+                 el.style.background = u.accent; el.style.borderColor = u.accent; el.style.color = '#fff';
+               }}
+               onMouseLeave={e => {
+                 const el = e.currentTarget as HTMLAnchorElement;
+                 el.style.background = heroBanner.cta.solid ? '#fff' : 'transparent';
+                 el.style.borderColor = '#fff';
+                 el.style.color = heroBanner.cta.solid ? '#0d0d0d' : '#fff';
+               }}>
+              {heroBanner.cta.label}
+            </Link>
+          </div>
+        </div>
       </section>
 
       {/* ══════════════════════════════════════════
@@ -425,8 +318,6 @@ export default function UNVPage() {
         <div style={{ maxWidth: 1140, margin: '0 auto' }}>
 
           <div className="unv-reveal" style={{ textAlign: 'center', marginBottom: 48 }}>
-            <img src="https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1782164463/unv_omj1kx.webp" alt="UNV Logo"
-                 style={{ maxHeight: 80, width: 'auto', display: 'block', margin: '0 auto 20px' }} />
             <h2 style={{ fontSize: 'clamp(24px, 3vw, 36px)', fontWeight: 700, color: u.text, lineHeight: 1.2, marginBottom: 14 }}>
               Interactive Flat-Panel Display (IFPD)
             </h2>
@@ -837,7 +728,6 @@ export default function UNVPage() {
       ══════════════════════════════════════════ */}
       <style>{`
         /* ── Animations ── */
-        @keyframes unvPulse { 0%,100%{ opacity:1; transform:scale(1); } 50%{ opacity:.5; transform:scale(.8); } }
         .unv-reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.65s cubic-bezier(0.22,1,0.36,1), transform 0.65s cubic-bezier(0.22,1,0.36,1); }
         .unv-reveal.unv-visible { opacity: 1; transform: translateY(0); }
         .unv-reveal-d1 { transition-delay: 0.12s; }
@@ -845,12 +735,7 @@ export default function UNVPage() {
         .unv-reveal-d3 { transition-delay: 0.36s; }
 
         /* ── Base ── */
-        .unv-hero { height: 680px; }
-
-        /* ── ≤1140px: dots realign ── */
-        @media (max-width: 1140px) {
-          .unv-dots { left: 20px !important; transform: none !important; }
-        }
+        .unv-hero { height: 660px; }
 
         /* ── ≤1024px: tablet two-col → one-col ── */
         @media (max-width: 1024px) {
@@ -872,13 +757,11 @@ export default function UNVPage() {
 
         /* ── ≤768px: mobile ── */
         @media (max-width: 768px) {
-          .unv-hero           { height: 420px !important; }
-          .unv-slide          { align-items: flex-end !important; padding-bottom: 70px !important; }
+          .unv-hero           { height: auto !important; min-height: 480px !important; align-items: flex-end !important; padding-bottom: 70px !important; }
           .unv-vignette       { background: linear-gradient(180deg, transparent 10%, rgba(0,0,0,0.85) 70%) !important; }
           .unv-hero-container { padding: 0 24px !important; }
           .unv-hero-content   { max-width: 100% !important; }
           .unv-hero-desc      { max-width: 100% !important; font-size: 14px !important; margin-bottom: 24px !important; }
-          .unv-dots           { left: 24px !important; transform: none !important; bottom: 22px !important; }
           .unv-nav-inner       { height: 52px !important; gap: 12px !important; padding: 0 16px !important; }
           .unv-nav-placeholder { height: 52px !important; }
           .unv-nav-links       { gap: 4px !important; }
@@ -900,9 +783,10 @@ export default function UNVPage() {
 
         /* ── ≤480px: small mobile ── */
         @media (max-width: 480px) {
-          .unv-hero         { height: 510px !important; }
-          .unv-hero-heading { font-size: clamp(32px, 10vw, 46px) !important; line-height: 1.05 !important; }
-          .unv-hero-desc    { font-size: 13px !important; line-height: 1.55 !important; margin-bottom: 18px !important; }
+          .unv-hero-content { max-width: 100% !important; }
+          .unv-hero-logo    { height: 37px !important; }
+          .unv-hero-heading { letter-spacing: 0 !important; }
+          .unv-hero-desc    { font-size: 13px !important; line-height: 1.55 !important; margin-bottom: 20px !important; }
           .unv-hero-btn     { padding: 10px 20px !important; font-size: 12px !important; }
           .unv-prod-grid    { grid-template-columns: repeat(2, 1fr) !important; }
           .unv-led-tabs button { padding: 8px 10px !important; font-size: 11px !important; letter-spacing: 0 !important; }

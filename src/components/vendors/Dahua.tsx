@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { cld } from '@/src/lib/cloudinaryUrl';
 import Link from 'next/link';
+import { BRAND_LOGOS } from '@/src/lib/brandLogos';
 
 const d = {
   accent: '#E31837',
@@ -82,24 +83,13 @@ const EDUCATION_SERIES = [
   },
 ];
 
-const HERO_SLIDES = [
-  {
-    id:         'conference',
-    badge:      'Official Distributor',
-    lines:      ['Smart.', 'Interactive.'],
-    accentLine: 0,
-    desc:       'The Dahua MC420 and MC470-P PRO Series deliver next-generation interactive flat panels for modern conference rooms — with built-in DeepHub Meeting software, 4K UHD displays, and seamless wireless collaboration.',
-    cta:        { label: 'View Conference Series', href: '#conference', solid: true },
-  },
-  {
-    id:         'education',
-    badge:      'Education Series',
-    lines:      ['Learn.', 'Together.'],
-    accentLine: 1,
-    desc:       'The Dahua ST420 Education Series brings smart interactive whiteboards to classrooms — enabling intuitive teaching, multi-touch collaboration, and seamless lesson delivery for students of all ages.',
-    cta:        { label: 'View Education Series', href: '#education', solid: false },
-  },
-];
+const heroBanner = {
+  lines: ['Smart.', 'Interactive.'],
+  accentLine: 0,
+  desc: 'The Dahua MC420 and MC470-P PRO Series deliver next-generation interactive flat panels for modern conference rooms — with built-in DeepHub Meeting software, 4K UHD displays, and seamless wireless collaboration.',
+  cta: { label: 'View Conference Series', href: '#conference', solid: true },
+  bg: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1786643044/dahua-banner_btaawj.webp',
+};
 
 const DH_NAV = [
   { label: 'Conference Series', href: '#conference' },
@@ -139,12 +129,7 @@ function DhNavInner() {
    MAIN COMPONENT
 ───────────────────────────────────────────── */
 export default function DahuaPage() {
-  const [heroIdx, setHeroIdx]   = useState(0);
-  const [progress, setProgress] = useState(0);
-  const rafRef                  = useRef<number | null>(null);
-  const startRef                = useRef<number | null>(null);
   const heroRef                 = useRef<HTMLElement>(null);
-  const DURATION                = 5500;
 
   const [isSticky, setIsSticky]             = useState(false);
   const [activeSeries, setActiveSeries]     = useState(0);
@@ -154,7 +139,6 @@ export default function DahuaPage() {
 
   /* images from API keyed by slug */
   const [imgs, setImgs] = useState<Record<string, string[]>>({});
-  const [heroBgs, setHeroBgs] = useState(['', '']);
 
   useEffect(() => {
     fetch('/api/products?brand=dahua')
@@ -164,10 +148,6 @@ export default function DahuaPage() {
         const map: Record<string, string[]> = {};
         all.forEach(p => { if (p.slug) map[p.slug] = p.images || []; });
         setImgs(map);
-        setHeroBgs([
-          map['dahua-lph65-mc420-c-s2']?.[0] || '',
-          map['dahua-lph65-st420-s3']?.[0]    || '',
-        ]);
       })
       .catch(() => {});
   }, []);
@@ -178,22 +158,6 @@ export default function DahuaPage() {
     const slug    = series.sizes[sizeIdx]?.slug || '';
     return cld(imgs[slug]?.[0]) || '';
   }
-
-  /* ── Hero animation ── */
-  function goSlide(idx: number) {
-    if (rafRef.current) cancelAnimationFrame(rafRef.current);
-    setHeroIdx(idx); setProgress(0); startRef.current = null;
-    function tick(now: number) {
-      if (!startRef.current) startRef.current = now;
-      const p = Math.min(((now - startRef.current) / DURATION) * 100, 100);
-      setProgress(p);
-      if (p < 100) rafRef.current = requestAnimationFrame(tick);
-      else { setHeroIdx(i => (i + 1) % HERO_SLIDES.length); startRef.current = null; rafRef.current = requestAnimationFrame(tick); }
-    }
-    rafRef.current = requestAnimationFrame(tick);
-  }
-
-  useEffect(() => { goSlide(0); return () => { if (rafRef.current) cancelAnimationFrame(rafRef.current); }; }, []);
 
   /* ── Sticky nav ── */
   useEffect(() => {
@@ -248,41 +212,56 @@ export default function DahuaPage() {
       {/* ══════════════════════════════════════════
           HERO
       ══════════════════════════════════════════ */}
-      <section ref={heroRef} className="ka-hero" style={{ position: 'relative', width: '100%', overflow: 'hidden', background: '#000' }}>
-        {HERO_SLIDES.map((s, i) => (
-          <div key={s.id} className="ka-slide"
-               style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', opacity: i === heroIdx ? 1 : 0, transition: 'opacity 0.9s cubic-bezier(0.77,0,0.175,1)', zIndex: i === heroIdx ? 2 : 1 }}>
-            <div style={{ position: 'absolute', inset: 0, backgroundImage: heroBgs[i] ? `url('${heroBgs[i]}')` : undefined, backgroundSize: 'cover', backgroundPosition: 'center', transform: i === heroIdx ? 'scale(1)' : 'scale(1.06)', transition: 'transform 6s ease', filter: 'brightness(0.35)' }} />
-            <div className="ka-vignette" style={{ position: 'absolute', inset: 0, background: 'linear-gradient(90deg, rgba(0,0,0,0.75) 38%, transparent 80%)' }} />
-            <div className="ka-hero-container" style={{ position: 'relative', zIndex: 3, width: '100%', maxWidth: 1140, margin: '0 auto', padding: '0 20px' }}>
-              <div className="ka-hero-content" style={{ maxWidth: 560, opacity: i === heroIdx ? 1 : 0, transform: i === heroIdx ? 'translateY(0)' : 'translateY(24px)', transition: 'opacity 0.7s ease 0.4s, transform 0.7s ease 0.4s' }}>
-                <span style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: d.accent, color: '#fff', fontSize: 11, fontWeight: 600, letterSpacing: 2, textTransform: 'uppercase', padding: '5px 12px', marginBottom: 18, borderRadius: 2 }}>
-                  <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#fff', opacity: 0.9, display: 'inline-block', animation: 'dhPulse 2s infinite' }} />
-                  {s.badge}
-                </span>
-                <h1 style={{ fontSize: 'clamp(40px, 6vw, 78px)', color: '#fff', lineHeight: 0.95, marginBottom: 18, fontWeight: 700, letterSpacing: 1 }}>
-                  {s.lines.map((line, li) => (
-                    <span key={li} style={{ display: 'block', color: li === s.accentLine ? d.accent : '#fff' }}>{line}</span>
-                  ))}
-                </h1>
-                <p style={{ fontSize: 15, color: 'rgba(255,255,255,0.72)', lineHeight: 1.65, marginBottom: 32, fontWeight: 300, maxWidth: 420 }}>{s.desc}</p>
-                <a href={s.cta.href}
-                   style={{ display: 'inline-block', padding: '13px 28px', background: s.cta.solid ? '#fff' : 'transparent', color: s.cta.solid ? '#0d0d0d' : '#fff', border: '2px solid #fff', fontSize: 13, fontWeight: 600, letterSpacing: 1, textTransform: 'uppercase', textDecoration: 'none', borderRadius: 2, transition: 'background 0.25s, color 0.25s, border-color 0.25s' }}
-                   onMouseEnter={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = d.accent; el.style.borderColor = d.accent; el.style.color = '#fff'; }}
-                   onMouseLeave={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = s.cta.solid ? '#fff' : 'transparent'; el.style.borderColor = '#fff'; el.style.color = s.cta.solid ? '#0d0d0d' : '#fff'; }}>
-                  {s.cta.label}
-                </a>
-              </div>
-            </div>
+      <section ref={heroRef} className="dh-hero" style={{ position: 'relative', width: '100%', overflow: 'hidden', background: '#000', display: 'flex', alignItems: 'center' }}>
+        <div style={{
+          position: 'absolute', inset: 0,
+          backgroundImage: `url('${heroBanner.bg}')`,
+          backgroundSize: 'cover', backgroundPosition: 'center',
+          filter: 'brightness(0.75)',
+        }} />
+        <div className="dh-vignette" style={{
+          position: 'absolute', inset: 0,
+          background: 'linear-gradient(90deg, rgba(0,0,0,0.32) 38%, transparent 80%)',
+        }} />
+        <div className="dh-hero-container"
+             style={{ position: 'relative', zIndex: 3, width: '100%', maxWidth: 1140, margin: '0 auto', padding: '0 20px' }}>
+          <div className="dh-hero-content" style={{ maxWidth: 560 }}>
+            <img src={BRAND_LOGOS.dahua} alt="Dahua" className="dh-hero-logo"
+                 style={{ height: 34, width: 'auto', maxWidth: '100%', display: 'block', marginBottom: 28, objectFit: 'contain' }} />
+            <h1 className="dh-hero-heading"
+                style={{ fontSize: 'clamp(30px, 4.5vw, 58px)', color: '#fff', lineHeight: 0.95, marginBottom: 18, fontWeight: 700, letterSpacing: 1 }}>
+              {heroBanner.lines.map((line, li) => (
+                <span key={li} style={{ display: 'block', color: li === heroBanner.accentLine ? d.accent : '#fff' }}>{line}</span>
+              ))}
+            </h1>
+            <p className="dh-hero-desc"
+               style={{ fontSize: 15, color: 'rgba(255,255,255,0.72)', lineHeight: 1.65, marginBottom: 32, fontWeight: 300, maxWidth: 420 }}>
+              {heroBanner.desc}
+            </p>
+            <a href={heroBanner.cta.href} className="dh-hero-btn"
+               style={{
+                 display: 'inline-block', padding: '13px 28px',
+                 background: heroBanner.cta.solid ? '#fff' : 'transparent',
+                 color: heroBanner.cta.solid ? '#0d0d0d' : '#fff',
+                 border: '2px solid #fff',
+                 fontSize: 13, fontWeight: 600, letterSpacing: 1, textTransform: 'uppercase',
+                 textDecoration: 'none', borderRadius: 2,
+                 transition: 'background 0.25s, color 0.25s, border-color 0.25s',
+               }}
+               onMouseEnter={e => {
+                 const el = e.currentTarget as HTMLAnchorElement;
+                 el.style.background = d.accent; el.style.borderColor = d.accent; el.style.color = '#fff';
+               }}
+               onMouseLeave={e => {
+                 const el = e.currentTarget as HTMLAnchorElement;
+                 el.style.background = heroBanner.cta.solid ? '#fff' : 'transparent';
+                 el.style.borderColor = '#fff';
+                 el.style.color = heroBanner.cta.solid ? '#0d0d0d' : '#fff';
+               }}>
+              {heroBanner.cta.label}
+            </a>
           </div>
-        ))}
-        <div style={{ position: 'absolute', bottom: 28, left: '50%', transform: 'translateX(calc(-570px + 20px))', display: 'flex', gap: 10, zIndex: 10 }}>
-          {HERO_SLIDES.map((_, i) => (
-            <button key={i} onClick={() => goSlide(i)}
-                    style={{ width: 10, height: 10, borderRadius: '50%', padding: 0, border: 'none', cursor: 'pointer', background: i === heroIdx ? d.accent : 'rgba(255,255,255,0.35)', transform: i === heroIdx ? 'scale(1.3)' : 'scale(1)', transition: 'background 0.3s, transform 0.3s' }} />
-          ))}
         </div>
-        <div style={{ position: 'absolute', bottom: 0, left: 0, height: 3, background: d.accent, width: `${progress}%`, zIndex: 10, transition: 'width 0.1s linear' }} />
       </section>
 
       {/* ══════════════════════════════════════════
@@ -549,12 +528,10 @@ export default function DahuaPage() {
           STYLES
       ══════════════════════════════════════════ */}
       <style>{`
-        @keyframes dhPulse { 0%,100%{ opacity:1; transform:scale(1); } 50%{ opacity:.5; transform:scale(.8); } }
-
         .dh-reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.65s cubic-bezier(0.22,1,0.36,1), transform 0.65s cubic-bezier(0.22,1,0.36,1); }
         .dh-reveal.dh-visible { opacity: 1; transform: translateY(0); }
 
-        .ka-hero { height: 680px; }
+        .dh-hero { height: 660px; }
         .dh-comm-inner { grid-template-columns: 1fr 420px; }
 
         @media (max-width: 1024px) {
@@ -565,16 +542,19 @@ export default function DahuaPage() {
         }
 
         @media (max-width: 768px) {
-          .ka-hero { height: 460px !important; }
-          .ka-slide { align-items: flex-end !important; padding-bottom: 72px !important; }
-          .ka-hero-container { padding: 0 24px !important; }
-          .ka-hero-content   { max-width: 100% !important; }
-          .ka-vignette { background: linear-gradient(180deg, transparent 10%, rgba(0,0,0,0.85) 70%) !important; }
+          .dh-hero { height: auto !important; min-height: 480px !important; align-items: flex-end !important; padding-bottom: 70px !important; }
+          .dh-hero-container { padding: 0 24px !important; }
+          .dh-hero-content   { max-width: 100% !important; }
+          .dh-vignette { background: linear-gradient(180deg, transparent 10%, rgba(0,0,0,0.85) 70%) !important; }
           .dh-scanner-items { gap: 8px !important; }
         }
 
         @media (max-width: 480px) {
-          .ka-hero { height: 540px !important; }
+          .dh-hero-content { max-width: 100% !important; }
+          .dh-hero-logo { height: 26px !important; }
+          .dh-hero-heading { letter-spacing: 0 !important; }
+          .dh-hero-desc { font-size: 13px !important; margin-bottom: 20px !important; }
+          .dh-hero-btn { padding: 10px 20px !important; font-size: 12px !important; }
         }
       `}</style>
     </main>

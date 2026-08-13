@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
+import { BRAND_LOGOS } from '@/src/lib/brandLogos';
 
 const f = {
   accent: '#E60012',
@@ -14,26 +15,13 @@ const f = {
 /* ─────────────────────────────────────────────
    DATA
 ───────────────────────────────────────────── */
-const heroSlides = [
-  {
-    id: 'dl4850',
-    badge: 'Official Distributor',
-    lines: ['Impact Printing.', 'Built to Last.'],
-    accentLine: 1,
-    desc: 'The Fujitsu DL4850+ delivers high-speed 24-pin SIDM printing for wide-carriage industrial and business forms — built for continuous, high-volume environments.',
-    cta: { label: 'View DL4850+', href: '#printers', solid: true, productIdx: 0 },
-    bg: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1783429060/dl4850-img_01_en-1200x800_ulvffs.webp',
-  },
-  {
-    id: 'dl3100',
-    badge: 'Dot Matrix Printers',
-    lines: ['Reliable Output.', 'Every Time.'],
-    accentLine: 0,
-    desc: 'The Fujitsu DL3100 offers dependable 9-pin dot matrix printing for receipts, invoices and multi-part forms — compact, efficient, and easy to deploy.',
-    cta: { label: 'View DL3100', href: '#printers', solid: false, productIdx: 1 },
-    bg: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1783429060/dl3100-img01-1200x800_f2ilzg.webp',
-  },
-];
+const heroBanner = {
+  lines: ['Impact Printing.', 'Built to Last.'],
+  accentLine: -1,
+  desc: 'The Fujitsu DL4850+ delivers high-speed 24-pin SIDM printing for wide-carriage industrial and business forms — built for continuous, high-volume environments.',
+  cta: { label: 'View DL4850+', href: '#printers', solid: true, productIdx: 0 },
+  bg: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1786654591/kv-dl3100-936x578_x1zrb8.webp',
+};
 
 const printers = [
   {
@@ -165,34 +153,13 @@ function FjNavInner({ onSelect, active }: { onSelect: (idx: number) => void; act
    MAIN COMPONENT
 ───────────────────────────────────────────── */
 export default function FujitsuPage() {
-  const [heroIdx, setHeroIdx]   = useState(0);
-  const [progress, setProgress] = useState(0);
-  const rafRef                  = useRef<number | null>(null);
-  const startRef                = useRef<number | null>(null);
   const heroRef                 = useRef<HTMLElement>(null);
-  const DURATION                = 5500;
 
   const [isSticky, setIsSticky]       = useState(false);
   const [active, setActive]           = useState(0);
   const [activeThumb, setActiveThumb] = useState(0);
   const [imgFade, setImgFade]         = useState(false);
   const [formState, setFormState]     = useState<'idle'|'sending'|'success'|'error'>('idle');
-
-  /* ── Hero animation ── */
-  function goSlide(idx: number) {
-    if (rafRef.current) cancelAnimationFrame(rafRef.current);
-    setHeroIdx(idx); setProgress(0); startRef.current = null;
-    function tick(now: number) {
-      if (!startRef.current) startRef.current = now;
-      const p = Math.min(((now - startRef.current) / DURATION) * 100, 100);
-      setProgress(p);
-      if (p < 100) rafRef.current = requestAnimationFrame(tick);
-      else { setHeroIdx(i => (i + 1) % heroSlides.length); startRef.current = null; rafRef.current = requestAnimationFrame(tick); }
-    }
-    rafRef.current = requestAnimationFrame(tick);
-  }
-
-  useEffect(() => { goSlide(0); return () => { if (rafRef.current) cancelAnimationFrame(rafRef.current); }; }, []);
 
   /* ── Sticky nav ── */
   useEffect(() => {
@@ -242,43 +209,57 @@ export default function FujitsuPage() {
       {/* ══════════════════════════════════════════
           HERO SLIDER
       ══════════════════════════════════════════ */}
-      <section ref={heroRef} className="ka-hero" style={{ position: 'relative', width: '100%', overflow: 'hidden', background: '#111' }}>
-        {heroSlides.map((s, i) => (
-          <div key={s.id} className="ka-slide"
-               style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', opacity: i === heroIdx ? 1 : 0, transition: 'opacity 0.9s cubic-bezier(0.77,0,0.175,1)', zIndex: i === heroIdx ? 2 : 1 }}>
-            <div style={{ position: 'absolute', inset: 0, backgroundImage: `url('${s.bg}')`, backgroundSize: 'cover', backgroundPosition: 'center', transform: i === heroIdx ? 'scale(1)' : 'scale(1.06)', transition: 'transform 6s ease', filter: 'brightness(0.35)' }} />
-            <div className="ka-vignette" style={{ position: 'absolute', inset: 0, background: 'linear-gradient(90deg, rgba(0,0,0,0.75) 38%, transparent 80%)' }} />
-            <div className="ka-hero-container" style={{ position: 'relative', zIndex: 3, width: '100%', maxWidth: 1140, margin: '0 auto', padding: '0 20px' }}>
-              <div className="ka-hero-content" style={{ maxWidth: 560, opacity: i === heroIdx ? 1 : 0, transform: i === heroIdx ? 'translateY(0)' : 'translateY(24px)', transition: 'opacity 0.7s ease 0.4s, transform 0.7s ease 0.4s' }}>
-                <span style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: f.accent, color: '#fff', fontSize: 11, fontWeight: 600, letterSpacing: 2, textTransform: 'uppercase', padding: '5px 12px', marginBottom: 18, borderRadius: 2 }}>
-                  <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#fff', opacity: 0.9, display: 'inline-block', animation: 'fjPulse 2s infinite' }} />
-                  {s.badge}
-                </span>
-                <h1 className="ka-hero-heading" style={{ fontSize: 'clamp(40px, 6vw, 78px)', color: '#fff', lineHeight: 0.95, marginBottom: 18, fontWeight: 700, letterSpacing: 1 }}>
-                  {s.lines.map((line, li) => (
-                    <span key={li} style={{ display: 'block', color: li === s.accentLine ? f.accent : '#fff' }}>{line}</span>
-                  ))}
-                </h1>
-                <p className="ka-hero-desc" style={{ fontSize: 15, color: 'rgba(255,255,255,0.72)', lineHeight: 1.65, marginBottom: 32, fontWeight: 300, maxWidth: 420 }}>{s.desc}</p>
-                <a href={s.cta.href} className="ka-hero-btn"
-                   onClick={e => { e.preventDefault(); switchProduct(s.cta.productIdx); document.getElementById('printers')?.scrollIntoView({ behavior: 'smooth' }); }}
-                   style={{ display: 'inline-block', padding: '13px 28px', background: s.cta.solid ? '#fff' : 'transparent', color: s.cta.solid ? '#0d0d0d' : '#fff', border: '2px solid #fff', fontSize: 13, fontWeight: 600, letterSpacing: 1, textTransform: 'uppercase', textDecoration: 'none', borderRadius: 2, transition: 'background 0.25s, color 0.25s, border-color 0.25s' }}
-                   onMouseEnter={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = f.accent; el.style.borderColor = f.accent; el.style.color = '#fff'; }}
-                   onMouseLeave={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = s.cta.solid ? '#fff' : 'transparent'; el.style.borderColor = '#fff'; el.style.color = s.cta.solid ? '#0d0d0d' : '#fff'; }}>
-                  {s.cta.label}
-                </a>
-              </div>
-            </div>
+      <section ref={heroRef} className="fj-hero" style={{ position: 'relative', width: '100%', overflow: 'hidden', background: '#000', display: 'flex', alignItems: 'center' }}>
+        <div style={{
+          position: 'absolute', inset: 0,
+          backgroundImage: `url('${heroBanner.bg}')`,
+          backgroundSize: 'cover', backgroundPosition: 'center',
+          filter: 'brightness(0.75)',
+        }} />
+        <div className="fj-vignette" style={{
+          position: 'absolute', inset: 0,
+          background: 'linear-gradient(90deg, rgba(0,0,0,0.32) 38%, transparent 80%)',
+        }} />
+        <div className="fj-hero-container"
+             style={{ position: 'relative', zIndex: 3, width: '100%', maxWidth: 1140, margin: '0 auto', padding: '0 20px' }}>
+          <div className="fj-hero-content" style={{ maxWidth: 560 }}>
+            <img src={BRAND_LOGOS.fujitsu} alt="Fujitsu" className="fj-hero-logo"
+                 style={{ height: 43, width: 'auto', maxWidth: '100%', display: 'block', marginBottom: 28, objectFit: 'contain' }} />
+            <h1 className="fj-hero-heading"
+                style={{ fontSize: 'clamp(30px, 4.5vw, 58px)', color: '#fff', lineHeight: 0.95, marginBottom: 18, fontWeight: 700, letterSpacing: 1 }}>
+              {heroBanner.lines.map((line, li) => (
+                <span key={li} style={{ display: 'block', color: li === heroBanner.accentLine ? f.accent : '#fff' }}>{line}</span>
+              ))}
+            </h1>
+            <p className="fj-hero-desc"
+               style={{ fontSize: 15, color: 'rgba(255,255,255,0.72)', lineHeight: 1.65, marginBottom: 32, fontWeight: 300, maxWidth: 420 }}>
+              {heroBanner.desc}
+            </p>
+            <a href={heroBanner.cta.href} className="fj-hero-btn"
+               onClick={e => { e.preventDefault(); switchProduct(heroBanner.cta.productIdx); document.getElementById('printers')?.scrollIntoView({ behavior: 'smooth' }); }}
+               style={{
+                 display: 'inline-block', padding: '13px 28px',
+                 background: heroBanner.cta.solid ? '#fff' : 'transparent',
+                 color: heroBanner.cta.solid ? '#0d0d0d' : '#fff',
+                 border: '2px solid #fff',
+                 fontSize: 13, fontWeight: 600, letterSpacing: 1, textTransform: 'uppercase',
+                 textDecoration: 'none', borderRadius: 2,
+                 transition: 'background 0.25s, color 0.25s, border-color 0.25s',
+               }}
+               onMouseEnter={e => {
+                 const el = e.currentTarget as HTMLAnchorElement;
+                 el.style.background = f.accent; el.style.borderColor = f.accent; el.style.color = '#fff';
+               }}
+               onMouseLeave={e => {
+                 const el = e.currentTarget as HTMLAnchorElement;
+                 el.style.background = heroBanner.cta.solid ? '#fff' : 'transparent';
+                 el.style.borderColor = '#fff';
+                 el.style.color = heroBanner.cta.solid ? '#0d0d0d' : '#fff';
+               }}>
+              {heroBanner.cta.label}
+            </a>
           </div>
-        ))}
-
-        <div className="ka-dots" style={{ position: 'absolute', bottom: 28, left: '50%', transform: 'translateX(calc(-570px + 20px))', display: 'flex', gap: 10, zIndex: 10 }}>
-          {heroSlides.map((_, i) => (
-            <button key={i} onClick={() => goSlide(i)}
-                    style={{ width: 10, height: 10, borderRadius: '50%', padding: 0, border: 'none', cursor: 'pointer', background: i === heroIdx ? f.accent : 'rgba(255,255,255,0.35)', transform: i === heroIdx ? 'scale(1.3)' : 'scale(1)', transition: 'background 0.3s, transform 0.3s' }} />
-          ))}
         </div>
-        <div style={{ position: 'absolute', bottom: 0, left: 0, height: 3, background: f.accent, width: `${progress}%`, zIndex: 10, transition: 'width 0.1s linear' }} />
       </section>
 
       {/* ══════════════════════════════════════════
@@ -432,11 +413,10 @@ export default function FujitsuPage() {
           STYLES
       ══════════════════════════════════════════ */}
       <style>{`
-        @keyframes fjPulse { 0%,100%{ opacity:1; transform:scale(1); } 50%{ opacity:.5; transform:scale(.8); } }
         .fj-reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.65s cubic-bezier(0.22,1,0.36,1), transform 0.65s cubic-bezier(0.22,1,0.36,1); }
         .fj-reveal.fj-visible { opacity: 1; transform: translateY(0); }
 
-        .ka-hero { height: 680px; }
+        .fj-hero { height: 660px; }
         .fj-comm-inner { grid-template-columns: 1fr 420px; }
 
         @media (max-width: 1024px) {
@@ -444,18 +424,17 @@ export default function FujitsuPage() {
           .fj-comm-inner   { grid-template-columns: 1fr !important; gap: 40px !important; }
         }
         @media (max-width: 768px) {
-          .ka-hero { height: 460px !important; }
-          .ka-slide { align-items: flex-end !important; padding-bottom: 72px !important; }
-          .ka-hero-container { padding: 0 24px !important; }
-          .ka-hero-content  { max-width: 100% !important; }
-          .ka-vignette { background: linear-gradient(180deg, transparent 10%, rgba(0,0,0,0.85) 70%) !important; }
-          .ka-dots { left: 24px !important; transform: none !important; bottom: 22px !important; }
+          .fj-hero { height: auto !important; min-height: 480px !important; align-items: flex-end !important; padding-bottom: 70px !important; }
+          .fj-hero-container { padding: 0 24px !important; }
+          .fj-hero-content  { max-width: 100% !important; }
+          .fj-vignette { background: linear-gradient(180deg, transparent 10%, rgba(0,0,0,0.85) 70%) !important; }
         }
         @media (max-width: 480px) {
-          .ka-hero { height: 540px !important; }
-          .ka-hero-heading { letter-spacing: 0 !important; }
-          .ka-hero-desc { font-size: 13px !important; margin-bottom: 20px !important; }
-          .ka-hero-btn { padding: 10px 20px !important; font-size: 12px !important; }
+          .fj-hero-content { max-width: 100% !important; }
+          .fj-hero-logo { height: 35px !important; }
+          .fj-hero-heading { letter-spacing: 0 !important; }
+          .fj-hero-desc { font-size: 13px !important; margin-bottom: 20px !important; }
+          .fj-hero-btn { padding: 10px 20px !important; font-size: 12px !important; }
         }
       `}</style>
     </main>

@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
+import { BRAND_LOGOS } from '@/src/lib/brandLogos';
 
 const cz = {
   accent: '#0982cb',
@@ -10,26 +11,13 @@ const cz = {
 /* ─────────────────────────────────────────────
    DATA
 ───────────────────────────────────────────── */
-const heroSlides = [
-  {
-    id: 'scanners',
-    badge: 'Official Distributor',
-    lines: ['Scan Smarter.', 'Work Faster.'],
-    accentLine: 1,
-    desc: 'CZUR intelligent overhead scanners capture books, documents, and IDs in seconds — with auto-flattening, OCR, and zero binding damage.',
-    cta: { label: 'Explore Scanners', href: '#book-scanners', solid: true },
-    bg: 'https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1781893191/rookie-ninja/products/et.webp',
-  },
-  {
-    id: 'conference',
-    badge: 'Conference & AV',
-    lines: ['Meetings. Redefined.', 'All-in-One.'],
-    accentLine: 0,
-    desc: 'The CZUR StarryHub combines a 4K camera, 2400 ANSI projector, and 360° audio in a single device — no cables, no clutter.',
-    cta: { label: 'View Conference Solutions', href: '#multi-function', solid: false },
-    bg: 'https://res.cloudinary.com/df52xzi3y/image/fetch/f_auto,q_auto/https://products.rookie-ninja.com/wp-content/uploads/2026/01/DH-Czur-StarryHub-Product-Image-16-scaled-1-600x600-1.webp',
-  },
-];
+const heroBanner = {
+  lines: ['Scan Smarter.', 'Work Faster.'],
+  accentLine: 1,
+  desc: 'CZUR intelligent overhead scanners capture books, documents, and IDs in seconds — with auto-flattening, OCR, and zero binding damage.',
+  cta: { label: 'Explore Scanners', href: '/products?brand=czur&page=1', solid: true },
+  bg: 'https://res.cloudinary.com/df52xzi3y/image/upload/v1786348614/banner_czur_rfndz6.webp',
+};
 
 // Section 3 — image switcher: Aura Scanners only
 const bookScanners = [
@@ -263,12 +251,7 @@ const mfTabs = [
    COMPONENT
 ───────────────────────────────────────────── */
 export default function CzurPage() {
-  const [heroIdx, setHeroIdx]         = useState(0);
-  const [progress, setProgress]       = useState(0);
-  const rafRef                        = useRef<number | null>(null);
-  const startRef                      = useRef<number | null>(null);
   const heroRef                       = useRef<HTMLElement>(null);
-  const DURATION                      = 5000;
 
   const [isSticky, setIsSticky]       = useState(false);
   const [bookActive, setBookActive]   = useState(0);
@@ -277,22 +260,6 @@ export default function CzurPage() {
   const [compactActive, setCompactActive] = useState(0);
   const [mfTab, setMfTab]             = useState(0);
   const [formState, setFormState]     = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
-
-  /* ── Hero progress ── */
-  const tick = (ts: number) => {
-    if (!startRef.current) startRef.current = ts;
-    const pct = Math.min(((ts - startRef.current) / DURATION) * 100, 100);
-    setProgress(pct);
-    if (pct < 100) { rafRef.current = requestAnimationFrame(tick); }
-    else { setHeroIdx(i => (i + 1) % heroSlides.length); }
-  };
-  const resetProgress = () => {
-    if (rafRef.current) cancelAnimationFrame(rafRef.current);
-    startRef.current = null; setProgress(0);
-    rafRef.current = requestAnimationFrame(tick);
-  };
-  const goSlide = (n: number) => { setHeroIdx(((n % heroSlides.length) + heroSlides.length) % heroSlides.length); resetProgress(); };
-  useEffect(() => { resetProgress(); return () => { if (rafRef.current) cancelAnimationFrame(rafRef.current); }; }, [heroIdx]); // eslint-disable-line
 
   /* ── Sticky nav ── */
   useEffect(() => {
@@ -333,7 +300,6 @@ export default function CzurPage() {
     } catch { setFormState('error'); }
   };
 
-  const slide      = heroSlides[heroIdx];
   const etContent  = etTabs[etTab];
   const mfContent  = mfTabs[mfTab];
 
@@ -341,41 +307,58 @@ export default function CzurPage() {
     <main style={{ background: '#fff', color: '#0A1628', fontFamily: 'var(--font-poppins)', overflowX: 'hidden' }}>
 
       {/* ══════════════════════════════════════════
-          HERO
+          HERO BANNER
       ══════════════════════════════════════════ */}
-      <section ref={heroRef} className="cz-hero" style={{ position: 'relative', width: '100%', overflow: 'hidden', background: '#000' }}>
-        {heroSlides.map((s, i) => (
-          <div key={s.id} className="cz-slide"
-               style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', opacity: i === heroIdx ? 1 : 0, transition: 'opacity 0.9s cubic-bezier(0.77,0,0.175,1)', zIndex: i === heroIdx ? 2 : 1 }}>
-            <div style={{ position: 'absolute', inset: 0, backgroundImage: `url('${s.bg}')`, backgroundSize: 'cover', backgroundPosition: 'center', transform: i === heroIdx ? 'scale(1)' : 'scale(1.06)', transition: 'transform 6s ease', filter: 'brightness(0.35)' }} />
-            <div className="cz-vignette" style={{ position: 'absolute', inset: 0, background: 'linear-gradient(90deg, rgba(0,0,0,0.75) 38%, transparent 80%)' }} />
-            <div className="cz-hero-container" style={{ position: 'relative', zIndex: 3, width: '100%', maxWidth: 1220, margin: '0 auto', padding: '0 20px' }}>
-              <div className="cz-hero-content" style={{ maxWidth: 580, opacity: i === heroIdx ? 1 : 0, transform: i === heroIdx ? 'translateY(0)' : 'translateY(24px)', transition: 'opacity 0.7s ease 0.4s, transform 0.7s ease 0.4s' }}>
-                <span style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: cz.accent, color: '#fff', fontSize: 11, fontWeight: 600, letterSpacing: 2, textTransform: 'uppercase', padding: '5px 12px', marginBottom: 18, borderRadius: 2 }}>
-                  <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#fff', opacity: 0.9, display: 'inline-block', animation: 'czPulse 2s infinite' }} />
-                  {s.badge}
-                </span>
-                <h1 className="cz-hero-heading" style={{ fontSize: 'clamp(40px, 6vw, 78px)', color: '#fff', lineHeight: 0.95, marginBottom: 18, fontWeight: 700, letterSpacing: 1 }}>
-                  {s.lines.map((line, li) => <span key={li} style={{ display: 'block', color: li === s.accentLine ? cz.accent : '#fff' }}>{line}</span>)}
-                </h1>
-                <p className="cz-hero-desc" style={{ fontSize: 15, color: 'rgba(255,255,255,0.72)', lineHeight: 1.65, marginBottom: 32, fontWeight: 300, maxWidth: 420 }}>{s.desc}</p>
-                <a href={s.cta.href} className="cz-hero-btn"
-                   onClick={e => { e.preventDefault(); document.querySelector(s.cta.href)?.scrollIntoView({ behavior: 'smooth' }); }}
-                   style={{ display: 'inline-block', padding: '13px 28px', background: s.cta.solid ? '#fff' : 'transparent', color: s.cta.solid ? '#0d0d0d' : '#fff', border: '2px solid #fff', fontSize: 13, fontWeight: 600, letterSpacing: 1, textTransform: 'uppercase', textDecoration: 'none', borderRadius: 2, transition: 'background 0.25s, color 0.25s, border-color 0.25s' }}
-                   onMouseEnter={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = cz.accent; el.style.borderColor = cz.accent; el.style.color = '#fff'; }}
-                   onMouseLeave={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = s.cta.solid ? '#fff' : 'transparent'; el.style.borderColor = '#fff'; el.style.color = s.cta.solid ? '#0d0d0d' : '#fff'; }}>
-                  {s.cta.label}
-                </a>
-              </div>
-            </div>
+      <section ref={heroRef} className="cz-hero" style={{ position: 'relative', width: '100%', overflow: 'hidden', background: '#000', display: 'flex', alignItems: 'center' }}>
+        <div style={{
+          position: 'absolute', inset: 0,
+          backgroundImage: `url('${heroBanner.bg}')`,
+          backgroundSize: 'cover', backgroundPosition: 'center',
+          filter: 'brightness(0.65)',
+        }} />
+        <div className="cz-vignette" style={{
+          position: 'absolute', inset: 0,
+          background: 'linear-gradient(90deg, rgba(0,0,0,0.45) 38%, transparent 80%)',
+        }} />
+        <div className="cz-hero-container"
+             style={{ position: 'relative', zIndex: 3, width: '100%', maxWidth: 1220, margin: '0 auto', padding: '0 20px' }}>
+          <div className="cz-hero-content" style={{ maxWidth: 580 }}>
+            <img src={BRAND_LOGOS.czur} alt="CZUR" className="cz-hero-logo"
+                 style={{ height: 55, width: 'auto', maxWidth: '100%', display: 'block', marginBottom: 28, objectFit: 'contain' }} />
+            <h1 className="cz-hero-heading"
+                style={{ fontSize: 'clamp(30px, 4.5vw, 58px)', color: '#fff', lineHeight: 0.95, marginBottom: 18, fontWeight: 700, letterSpacing: 1 }}>
+              {heroBanner.lines.map((line, li) => (
+                <span key={li} style={{ display: 'block', color: li === heroBanner.accentLine ? cz.accent : '#fff' }}>{line}</span>
+              ))}
+            </h1>
+            <p className="cz-hero-desc"
+               style={{ fontSize: 15, color: 'rgba(255,255,255,0.72)', lineHeight: 1.65, marginBottom: 32, fontWeight: 300, maxWidth: 420 }}>
+              {heroBanner.desc}
+            </p>
+            <Link href={heroBanner.cta.href} className="cz-hero-btn"
+               style={{
+                 display: 'inline-block', padding: '13px 28px',
+                 background: heroBanner.cta.solid ? '#fff' : 'transparent',
+                 color: heroBanner.cta.solid ? '#0d0d0d' : '#fff',
+                 border: '2px solid #fff',
+                 fontSize: 13, fontWeight: 600, letterSpacing: 1, textTransform: 'uppercase',
+                 textDecoration: 'none', borderRadius: 2,
+                 transition: 'background 0.25s, color 0.25s, border-color 0.25s',
+               }}
+               onMouseEnter={e => {
+                 const el = e.currentTarget as HTMLAnchorElement;
+                 el.style.background = cz.accent; el.style.borderColor = cz.accent; el.style.color = '#fff';
+               }}
+               onMouseLeave={e => {
+                 const el = e.currentTarget as HTMLAnchorElement;
+                 el.style.background = heroBanner.cta.solid ? '#fff' : 'transparent';
+                 el.style.borderColor = '#fff';
+                 el.style.color = heroBanner.cta.solid ? '#0d0d0d' : '#fff';
+               }}>
+              {heroBanner.cta.label}
+            </Link>
           </div>
-        ))}
-        <div className="cz-dots" style={{ position: 'absolute', bottom: 28, left: '50%', transform: 'translateX(calc(-570px + 20px))', display: 'flex', gap: 10, zIndex: 10 }}>
-          {heroSlides.map((_, i) => (
-            <button key={i} onClick={() => goSlide(i)} style={{ width: 10, height: 10, borderRadius: '50%', padding: 0, border: 'none', cursor: 'pointer', background: i === heroIdx ? cz.accent : 'rgba(255,255,255,0.35)', transform: i === heroIdx ? 'scale(1.3)' : 'scale(1)', transition: 'background 0.3s, transform 0.3s' }} />
-          ))}
         </div>
-        <div style={{ position: 'absolute', bottom: 0, left: 0, height: 3, background: cz.accent, width: `${progress}%`, zIndex: 10, transition: 'width 0.1s linear' }} />
       </section>
 
       {/* ══════════════════════════════════════════
@@ -688,11 +671,10 @@ export default function CzurPage() {
           RESPONSIVE + ANIMATIONS
       ══════════════════════════════════════════ */}
       <style>{`
-        @keyframes czPulse { 0%,100%{ opacity:1; transform:scale(1); } 50%{ opacity:.5; transform:scale(.8); } }
         .cz-reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.65s cubic-bezier(0.22,1,0.36,1), transform 0.65s cubic-bezier(0.22,1,0.36,1); }
         .cz-reveal.cz-visible { opacity: 1; transform: translateY(0); }
         .cz-reveal-d1 { transition-delay: 0.12s; }
-        .cz-hero { height: 680px; }
+        .cz-hero { height: 660px; }
 
         @media (max-width: 1024px) {
           .cz-comm-inner   { grid-template-columns: 1fr !important; gap: 40px !important; }
@@ -704,12 +686,10 @@ export default function CzurPage() {
           .cz-scanner-img  { height: 320px !important; }
         }
         @media (max-width: 768px) {
-          .cz-hero         { height: 420px !important; }
-          .cz-slide        { align-items: flex-end !important; padding-bottom: 70px !important; }
+          .cz-hero         { height: auto !important; min-height: 480px !important; align-items: flex-end !important; padding-bottom: 70px !important; }
           .cz-vignette     { background: linear-gradient(180deg, transparent 10%, rgba(0,0,0,0.85) 70%) !important; }
           .cz-hero-container { padding: 0 24px !important; }
           .cz-hero-content { max-width: 100% !important; }
-          .cz-dots         { left: 24px !important; transform: none !important; bottom: 22px !important; }
           .cz-nav-inner    { height: 52px !important; gap: 12px !important; padding: 0 16px !important; }
           .cz-nav-links    { gap: 4px !important; }
           .cz-nav-links li a { font-size: 12.5px !important; }
@@ -718,7 +698,8 @@ export default function CzurPage() {
           .cz-scanner-img  { height: 260px !important; }
         }
         @media (max-width: 480px) {
-          .cz-hero         { height: 550px !important; }
+          .cz-hero-content { max-width: 100% !important; }
+          .cz-hero-logo    { height: 47px !important; }
           .cz-hero-heading { letter-spacing: 0 !important; }
           .cz-hero-desc    { font-size: 13px !important; margin-bottom: 20px !important; }
           .cz-hero-btn     { padding: 10px 20px !important; font-size: 12px !important; }
