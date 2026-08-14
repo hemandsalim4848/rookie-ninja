@@ -203,6 +203,34 @@ export default function TeamContent() {
         </div>
       </section>
 
+      {/* ── TEAM PHOTO ── */}
+      <section className="py-20 px-6 bg-white">
+        <div className="max-w-6xl mx-auto">
+          <Animate type="fade-up">
+            <SectionHeader
+              label="Our Team"
+              heading="One Team, One Mission"
+              subheading="A close-knit group united by a shared drive to deliver the best for our customers and partners."
+              align="center"
+            />
+          </Animate>
+          <Animate type="fade-up" delay={100}>
+            <div className="relative mt-12 rounded-3xl overflow-hidden
+                            border border-gray-100
+                            shadow-[0_20px_60px_rgba(10,22,40,0.1)]">
+              <img
+                src="https://res.cloudinary.com/df52xzi3y/image/upload/f_auto,q_auto/v1786707810/team-rookie-ninja_kpzcll.webp"
+                alt="The Rookie Ninja team"
+                className="w-full h-auto object-cover"
+              />
+              <div className="absolute inset-x-0 bottom-0 h-24
+                              bg-gradient-to-t from-navy/40 to-transparent
+                              pointer-events-none" />
+            </div>
+          </Animate>
+        </div>
+      </section>
+
       {/* ── MANAGEMENT TEAM ── */}
       <section className="relative py-24 px-6 border-t border-gray-100 overflow-hidden">
         <div className="absolute inset-0 z-0" style={{
