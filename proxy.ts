@@ -312,6 +312,7 @@ const PRODUCT_GONE_SET = new Set([
   "asustor-nimbustor-4-as5304t",
   "asustor-lockerstor-8-as6508t",
   "nexvoo-nexpod-n109",
+  "nexvoo-nexfone-n380",
   "nexvoo--n120w",
   "nexvoo-bh06-stereo-bluetooth-headset-",
   "nexvoo-nexbar-n120u",
