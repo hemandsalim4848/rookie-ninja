@@ -378,14 +378,21 @@ const CATEGORY_TAXONOMY_MAP: Record<string, string> = {
   // 'uncategorized' falls through to the generic /products redirect below
 }
 
+// All redirects below target this fixed host rather than the requesting
+// host. Needed once products.rookie-ninja.com points at this same app —
+// otherwise a redirect built from request.url would resolve relative to
+// whichever domain the request arrived on, keeping traffic on the old
+// domain instead of consolidating it onto the canonical one.
+const SITE_URL = 'https://rookie-ninja.com'
+
 // Shared by /product/:slug and the legacy /single-product/:id?name=X pattern —
 // both identify a product purely by slug, just via a different URL shape.
-function resolveProduct(slug: string, requestUrl: string): NextResponse {
+function resolveProduct(slug: string): NextResponse {
   if (PRODUCT_GONE_SET.has(slug)) {
     return new NextResponse(null, { status: 410 })
   }
   const newSlug = PRODUCT_RENAME_MAP[slug] || slug
-  return NextResponse.redirect(new URL(`/products/${newSlug}`, requestUrl), 308)
+  return NextResponse.redirect(new URL(`/products/${newSlug}`, SITE_URL), 308)
 }
 
 export async function proxy(request: NextRequest) {
@@ -401,13 +408,13 @@ export async function proxy(request: NextRequest) {
   // slug at all, so the specific product can't be resolved. Best effort:
   // send to the general listing rather than 404.
   if (/^\/product-single\/[^/]+$/.test(clean)) {
-    return NextResponse.redirect(new URL('/products', request.url), 308)
+    return NextResponse.redirect(new URL('/products', SITE_URL), 308)
   }
 
   // /product/:slug
   const productMatch = clean.match(/^\/product\/([^/]+)$/)
   if (productMatch) {
-    return resolveProduct(decodeURIComponent(productMatch[1]), request.url)
+    return resolveProduct(decodeURIComponent(productMatch[1]))
   }
 
   // Legacy /single-product/:id?name=slug pattern (an older URL shape from
@@ -417,9 +424,9 @@ export async function proxy(request: NextRequest) {
   if (/^\/single-product\/[^/]+$/.test(clean)) {
     const name = request.nextUrl.searchParams.get('name')
     if (name) {
-      return resolveProduct(decodeURIComponent(name), request.url)
+      return resolveProduct(decodeURIComponent(name))
     }
-    return NextResponse.redirect(new URL('/products', request.url), 308)
+    return NextResponse.redirect(new URL('/products', SITE_URL), 308)
   }
 
   // Legacy /view-all?brand=<mongoId> or ?catId=<mongoId> listing pages.
@@ -427,7 +434,7 @@ export async function proxy(request: NextRequest) {
   // rather than 410 — someone landing here is browsing, not looking for one
   // specific gone product.
   if (clean === '/view-all') {
-    return NextResponse.redirect(new URL('/products', request.url), 308)
+    return NextResponse.redirect(new URL('/products', SITE_URL), 308)
   }
 
   // /brand/:slug and the paginated /brand/:slug/page/:num variant — both
@@ -440,7 +447,7 @@ export async function proxy(request: NextRequest) {
     }
     const brandSlug = BRAND_TAXONOMY_MAP[slug]
     if (brandSlug) {
-      return NextResponse.redirect(new URL(`/products?brand=${brandSlug}`, request.url), 308)
+      return NextResponse.redirect(new URL(`/products?brand=${brandSlug}`, SITE_URL), 308)
     }
     return new NextResponse(null, { status: 410 })
   }
@@ -451,18 +458,18 @@ export async function proxy(request: NextRequest) {
     const slug = decodeURIComponent(categoryMatch[1])
     const category = CATEGORY_TAXONOMY_MAP[slug]
     if (category === '__GAMING_PAGE__') {
-      return NextResponse.redirect(new URL('/gaming', request.url), 308)
+      return NextResponse.redirect(new URL('/gaming', SITE_URL), 308)
     }
     if (category) {
-      return NextResponse.redirect(new URL(`/products?category=${encodeURIComponent(category)}`, request.url), 308)
+      return NextResponse.redirect(new URL(`/products?category=${encodeURIComponent(category)}`, SITE_URL), 308)
     }
     // 'uncategorized' and anything unmapped -> general product listing
-    return NextResponse.redirect(new URL('/products', request.url), 308)
+    return NextResponse.redirect(new URL('/products', SITE_URL), 308)
   }
 
   // Old WooCommerce system pages — no equivalent e-commerce flow on the new site
   if (clean === '/shop') {
-    return NextResponse.redirect(new URL('/products', request.url), 308)
+    return NextResponse.redirect(new URL('/products', SITE_URL), 308)
   }
   if (clean === '/cart' || clean === '/checkout' || clean === '/my-account') {
     return new NextResponse(null, { status: 410 })
