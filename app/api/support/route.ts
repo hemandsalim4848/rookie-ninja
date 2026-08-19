@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server'
 import { randomInt } from 'node:crypto'
 import { resend, FROM_EMAIL, ENQUIRY_RECIPIENTS } from '@/src/lib/resend'
+import { isValidEmail } from '@/src/lib/validateEmail'
 
 function escapeHtml(value: unknown) {
   return String(value ?? '').replace(/[&<>"']/g, (c) => ({
@@ -53,6 +54,9 @@ export async function POST(req: Request) {
 
     if (!name || !email || !brand || !productModel || !priority || !issueType || !description) {
       return NextResponse.json({ error: 'Missing required fields' }, { status: 400 })
+    }
+    if (!isValidEmail(email)) {
+      return NextResponse.json({ error: 'Invalid email address' }, { status: 400 })
     }
 
     const files = form.getAll('attachments').filter((f): f is File => f instanceof File && f.size > 0)

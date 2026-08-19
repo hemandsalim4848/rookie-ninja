@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server'
 import { resend, FROM_EMAIL, ENQUIRY_RECIPIENTS } from '@/src/lib/resend'
+import { isValidEmail } from '@/src/lib/validateEmail'
 
 function escapeHtml(value: unknown) {
   return String(value ?? '').replace(/[&<>"']/g, (c) => ({
@@ -33,6 +34,10 @@ export async function POST(req: Request) {
     const ip = req.headers.get('x-forwarded-for')?.split(',')[0]?.trim() || 'unknown'
     if (isRateLimited(ip)) {
       return NextResponse.json({ error: 'Too many requests, please try again later' }, { status: 429 })
+    }
+
+    if (!isValidEmail(email)) {
+      return NextResponse.json({ error: 'Invalid email address' }, { status: 400 })
     }
 
     await resend.emails.send({

@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server'
 import { resend, FROM_EMAIL, ENQUIRY_RECIPIENTS } from '@/src/lib/resend'
+import { isValidEmail } from '@/src/lib/validateEmail'
 
 function escapeHtml(value: unknown) {
   return String(value ?? '').replace(/[&<>"']/g, (c) => ({
@@ -37,6 +38,9 @@ export async function POST(req: Request) {
 
     if (!firstName || !lastName || !email) {
       return NextResponse.json({ error: 'Missing required fields' }, { status: 400 })
+    }
+    if (!isValidEmail(email)) {
+      return NextResponse.json({ error: 'Invalid email address' }, { status: 400 })
     }
 
     const label = source === 'quote' ? 'Quote Request' : 'Contact Form'

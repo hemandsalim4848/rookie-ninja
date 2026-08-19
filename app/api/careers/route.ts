@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server'
 import { resend, FROM_EMAIL, ENQUIRY_RECIPIENTS } from '@/src/lib/resend'
+import { isValidEmail } from '@/src/lib/validateEmail'
 
 function escapeHtml(value: unknown) {
   return String(value ?? '').replace(/[&<>"']/g, (c) => ({
@@ -22,6 +23,11 @@ function isRateLimited(ip: string) {
 }
 
 const MAX_FILE_BYTES = 5 * 1024 * 1024
+const ALLOWED_CV_TYPES = new Set([
+  'application/pdf',
+  'application/msword',
+  'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+])
 
 export async function POST(req: Request) {
   try {
@@ -48,10 +54,16 @@ export async function POST(req: Request) {
     if (!firstName || !lastName || !email || !jobTitle) {
       return NextResponse.json({ error: 'Missing required fields' }, { status: 400 })
     }
+    if (!isValidEmail(email)) {
+      return NextResponse.json({ error: 'Invalid email address' }, { status: 400 })
+    }
 
     const cv = form.get('cv')
     if (!(cv instanceof File) || cv.size === 0) {
       return NextResponse.json({ error: 'CV / Resume is required' }, { status: 400 })
+    }
+    if (!ALLOWED_CV_TYPES.has(cv.type)) {
+      return NextResponse.json({ error: 'CV / Resume must be a PDF or Word document' }, { status: 400 })
     }
     if (cv.size > MAX_FILE_BYTES) {
       return NextResponse.json({ error: 'CV / Resume is too large (max 5MB)' }, { status: 400 })
